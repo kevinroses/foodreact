@@ -2,7 +2,7 @@ import moment from 'moment'
 import { t } from 'i18next'
 // let today = moment(currentDate).format('dddd')
 let currentDate = moment().format("YYYY-MM-DDTHH:mm:ssZ")
-let nextday = moment(currentDate).add(1, 'days').format('yyyy-MM-DD')
+let nextday = moment(currentDate).add(1, 'days').format('YYYY-MM-DDTHH:mm:ssZ')
 let today = moment(currentDate).format('dddd')
 let currentTime = moment(currentDate).format('HH:mm')
 
@@ -35,7 +35,7 @@ function recursive(start, end, close, list, schedule_order_slot_duration, day) {
     const checkedEnd = moment(end, 'HH:mm').subtract(1, 'minutes')
     const date =
         getDayNumber(today) === day
-            ? moment(currentDate).format('yyyy-MM-DD')
+            ? moment(currentDate).format('YYYY-MM-DDTHH:mm:ssZ')
             : nextday
     if (
         end.isBefore(close) ||
