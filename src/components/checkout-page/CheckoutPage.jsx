@@ -74,7 +74,7 @@ import money from './assets/fi_2704332.png'
 import wallet from './assets/walletpayment.png'
 import { useTheme } from '@emotion/react'
 
-let currentDate = moment().format('YYYY/MM/DD HH:mm')
+let currentDate = moment().format("YYYY-MM-DDTHH:mm:ssZ")
 let nextday = moment(currentDate).add(1, 'days').format('YYYY/MM/DD')
 
 let today = moment(currentDate).format('dddd')
