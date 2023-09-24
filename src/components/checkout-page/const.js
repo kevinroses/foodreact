@@ -1,7 +1,7 @@
 import moment from 'moment'
 import { t } from 'i18next'
 // let today = moment(currentDate).format('dddd')
-let currentDate = moment().format("YYYY-MM-DDTHH:mm:ssZ");
+let currentDate = moment().format("YYYY-MM-DDTHH:mm:ssZ")
 let nextday = moment(currentDate).add(1, 'days').format('yyyy-MM-DD')
 let today = moment(currentDate).format('dddd')
 let currentTime = moment(currentDate).format('HH:mm')
