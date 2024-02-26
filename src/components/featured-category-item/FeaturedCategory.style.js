@@ -24,6 +24,7 @@ export const CustomColouredPaper = styled(Paper)(({ theme }) => ({
 export const FeatureImageBox = styled(Stack)(({ theme }) => ({
     width: '100%',
     paddingTop: '10px',
+<<<<<<< HEAD
     borderRadius: '32px',
     [theme.breakpoints.down('md')]: {
         paddingTop: '2px',
@@ -31,4 +32,8 @@ export const FeatureImageBox = styled(Stack)(({ theme }) => ({
     },
 
     //filter: 'drop-shadow(0px 2px 5px rgba(255, 138, 0, 0.3))',
+=======
+    borderRadius: '50%',
+    filter: 'drop-shadow(0px 2px 5px rgba(255, 138, 0, 0.3))',
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
 }))

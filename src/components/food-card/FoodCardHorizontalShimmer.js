@@ -3,9 +3,15 @@ import {CustomFoodCardNew} from "./FoodCard.style";
 import {Stack} from "@mui/system";
 import Skeleton from "@mui/material/Skeleton";
 
+<<<<<<< HEAD
 const FoodCardHorizontalShimmer= ({maxWidth}) => {
     return (
         <CustomFoodCardNew maxWidth={maxWidth}>
+=======
+const FoodCardHorizontalShimmer= () => {
+    return (
+        <CustomFoodCardNew>
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
             <Stack direction="row" spacing={1}>
                     <Skeleton animation="wave" variant="rectangular" width="115px" height="95px"/>
                 <Stack justifyContent="center"

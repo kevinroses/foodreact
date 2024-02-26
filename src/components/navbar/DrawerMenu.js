@@ -37,10 +37,13 @@ import { clearWishList } from '../../redux/slices/wishList'
 import { setClearCart } from '../../redux/slices/cart'
 import { toast } from 'react-hot-toast'
 import { logoutSuccessFull } from '../../utils/ToasterMessages'
+<<<<<<< HEAD
 import ThemeSwitches from './top-navbar/ThemeSwitches'
 import { getToken } from '../checkout-page/functions/getGuestUserId'
 import { CustomLink, CustomStackFullWidth } from "../../styled-components/CustomStyles.style";
 import { CustomTypography } from "../custom-tables/Tables.style";
+=======
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
 
 const Search = styled('div')(({ theme }) => ({
     position: 'relative',
@@ -68,7 +71,11 @@ const SearchIconWrapper = styled('div')(({ theme }) => ({
     justifyContent: 'center',
 }))
 
+<<<<<<< HEAD
 const DrawerMenu = ({ zoneid, cartListRefetch }) => {
+=======
+const DrawerMenu = ({ zoneid }) => {
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
     const [forSignup, setForSignup] = useState('')
     const [modalFor, setModalFor] = useState('sign-in')
     const { featuredCategories, cuisines } = useSelector(
@@ -78,12 +85,18 @@ const DrawerMenu = ({ zoneid, cartListRefetch }) => {
     const router = useRouter()
     const dispatch = useDispatch()
     const [openDrawer, setOpenDrawer] = useState(false)
+<<<<<<< HEAD
     // const { token } = useSelector((state) => state.userToken)
     // const token = getToken()
     const token = getToken()
     const [authModalOpen, setOpen] = useState(false)
     const handleOpenAuthModal = (page) => {
         setModalFor(page)
+=======
+    const { token } = useSelector((state) => state.userToken)
+    const [authModalOpen, setOpen] = useState(false)
+    const handleOpenAuthModal = (page) => {
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
         setOpen(true)
         setForSignup(page)
     }
@@ -95,13 +108,20 @@ const DrawerMenu = ({ zoneid, cartListRefetch }) => {
     const [theme_mode, setThemeMode] = useState('')
     const handleLogout = async () => {
         try {
+<<<<<<< HEAD
             await localStorage.removeItem('token')
+=======
+            localStorage.removeItem('token')
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
             dispatch(removeToken())
             setOpenDrawer(false)
             let a = []
             dispatch(clearWishList(a))
             dispatch(setClearCart())
+<<<<<<< HEAD
             await cartListRefetch()
+=======
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
             toast.success(t(logoutSuccessFull))
             if (router.pathname === '/') {
                 router.push('/')
@@ -208,12 +228,17 @@ const DrawerMenu = ({ zoneid, cartListRefetch }) => {
     const changeThemeMode = (e) => {
         if (e.target.checked) {
             localStorage.setItem('mode', 'light')
+<<<<<<< HEAD
             setThemeMode('light')
             // saveSettings({ ...values, theme: 'light' })
         } else {
             localStorage.setItem('mode', 'dark')
             setThemeMode('dark')
             // saveSettings({ ...values, theme: 'dark' })
+=======
+        } else {
+            localStorage.setItem('mode', 'dark')
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
         }
         window.location.reload()
     }
@@ -230,12 +255,16 @@ const DrawerMenu = ({ zoneid, cartListRefetch }) => {
             undefined,
             { shallow: true }
         )
+<<<<<<< HEAD
         setOpenDrawer(false)
 
+=======
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
     }
     const menuList = () => (
         <RTL direction={languageDirection ? languageDirection : 'ltr'}>
             <Box
+<<<<<<< HEAD
                 sx={{ width: 'auto', paddingInline: "10px", height: '100%' }}
                 role="presentation"
                 onKeyDown={toggleDrawer(false)}
@@ -257,6 +286,115 @@ const DrawerMenu = ({ zoneid, cartListRefetch }) => {
                         </ListItemButton>
 
                         {location && <>
+=======
+                sx={{ width: 'auto' }}
+                role="presentation"
+                onKeyDown={toggleDrawer(false)}
+            >
+                <List component="nav" aria-labelledby="nested-list-subheader">
+                    <ListItemButton
+                        sx={{
+                            marginTop: '20px',
+                            '&:hover': {
+                                backgroundColor: 'primary.main',
+                                color: (theme) =>
+                                    theme.palette.whiteContainer.main,
+                            },
+                        }}
+                    >
+                        <ListItemText
+                            primary={t('Home')}
+                            onClick={() => handleRoute('/home')}
+                        />
+                    </ListItemButton>
+                    <CollapsableMenu
+                        value={collapsableMenu.cat}
+                        setOpenDrawer={setOpenDrawer}
+                        toggleDrawers={toggleDrawer}
+                        pathName="/categories"
+                    />
+                    <CollapsableMenu
+                        value={collapsableMenu.res}
+                        setOpenDrawer={setOpenDrawer}
+                        toggleDrawers={toggleDrawer}
+                        pathName="/restaurant"
+                    />
+                    <CollapsableMenu
+                        value={collapsableMenu.cuisine}
+                        setOpenDrawer={setOpenDrawer}
+                        toggleDrawers={toggleDrawer}
+                        pathName="/cuisines"
+                    />
+                    {/*<CollapsableMenu value={collapsableMenu.profile} setOpenDrawer={setOpenDrawer} toggleDrawers={toggleDrawer}/>*/}
+                    <ListItemButton
+                        sx={{
+                            '&:hover': {
+                                backgroundColor: 'primary.main',
+                            },
+                        }}
+                    >
+                        <ListItemText
+                            primary={t('Profile')}
+                            onClick={handleRouteToUserInfo}
+                        />
+                    </ListItemButton>
+
+                    <ListItemButton
+                        sx={{
+                            '&:hover': {
+                                backgroundColor: 'primary.main',
+                            },
+                        }}
+                    >
+                        <ListItemText
+                            primary={t('Terms & Conditions')}
+                            onClick={() => handleRoute('terms-and-conditions')}
+                        />
+                    </ListItemButton>
+                    <ListItemButton
+                        sx={{
+                            '&:hover': {
+                                backgroundColor: 'primary.main',
+                            },
+                        }}
+                    >
+                        <ListItemText
+                            primary={t('Privacy Policy')}
+                            onClick={() => handleRoute('privacy-policy')}
+                        />
+                    </ListItemButton>
+                    <ButtonContainer>
+                        <Button
+                            variant="contained"
+                            fullWidth
+                            sx={{ mt: 3, mb: 1 }}
+                            onClick={() => handleLogout()}
+                        >
+                            {t('Logout')}
+                        </Button>
+                    </ButtonContainer>
+                </List>
+            </Box>
+        </RTL>
+    )
+
+    const withOutLogin = () => (
+        <RTL direction={languageDirection}>
+            <Box
+                sx={{ width: 'auto' }}
+                role="presentation"
+                onKeyDown={toggleDrawer(false)}
+            >
+                <List component="nav" aria-labelledby="nested-list-subheader">
+                    {location && (
+                        <>
+                            <ListItemButton sx={{ marginTop: '20px' }}>
+                                <ListItemText
+                                    primary={t('Home')}
+                                    onClick={() => handleRoute('/home')}
+                                />
+                            </ListItemButton>
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                             <CollapsableMenu
                                 value={collapsableMenu.cat}
                                 setOpenDrawer={setOpenDrawer}
@@ -275,6 +413,7 @@ const DrawerMenu = ({ zoneid, cartListRefetch }) => {
                                 toggleDrawers={toggleDrawer}
                                 pathName="/cuisines"
                             />
+<<<<<<< HEAD
                             {/*<CollapsableMenu value={collapsableMenu.profile} setOpenDrawer={setOpenDrawer} toggleDrawers={toggleDrawer}/>*/}
                             <ListItemButton
                                 sx={{
@@ -424,10 +563,20 @@ const DrawerMenu = ({ zoneid, cartListRefetch }) => {
                                 <ListItemText
                                     primary={<Typography sx={{ fontSize: '12px' }}>{t('Privacy Policy')}</Typography>}
                                     onClick={() => handleRoute('privacy-policy')}
+=======
+                            <ListItemButton
+                                onClick={() =>
+                                    handleRoute('terms-and-conditions')
+                                }
+                            >
+                                <ListItemText
+                                    primary={t('Terms & Conditions')}
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                                 />
                             </ListItemButton>
                             <ListItemButton>
                                 <ListItemText
+<<<<<<< HEAD
                                     primary={<Typography sx={{ fontSize: '12px' }}>{t('Theme Mode')}</Typography>}
                                 />
                                 <ThemeSwitches
@@ -474,12 +623,52 @@ const DrawerMenu = ({ zoneid, cartListRefetch }) => {
                     </ButtonContainer>
 
                 </Stack>
+=======
+                                    primary={t('Privacy Policy')}
+                                    onClick={() =>
+                                        handleRoute('privacy-policy')
+                                    }
+                                />
+                            </ListItemButton>
+                        </>
+                    )}
+                </List>
+                <ButtonContainer>
+                    <Button
+                        variant="contained"
+                        fullWidth
+                        sx={{ mt: 0, mb: 1 }}
+                        startIcon={<LockIcon />}
+                        onClick={() => handleOpenAuthModal('signing')}
+                        //  onClick={() => setLogin(true)}
+                    >
+                        {t('Sign In')}
+                    </Button>
+                </ButtonContainer>
+                <Typography align="center" mt="1rem">
+                    {t('Don’t have account?')}
+                </Typography>
+                <ButtonContainer>
+                    <Button
+                        onClick={() => handleOpenAuthModal('signUp')}
+                        variant="contained"
+                        fullWidth
+                        sx={{ mt: 1, mb: 1 }}
+                    >
+                        {t('Sign Up')}
+                    </Button>
+                </ButtonContainer>
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
             </Box>
         </RTL>
     )
 
     return (
+<<<<<<< HEAD
         <Box>
+=======
+        <Container maxWidth="lg" disableGutters={true}>
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
             {authModalOpen && (
                 <AuthModal
                     open={authModalOpen}
@@ -487,8 +676,11 @@ const DrawerMenu = ({ zoneid, cartListRefetch }) => {
                     forSignup={forSignup}
                     modalFor={modalFor}
                     setModalFor={setModalFor}
+<<<<<<< HEAD
                     cartListRefetch={cartListRefetch}
 
+=======
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                 />
             )}
             <IconButton
@@ -505,6 +697,7 @@ const DrawerMenu = ({ zoneid, cartListRefetch }) => {
             >
                 <MenuIcon />
             </IconButton>
+<<<<<<< HEAD
             <RTL direction={languageDirection}>
                 <CustomDrawer
                     anchor="right"
@@ -516,6 +709,17 @@ const DrawerMenu = ({ zoneid, cartListRefetch }) => {
             </RTL>
             {/* <AuthModal/> */}
         </Box>
+=======
+            <CustomDrawer
+                anchor="top"
+                open={openDrawer}
+                onClose={toggleDrawer(false)}
+            >
+                {token ? menuList() : withOutLogin()}
+            </CustomDrawer>
+            {/* <AuthModal/> */}
+        </Container>
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
     )
 }
 

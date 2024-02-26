@@ -30,7 +30,11 @@ import CustomImageContainer from '../../CustomImageContainer'
 import { CustomTypography } from '../../custom-tables/Tables.style'
 import { CustomBoxForModal } from '../auth.style'
 import { toast } from 'react-hot-toast'
+<<<<<<< HEAD
 import LockIcon from '@mui/icons-material/Lock';
+=======
+
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
 import { InfoSetByApi } from '../../InfoSetByApi'
 import { onErrorResponse, onSingleErrorResponse } from '../../ErrorResponse'
 import { RTL } from '../../RTL/RTL'
@@ -40,6 +44,7 @@ import { useVerifyPhone } from '../../../hooks/react-query/otp/useVerifyPhone'
 import { CustomTypographyGray } from '../../error/Errors.style'
 import SocialLogins from '../sign-in/social-login/SocialLogins'
 import { setToken } from '../../../redux/slices/userToken'
+<<<<<<< HEAD
 import { alpha, Grid, styled } from "@mui/material";
 import { Stack } from "@mui/system";
 import { CustomSigninOutLine } from "../sign-in";
@@ -71,6 +76,10 @@ export const CustomSignUpTextField = styled(TextField)(({ theme }) => ({
 }))
 
 const SignUpPage = ({ setSignInPage, handleClose, setModalFor, setJwtToken,setUserInfo,handleSuccess }) => {
+=======
+
+const SignUpPage = ({ setSignInPage, handleClose, setModalFor }) => {
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
     const { t } = useTranslation()
     const dispatch = useDispatch()
     const router = useRouter()
@@ -132,7 +141,10 @@ const SignUpPage = ({ setSignInPage, handleClose, setModalFor, setJwtToken,setUs
             password: values.password,
             confirm_password: values.confirm_password,
             ref_code: values.ref_code,
+<<<<<<< HEAD
 
+=======
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
         }
 
         mutate(signUpData, {
@@ -185,6 +197,7 @@ const SignUpPage = ({ setSignInPage, handleClose, setModalFor, setJwtToken,setUs
                 >
                     <CustomStackFullWidth
                         alignItems="center"
+<<<<<<< HEAD
                         spacing={{ xs: 1, md: 0 }}
                     >
                         <CustomImageContainer
@@ -195,11 +208,25 @@ const SignUpPage = ({ setSignInPage, handleClose, setModalFor, setJwtToken,setUs
                         />
                         <CustomTypography
                             sx={{ fontWeight: 'bold',fontSize:"22px" }}
+=======
+                        spacing={{ xs: 1, md: 3 }}
+                    >
+                        <CustomImageContainer
+                            src={`${businessLogo}/${global?.logo}`}
+                            width="150px"
+                            alt="Logo"
+                        />
+                        <CustomTypography
+                            sx={{ fontWeight: 'bold' }}
+                            component="h1"
+                            variant="h4"
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                         >
                             {t('Sign Up')}
                         </CustomTypography>
                     </CustomStackFullWidth>
                     <form onSubmit={signUpFormik.handleSubmit} noValidate>
+<<<<<<< HEAD
                         <Stack>
                             <Grid container  spacing={3} >
                                 <Grid item xs={12} md={6}>
@@ -483,26 +510,279 @@ const SignUpPage = ({ setSignInPage, handleClose, setModalFor, setJwtToken,setUs
                                </Grid>
                             </Grid>
 
+=======
+                        <CustomStackFullWidth
+                            alignItems="center"
+                            spacing={{ xs: 2, md: 3 }}
+                        >
+                            <TextField
+                                required
+                                fullWidth
+                                id="first_name"
+                                label={t('First Name')}
+                                name="f_name"
+                                autoComplete="first_name"
+                                value={signUpFormik.values.f_name}
+                                onChange={signUpFormik.handleChange}
+                                error={
+                                    signUpFormik.touched.f_name &&
+                                    Boolean(signUpFormik.errors.f_name)
+                                }
+                                helperText={
+                                    signUpFormik.touched.f_name &&
+                                    signUpFormik.errors.f_name
+                                }
+                                touched={signUpFormik.touched.f_name}
+                                autoFocus
+                                sx={{
+                                    color: (theme) =>
+                                        theme.palette.neutral[1000],
+                                }}
+                            />
+                            <TextField
+                                required
+                                fullWidth
+                                id="last_name"
+                                label={t('Last Name')}
+                                name="l_name"
+                                autoComplete="last_name"
+                                value={signUpFormik.values.l_name}
+                                onChange={signUpFormik.handleChange}
+                                error={
+                                    signUpFormik.touched.l_name &&
+                                    Boolean(signUpFormik.errors.l_name)
+                                }
+                                helperText={
+                                    signUpFormik.touched.l_name &&
+                                    signUpFormik.errors.l_name
+                                }
+                                touched={signUpFormik.touched.l_name}
+                                //  autoFocus
+                                sx={{
+                                    color: (theme) =>
+                                        theme.palette.neutral[1000],
+                                }}
+                            />
+                            <TextField
+                                required
+                                fullWidth
+                                id="email"
+                                label={t('Email')}
+                                name="email"
+                                autoComplete="email"
+                                value={signUpFormik.values.email}
+                                onChange={signUpFormik.handleChange}
+                                error={
+                                    signUpFormik.touched.email &&
+                                    Boolean(signUpFormik.errors.email)
+                                }
+                                helperText={
+                                    signUpFormik.touched.email &&
+                                    signUpFormik.errors.email
+                                }
+                                touched={signUpFormik.touched.email}
+                                //   autoFocus
+                                sx={{
+                                    color: (theme) =>
+                                        theme.palette.neutral[1000],
+                                }}
+                            />
+
+                            <CustomPhoneInput
+                                value={signUpFormik.values.phone}
+                                onHandleChange={handleOnChange}
+                                initCountry={global?.country}
+                                touched={signUpFormik.touched.phone}
+                                errors={signUpFormik.errors.phone}
+                                rtlChange="true"
+                            />
+
+                            <FormControl variant="outlined" fullWidth>
+                                <InputLabel
+                                    required
+                                    sx={{
+                                        color: (theme) =>
+                                            theme.palette.neutral[1000],
+                                    }}
+                                    htmlFor="outlined-adornment-password"
+                                >
+                                    {t('Password')}
+                                </InputLabel>
+                                <OutlinedInput
+                                    required
+                                    type={showPassword ? 'text' : 'password'}
+                                    id="password"
+                                    name="password"
+                                    value={signUpFormik.values.password}
+                                    onChange={signUpFormik.handleChange}
+                                    error={
+                                        signUpFormik.touched.password &&
+                                        Boolean(signUpFormik.errors.password)
+                                    }
+                                    helperText={
+                                        signUpFormik.touched.password &&
+                                        signUpFormik.errors.password
+                                    }
+                                    touched={signUpFormik.touched.password}
+                                    endAdornment={
+                                        <InputAdornment position="end">
+                                            <IconButton
+                                                aria-label="toggle password visibility"
+                                                onClick={() =>
+                                                    setShowPassword(
+                                                        (prevState) =>
+                                                            !prevState
+                                                    )
+                                                }
+                                                //   onMouseDown={handleMouseDownPassword}
+                                                edge="end"
+                                            >
+                                                {showPassword ? (
+                                                    <Visibility />
+                                                ) : (
+                                                    <VisibilityOff />
+                                                )}
+                                            </IconButton>
+                                        </InputAdornment>
+                                    }
+                                    label="Password"
+                                />
+                                {signUpFormik.errors.password && (
+                                    <FormHelperText sx={{ color: '#FF686A' }}>
+                                        {signUpFormik.errors.password}
+                                    </FormHelperText>
+                                )}
+                            </FormControl>
+                            <FormControl
+                                sx={{ mt: 1 }}
+                                variant="outlined"
+                                fullWidth
+                            >
+                                <InputLabel
+                                    required
+                                    sx={{
+                                        color: (theme) =>
+                                            theme.palette.neutral[1000],
+                                    }}
+                                    htmlFor="outlined-adornment-password"
+                                >
+                                    {t('Confirm Password')}
+                                </InputLabel>
+                                <OutlinedInput
+                                    required
+                                    type={
+                                        showConfirmPassword
+                                            ? 'text'
+                                            : 'password'
+                                    }
+                                    id="confirm_password"
+                                    name="confirm_password"
+                                    value={signUpFormik.values.confirm_password}
+                                    onChange={signUpFormik.handleChange}
+                                    error={
+                                        signUpFormik.touched.confirm_password &&
+                                        Boolean(
+                                            signUpFormik.errors.confirm_password
+                                        )
+                                    }
+                                    helperText={
+                                        signUpFormik.touched.confirm_password &&
+                                        signUpFormik.errors.confirm_password
+                                    }
+                                    touched={
+                                        signUpFormik.touched.confirm_password
+                                    }
+                                    endAdornment={
+                                        <InputAdornment position="end">
+                                            <IconButton
+                                                aria-label="toggle password visibility"
+                                                onClick={() =>
+                                                    setConfirmShowPassword(
+                                                        (prevState) =>
+                                                            !prevState
+                                                    )
+                                                }
+                                                //   onMouseDown={handleMouseDownPassword}
+                                                edge="end"
+                                            >
+                                                {showConfirmPassword ? (
+                                                    <Visibility />
+                                                ) : (
+                                                    <VisibilityOff />
+                                                )}
+                                            </IconButton>
+                                        </InputAdornment>
+                                    }
+                                    label="confirm_password"
+                                />
+                                {signUpFormik.errors.confirm_password && (
+                                    <FormHelperText
+                                        sx={{
+                                            color: (theme) =>
+                                                theme.palette.error.main,
+                                        }}
+                                    >
+                                        {signUpFormik.errors.confirm_password}
+                                    </FormHelperText>
+                                )}
+                            </FormControl>
+                            <TextField
+                                fullWidth
+                                id="ref_code"
+                                label={t('Refer Code (Optional)')}
+                                name="ref_code"
+                                autoComplete="ref_code"
+                                value={signUpFormik.values.ref_code}
+                                onChange={signUpFormik.handleChange}
+                                error={
+                                    signUpFormik.touched.ref_code &&
+                                    Boolean(signUpFormik.errors.ref_code)
+                                }
+                                helperText={
+                                    signUpFormik.touched.ref_code &&
+                                    signUpFormik.errors.ref_code
+                                }
+                                touched={signUpFormik.touched.ref_code}
+                                //   autoFocus
+                                sx={{
+                                    color: (theme) =>
+                                        theme.palette.neutral[1000],
+                                }}
+                            />
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                             <CustomStackFullWidth>
                                 <CustomStackFullWidth
                                     direction="row"
                                     alignItems="center"
                                     spacing={{ xs: '0', md: '.5' }}
+<<<<<<< HEAD
                                     sx={{ mt: '7px', marginInlineStart:"-8px", }}
+=======
+                                    sx={{ mt: '-10px' }}
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                                 >
                                     <FormControlLabel
                                         sx={{
                                             marginRight: '5px',
+<<<<<<< HEAD
 
                                             '& .MuiFormControlLabel-label': {
                                                 fontSize: '12px',
+=======
+                                            '& .MuiFormControlLabel-label': {
+                                                fontSize: '14px',
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                                                 color: (theme) =>
                                                     theme.palette.neutral[1000],
                                             },
                                             [theme.breakpoints.down('sm')]: {
                                                 '& .MuiFormControlLabel-label':
                                                     {
+<<<<<<< HEAD
                                                         fontSize: '10px',
+=======
+                                                        fontSize: '12px',
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                                                     },
                                             },
                                         }}
@@ -510,6 +790,7 @@ const SignUpPage = ({ setSignInPage, handleClose, setModalFor, setJwtToken,setUs
                                             <Checkbox
                                                 value="ff"
                                                 color="primary"
+<<<<<<< HEAD
                                                 onChange={(e)=>handleCheckbox(e)}
                                                 required="true"
                                             />
@@ -518,13 +799,28 @@ const SignUpPage = ({ setSignInPage, handleClose, setModalFor, setJwtToken,setUs
                                     />
                                     <CustomColouredTypography
                                         color={theme.palette.newsletterBG}
+=======
+                                                onChange={handleCheckbox}
+                                                required="true"
+                                            />
+                                        }
+                                        label={t('You must accept the')}
+                                    />
+                                    <CustomColouredTypography
+                                        color={theme.palette.primary.main}
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                                         onClick={handleClick}
                                         sx={{
                                             cursor: 'pointer',
                                             textDecoration: 'underline',
+<<<<<<< HEAD
                                             fontSize: '12px',
                                             [theme.breakpoints.down('sm')]: {
                                                 fontSize: '10px',
+=======
+                                            [theme.breakpoints.down('sm')]: {
+                                                fontSize: '12px',
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                                                 marginLeft: '0px',
                                             },
                                         }}
@@ -548,6 +844,7 @@ const SignUpPage = ({ setSignInPage, handleClose, setModalFor, setJwtToken,setUs
                                         </CustomTypography>
                                     )}
                             </CustomStackFullWidth>
+<<<<<<< HEAD
                             <Stack witdh="100%" justifyContent="center" alignItems="center">
                                 {!signUpFormik?.values?.tandc ? (
                                     <Button
@@ -579,6 +876,41 @@ const SignUpPage = ({ setSignInPage, handleClose, setModalFor, setJwtToken,setUs
                         </Stack>
                     </form>
 
+=======
+                            <Button
+                                type="submit"
+                                fullWidth
+                                sx={{ mt: 3, mb: 2 }}
+                                loading={true}
+                                loadingPosition="start"
+                                variant="contained"
+                            >
+                                {t('Sign Up')}
+                            </Button>
+                        </CustomStackFullWidth>
+                    </form>
+                    <Box>
+                        <CustomTypography align="center">
+                            {t('Already have an account?')}
+                            <CustomLink
+                                onClick={() => {
+                                    setModalFor('sign-in')
+                                }}
+                                href="#"
+                                variant="body2"
+                                sx={{ ml: '5px' }}
+                            >
+                                {t('Sign In')}
+                            </CustomLink>
+                        </CustomTypography>
+                        {/*<CustomTypography align="center">*/}
+                        {/*    {t('Continue as')}*/}
+                        {/*    <CustomLink href="#" variant="body2">*/}
+                        {/*        {'Guest'}*/}
+                        {/*    </CustomLink>*/}
+                        {/*</CustomTypography>*/}
+                    </Box>
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                 </CustomStackFullWidth>
                 {global?.social_login.length > 0 && (
                     <CustomStackFullWidth
@@ -586,6 +918,7 @@ const SignUpPage = ({ setSignInPage, handleClose, setModalFor, setJwtToken,setUs
                         justifyContent="center"
                         spacing={1}
                     >
+<<<<<<< HEAD
                         <SocialLogins
                             socialLogins={global?.social_login}
                             handleParentModalClose={handleClose}
@@ -611,6 +944,20 @@ const SignUpPage = ({ setSignInPage, handleClose, setModalFor, setJwtToken,setUs
                         </CustomLink>
                     </CustomTypography>
                 </Box>
+=======
+                        <CustomTypographyGray nodefaultfont="true">
+                            {t('Or')}
+                        </CustomTypographyGray>
+                        <CustomTypography>
+                            {t('Social Register')}
+                        </CustomTypography>
+                        <SocialLogins
+                            socialLogins={global?.social_login}
+                            handleParentModalClose={handleClose}
+                        />
+                    </CustomStackFullWidth>
+                )}
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                 <CustomModal
                     openModal={openOtpModal}
                     setModalOpen={setOpenOtpModal}

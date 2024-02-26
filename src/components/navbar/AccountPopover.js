@@ -96,7 +96,11 @@ export const AccountPopover = (props) => {
     const { global } = useSelector((state) => state.globalSettings)
     const router = useRouter()
     const { t } = useTranslation()
+<<<<<<< HEAD
     const { cartListRefetch,anchorEl, onClose, open, ...other } = props
+=======
+    const { anchorEl, onClose, open, ...other } = props
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
     const dispatch = useDispatch()
     const handleLogout = async () => {
         setIsLogoutLoading(true)
@@ -106,8 +110,13 @@ export const AccountPopover = (props) => {
                 dispatch(removeToken())
                 let a = []
                 dispatch(clearWishList(a))
+<<<<<<< HEAD
                 cartListRefetch()
                 // dispatch(setClearCart())
+=======
+                dispatch(setClearCart())
+
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                 toast.success(t(logoutSuccessFull))
                 onClose?.()
                 if (router.pathname === '/') {

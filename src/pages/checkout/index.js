@@ -13,6 +13,7 @@ import { useSelector } from 'react-redux'
 import { CustomHeader } from '../../api/Headers'
 import CustomContainer from '../../components/container'
 import { getServerSideProps } from '../index'
+<<<<<<< HEAD
 import HomeGuard from "../../components/home-guard/HomeGuard";
 const CheckoutLayout = ({ configdata }) => {
     const { cartList } = useSelector((state) => state.cart)
@@ -25,23 +26,56 @@ const CheckoutLayout = ({ configdata }) => {
     return (
         <>
         <HomeGuard>
+=======
+const CheckoutLayout = ({ configData }) => {
+    const { t } = useTranslation()
+    const { cartList } = useSelector((state) => state.cart)
+    const { token } = useSelector((state) => state.userToken)
+    //token && cartList?.length === 0 && Router.push('/home')
+    const router = useRouter()
+    const { page } = router.query
+
+    return (
+        <>
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
             <CssBaseline />
             <CustomContainer>
                 <CustomStackFullWidth sx={{ marginTop: '5rem' }}>
                     <Meta
+<<<<<<< HEAD
                         title={`Checkout on ${global?.business_name}`}
                         description=""
                         keywords=""
                     />
                     {page === 'campaign' && <CheckOut />}
                     {page !== 'campaign' && cartList?.length > 0 && (
+=======
+                        title={`Checkout on ${configData?.business_name}`}
+                        description=""
+                        keywords=""
+                    />
+                    {token && page === 'campaign' && <CheckOut />}
+                    {token && page !== 'campaign' && cartList.length > 0 && (
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                         <CheckOut />
                     )}
                 </CustomStackFullWidth>
             </CustomContainer>
+<<<<<<< HEAD
         </HomeGuard>
         </>
     )
 }
 export default CheckoutLayout
 // export { getServerSideProps }
+=======
+        </>
+    )
+}
+//
+// CheckoutLayout.getLa
+// CheckoutLayout.getLayout = (page) =>
+
+export default CheckoutLayout
+export { getServerSideProps }
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7

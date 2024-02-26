@@ -9,6 +9,7 @@ import { toast } from 'react-hot-toast'
 import { useVerifyPhone } from '../../../../hooks/react-query/otp/useVerifyPhone'
 import { onErrorResponse } from '../../../ErrorResponse'
 import { googleClientId } from '../../../../utils/staticCredentials'
+<<<<<<< HEAD
 import { alpha, styled, Typography } from "@mui/material";
 import OutlinedInput from "@mui/material/OutlinedInput";
 import { Stack } from "@mui/system";
@@ -32,6 +33,14 @@ export const CustomGoogleButton = styled(Stack)(({ theme ,width}) => ({
 const GoogleLoginComp = (props) => {
     const { handleSuccess, global, handleParentModalClose,  setJwtToken,setUserInfo,setModalFor,setMedium } = props
 
+=======
+// import { gapi } from 'gapi-scrip
+// import { gapi } from 'gapi-script'
+const GoogleLoginComp = (props) => {
+    const { handleSuccess, global, handleParentModalClose } = props
+    const [userInfo, setUserInfo] = useState(null)
+    const [jwtToken, setJwtToken] = useState(null)
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
     const [openModal, setOpenModal] = useState(false)
     const [openOtpModal, setOpenOtpModal] = useState(false)
     const [otpData, setOtpData] = useState({ phone: '' })
@@ -41,6 +50,7 @@ const GoogleLoginComp = (props) => {
     const { mutate } = usePostEmail()
 
     const clientId = googleClientId
+<<<<<<< HEAD
     const handleToken =  (response) => {
         if (response?.token) {
             handleSuccess(response.token)
@@ -51,6 +61,15 @@ const GoogleLoginComp = (props) => {
         }
     }
 
+=======
+    const handleToken = (response) => {
+        if (response?.token) {
+            handleSuccess(response.token)
+        } else {
+            setOpenModal(true)
+        }
+    }
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
     useEffect(() => {
         if (otpData?.phone !== '') {
             setOpenOtpModal(true)
@@ -97,7 +116,21 @@ const GoogleLoginComp = (props) => {
             }
         )
     }
+<<<<<<< HEAD
 
+=======
+    const handleTokenCallBackResponse = (res) => {
+        //const userObj = jwt_decode(res.credential)
+        // setJwtToken(res)
+        // setUserInfo(userObj)
+        // mutate(
+        //     { email: userObj.email },
+        //     {
+        //         onSuccess: handlePostRequestOnSuccess,
+        //     }
+        // )
+    }
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
 
     useEffect(() => {
         /* global google */
@@ -111,8 +144,13 @@ const GoogleLoginComp = (props) => {
                 {
                     theme: 'outline',
                     size: 'large',
+<<<<<<< HEAD
                     shape: 'rounded',
                     width: '134px',
+=======
+                    shape: 'rectangular',
+                    width: '220px',
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                     logo_alignment: 'left',
                 }
             )
@@ -143,6 +181,7 @@ const GoogleLoginComp = (props) => {
     }
     return (
         <>
+<<<<<<< HEAD
             <div style={{position:"relative"}}>
                 <div style={{
                     position: "absolute",
@@ -169,6 +208,21 @@ const GoogleLoginComp = (props) => {
                 </CustomGoogleButton>
             </div>
 
+=======
+            <div id="signInDiv"></div>
+            <CustomModal openModal={openModal} setModalOpen={setOpenModal}>
+                {userInfo && jwtToken && (
+                    <PhoneInputForm
+                        userInfo={userInfo}
+                        jwtToken={jwtToken}
+                        medium="google"
+                        handleRegistrationOnSuccess={
+                            handleRegistrationOnSuccess
+                        }
+                    />
+                )}
+            </CustomModal>
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
             <CustomModal
                 openModal={openOtpModal}
                 setModalOpen={setOpenOtpModal}

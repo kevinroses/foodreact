@@ -13,7 +13,11 @@ import { useGetCuisines } from '../../../hooks/react-query/cuisines/useGetCuisin
 import Slider from 'react-slick'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
+<<<<<<< HEAD
 // import 'react-multi-carousel/lib/styles.css'
+=======
+import 'react-multi-carousel/lib/styles.css'
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
 import CuisinesCard from './CuisinesCard'
 import { settings } from './SliderSettings'
 import CustomImageContainer from '../../CustomImageContainer'
@@ -42,7 +46,11 @@ const Cuisines = () => {
         dots: false,
         infinite: false,
         speed: 500,
+<<<<<<< HEAD
         slidesToShow: 8,
+=======
+        slidesToShow: 7,
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
         slidesToScroll: 1,
         nextArrow: hoverOn && <HandleNext />,
         prevArrow: hoverOn && <HandlePrev />,
@@ -132,6 +140,7 @@ const Cuisines = () => {
                                         alignItems="center"
                                         justifyContent="space-between"
                                     >
+<<<<<<< HEAD
                                         <Stack direction="row" justifyContent="space-between" width="100%">
                                            <Stack direction="row" spacing={1}>
                                                <CustomImageContainer
@@ -152,6 +161,23 @@ const Cuisines = () => {
 
 
                                             <CustomViewAll onClick={() => router.push('/cuisines')} sx={{marginInlineEnd:"10px"}}>{t("Explore More")}</CustomViewAll>
+=======
+                                        <Stack direction="row" spacing={1}>
+                                            <CustomImageContainer
+                                                src={cuisine_image.src}
+                                                width="26px"
+                                                height="26px"
+                                            />
+                                            <Typography
+                                                variant="h3"
+                                                color={
+                                                    theme.palette.neutral[1000]
+                                                }
+                                                fontWeight="500"
+                                            >
+                                                {t('Cuisines')}
+                                            </Typography>
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                                         </Stack>
                                     </CustomStackFullWidth>
                                 </Grid>

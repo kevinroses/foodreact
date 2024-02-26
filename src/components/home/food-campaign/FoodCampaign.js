@@ -48,7 +48,11 @@ const FoodCampaign = ({ data, isLoading }) => {
     const languageDirection = localStorage.getItem('direction')
     const settings = {
         speed: 500,
+<<<<<<< HEAD
         slidesToShow: 4.1,
+=======
+        slidesToShow: 4.7,
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
         slidesToScroll: 1,
         initialSlide: 0,
         nextArrow: hoverOn && <HandleNext />,
@@ -57,7 +61,11 @@ const FoodCampaign = ({ data, isLoading }) => {
             {
                 breakpoint: 3600,
                 settings: {
+<<<<<<< HEAD
                     slidesToShow: 4.1,
+=======
+                    slidesToShow: 4.7,
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                     slidesToScroll: 1,
                     infinite: false,
                     // dots: true
@@ -66,7 +74,11 @@ const FoodCampaign = ({ data, isLoading }) => {
             {
                 breakpoint: 3200,
                 settings: {
+<<<<<<< HEAD
                     slidesToShow: 4.1,
+=======
+                    slidesToShow: 4.7,
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                     slidesToScroll: 1,
                     infinite: false,
                     // dots: true
@@ -75,7 +87,11 @@ const FoodCampaign = ({ data, isLoading }) => {
             {
                 breakpoint: 2800,
                 settings: {
+<<<<<<< HEAD
                     slidesToShow: 4.1,
+=======
+                    slidesToShow: 4.7,
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                     slidesToScroll: 1,
                     infinite: false,
                     // dots: true
@@ -84,7 +100,11 @@ const FoodCampaign = ({ data, isLoading }) => {
             {
                 breakpoint: 2400,
                 settings: {
+<<<<<<< HEAD
                     slidesToShow: 4.2,
+=======
+                    slidesToShow: 4.7,
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                     slidesToScroll: 1,
                     infinite: false,
                     // dots: true
@@ -93,7 +113,11 @@ const FoodCampaign = ({ data, isLoading }) => {
             {
                 breakpoint: 2000,
                 settings: {
+<<<<<<< HEAD
                     slidesToShow: 4.2,
+=======
+                    slidesToShow: 4.7,
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                     slidesToScroll: 1,
                     infinite: false,
                     // dots: true
@@ -102,7 +126,11 @@ const FoodCampaign = ({ data, isLoading }) => {
             {
                 breakpoint: 1600,
                 settings: {
+<<<<<<< HEAD
                     slidesToShow: 4.2,
+=======
+                    slidesToShow: 4.7,
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                     slidesToScroll: 1,
                     infinite: false,
                     // dots: true
@@ -111,7 +139,11 @@ const FoodCampaign = ({ data, isLoading }) => {
             {
                 breakpoint: 1340,
                 settings: {
+<<<<<<< HEAD
                     slidesToShow: 3.9,
+=======
+                    slidesToShow: 4.5,
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                     slidesToScroll: 1,
                     infinite: false,
                     // dots: true
@@ -120,7 +152,11 @@ const FoodCampaign = ({ data, isLoading }) => {
             {
                 breakpoint: 1075,
                 settings: {
+<<<<<<< HEAD
                     slidesToShow: 3.5,
+=======
+                    slidesToShow: 4,
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                     slidesToScroll: 1,
                     infinite: false,
                     // dots: true
@@ -129,7 +165,11 @@ const FoodCampaign = ({ data, isLoading }) => {
             {
                 breakpoint: 999,
                 settings: {
+<<<<<<< HEAD
                     slidesToShow: 3,
+=======
+                    slidesToShow: 3.5,
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                     slidesToScroll: 1,
                     infinite: false,
                     // dots: true
@@ -138,7 +178,11 @@ const FoodCampaign = ({ data, isLoading }) => {
             {
                 breakpoint: 800,
                 settings: {
+<<<<<<< HEAD
                     slidesToShow: 2.6,
+=======
+                    slidesToShow: 3,
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                     slidesToScroll: 1,
                     // initialSlide: 2
                     infinite: false,
@@ -147,7 +191,11 @@ const FoodCampaign = ({ data, isLoading }) => {
             {
                 breakpoint: 670,
                 settings: {
+<<<<<<< HEAD
                     slidesToShow: 2.2,
+=======
+                    slidesToShow: 2.5,
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                     slidesToScroll: 2,
                     initialSlide: 0,
                     infinite: false,
@@ -156,7 +204,11 @@ const FoodCampaign = ({ data, isLoading }) => {
             {
                 breakpoint: 540,
                 settings: {
+<<<<<<< HEAD
                     slidesToShow: 1.5,
+=======
+                    slidesToShow: 2,
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                     slidesToScroll: 1,
                     infinite: false,
                 },
@@ -164,8 +216,13 @@ const FoodCampaign = ({ data, isLoading }) => {
             {
                 breakpoint: 450,
                 settings: {
+<<<<<<< HEAD
                     slidesToShow: 1.5,
                     slidesToScroll: 1,
+=======
+                    slidesToShow: 2,
+                    slidesToScroll: 2,
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
 
                     // dots: true
                     initialSlide: 0,
@@ -180,10 +237,35 @@ const FoodCampaign = ({ data, isLoading }) => {
             <Grid
                 container
                 paddingTop={campaignFoods?.length > 0 && '1.9rem'}
+<<<<<<< HEAD
             >
                 <CustomGridWithBgColor
                     foodsize={campaignFoods?.length}
                     padding="23px 0 0 23px"
+=======
+                gap="1.4rem"
+            >
+                {campaignFoods?.length > 0 && (
+                    <Grid item xs={12} md={12} sm={12} lg={12}>
+                        <Stack direction="row" spacing={1}>
+                            <Typography
+                                variant="h3"
+                                color={theme.palette.neutral[1000]}
+                                fontWeight="500"
+                            >
+                                {t('Special Food Offers')}
+                            </Typography>
+                            <CustomImageContainer
+                                src={fire_image.src}
+                                width="26px"
+                                height="26px"
+                            />
+                        </Stack>
+                    </Grid>
+                )}
+                <CustomGridWithBgColor
+                    foodsize={campaignFoods?.length}
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                     item
                     container
                     xs={12}
@@ -193,6 +275,7 @@ const FoodCampaign = ({ data, isLoading }) => {
                     onMouseEnter={() => setHoverOn(true)}
                     onMouseLeave={() => setHoverOn(false)}
                 >
+<<<<<<< HEAD
                     {campaignFoods?.length > 0 &&
                         <Stack direction="row" paddingBottom="20px" paddingInlineStart="5px" spacing={1}>
                             <CustomImageContainer
@@ -210,6 +293,8 @@ const FoodCampaign = ({ data, isLoading }) => {
 
                         </Stack>}
 
+=======
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                     {hoverOn && campaignFoods?.length >= 5 && (
                         <CustomSideOverLay left="unset" right="0" />
                     )}
@@ -217,8 +302,11 @@ const FoodCampaign = ({ data, isLoading }) => {
                         {!isLoading ? (
                             <CustomStackFullWidth>
                                 <SliderCustom
+<<<<<<< HEAD
                                     gap="12px"
                                     paddingBottom={isSmall ? "10px" : "20px"}
+=======
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                                     languageDirection={languageDirection}
                                 >
                                     <Slider
@@ -231,7 +319,11 @@ const FoodCampaign = ({ data, isLoading }) => {
                                                 product?.variations[0]
                                                     ?.values ||
                                                 product?.variations?.length ===
+<<<<<<< HEAD
                                                 0
+=======
+                                                    0
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                                             ) {
                                                 return (
                                                     <FoodCard
@@ -256,7 +348,11 @@ const FoodCampaign = ({ data, isLoading }) => {
                             <Stack marginTop="40px" spacing={2}>
                                 <Skeleton
                                     variant="rectangular"
+<<<<<<< HEAD
                                     width="40%"
+=======
+                                    width="400px"
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                                     height="20px"
                                 />
                                 <SliderCustom>

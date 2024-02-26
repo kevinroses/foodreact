@@ -34,7 +34,11 @@ const FooterMiddle = ({ landingPageLink, landingPageData }) => {
     const isXSmall = useMediaQuery(theme.breakpoints.down('md'))
     const businessLogo = global?.logo
     return (
+<<<<<<< HEAD
         <CustomStackFullWidth alignItems="center" pt="3rem">
+=======
+        <CustomStackFullWidth alignItems="center" py="3rem">
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
             <CustomContainer>
                 <Grid
                     container

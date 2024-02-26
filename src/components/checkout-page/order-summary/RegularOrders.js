@@ -36,6 +36,10 @@ const RegularOrders = (props) => {
         digitAfterDecimalPoint = global.digit_after_decimal_point
     }
     const languageDirection = localStorage.getItem('direction')
+<<<<<<< HEAD
+=======
+
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
     return (
         <>
             {cartList.length > 0 ? (

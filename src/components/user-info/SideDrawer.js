@@ -1,5 +1,10 @@
+<<<<<<< HEAD
 import React, { useEffect, useReducer, useState } from 'react'
 import { Grid, IconButton, Stack, Typography, useMediaQuery } from '@mui/material'
+=======
+import React, { useEffect, useState } from 'react'
+import { Grid, IconButton, Typography } from '@mui/material'
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
 import MenuIcon from '@mui/icons-material/Menu'
 import { PrimaryButton } from '../products-page/FoodOrRestaurant'
 import CustomSideDrawer from '../side-drawer/CustomSideDrawer'
@@ -9,6 +14,7 @@ import { useTheme } from '@mui/material/styles'
 import ProfileSideMenu from './ProfileSideMenu'
 import MenuOpenIcon from '@mui/icons-material/MenuOpen'
 import { t } from 'i18next'
+<<<<<<< HEAD
 import MobileMenu from '../../assets/images/icons/MobileMenu'
 import { CustomStackFullWidth } from '../../styled-components/CustomStyles.style'
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
@@ -44,6 +50,14 @@ const SideDrawer = ({ page, setAttributeId }) => {
     }, [page, pageTitle, isEditProfile])
 
     useEffect(() => {
+=======
+
+const SideDrawer = ({ page }) => {
+    const theme = useTheme()
+    const [languageDirection, setLanguageDirection] = useState('ltr')
+    const [open, setOpen] = useState(false)
+    useEffect(() => {
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
         if (localStorage.getItem('direction')) {
             setLanguageDirection(localStorage.getItem('direction'))
         }
@@ -51,6 +65,7 @@ const SideDrawer = ({ page, setAttributeId }) => {
     return (
         <>
             {languageDirection && (
+<<<<<<< HEAD
                 <CustomStackFullWidth paddingBlock="13px 0px">
                     <Stack sx={{ position: "absolute", top: "58px", left: "15px" }}>
                         {(isSmall && isEditProfile === true) &&
@@ -76,17 +91,26 @@ const SideDrawer = ({ page, setAttributeId }) => {
                         </Typography>
                     </Stack>
                     <Stack sx={{ position: "absolute", top: "55px", right: "15px" }}>
+=======
+                <>
+                    <Grid item xs={2} sm={2} md={2}>
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                         <IconButton
                             onClick={() => setOpen(true)}
                             sx={{
                                 color: (theme) => theme.palette.primary.main,
                             }}
                         >
+<<<<<<< HEAD
                             <MobileMenu />
                         </IconButton>
 
                     </Stack>
                     <RTL direction={languageDirection}>
+=======
+                            <MenuOpenIcon />
+                        </IconButton>
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                         <CustomSideDrawer
                             open={open}
                             onClose={() => setOpen(false)}
@@ -98,11 +122,28 @@ const SideDrawer = ({ page, setAttributeId }) => {
                                 onClose={() => setOpen(false)}
                                 sidedrawer="true"
                                 page={page}
+<<<<<<< HEAD
                                 setAttributeId={setAttributeId}
                             />
                         </CustomSideDrawer>
                     </RTL>
                 </CustomStackFullWidth>
+=======
+                            />
+                        </CustomSideDrawer>
+                    </Grid>
+                    <Grid justifySelf="flex-end" item xs={10} sm={10} md={2}>
+                        <Typography
+                            variant="h3"
+                            color={theme.palette.primary.main}
+                            align="center"
+                            sx={{ marginInlineStart: '-40px' }}
+                        >
+                            {t(page)}
+                        </Typography>
+                    </Grid>
+                </>
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
             )}
         </>
     )

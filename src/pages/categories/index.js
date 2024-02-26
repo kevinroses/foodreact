@@ -5,20 +5,29 @@ import { useTranslation } from 'react-i18next'
 import { ConfigApi } from '../../hooks/react-query/config/useConfig'
 import { landingPageApi } from '../../components/landingpage/Api'
 import { CustomHeader } from '../../api/Headers'
+<<<<<<< HEAD
 import HomeGuard from "../../components/home-guard/HomeGuard";
+=======
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
 
 const index = ({ configData, landingPageData, pathName }) => {
     const { t } = useTranslation()
     return (
         <div className="div">
+<<<<<<< HEAD
             <HomeGuard>
+=======
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
             <Meta
                 title={`${t('Categories')} on ${configData?.business_name}`}
                 ogImage={`${configData?.base_urls?.react_landing_page_images}/${landingPageData?.banner_section_full?.banner_section_img_full}`}
                 pathName={pathName}
             />
             <Category />
+<<<<<<< HEAD
             </HomeGuard>
+=======
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
         </div>
     )
 }

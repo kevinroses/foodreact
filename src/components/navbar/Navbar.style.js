@@ -9,9 +9,15 @@ import {
     Card,
     Switch,
     Stack,
+<<<<<<< HEAD
     IconButton, alpha
 } from "@mui/material";
 // import { hover } from '@testing-library/user-event/dist/hover'
+=======
+    IconButton,
+} from '@mui/material'
+import { hover } from '@testing-library/user-event/dist/hover'
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
 
 export const NavbarRoot = styled(AppBar)(
     ({ theme, notFound, iconicSidebar }) => ({
@@ -40,14 +46,19 @@ export const NavbarRoot = styled(AppBar)(
 export const CustomDrawer = styled(Drawer)(({ theme }) => ({
     zIndex: 1172,
     '& .MuiDrawer-paper': {
+<<<<<<< HEAD
         maxWidth:"265px",
         width: "100%",
         top: '30px',
+=======
+        top: '40px',
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
         borderBottomRightRadius: '10px',
         borderBottomLeftRadius: '10px',
     },
 }))
 
+<<<<<<< HEAD
 export const ButtonContainer = styled(Stack)(({ theme,marginBottom }) => ({
     marginLeft: '15px',
     marginRight: '15px',
@@ -56,6 +67,11 @@ export const ButtonContainer = styled(Stack)(({ theme,marginBottom }) => ({
     marginBottom:marginBottom ??"40px"
     // //alignItems:"end",
     // justifyContent:"flex-end",
+=======
+export const ButtonContainer = styled('div')(({ theme }) => ({
+    marginLeft: '15px',
+    marginRight: '15px',
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
 }))
 
 export const SearchProduct = styled(Paper)(({ theme, borderColor }) => ({
@@ -71,8 +87,13 @@ export const SearchProduct = styled(Paper)(({ theme, borderColor }) => ({
     alignItems: 'center',
 }))
 export const AppBarStyle = styled(AppBar)(({ theme }) => ({
+<<<<<<< HEAD
     background: 'transparent !important',
     boxShadow: 'none !important'
+=======
+    background: theme.palette.navbarBg,
+    // opacity: `${theme.palette.mode === 'dark' && '.9'}`,
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
 }))
 export const NavLinkStyle = styled(Stack)(({ theme, languageDirection }) => ({
     color: `${theme.palette.mode === 'dark' ? '#fff' : '#000'}`,
@@ -92,10 +113,16 @@ export const NavMenuLink = styled(MenuLink)(({ theme }) => ({
     },
 }))
 export const TopBarButton = styled(Button)(({ theme, formMobileMenu }) => ({
+<<<<<<< HEAD
     padding: formMobileMenu === 'true' ? '7px 5px' : '7px 0px',
     color: theme.palette.neutral[100],
     backgroundColor: theme.palette.navbarBg,
     minWidth:"40px",
+=======
+    padding: formMobileMenu === 'true' ? '7px 5px' : '7px 12px',
+    color: theme.palette.neutral[100],
+    backgroundColor: theme.palette.navbarBg,
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
     maxWidth: '200px',
 }))
 export const CustomSwitch = styled(Switch)(({ theme, noimage }) => ({
@@ -193,6 +220,7 @@ export const CustomStack = styled(Stack)(({ theme }) => ({
     cursor: 'pointer',
     marginLeft: ' auto !important',
 }))
+<<<<<<< HEAD
 export const LefRightBorderBox = styled(Stack)(({ theme, languageDirection }) => ({
     borderRight: `1px solid ${alpha(
       theme.palette.primary.main,
@@ -207,3 +235,5 @@ export const LefRightBorderBox = styled(Stack)(({ theme, languageDirection }) =>
     justifyContent:"center",
     paddingInline:".5rem"
 }))
+=======
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7

@@ -8,7 +8,10 @@ import FilterCard from '../../products-page/FilterCard'
 import { AllRestaurantFilterData } from './AllRestaurantFilterData'
 import RestaurantFilterCard from './RestaurantFilterCard'
 import { t } from 'i18next'
+<<<<<<< HEAD
 import { handleFilterData } from "../../category/helper";
+=======
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
 
 const RestaurantTab = (props) => {
     const {
@@ -21,8 +24,11 @@ const RestaurantTab = (props) => {
         setForFilter,
         responsiveTop,
         forFilter,
+<<<<<<< HEAD
         scrollToSection5,
         inView
+=======
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
     } = props
     const [checkedFilterKey, setCheckedFilterKey] = useState(
         AllRestaurantFilterData
@@ -38,18 +44,54 @@ const RestaurantTab = (props) => {
         setAnchorEl(null)
     }
 
+<<<<<<< HEAD
     useEffect(() => {
         if (forFilter) {
             scrollToSection5()
         }
 
         handleFilterData(checkedFilterKey,setFilterByData,setOffSet,setForFilter)
+=======
+    const handleFilterData = (event, id) => {
+        const activeFilters = checkedFilterKey.filter(
+            (filter) => filter.isActive === true
+        )
+        const newFilteredData = {
+            veg:
+                activeFilters.find((filter) => filter?.value === 'veg') !==
+                undefined,
+            non_Veg:
+                activeFilters.find((filter) => filter.value === 'non_Veg') !==
+                undefined,
+            top_rated:
+                activeFilters.find((filter) => filter.value === 'top_rated') !==
+                undefined,
+            discount:
+                activeFilters.find((filter) => filter.value === 'discount') !==
+                undefined,
+        }
+        setFilterByData(newFilteredData)
+        //handleDropClose()
+        setOffSet(1)
+        setForFilter(true)
+        //window.scrollTo(0, responsiveTop)
+    }
+    useEffect(() => {
+        if (forFilter) {
+            window.scrollTo(0, responsiveTop)
+        }
+
+        handleFilterData()
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
     }, [checkedFilterKey])
 
     const handleClearAll = () => {
         handleDropClose()
     }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
     return (
         <div>
             <Stack direction="row" justifyContent="flex-end" spacing={3}>
@@ -136,8 +178,11 @@ const RestaurantTab = (props) => {
                     zIndex: 999,
                     top: '5px',
                 }}
+<<<<<<< HEAD
                // disableScrollLock={true}
                 //disableRestoreFocus
+=======
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
             >
                 <RestaurantFilterCard
                     homeRestaurant="true"

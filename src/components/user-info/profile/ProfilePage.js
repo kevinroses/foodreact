@@ -1,22 +1,46 @@
+<<<<<<< HEAD
 import React, { useEffect, useReducer, useState } from 'react'
 import { Grid, useTheme, useMediaQuery, Stack, Typography, IconButton } from '@mui/material'
 import { useQuery } from 'react-query'
 
 import wallet from '../../../../public/static/profile/wallate.png'
 import wishlist from '../../../../public/static/profile/wishlist.png'
+=======
+import React, { useEffect, useState } from 'react'
+import { Grid, Box, CircularProgress, Button } from '@mui/material'
+import { useQuery } from 'react-query'
+
+import wallet from '../../../../public/static/profile/wallate.png'
+import user from '../../../../public/static/profile/peofile.png'
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
 import order from '../../../../public/static/profile/image 38 (2).png'
 import lotaly from '../../../../public/static/profile/point.png'
 import CustomShimmerForProfile from '../../customShimmerForProfile/customShimmerForProfile'
 import ProfileStatistics from './ProfileStatistics'
+<<<<<<< HEAD
 import { ProfileApi } from '../../../hooks/react-query/config/profileApi'
 import { setUser } from '../../../redux/slices/customer'
 import { useDispatch, useSelector } from 'react-redux'
 import { getAmount } from '../../../utils/customFunctions'
 import { CustomPaperBigCard, CustomStackFullWidth, SliderCustom } from '../../../styled-components/CustomStyles.style'
+=======
+
+import { ProfileApi } from '../../../hooks/react-query/config/profileApi'
+import { setUser } from '../../../redux/slices/customer'
+import BasicInformation from './BasicInformation'
+import { useDispatch, useSelector } from 'react-redux'
+import { getAmount } from '../../../utils/customFunctions'
+import { CustomStackFullWidth } from '../../../styled-components/CustomStyles.style'
+import LoadingButton from '@mui/lab/LoadingButton'
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
 import { t } from 'i18next'
 import { useUserDelete } from '../../../hooks/react-query/user-delete/useUserDelete'
 import AuthModal from '../../auth'
 import { useRouter } from 'next/router'
+<<<<<<< HEAD
+=======
+
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
 import { onSingleErrorResponse } from '../../ErrorResponse'
 import { toast } from 'react-hot-toast'
 import { setWalletAmount } from '../../../redux/slices/cart'
@@ -25,6 +49,7 @@ import MyAddresses from './MyAddresses'
 import EditProfile from './EditProfile'
 import Meta from '../../Meta'
 import { removeToken } from '../../../redux/slices/userToken'
+<<<<<<< HEAD
 import { PrimaryButton } from '../../products-page/FoodOrRestaurant'
 import EditSvg from './EditSvg'
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
@@ -36,11 +61,14 @@ import Slider from 'react-slick'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 import { setEditProfile } from '../../../redux/slices/editProfile'
+=======
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
 
 const ProfilePage = () => {
     const router = useRouter()
     const [authModalOpen, setOpen] = useState(false)
     const [modalFor, setModalFor] = useState('sign-in')
+<<<<<<< HEAD
     const [anchorEl, setAnchorEl] = useState(null);
     const { wishLists } = useSelector((state) => state.wishList)
     const { isEditProfile } = useSelector((state) => state.isEditProfile);
@@ -49,6 +77,12 @@ const ProfilePage = () => {
     const isSmall = useMediaQuery(theme.breakpoints.down('sm'))
     const languageDirection = localStorage.getItem('direction')
     const dispatch = useDispatch()
+=======
+    const { wishLists } = useSelector((state) => state.wishList)
+    const [editProfile, setEditProfile] = useState(false)
+    const dispatch = useDispatch()
+    // const { f_name, l_name } = data
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
     const { global } = useSelector((state) => state.globalSettings)
     const { userData } = useSelector((state) => state.user)
     let currencySymbol
@@ -91,7 +125,11 @@ const ProfilePage = () => {
         handleOpenAuthModal()
         await router.push('/')
     }
+<<<<<<< HEAD
     const { mutate, isLoading: deleteUserIsLoading } = useUserDelete(onSuccessHandlerForUserDelete)
+=======
+    const { mutate } = useUserDelete(onSuccessHandlerForUserDelete)
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
     const deleteUserHandler = () => {
         mutate()
     }
@@ -99,6 +137,7 @@ const ProfilePage = () => {
         refetch().then()
         data && dispatch(setUser(data?.data))
     }, [])
+<<<<<<< HEAD
     const handleClick = (event) => {
         setAnchorEl(event.currentTarget);
     };
@@ -202,6 +241,9 @@ const ProfilePage = () => {
             },
         ],
     }
+=======
+
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
     return (
         <>
             <Meta title={data?.data?.f_name} description="" keywords="" />
@@ -212,6 +254,7 @@ const ProfilePage = () => {
                 setModalFor={setModalFor}
             />
             {data ? (
+<<<<<<< HEAD
                 <CustomStackFullWidth gap="15px">
                     {((!isSmall && isEditProfile === false) || (isSmall && isEditProfile === false)) &&
                         <SliderCustom
@@ -332,10 +375,58 @@ const ProfilePage = () => {
                         </CustomStackFullWidth>
 
                     </Stack>
+=======
+                <CustomStackFullWidth spacing={2}>
+                    <Grid container spacing={1.2}>
+                        <ProfileStatistics
+                            value={userData?.order_count}
+                            title="Orders"
+                            image={order.src}
+                            pathname="order"
+                        />
+                        {global?.customer_wallet_status !== 0 && (
+                            <ProfileStatistics
+                                value={addCurrencySymbol}
+                                title="Amount in Wallet"
+                                image={wallet.src}
+                                pathname="wallets"
+                            />
+                        )}
+                        {global?.loyalty_point_status !== 0 && (
+                            <ProfileStatistics
+                                value={userData?.loyalty_point}
+                                title="Loyalty Points"
+                                image={lotaly.src}
+                                pathname="loyalty"
+                            />
+                        )}
+                        <ProfileStatistics
+                            value={wishLists?.food?.length}
+                            title="Products in wishlist"
+                            image={user.src}
+                            pathname="wishlist"
+                        />
+                    </Grid>
+                    {editProfile ? (
+                        <EditProfile
+                            deleteUserHandler={deleteUserHandler}
+                            data={data?.data}
+                            refetch={refetch}
+                            setEditProfile={setEditProfile}
+                        />
+                    ) : (
+                        <PersonalDetails
+                            data={data}
+                            setEditProfile={setEditProfile}
+                        />
+                    )}
+                    <MyAddresses />
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                 </CustomStackFullWidth>
             ) : (
                 <CustomShimmerForProfile />
             )}
+<<<<<<< HEAD
             <CustomPopover
                 anchorEl={anchorEl}
                 setAnchorEl={setAnchorEl}
@@ -367,6 +458,8 @@ const ProfilePage = () => {
 
             </CustomPopover>
 
+=======
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
         </>
     )
 }

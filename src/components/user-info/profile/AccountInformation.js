@@ -6,10 +6,15 @@ import {
     Typography,
     Card,
     OutlinedInput,
+<<<<<<< HEAD
     Stack,
     Button,
 } from '@mui/material'
 import { SaveButton, ButtonBox, CustomDivWithBorder, CustomProfileTextfield } from './Profile.style'
+=======
+} from '@mui/material'
+import { SaveButton, ButtonBox } from './Profile.style'
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
 import { useFormik } from 'formik'
 import Visibility from '@mui/icons-material/Visibility'
 import VisibilityOff from '@mui/icons-material/VisibilityOff'
@@ -50,6 +55,7 @@ const AccountInformation = ({ data, formSubmit }) => {
         onSubmit: async (values, helpers) => {
             try {
                 formSubmitOnSuccess(values)
+<<<<<<< HEAD
                 profileFormik.values.password = ""
                 profileFormik.values.confirm_password = ""
             } catch (err) { }
@@ -176,6 +182,138 @@ const AccountInformation = ({ data, formSubmit }) => {
                     </Grid>
                 </form>
             </CustomDivWithBorder>
+=======
+            } catch (err) {}
+        },
+    })
+    const formSubmitOnSuccess = (values) => {
+        formSubmit(values)
+    }
+    const languageDirection = localStorage.getItem('direction')
+    return (
+        <>
+            <form noValidate onSubmit={profileFormik.handleSubmit}>
+                <Grid
+                    container
+                    md={12}
+                    xs={12}
+                    spacing={2}
+                    sx={{ padding: '20px' }}
+                >
+                    <Grid item md={12} xs={12} textAlign="center">
+                        <Typography
+                            variant="h3"
+                            fontWeight="700"
+                            color={theme.palette.neutral[1000]}
+                        >
+                            {t('Account Information')}
+                        </Typography>
+                    </Grid>
+                    <Grid item md={6} xs={12}>
+                        <TextField
+                            required
+                            sx={{ width: '100%' }}
+                            id="password"
+                            variant="outlined"
+                            value={profileFormik.values.password}
+                            onChange={profileFormik.handleChange}
+                            name="password"
+                            label={t('Password')}
+                            type={showPassword ? 'text' : 'password'}
+                            InputLabelProps={{ shrink: true }}
+                            error={
+                                profileFormik.touched.password &&
+                                Boolean(profileFormik.errors.password)
+                            }
+                            helperText={
+                                profileFormik.touched.password &&
+                                profileFormik.errors.password
+                            }
+                            InputProps={{
+                                endAdornment: (
+                                    <InputAdornment position="end">
+                                        <IconButton
+                                            aria-label="toggle password visibility"
+                                            onClick={() =>
+                                                setShowPassword(
+                                                    (prevState) => !prevState
+                                                )
+                                            }
+                                            //   onMouseDown={handleMouseDownPassword}
+                                            edge="end"
+                                        >
+                                            {showPassword ? (
+                                                <Visibility />
+                                            ) : (
+                                                <VisibilityOff />
+                                            )}
+                                        </IconButton>
+                                    </InputAdornment>
+                                ),
+                            }}
+                        />
+                    </Grid>
+                    <Grid item md={6} xs={12}>
+                        <TextField
+                            required
+                            sx={{ width: '100%' }}
+                            id="confirm_password"
+                            label={t('Confirm Password')}
+                            variant="outlined"
+                            name="confirm_password"
+                            type={showConfirmPassword ? 'text' : 'password'}
+                            value={profileFormik.values.confirm_password}
+                            onChange={profileFormik.handleChange}
+                            InputLabelProps={{ shrink: true }}
+                            error={
+                                profileFormik.touched.confirm_password &&
+                                Boolean(profileFormik.errors.confirm_password)
+                            }
+                            helperText={
+                                profileFormik.touched.confirm_password &&
+                                profileFormik.errors.confirm_password
+                            }
+                            touched={profileFormik.touched.confirm_password}
+                            InputProps={{
+                                endAdornment: (
+                                    <InputAdornment position="end">
+                                        <IconButton
+                                            aria-label="toggle password visibility"
+                                            onClick={() =>
+                                                setConfirmShowPassword(
+                                                    (prevState) => !prevState
+                                                )
+                                            }
+                                            //   onMouseDown={handleMouseDownPassword}
+                                            edge="end"
+                                        >
+                                            {showConfirmPassword ? (
+                                                <Visibility />
+                                            ) : (
+                                                <VisibilityOff />
+                                            )}
+                                        </IconButton>
+                                    </InputAdornment>
+                                ),
+                            }}
+                            // inputProps={{
+                            //     endAdornment:(
+                            //
+                            //     )
+                            // }}
+                        />
+                    </Grid>
+
+                    <Grid item xs={12} md={12}>
+                        <ButtonBox>
+                            <SaveButton variant="contained" type="submit">
+                                {t(' Change')}
+                            </SaveButton>
+                        </ButtonBox>
+                    </Grid>
+                </Grid>
+            </form>
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
         </>
     )
 }

@@ -117,7 +117,10 @@ const IncDecAddOn = ({
                 >
                     <Grid item md={6} sm={5} xs={5}>
                         <FormControlLabel
+<<<<<<< HEAD
                             sx={{marginInlineStart:"-10px"}}
+=======
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                             key={addOn?.id}
                             control={
                                 <Checkbox

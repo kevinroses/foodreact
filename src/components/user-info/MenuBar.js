@@ -6,10 +6,16 @@ import CustomImageContainer from '../CustomImageContainer'
 import Router from 'next/router'
 import { useSelector } from 'react-redux'
 
+<<<<<<< HEAD
 const MenuBar = ({ tabData, onClose, sidedrawer, page,setAttributeId }) => {
     const { global } = useSelector((state) => state.globalSettings)
     const handleClick = (item) => {
         setAttributeId('')
+=======
+const MenuBar = ({ tabData, onClose, sidedrawer, page }) => {
+    const { global } = useSelector((state) => state.globalSettings)
+    const handleClick = (item) => {
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
         Router.push(
             {
                 pathname: '/info',
@@ -21,7 +27,11 @@ const MenuBar = ({ tabData, onClose, sidedrawer, page,setAttributeId }) => {
         sidedrawer === 'true' && onClose()
     }
     return (
+<<<<<<< HEAD
         <List padding="0">
+=======
+        <List>
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
             {tabData.map((item, index) => {
                 if (
                     (global?.customer_wallet_status === 0 && item.id === 5) ||
@@ -55,8 +65,13 @@ const MenuBar = ({ tabData, onClose, sidedrawer, page,setAttributeId }) => {
                         >
                             <CustomStackFullWidth
                                 direction="row"
+<<<<<<< HEAD
                                 gap="10px"
                                 padding="10px 15px"
+=======
+                                spacing={1.2}
+                                padding="10px"
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                             >
                                 <CustomImageContainer
                                     src={item?.img.src}

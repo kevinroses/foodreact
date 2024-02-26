@@ -19,7 +19,11 @@ import { CustomTypographyGray } from '../error/Errors.style'
 import { StyledButton } from '../food-card/FoodCard.style'
 import { usePostNewsletterEmail } from '../../hooks/react-query/newsletter/usePostNewsletterEmail'
 import { toast } from 'react-hot-toast'
+<<<<<<< HEAD
 import { onErrorResponse, onSingleErrorResponse } from "../ErrorResponse";
+=======
+import { onSingleErrorResponse } from '../ErrorResponse'
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
 import LoadingButton from '@mui/lab/LoadingButton'
 import CustomContainer from '../container'
 import CustomImageContainer from '../CustomImageContainer'
@@ -53,7 +57,11 @@ const FooterTop = ({ landingPageData }) => {
                 { email: emailAddress },
                 {
                     onSuccess: handleSuccess,
+<<<<<<< HEAD
                     onError: onErrorResponse,
+=======
+                    onError: onSingleErrorResponse,
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                 }
             )
         } else {
@@ -65,7 +73,11 @@ const FooterTop = ({ landingPageData }) => {
         <CustomStackFullWidth
             alignItems="center"
             sx={{
+<<<<<<< HEAD
                 backgroundColor: (theme) => alpha(theme.palette.primary.light,.2),
+=======
+                backgroundColor: (theme) => theme.palette.footerTopBg,
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
             }}
         >
             <CustomContainer>

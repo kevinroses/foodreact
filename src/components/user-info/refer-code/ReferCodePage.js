@@ -11,7 +11,10 @@ import {
     Stack,
     Tooltip,
     Typography,
+<<<<<<< HEAD
     useMediaQuery,
+=======
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
 } from '@mui/material'
 import { t } from 'i18next'
 import { useSelector } from 'react-redux'
@@ -31,7 +34,10 @@ import ReferSvg2 from './ReferSvg2'
 
 const ReferCodePage = () => {
     const theme = useTheme()
+<<<<<<< HEAD
     const isXSmall = useMediaQuery(theme.breakpoints.down("sm"));
+=======
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
     const [tooltipOpen, setTooltipOpen] = useState(false)
     const { global } = useSelector((state) => state.globalSettings)
     const { userData } = useSelector((state) => state.user)
@@ -70,6 +76,7 @@ const ReferCodePage = () => {
                 description=""
                 keywords=""
             />
+<<<<<<< HEAD
             <CustomPaperBigCard
                 padding={isXSmall ? '1rem' : '30px 40px'}
                 sx={{ minHeight: !isXSmall ? '558px' : "450px" }}
@@ -205,6 +212,146 @@ const ReferCodePage = () => {
                     </Grid>
                 </Grid>
             </CustomPaperBigCard>
+=======
+            <CustomStackFullWidth
+                alignItems="center"
+                justifyContent="space-between"
+                sx={{ height: '100%' }}
+            >
+                <CustomPaperBigCard>
+                    <Grid
+                        container
+                        justifyContent="center"
+                        alignItems="center"
+                        spacing={3}
+                    >
+                        <Grid item xs={12} md={12} textAlign="center">
+                            <CustomColouredTypography>
+                                {t('Earn money on every referral')}
+                            </CustomColouredTypography>
+                            <Typography fontWeight="600">
+                                {' '}
+                                {`1 ${referral} = ${getAmount(
+                                    global?.ref_earning_exchange_rate,
+                                    currencySymbolDirection,
+                                    currencySymbol,
+                                    digitAfterDecimalPoint
+                                )}`}
+                            </Typography>
+                        </Grid>
+                        <Grid
+                            container
+                            item
+                            xs={12}
+                            md={12}
+                            spacing={2}
+                            justifyContent="center"
+                            alignItems="center"
+                        >
+                            <Grid item xs={12} md={6}>
+                                <CustomStackFullWidth
+                                    justifyContent="center"
+                                    alignItems="center"
+                                    spacing={2}
+                                >
+                                    <Stack>
+                                        <ReferSVg />
+                                    </Stack>
+                                    <CustomTypography>
+                                        {t('Refer your code to your friends')}
+                                    </CustomTypography>
+                                </CustomStackFullWidth>
+                            </Grid>
+                            <Grid item xs={12} md={6}>
+                                <CustomStackFullWidth
+                                    justifyContent="center"
+                                    alignItems="center"
+                                    spacing={2}
+                                >
+                                    <Stack>
+                                        <ReferSvg2 />
+                                    </Stack>
+                                    <CustomTypography>
+                                        {`${get} ${getAmount(
+                                            global?.ref_earning_exchange_rate,
+                                            currencySymbolDirection,
+                                            currencySymbol,
+                                            digitAfterDecimalPoint
+                                        )} ${join}`}
+                                    </CustomTypography>
+                                </CustomStackFullWidth>
+                            </Grid>
+                        </Grid>
+                        <Grid item xs={12} md={12}>
+                            <CustomTypographyGray nodefaultfont="true">
+                                {t('Your Referral Code')}
+                            </CustomTypographyGray>
+                            <Stack
+                                width="100%"
+                                justifyContent="space-between"
+                                alignItems="center"
+                                direction="row"
+                                padding="10px"
+                                backgroundColor={alpha(
+                                    theme.palette.primary.main,
+                                    0.2
+                                )}
+                                sx={{
+                                    border: '2px dashed',
+                                    borderColor: (theme) =>
+                                        theme.palette.primary.main,
+                                }}
+                            >
+                                <Stack>
+                                    <Typography>{userData.ref_code}</Typography>
+                                </Stack>
+                                <Stack>
+                                    <ClickAwayListener
+                                        onClickAway={handleTooltipClose}
+                                    >
+                                        <Tooltip
+                                            placement="top"
+                                            PopperProps={{
+                                                disablePortal: true,
+                                            }}
+                                            onClose={handleTooltipClose}
+                                            open={tooltipOpen}
+                                            disableFocusListener
+                                            disableHoverListener
+                                            disableTouchListener
+                                            title={t('Copied')}
+                                        >
+                                            {/*<Button onClick={handleTooltipOpen}>Click</Button>*/}
+                                            <IconButton
+                                                onClick={() =>
+                                                    handleTooltipOpen(
+                                                        userData.ref_code
+                                                    )
+                                                }
+                                            >
+                                                <Stack>
+                                                    <ContentCopyIcon
+                                                        sx={{
+                                                            color: theme.palette
+                                                                .primary.main,
+                                                        }}
+                                                        style={{
+                                                            fontSize: 16,
+                                                            textAlign: 'right',
+                                                        }}
+                                                    />
+                                                    {/*<Typography color={theme.palette.neutral[1000]} variant="subtitle2">{t("Tap to copy")}</Typography>*/}
+                                                </Stack>
+                                            </IconButton>
+                                        </Tooltip>
+                                    </ClickAwayListener>
+                                </Stack>
+                            </Stack>
+                        </Grid>
+                    </Grid>
+                </CustomPaperBigCard>
+            </CustomStackFullWidth>
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
         </>
     )
 }

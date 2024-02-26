@@ -19,7 +19,11 @@ const RestaurantsData = ({
     return (
         <>
             {resData?.data?.restaurants?.map((res) => (
+<<<<<<< HEAD
                 <Grid key={res?.id} item md={3} sm={matchesToMd ? 3 : 2} xs={12}>
+=======
+                <Grid key={res?.id} item md={3} sm={matchesToMd ? 3 : 2} xs={6}>
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                     <RestaurantBoxCard
                         image={res?.cover_photo}
                         name={res?.name}
@@ -31,6 +35,7 @@ const RestaurantsData = ({
                         active={res?.active}
                         open={res?.open}
                         delivery_time={res?.delivery_time}
+<<<<<<< HEAD
                         rating_count={res?.rating_count}
                         freeDelivery={
                             res?.free_delivery
@@ -39,6 +44,8 @@ const RestaurantsData = ({
                         //cuisines={restaurant?.cuisine}
                         cuisines={res?.cuisine}
                         restaurantDiscount={res?.discount}
+=======
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                     />
                 </Grid>
             ))}

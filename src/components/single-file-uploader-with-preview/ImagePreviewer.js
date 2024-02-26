@@ -7,7 +7,10 @@ import {
 import { InputLabel } from '@mui/material'
 import ImageUploaderThumbnail from './ImageUploaderThumbnail'
 import DeleteIcon from '@mui/icons-material/Delete'
+<<<<<<< HEAD
 import CustomImageContainer from '../CustomImageContainer'
+=======
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
 
 const ImagePreviewer = ({
     anchor,
@@ -17,7 +20,10 @@ const ImagePreviewer = ({
     imageUrl,
     borderRadius,
     error,
+<<<<<<< HEAD
     isIcon
+=======
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
 }) => {
 
 
@@ -40,6 +46,7 @@ const ImagePreviewer = ({
                         borderRadius={borderRadius}
                     >
                         {typeof file !== 'string' ? (
+<<<<<<< HEAD
                             <CustomImageContainer
                                 src={previewImage.url}
                                 alt="preview"
@@ -50,6 +57,13 @@ const ImagePreviewer = ({
                                 src={`${imageUrl}/${previewImage}`}
                                 alt="preview"
                                 objectFit="cover"
+=======
+                            <img src={previewImage.url} alt="preview" />
+                        ) : (
+                            <img
+                                src={`${imageUrl}/${previewImage}`}
+                                alt="pruueview"
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                             />
                         )}
                     </FilePreviewerWrapper>
@@ -65,12 +79,16 @@ const ImagePreviewer = ({
                             label={label}
                             width={width}
                             error={error}
+<<<<<<< HEAD
                             isIcon={isIcon}
+=======
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                             borderRadius={borderRadius}
                         />
                     </FilePreviewerWrapper>
                 )}
             </CustomBoxForFilePreviewer>
+<<<<<<< HEAD
             {/* <CustomImageContainer
                 src={image}
                 height="100px"
@@ -78,6 +96,8 @@ const ImagePreviewer = ({
                 borderRadius=".6rem"
                 objectFit="cover"
             /> */}
+=======
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
         </>
     )
 }

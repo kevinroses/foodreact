@@ -13,11 +13,19 @@ const FeaturedCategoryCard = ({
     name,
     id,
     categoryImageUrl,
+<<<<<<< HEAD
     height, categoryIsSticky
 }) => {
     const theme = useTheme()
     const router = useRouter()
     const isXSmall = useMediaQuery(theme.breakpoints.down('md'))
+=======
+    height,
+}) => {
+    const theme = useTheme()
+    const router = useRouter()
+    const isXSmall = useMediaQuery(theme.breakpoints.down('sm'))
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
     const image = `${categoryImageUrl}/${categoryImage}`
     const handleClick = () => {
         Router.push(
@@ -29,12 +37,16 @@ const FeaturedCategoryCard = ({
             { shallow: true }
         )
     }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
     return (
         <Grid item sx={{ overflow: 'hidden' }} onClick={handleClick}>
             <FeatureImageBox
                 justifyContent="center"
                 alignItems="center"
+<<<<<<< HEAD
                 spacing={{ xs: .5, md: 1 }}
 
             >
@@ -51,11 +63,27 @@ const FeaturedCategoryCard = ({
                             transform: 'scale(1.1)',
                         },
                         animation: 'fadeInRight 2s  1'
+=======
+                spacing={1}
+            >
+                <Box
+                    sx={{
+                        transition: `${theme.transitions.create(
+                            ['background-color', 'transform'],
+                            {
+                                duration: theme.transitions.duration.standard,
+                            }
+                        )}`,
+                        '&:hover': {
+                            transform: 'scale(1.1)',
+                        },
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                     }}
                 >
                     <CustomImageContainer
                         src={image}
                         alt={name}
+<<<<<<< HEAD
                         height="100%"
                         width="100%"
                         objectFit="cover"
@@ -64,19 +92,39 @@ const FeaturedCategoryCard = ({
                         smMaxWidth="55px"
                         cursor="pointer"
                         borderRadius={router.pathname === "/categories" && isXSmall  ? "16px":"32px" }
+=======
+                        height="120px"
+                        maxWidth="120px"
+                        width="100%"
+                        borderRadius="50%"
+                        objectFit="contained"
+                        smMb="5px"
+                        smHeight="50px "
+                        smMaxWidth="50px"
+                        cursor="pointer"
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                     />
                 </Box>
                 <Typography
                     sx={{
+<<<<<<< HEAD
                         color: (theme) => theme.palette.neutral[1200],
+=======
+                        color: (theme) => theme.palette.neutral[900],
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                         overflow: 'hidden',
                         textOverflow: 'ellipsis',
                         display: '-webkit-box',
                         WebkitLineClamp: '1',
                         WebkitBoxOrient: 'vertical',
                     }}
+<<<<<<< HEAD
                     fontSize={{ xs: '13px', sm: '14px', md: "14px" }}
                     fontWeight="400"
+=======
+                    fontSize={{ xs: '13px', sm: '14px', md: '16px' }}
+                    fontWeight="500"
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                 >
                     {name}
                 </Typography>

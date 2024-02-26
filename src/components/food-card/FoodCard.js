@@ -10,7 +10,11 @@ import {
     getConvertDiscount,
     handleBadge,
     isAvailable,
+<<<<<<< HEAD
 } from "@/utils/customFunctions"
+=======
+} from '../../utils/customFunctions'
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
 import { useSelector, useDispatch } from 'react-redux'
 import moment from 'moment/moment'
 import { useTheme } from '@mui/material/styles'
@@ -20,13 +24,20 @@ import IconButton from '@mui/material/IconButton'
 import { toast } from 'react-hot-toast'
 import StartPriceView from '../foodDetail-modal/StartPriceView'
 import { useMutation } from 'react-query'
+<<<<<<< HEAD
 import { ProductsApi } from "@/hooks/react-query/config/productsApi"
 import { addWishList, removeWishListFood } from "@/redux/slices/wishList"
 import { useWishListDelete } from "@/hooks/react-query/config/wish-list/useWishListDelete"
+=======
+import { ProductsApi } from '../../hooks/react-query/config/productsApi'
+import { addWishList, removeWishListFood } from '../../redux/slices/wishList'
+import { useWishListDelete } from '../../hooks/react-query/config/wish-list/useWishListDelete'
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
 import { RTL } from '../RTL/RTL'
 import HorizontalFoodCard from './HorizontalFoodCard'
 import FoodVerticalCard from './FoodVerticalCard'
 import { CustomChip } from './FoodCard.style'
+<<<<<<< HEAD
 import { setCart, setClearCart } from "@/redux/slices/cart"
 import CartClearModal from '../foodDetail-modal/CartClearModal'
 import useAddCartItem from "../../hooks/react-query/add-cart/useAddCartItem";
@@ -34,18 +45,30 @@ import { onErrorResponse } from "../ErrorResponse";
 import { getGuestId } from "../checkout-page/functions/getGuestUserId";
 import CustomModal from '../custom-modal/CustomModal'
 import LocationModalAlert from './LocationModalAlert'
+=======
+import { setCart, setClearCart } from '../../redux/slices/cart'
+import CartClearModal from '../foodDetail-modal/CartClearModal'
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
 
 const FoodCard = ({
     product,
     horizontal,
     productImageUrl,
     hasBackGroundSection,
+<<<<<<< HEAD
     isShop,
     isRestaurantDetails,
     inWishListPage,
 }) => {
     const theme = useTheme()
     const dispatch = useDispatch()
+=======
+}) => {
+    const theme = useTheme()
+    const dispatch = useDispatch()
+
+    const isXSmall = useMediaQuery(theme.breakpoints.down('sm'))
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
     const {
         name,
         image,
@@ -60,22 +83,32 @@ const FoodCard = ({
     } = product
 
     const [openModal, setOpenModal] = React.useState(false)
+<<<<<<< HEAD
     const [openAddressModalAlert, setOpenAddressModalAlert] = useState(false)
+=======
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
     const { t } = useTranslation()
     const { global } = useSelector((state) => state.globalSettings)
     const { token } = useSelector((state) => state.userToken)
     const imageUrl = `${productImageUrl}/${image}`
     const [modalData, setModalData] = useState([])
     const [incrOpen, setIncrOpen] = useState(false)
+<<<<<<< HEAD
     let location = undefined;
     if (typeof window !== "undefined") {
         location = localStorage.getItem("location");
     }
+=======
+
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
     const [clearCartModal, setClearCartModal] = React.useState(false)
     const handleClearCartModalOpen = () => setClearCartModal(true)
     const { wishLists } = useSelector((state) => state.wishList)
     const { cartList } = useSelector((state) => state.cart)
+<<<<<<< HEAD
     const { mutate: addToCartMutate, isLoading: addToCartLoading } = useAddCartItem();
+=======
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
     let currencySymbol
     let currencySymbolDirection
     let digitAfterDecimalPoint
@@ -142,7 +175,13 @@ const FoodCard = ({
             },
         })
     }
+<<<<<<< HEAD
 
+=======
+    // const addToFav = () => {
+    //     toast.success('add')
+    // }
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
 
     const isInList = (id) => {
         return !!wishLists?.food?.find((wishFood) => wishFood.id === id)
@@ -154,6 +193,7 @@ const FoodCard = ({
             setModalData([product])
         }
     }, [product])
+<<<<<<< HEAD
 
     const handleSuccess = (res) => {
         if (res) {
@@ -198,16 +238,43 @@ const FoodCard = ({
             quantity: modalData[0]?.quantity ?? 1,
             variations: [],
         };
+=======
+    const addToCartHandler = () => {
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
         if (cartList.length > 0) {
             const isRestaurantExist = cartList.find(
                 (item) => item.restaurant_id === product.restaurant_id
             )
             if (isRestaurantExist) {
+<<<<<<< HEAD
                 addToCartMutate(itemObject, {
                     onSuccess: handleSuccess,
                     onError: onErrorResponse,
                 })
 
+=======
+                dispatch(
+                    setCart({
+                        ...modalData[0],
+                        totalPrice: getConvertDiscount(
+                            product?.discount,
+                            product?.discount_type,
+                            modalData[0]?.price,
+                            product?.restaurant_discount,
+                            product.quantity
+                        ),
+                        selectedAddons: [],
+                        quantity: 1,
+                        itemBasePrice: getConvertDiscount(
+                            product?.discount,
+                            product?.discount_type,
+                            product?.price,
+                            product?.restaurant_discount
+                        ),
+                    })
+                )
+                toast.success(t('Item added to cart'))
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
             } else {
                 if (cartList.length !== 0) {
                     handleClearCartModalOpen()
@@ -215,16 +282,42 @@ const FoodCard = ({
             }
         } else {
             if (!isInCart) {
+<<<<<<< HEAD
                 addToCartMutate(itemObject, {
                     onSuccess: handleSuccess,
                     onError: onErrorResponse,
                 })
 
+=======
+                dispatch(
+                    setCart({
+                        ...modalData[0],
+                        totalPrice: getConvertDiscount(
+                            product?.discount,
+                            product?.discount_type,
+                            modalData[0]?.price,
+                            product?.restaurant_discount,
+                            product.quantity
+                        ),
+                        quantity: 1,
+                        selectedAddons: [],
+                        itemBasePrice: getConvertDiscount(
+                            product?.discount,
+                            product?.discount_type,
+                            product?.price,
+                            product?.restaurant_discount
+                        ),
+                    })
+                )
+                setIncrOpen(true)
+                toast.success(t('Item added to cart'))
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
             }
         }
     }
 
     const addToCart = (e) => {
+<<<<<<< HEAD
         if (location) {
             if (product?.variations.length > 0 || product?.add_ons?.length > 0) {
                 setOpenModal(true)
@@ -238,6 +331,15 @@ const FoodCard = ({
             e.stopPropagation()
             setOpenAddressModalAlert(true)
 
+=======
+        if (product?.variations.length > 0 || product?.add_ons?.length > 0) {
+            setOpenModal(true)
+        } else if (product?.available_date_ends) {
+            setOpenModal(true)
+        } else {
+            addToCartHandler()
+            e.stopPropagation()
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
         }
     }
     const getQuantity = (id) => {
@@ -259,6 +361,7 @@ const FoodCard = ({
         setIncrOpen(true)
     }
     const clearCartAlert = () => {
+<<<<<<< HEAD
         const itemObject = {
             guest_id: getGuestId(),
             model: modalData[0]?.available_date_starts
@@ -277,6 +380,30 @@ const FoodCard = ({
             onError: onErrorResponse,
         })
 
+=======
+        dispatch(setClearCart())
+        setClearCartModal(false)
+        dispatch(
+            setCart({
+                ...modalData[0],
+                totalPrice: getConvertDiscount(
+                    product?.discount,
+                    product?.discount_type,
+                    modalData[0]?.price,
+                    product?.restaurant_discount,
+                    product.quantity
+                ),
+                selectedAddons: [],
+                quantity: 1,
+                itemBasePrice: getConvertDiscount(
+                    product?.discount,
+                    product?.discount_type,
+                    product?.price,
+                    product?.restaurant_discount
+                ),
+            })
+        )
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
         toast.success(
             t(
                 'Previously added restaurant foods have been removed from cart and the selected one added'
@@ -309,10 +436,13 @@ const FoodCard = ({
                     setIncrOpen={setIncrOpen}
                     handleClickQuantityButton={handleClickQuantityButton}
                     hasBackGroundSection={hasBackGroundSection}
+<<<<<<< HEAD
                     addToCartLoading={addToCartLoading}
                     isShop={isShop}
                     isRestaurantDetails={isRestaurantDetails}
                     inWishListPage={inWishListPage}
+=======
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                 />
             ) : (
                 <FoodVerticalCard
@@ -335,8 +465,11 @@ const FoodCard = ({
                     setIncrOpen={setIncrOpen}
                     handleClickQuantityButton={handleClickQuantityButton}
                     hasBackGroundSection={hasBackGroundSection}
+<<<<<<< HEAD
                     addToCartLoading={addToCartLoading}
                     isRestaurantDetails={isRestaurantDetails}
+=======
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                 />
             )}
             {openModal && (
@@ -354,6 +487,7 @@ const FoodCard = ({
                     />
                 </RTL>
             )}
+<<<<<<< HEAD
             {
                 <CustomModal
                     openModal={openAddressModalAlert}
@@ -362,6 +496,8 @@ const FoodCard = ({
                     <LocationModalAlert setOpenAddressModalAlert={setOpenAddressModalAlert}/>
                 </CustomModal>
             }
+=======
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
             <CartClearModal
                 clearCartModal={clearCartModal}
                 setClearCartModal={setClearCartModal}

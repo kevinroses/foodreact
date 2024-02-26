@@ -56,7 +56,14 @@ const FilterCard = ({
     const handleFilterBy = () => {
         const activeFilters = stateData.filter((item) => item.isActive === true)
         dispatch(setFilterbyByDispatch(activeFilters))
+<<<<<<< HEAD
 
+=======
+        dispatch(setPriceByDispatch(storeData?.price))
+        dispatch(setRatingByDispatch(storeData?.rating))
+        dispatch(setFilterbyByCuisineDispatch(storeData.filterByCuisine))
+        handleFilter()
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
     }
     useEffect(() => {
         if (isFilterCall) {
@@ -64,23 +71,112 @@ const FilterCard = ({
         }
     }, [stateData, storeData])
 
+<<<<<<< HEAD
+=======
+    const handlePrice = (value) => {
+        setStoreData({
+            ...storeData,
+            price: value,
+        })
+        setIsFilterCall(true)
+    }
+    const handleChangeRatings = (value) => {
+        setStoreData({
+            ...storeData,
+            rating: value,
+        })
+        setIsFilterCall(true)
+    }
+    const handleSuccess = (res) => {
+        setCuisineState(res?.Cuisines)
+    }
+
+    const { data, isLoading, refetch, isRefetching } =
+        useGetCuisines(handleSuccess)
+    useEffect(() => {
+        if (foodOrRestaurant === 'restaurants') {
+            refetch()
+        }
+        dispatch(setFilterbyByCuisineDispatch([]))
+    }, [])
+
+    // useEffect(() => {
+    //     dispatch(setFilterbyByCuisineDispatch([]))
+    // }, [sideDrawerOpen])
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
     return (
         <Box>
             <WrapperForSideDrawerFilter smminwith="270px">
                 <Stack spacing={3}>
+<<<<<<< HEAD
+=======
+                    {/*<Stack spacing={1}>*/}
+                    {/*    <Typography variant="h4">{t('Sort By')}</Typography>*/}
+                    {/*    <ButtonGroups handleSortBy={handleSortBy} />*/}
+                    {/*</Stack>*/}
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                     <Stack spacing={1}>
                         <Typography variant="h4">{t('Filter By')}</Typography>
                         <Stack direction="row">
                             <CustomGroupCheckbox
                                 handleChangeFilter={handleFilterBy}
+<<<<<<< HEAD
                                 checkboxData={stateData?.slice(1)}
+=======
+                                // checkboxState={filterData.filterBy}
+                                checkboxData={stateData}
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                                 stateData={stateData}
                                 setStateData={setStateData}
                                 setIsFilterCall={setIsFilterCall}
                             />
                         </Stack>
                     </Stack>
+<<<<<<< HEAD
 
+=======
+                    {/*{foodOrRestaurant === 'restaurants' && (*/}
+                    {/*    <Stack spacing={1}>*/}
+                    {/*        <Typography variant="h4">*/}
+                    {/*            {t('Cuisines')}*/}
+                    {/*        </Typography>*/}
+                    {/*        <SimpleBar style={{ maxHeight: 200 }}>*/}
+                    {/*            <CustomGroupCheckbox*/}
+                    {/*                isLoading={isLoading}*/}
+                    {/*                checkboxData={cuisineState?.map((item) => {*/}
+                    {/*                    return {*/}
+                    {/*                        ...item,*/}
+                    {/*                        isActive: false,*/}
+                    {/*                    }*/}
+                    {/*                })}*/}
+                    {/*                forcuisine="true"*/}
+                    {/*                setCuisineState={setCuisineState}*/}
+                    {/*                cuisineState={cuisineState}*/}
+                    {/*            />*/}
+                    {/*        </SimpleBar>*/}
+                    {/*    </Stack>*/}
+                    {/*)}*/}
+                    {foodOrRestaurant === 'products' && (
+                        <Stack spacing={1} width="100%">
+                            <Typography variant="h4">{t('Price')}</Typography>
+                            <CustomSlider
+                                handleChangePrice={handlePrice}
+                                priceValue={filterData.price}
+                            />
+                        </Stack>
+                    )}
+                    <Stack
+                        spacing={1}
+                        justifyContent="center"
+                        alignItems="center"
+                    >
+                        <Typography variant="h4">{t('Rating')}</Typography>
+                        <CustomRatings
+                            handleChangeRatings={handleChangeRatings}
+                            ratingValue={filterData.rating}
+                        />
+                    </Stack>
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                 </Stack>
             </WrapperForSideDrawerFilter>
         </Box>

@@ -17,7 +17,11 @@ const CustomTooltip = styled(({ className, ...props }) => (
        color: alpha(theme.palette.primary.main,.8),
     },
     [`& .${tooltipClasses.tooltip}`]: {
+<<<<<<< HEAD
         backgroundColor: theme.palette.primary.main,
+=======
+        backgroundColor: alpha(theme.palette.primary.main,.8),
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
         color:theme.palette.neutral[100]
     },
 }));
@@ -90,6 +94,17 @@ export const ChoiceValues = (props) => {
     }
     return (
         <CustomStackFullWidth
+<<<<<<< HEAD
+=======
+            paddingLeft={{
+                xs: '10px',
+                md: '0px',
+            }}
+            paddingRight={{
+                xs: '5px',
+                md: '10px',
+            }}
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
         >
             <FoodTitleTypography
                 gutterBottom
@@ -109,6 +124,7 @@ export const ChoiceValues = (props) => {
 
                 {/*{choice.required === 'on' ? t('(required)') : t('(optional)')}:*/}
             </FoodTitleTypography>
+<<<<<<< HEAD
             <FormControl sx={{marginInlineStart:"-10px"}}>
                 <RadioGroup
                     aria-labelledby="demo-radio-buttons-group-label"
@@ -193,6 +209,85 @@ export const ChoiceValues = (props) => {
                             </CustomTypographyLabel>
                         </CustomStackFullWidth>
                         </label>
+=======
+            <FormControl fullWidth>
+                <RadioGroup
+                    aria-labelledby="demo-radio-buttons-group-label"
+                    name="radio-buttons-group"
+                    sx={{
+                        marginLeft: '20px',
+                        width: {
+                            xs: '90%',
+                            sm: '95%',
+                            md: '95%',
+                        },
+                    }}
+
+                >
+                    {choice.values?.map((option, index) => (
+                        <CustomStackFullWidth
+                            key={index}
+                            direction="row"
+                            alignItems="center"
+                            justifyContent="space-between"
+                            spacing={1}
+                        >
+                            <FormControlLabel
+                                value={option.label}
+                                control={
+                                    choice?.type === 'single' ? (
+                                        <Radio
+                                            checked={radioCheckHandler(
+                                                choiceIndex,
+                                                option,
+                                                index
+                                            )}
+                                            onClick={(e) =>
+                                                handleRadioData(
+                                                    e,
+                                                    option,
+                                                    index,
+                                                    choiceIndex,
+                                                    choice.required,
+                                                    choice?.type
+                                                )
+                                            }
+                                        />
+                                    ) : (
+                                        <Checkbox
+                                            defaultChecked={option?.isSelected}
+                                            onChange={(e) =>
+                                                changeChoices(
+                                                    e,
+                                                    option,
+                                                    index,
+                                                    choiceIndex,
+                                                    choice.required,
+                                                    choice?.type,
+                                                    radioData.isChecked
+                                                )
+                                            }
+                                        />
+                                    )
+                                }
+                                label={
+                                    <CustomTypographyLabel>
+                                        {option.label}
+                                    </CustomTypographyLabel>
+                                }
+                            />
+                            <CustomTypographyLabel>
+                                {option.optionPrice === '0'
+                                    ? '0'
+                                    : `+${getAmount(
+                                          option.optionPrice,
+                                          currencySymbolDirection,
+                                          currencySymbol,
+                                          digitAfterDecimalPoint
+                                      )}`}
+                            </CustomTypographyLabel>
+                        </CustomStackFullWidth>
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                     ))}
                 </RadioGroup>
             </FormControl>

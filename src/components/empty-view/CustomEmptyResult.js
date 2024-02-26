@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { CustomStackFullWidth } from '../../styled-components/CustomStyles.style'
 import Image from 'next/image'
 import nofood from '../../assets/gif/no-food.gif'
+<<<<<<< HEAD
 import { Stack, Typography, useTheme } from '@mui/material'
 import { CustomTypographyGray } from '../../styled-components/CustomTypographies.style'
 import { useTranslation } from 'react-i18next'
@@ -21,6 +22,21 @@ const CustomEmptyResult = ({ label, image, height, width, subTitle }) => {
                 {subTitle && <Typography color={theme.palette.neutral[400]} fontSize="12px" fontWeight={400}>
                     {t(subTitle)}
                 </Typography>}
+=======
+import { Stack } from '@mui/material'
+import { CustomTypographyGray } from '../../styled-components/CustomTypographies.style'
+import { useTranslation } from 'react-i18next'
+
+const CustomEmptyResult = ({ label,image }) => {
+    const { t } = useTranslation()
+    return (
+        <CustomStackFullWidth alignItems="center" justifyContent="center" >
+            <Image src={image?image.src:nofood.src} alt="my gif" height={300} width={300}/>
+            <Stack alignItems="center" justifyContent="center">
+                <CustomTypographyGray>
+                    {label ? t(label) : t('Not found')}
+                </CustomTypographyGray>
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
             </Stack>
         </CustomStackFullWidth>
     )

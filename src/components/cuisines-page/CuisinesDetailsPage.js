@@ -44,9 +44,13 @@ const CuisinesDetailsPage = ({ data, isLoading }) => {
                                     freeDelivery={restaurant?.free_delivery}
                                     delivery_time={restaurant?.delivery_time}
                                     cuisines={restaurant?.cuisine}
+<<<<<<< HEAD
                                     rating_count={restaurant?.rating_count}
                                     coupons={restaurant?.coupons}
 
+=======
+                                    v
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                                 />
                             </Grid>
                         )

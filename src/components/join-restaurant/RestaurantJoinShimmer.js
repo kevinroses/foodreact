@@ -1,12 +1,38 @@
 import React from 'react'
+<<<<<<< HEAD
+=======
+import PropTypes from 'prop-types'
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
 import {
     CustomBoxFullWidth,
     CustomStackFullWidth,
 } from '../../styled-components/CustomStyles.style'
 import {
+<<<<<<< HEAD
     Grid,
 } from '@mui/material'
 import Skeleton from '@mui/material/Skeleton'
+=======
+    Autocomplete,
+    Grid,
+    InputLabel,
+    Paper,
+    Typography,
+} from '@mui/material'
+import RestaurantDetailsForm from './RestaurantDetailsForm'
+import ImageSection from './ImageSection'
+import MapForRestaurantJoin from './MapForRestaurantJoin'
+import OwnerForm from './OwnerForm'
+import RestaurantLoginForm from './RestaurantLoginForm'
+import LoadingButton from '@mui/lab/LoadingButton'
+import Skeleton from '@mui/material/Skeleton'
+import CustomTextFieldWithFormik from '../form-fields/CustomTextFieldWithFormik'
+import CustomMapSearch from './CustomMapSearch'
+import GoogleMapComponent from '../landingpage/google-map/GoogleMapComponent'
+import CustomSelectWithFormik from '../custom-select/CustomSelectWithFormik'
+import ImageUploaderWithPreview from '../single-file-uploader-with-preview/ImageUploaderWithPreview'
+import { CustomTypography } from '../custom-tables/Tables.style'
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
 
 const RestaurantJoinShimmer = (props) => {
     return (

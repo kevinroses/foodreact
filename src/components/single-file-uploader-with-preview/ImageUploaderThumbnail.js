@@ -1,6 +1,7 @@
 import React from 'react'
 import { CustomDotBox } from '../file-previewer/FilePreviewer.style'
 import CloudUploadIcon from '@mui/icons-material/CloudUpload'
+<<<<<<< HEAD
 import CreateOutlinedIcon from '@mui/icons-material/CreateOutlined';
 import { IconButton, Stack, Typography, useTheme } from '@mui/material'
 import ProfileImagePlaceholder from '../../assets/images/ProfileImagePlaceholder'
@@ -34,6 +35,16 @@ const ImageUploaderThumbnail = ({ label, maxWidth, width, error, borderRadius, i
                 </Stack>
 
             }
+=======
+import { Stack } from '@mui/material'
+
+const ImageUploaderThumbnail = ({ label, maxWidth, width, error,borderRadius }) => {
+
+    return (
+        <CustomDotBox width={width} error={error} borderRadius={borderRadius}>
+            <CloudUploadIcon />
+            <Stack>{label}</Stack>
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
         </CustomDotBox>
     )
 }

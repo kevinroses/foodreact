@@ -35,8 +35,12 @@ export const CustomStepperStyled = styled(Stepper)(({ theme }) => ({
         borderColor: theme.palette.primary.main,
         border:`3px solid ${theme.palette.primary.main}`,
         borderRadius:"50%",
+<<<<<<< HEAD
         padding: "2px",
 
+=======
+        padding: "2px"
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
     },
     "& .MuiStepLabel-iconContainer .Mui-completed": {
         width: "32px",
@@ -48,6 +52,7 @@ export const CustomStepperStyled = styled(Stepper)(({ theme }) => ({
 
     "& .MuiStepLabel-label": {
         marginLeft: "20px",
+<<<<<<< HEAD
         [theme.breakpoints.down('sm')]: {
             marginLeft: "0px",
         },
@@ -57,6 +62,8 @@ export const CustomStepperStyled = styled(Stepper)(({ theme }) => ({
                 fontSize: "12px", // Adjust the font size for smaller screens if needed
             },
         }
+=======
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
     },
     "& .MuiStepLabel-iconContainer ": {
         width: "32px",

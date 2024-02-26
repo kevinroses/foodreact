@@ -12,6 +12,7 @@ const FoodRating = ({ product_avg_rating }) => {
     const starColor = theme.palette.whiteContainer.main
     const { global } = useSelector((state) => state.globalSettings)
 
+<<<<<<< HEAD
     // let digitAfterDecimalPoint
     // if (global) {
     //     digitAfterDecimalPoint = global.digit_after_decimal_point
@@ -19,6 +20,15 @@ const FoodRating = ({ product_avg_rating }) => {
     return (
         <CustomChip
             background={theme.palette.customColor.eleven}
+=======
+    let digitAfterDecimalPoint
+    if (global) {
+        digitAfterDecimalPoint = global.digit_after_decimal_point
+    }
+    return (
+        <CustomChip
+            background={theme.palette.whiteContainer.dark}
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
             label={
                 <Stack
                     direction="row"
@@ -26,6 +36,7 @@ const FoodRating = ({ product_avg_rating }) => {
                     spacing={0.5}
                     alignItems="center"
                 >
+<<<<<<< HEAD
                     <Typography
                         fontSize="12px"
                         fontWeight="600"
@@ -45,6 +56,25 @@ const FoodRating = ({ product_avg_rating }) => {
                             color: starColor,
                         }}
                     />
+=======
+                    <StarIcon
+                        style={{
+                            width: '15px',
+                            height: '15px',
+                            color: starColor,
+                        }}
+                    />
+                    <Typography
+                        fontSize={{ xs: '12px', sm: '13px', md: '13px' }}
+                        fontWeight="400"
+                        color={theme.palette.whiteContainer.main}
+                    >
+                        {getNumberWithConvertedDecimalPoint(
+                            product_avg_rating,
+                            digitAfterDecimalPoint
+                        )}
+                    </Typography>
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                 </Stack>
             }
         ></CustomChip>

@@ -13,6 +13,7 @@ import LoadingButton from '@mui/lab/LoadingButton'
 import Link from 'next/link'
 import FormGroup from '@mui/material/FormGroup'
 import Checkbox from '@mui/material/Checkbox'
+<<<<<<< HEAD
 import { useDispatch, useSelector } from 'react-redux'
 import { setOfflineInfoStep, setOfflineWithPartials } from "../../../redux/slices/OfflinePayment";
 import Router, { useRouter } from 'next/router'
@@ -180,6 +181,56 @@ const PlaceOrder = (props) => {
             }
 
         </CustomStackFullWidth >
+=======
+
+const PlaceOrder = (props) => {
+    const { placeOrder, orderLoading } = props
+    const [checked, setChecked] = useState(false)
+    const handleChange = (e) => {
+        setChecked(e.target.checked)
+    }
+    const { t } = useTranslation()
+    return (
+        <CustomStackFullWidth alignItems="center" spacing={2} marginTop="1rem">
+            <FormGroup>
+                <FormControlLabel
+                    control={
+                        <Checkbox checked={checked} onChange={handleChange} />
+                    }
+                    label={
+                        <CustomTypography sx={{ fontSize: '13px' }}>
+                            {t(
+                                `I agree that placing the order places me under`
+                            )}{' '}
+                            <Link
+                                href="/terms-and-conditions"
+                                style={{ textDecoration: 'underline' }}
+                            >
+                                {t('Terms and Conditions')}
+                            </Link>{' '}
+                            {t('&')}
+                            <Link
+                                href="/privacy-policy"
+                                style={{ textDecoration: 'underline' }}
+                            >
+                                {t('Privacy Policy')}
+                            </Link>
+                        </CustomTypography>
+                    }
+                />
+            </FormGroup>
+            <LoadingButton
+                type="submit"
+                fullWidth
+                variant="contained"
+                onClick={placeOrder}
+                loading={orderLoading}
+                disabled={!checked}
+            >
+                {t('Place Order')}
+            </LoadingButton>
+        </CustomStackFullWidth>
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
     )
 }
 

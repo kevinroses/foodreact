@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { useEffect } from "react";
 
 import { AppBarStyle } from './Navbar.style'
@@ -82,6 +83,23 @@ const Navigation = () => {
         <AppBarStyle disableGutters={true}>
             <TopNav cartListRefetch={cartListRefetch} />
           { !isSmall && <SecondNavbar isSticky={isSticky} cartListRefetch={cartListRefetch} /> }
+=======
+import React from 'react'
+
+import { AppBarStyle } from './Navbar.style'
+//import SecondNavbar from './second-navbar/SecondNavbar'
+// import TopNav from './top-navbar/TopNav'
+import dynamic from 'next/dynamic'
+
+const Navigation = () => {
+    const SecondNavbar = dynamic(() => import('./second-navbar/SecondNavbar'), {
+        ssr: false,
+    })
+    return (
+        <AppBarStyle disableGutters={true}>
+            {/*<TopNav />*/}
+            <SecondNavbar />
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
         </AppBarStyle>
     )
 }

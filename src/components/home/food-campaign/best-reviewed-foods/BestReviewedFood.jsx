@@ -1,7 +1,14 @@
+<<<<<<< HEAD
 import React, { memo, useEffect, useRef, useState } from 'react'
 import Slider from 'react-slick'
 import Box from '@mui/material/Box'
 import { Button, Grid, IconButton, Stack, Typography, styled } from '@mui/material'
+=======
+import React, { memo, useRef, useState } from 'react'
+import Slider from 'react-slick'
+import Box from '@mui/material/Box'
+import { Button, Grid, IconButton, Stack, Typography } from '@mui/material'
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
 import ArrowBackIcon from '@mui/icons-material/ArrowBack'
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward'
 import FoodCard from '../../../food-card/FoodCard'
@@ -9,13 +16,28 @@ import FoodCard from '../../../food-card/FoodCard'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 import { useDispatch, useSelector } from 'react-redux'
+<<<<<<< HEAD
 import { useRouter } from 'next/router'
 import { useTranslation } from 'react-i18next'
+=======
+import { useQuery } from 'react-query'
+import { MostReviewedApi } from '../../../../hooks/react-query/config/productsApi'
+import { useRouter } from 'next/router'
+import { AllRoutes } from '../../../../AllRoutes'
+import {
+    HomeTitleTypography,
+    LeftArrowStyle,
+    RightArrowStyle,
+} from '../../HomeStyle'
+import { useTranslation } from 'react-i18next'
+import CustomShimmerForBestFood from '../../../CustomShimmer/CustomShimmerForBestFood'
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
 import {
     CustomStackFullWidth,
     CustomViewAll,
     SliderCustom,
 } from '../../../../styled-components/CustomStyles.style'
+<<<<<<< HEAD
 import { useTheme } from '@mui/material/styles'
 import useMediaQuery from '@mui/material/useMediaQuery'
 import best_foods from '../../../../../public/static/best_foods.svg'
@@ -58,6 +80,25 @@ export const ReferButton = styled(Button)(({ theme }) => ({
     },
 
 }))
+=======
+import { CustomTypography } from '../../../custom-tables/Tables.style'
+import FeaturedCategoryCard from '../../../featured-category-item/FeaturedCategoryCard'
+import CustomShimmerCategories from '../../../CustomShimmer/CustomShimmerCategories'
+import { CustomIconButton, CustomSideOverLay } from '../FoodCampaign.style'
+import { useTheme } from '@mui/material/styles'
+import useMediaQuery from '@mui/material/useMediaQuery'
+import { settings } from './SliderSetting'
+import { onSingleErrorResponse } from '../../../ErrorResponse'
+import best_foods from '../../../../../public/static/best_foods.svg'
+import CustomImageContainer from '../../../CustomImageContainer'
+import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight'
+import FoodCardShimmer from '../../../food-card/FoodCarShimmer'
+import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew'
+import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos'
+import { HandleNext, HandlePrev } from '../../../CustomSliderIcon'
+import { setHandleHomePage } from '../../../../redux/slices/global'
+import Skeleton from '@mui/material/Skeleton'
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
 const BestReviewedFood = ({ data, isLoading }) => {
     const dispatch = useDispatch()
     const { t } = useTranslation()
@@ -71,17 +112,25 @@ const BestReviewedFood = ({ data, isLoading }) => {
     const isXSmall = useMediaQuery(theme.breakpoints.up('sm'))
 
     const { global } = useSelector((state) => state.globalSettings)
+<<<<<<< HEAD
     const [fullWidth, setFullWidth] = useState(true);
     useEffect(() => {
         if (global?.ref_earning_status && global?.ref_earning_exchange_rate !== 0)
             setFullWidth(false)
     }, [])
+=======
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
     const languageDirection = localStorage.getItem('direction')
 
     const settings = {
         speed: 500,
+<<<<<<< HEAD
         slidesToShow: !fullWidth ? 3.45 : 4.45,
         slidesToScroll: 1,
+=======
+        slidesToShow: 4.7,
+        slidesToScroll: 3,
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
         initialSlide: 0,
         infinite: false,
         nextArrow: hoverOn && <HandleNext />,
@@ -91,8 +140,14 @@ const BestReviewedFood = ({ data, isLoading }) => {
             {
                 breakpoint: 1600,
                 settings: {
+<<<<<<< HEAD
                     slidesToShow: !fullWidth ? 3.3 : 4.3,
                     slidesToScroll: 5,
+=======
+                    slidesToShow: 5,
+                    slidesToScroll: 5,
+
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                     initialSlide: 0,
                     // dots: true
                 },
@@ -100,8 +155,14 @@ const BestReviewedFood = ({ data, isLoading }) => {
             {
                 breakpoint: 1340,
                 settings: {
+<<<<<<< HEAD
                     slidesToShow: !fullWidth ? 3.2 : 4.2,
                     slidesToScroll: 5,
+=======
+                    slidesToShow: 4.5,
+                    slidesToScroll: 5,
+
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                     initialSlide: 0,
                     // dots: true
                 },
@@ -109,7 +170,11 @@ const BestReviewedFood = ({ data, isLoading }) => {
             {
                 breakpoint: 1075,
                 settings: {
+<<<<<<< HEAD
                     slidesToShow: !fullWidth ? 2.9 : 3.9,
+=======
+                    slidesToShow: 4,
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                     slidesToScroll: 1,
                     initialSlide: 0,
                     // dots: true
@@ -118,8 +183,13 @@ const BestReviewedFood = ({ data, isLoading }) => {
             {
                 breakpoint: 999,
                 settings: {
+<<<<<<< HEAD
                     slidesToShow: 3.3,
                     slidesToScroll: 1,
+=======
+                    slidesToShow: 3.5,
+                    slidesToScroll: 3,
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
 
                     // dots: true
                     initialSlide: 0,
@@ -128,8 +198,13 @@ const BestReviewedFood = ({ data, isLoading }) => {
             {
                 breakpoint: 800,
                 settings: {
+<<<<<<< HEAD
                     slidesToShow: 2.6,
                     slidesToScroll: 1,
+=======
+                    slidesToShow: 3,
+                    slidesToScroll: 3,
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                     // initialSlide: 2
 
                     initialSlide: 0,
@@ -138,17 +213,29 @@ const BestReviewedFood = ({ data, isLoading }) => {
             {
                 breakpoint: 670,
                 settings: {
+<<<<<<< HEAD
                     slidesToShow: 2.3,
                     slidesToScroll: 1,
+=======
+                    slidesToShow: 2.5,
+                    slidesToScroll: 3,
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
 
                     initialSlide: 0,
                 },
             },
             {
+<<<<<<< HEAD
                 breakpoint: 500,
                 settings: {
                     slidesToShow: 1.6,
                     slidesToScroll: 1,
+=======
+                breakpoint: 540,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 3,
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
 
                     initialSlide: 0,
                 },
@@ -156,8 +243,13 @@ const BestReviewedFood = ({ data, isLoading }) => {
             {
                 breakpoint: 400,
                 settings: {
+<<<<<<< HEAD
                     slidesToShow: 1.25,
                     slidesToScroll: 1,
+=======
+                    slidesToShow: 1.7,
+                    slidesToScroll: 2,
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
 
                     // dots: true
                     initialSlide: 0,
@@ -186,6 +278,7 @@ const BestReviewedFood = ({ data, isLoading }) => {
             { shallow: router.pathname === '/home' ? true : false }
         )
     }
+<<<<<<< HEAD
     const handleClickRefer = () => {
         const token = getToken()
         if (token) {
@@ -195,13 +288,19 @@ const BestReviewedFood = ({ data, isLoading }) => {
         }
 
     }
+=======
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
     return (
         <Grid
             container
             paddingTop={bestReviewedFoods?.length > 0 && '1.9rem'}
             gap="1.4rem"
         >
+<<<<<<< HEAD
             {(bestReviewedFoods?.length > 0 && !isLoading) && (
+=======
+            {bestReviewedFoods?.length > 0 && (
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                 <Grid item xs={12} md={12}>
                     <CustomStackFullWidth
                         direction="row"
@@ -217,8 +316,12 @@ const BestReviewedFood = ({ data, isLoading }) => {
                             <Typography
                                 variant="h3"
                                 color={theme.palette.neutral[1000]}
+<<<<<<< HEAD
                                 fontSize={{ xs: "16px", md: "20px" }}
                                 fontWeight={{ xs: "500", md: "700" }}
+=======
+                                fontWeight="500"
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                             >
                                 {t('Best Reviewed Foods')}
                             </Typography>
@@ -229,13 +332,42 @@ const BestReviewedFood = ({ data, isLoading }) => {
                             spacing={1}
                             alignItems="center"
                         >
+<<<<<<< HEAD
 
                                 <Typography fontSize="14px" fontWeight="500" >{t('View all')}</Typography>
 
+=======
+                            {isXSmall && (
+                                <Typography>{t('View all')}</Typography>
+                            )}
+
+                            <IconButton
+                                sx={{
+                                    filter: 'drop-shadow(0px 1px 3px rgba(0, 0, 0, 0.1))',
+                                    flex: 'none',
+                                    order: '1',
+                                    flexGrow: '0',
+                                    boxShadow: 3,
+                                }}
+                            >
+                                <KeyboardArrowRightIcon
+                                    color="primary"
+                                    style={{
+                                        width: '19px',
+                                        height: '19px',
+                                        transform:
+                                            languageDirection === 'rtl' &&
+                                            'rotate(180deg)',
+                                    }}
+                                    fontWeight="700"
+                                />
+                            </IconButton>
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                         </CustomViewAll>
                     </CustomStackFullWidth>
                 </Grid>
             )}
+<<<<<<< HEAD
             {!isLoading ? (
                 <Grid
                     item
@@ -346,6 +478,65 @@ const BestReviewedFood = ({ data, isLoading }) => {
                         <Skeleton
                             variant="rectangular"
                             width="40%"
+=======
+            <Grid
+                item
+                xs={12}
+                sm={12}
+                md={12}
+                onMouseEnter={() => setHoverOn(true)}
+                onMouseLeave={() => setHoverOn(false)}
+                sx={{ position: 'relative' }}
+            >
+                {!isLoading ? (
+                    <Grid
+                        container
+                        item
+                        lg={12}
+                        md={12}
+                        xs={12}
+                        position="relative"
+                    >
+                        <CustomStackFullWidth justifyContent="right">
+                            <SliderCustom languageDirection={languageDirection}>
+                                <Slider
+                                    ref={foodCampaignSliderRef}
+                                    {...settings}
+                                >
+                                    {bestReviewedFoods
+                                        .slice(0, 10)
+                                        .map((product) => {
+                                            if (
+                                                product?.variations === null ||
+                                                product?.variations[0]
+                                                    ?.values ||
+                                                product?.variations?.length ===
+                                                    0
+                                            ) {
+                                                return (
+                                                    <FoodCard
+                                                        key={product?.id}
+                                                        hasBackGroundSection="false"
+                                                        product={product}
+                                                        global={global}
+                                                        productImageUrl={
+                                                            global?.base_urls
+                                                                ?.product_image_url
+                                                        }
+                                                    />
+                                                )
+                                            }
+                                        })}
+                                </Slider>
+                            </SliderCustom>
+                        </CustomStackFullWidth>
+                    </Grid>
+                ) : (
+                    <Stack marginTop="40px" spacing={2}>
+                        <Skeleton
+                            variant="rectangular"
+                            width="400px"
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                             height="20px"
                         />
                         <SliderCustom>
@@ -358,8 +549,14 @@ const BestReviewedFood = ({ data, isLoading }) => {
                             </Slider>
                         </SliderCustom>
                     </Stack>
+<<<<<<< HEAD
                 </Grid>
             )}
+=======
+                )}
+                {/*{hoverOn && <CustomSideOverLay left="0" right="unset"  />}*/}
+            </Grid>
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
         </Grid>
     )
 }

@@ -1,4 +1,5 @@
 import React, { useCallback, useEffect, useMemo, useState } from 'react'
+<<<<<<< HEAD
 import { GoogleMap, useJsApiLoader, Marker, MarkerF, InfoWindowF } from "@react-google-maps/api";
 import { CircularProgress } from '@mui/material'
 import { Stack } from '@mui/material'
@@ -8,13 +9,24 @@ import { Box } from "@mui/system";
 import { t } from "i18next";
 import { useTheme } from "@emotion/react";
 
+=======
+import { GoogleMap, useJsApiLoader, Marker } from '@react-google-maps/api'
+
+import { CircularProgress } from '@mui/material'
+import { Stack } from '@mui/material'
+import markerIcon from '../../../../public/static/markerIcon.png'
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
 const containerStyle = {
     width: '100%',
     height: '450px',
 }
 
+<<<<<<< HEAD
 const MapComponent = ({ latitude, longitude, data,handleRouteToRestaurant }) => {
     const theme = useTheme()
+=======
+const MapComponent = ({ latitude, longitude }) => {
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
     const center = {
         lat: parseFloat(latitude),
         lng: parseFloat(longitude),
@@ -37,7 +49,10 @@ const MapComponent = ({ latitude, longitude, data,handleRouteToRestaurant }) => 
     })
 
     const [map, setMap] = useState(null)
+<<<<<<< HEAD
     const [hoveredMarkerId, setHoveredMarkerId] = useState(null)
+=======
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
 
     const onLoad = useCallback(function callback(map) {
         setMap(map)
@@ -46,7 +61,10 @@ const MapComponent = ({ latitude, longitude, data,handleRouteToRestaurant }) => 
     const onUnmount = React.useCallback(function callback(map) {
         setMap(null)
     }, [])
+<<<<<<< HEAD
 
+=======
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
     useEffect(() => {
         if (map) {
             setIsMounted(true)
@@ -59,6 +77,7 @@ const MapComponent = ({ latitude, longitude, data,handleRouteToRestaurant }) => 
                 mapContainerStyle={containerStyle}
                 center={center}
                 onLoad={onLoad}
+<<<<<<< HEAD
                 zoom={12}
                 onUnmount={onUnmount}
                 options={options}
@@ -117,6 +136,13 @@ const MapComponent = ({ latitude, longitude, data,handleRouteToRestaurant }) => 
                         </MarkerF>
                     ))}
                 </>  :<> {isMounted ? (
+=======
+                zoom={10}
+                onUnmount={onUnmount}
+                options={options}
+            >
+                {isMounted ? (
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                     <Marker
                         position={center}
                         icon={{
@@ -138,6 +164,7 @@ const MapComponent = ({ latitude, longitude, data,handleRouteToRestaurant }) => 
                     >
                         <CircularProgress />
                     </Stack>
+<<<<<<< HEAD
                 )}</>  }
 
 
@@ -145,6 +172,13 @@ const MapComponent = ({ latitude, longitude, data,handleRouteToRestaurant }) => 
         </Stack>
     ) : (
         <CircularProgress />
+=======
+                )}
+            </GoogleMap>
+        </Stack>
+    ) : (
+        <></>
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
     )
 }
 

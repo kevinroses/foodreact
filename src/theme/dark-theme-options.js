@@ -11,13 +11,19 @@ const neutral = {
     800: '#1F2937',
     900: '#D1D5DB',
     1000: '#FFFFFF',
+<<<<<<< HEAD
     1200: '#e1e6e6',
+=======
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
     1400: 'rgba(56, 52, 52, 0.8)',
     1500: 'rgba(239, 120, 34, 0.6)',
     1600: '#EF78224D',
     1700: '#192238',
     1800: '#1C1919',
+<<<<<<< HEAD
 
+=======
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
 }
 
 const table = {
@@ -86,7 +92,11 @@ const warning = {
     contrastText: neutral[900],
 }
 const whiteText = {
+<<<<<<< HEAD
     main: '#FFFFFF',
+=======
+    main: '#FFFFF',
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
 }
 const footerTopBgColor = '#00000050'
 const error = {
@@ -127,11 +137,14 @@ const customColor = {
     eight: '#FFBE0B',
     nine: '#FB5607',
     ten: '#2c2c2c',
+<<<<<<< HEAD
     eleven: '#039D55',
     twelve: '#334257',
     thirteen: "#FFE5CD",
     fourteen: "#FCEA10",
     fifteen : text.secondary,
+=======
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
 }
 export const darkThemeOptions = {
     components: {
@@ -272,7 +285,10 @@ export const darkThemeOptions = {
         footerCenterBg,
         footerMiddleBg,
         newsletterBG,
+<<<<<<< HEAD
         whiteText,
+=======
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
         footerTopBgColor,
         nonVeg,
         sectionBg,
@@ -310,8 +326,11 @@ export const darkThemeOptions = {
         '0px 25px 50px rgba(0, 0, 0, 0.24)',
         '0px 25px 50px rgba(0, 0, 0, 0.24)',
         '0px 25px 50px rgba(0, 0, 0, 0.24)',
+<<<<<<< HEAD
         '0px 10px 20px -5px rgba(145, 158, 171, 0.10)',
         '0px 10px 20px -5px rgba(145, 158, 171, 0.20)',
         '0px 0px 2px 0px rgba(51, 66, 87, 0.40)',
+=======
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
     ],
 }

@@ -33,14 +33,22 @@ import {
 } from './Landingpage.style'
 import { useTheme } from '@mui/material/styles'
 import { toast } from 'react-hot-toast'
+<<<<<<< HEAD
 import { useDispatch, useSelector } from 'react-redux'
 import { setUserLocationUpdate, setZoneData } from '../../redux/slices/global'
+=======
+import { useDispatch } from 'react-redux'
+import { setZoneData } from '../../redux/slices/global'
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
 import { onErrorResponse, onSingleErrorResponse } from '../ErrorResponse'
 import LocationEnableCheck from './LocationEnableCheck'
 import { Box } from '@mui/system'
 import useMediaQuery from '@mui/material/useMediaQuery'
 import { retry } from '@reduxjs/toolkit/query'
+<<<<<<< HEAD
 import { AnimationDots } from "../products-page/AnimationDots";
+=======
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
 export function FacebookCircularProgress(props) {
     return (
         <Box sx={{ position: 'relative' }}>
@@ -115,7 +123,10 @@ const HeroLocationForm = ({ mobileview, handleModalClose }) => {
     const [placeId, setPlaceId] = useState('')
     const [placeDescription, setPlaceDescription] = useState(undefined)
     const [placeDetailsEnabled, setPlaceDetailsEnabled] = useState(false)
+<<<<<<< HEAD
     const { userLocationUpdate } = useSelector((state) => state.globalSettings)
+=======
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
     const [errorText, setErrorText] = React.useState()
     const dispatch = useDispatch()
     const isXSmall = useMediaQuery(theme.breakpoints.down('sm'))
@@ -176,7 +187,10 @@ const HeroLocationForm = ({ mobileview, handleModalClose }) => {
         if (res?.data?.zone_data?.length > 0) {
             handleModalClose()
             toast.success(t('New location has been set.'))
+<<<<<<< HEAD
             dispatch(setUserLocationUpdate(!userLocationUpdate))
+=======
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
             router.push('/home')
         }
     }
@@ -456,6 +470,7 @@ const HeroLocationForm = ({ mobileview, handleModalClose }) => {
                                 )}
                             </CustomSearchField>
                             {mobileview === 'false' && (
+<<<<<<< HEAD
                                 <>
                                     {isFetching ?
                                         <StyledButton
@@ -498,6 +513,30 @@ const HeroLocationForm = ({ mobileview, handleModalClose }) => {
                                         </StyledButton>}
                                 </>
 
+=======
+                                <StyledButton
+                                    languageDirection={languageDirection}
+                                    sx={{ fontWeight: '400' }}
+                                    radiuschange="true"
+                                    onClick={() => setLocationEnable()}
+                                    disabled={!location}
+                                    sx={{
+                                        width: {
+                                            xs: '137px',
+                                            sm: '134px',
+                                            md: '134px',
+                                        },
+                                    }}
+                                >
+                                    <Typography
+                                        fontWeight="400"
+                                        fontSize="14px"
+                                    >
+                                        {' '}
+                                        {t('Set Location')}
+                                    </Typography>
+                                </StyledButton>
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                             )}
                         </CustomStackFullWidth>
                         {mobileview === 'false' && (
@@ -511,6 +550,7 @@ const HeroLocationForm = ({ mobileview, handleModalClose }) => {
                                 gap="20px"
                                 justifyContent="center"
                             >
+<<<<<<< HEAD
                                 {isFetching ?  <StyledButton
 
                                     sx={{
@@ -527,6 +567,9 @@ const HeroLocationForm = ({ mobileview, handleModalClose }) => {
                                     </Stack>
                                 </StyledButton>:(
                                     <StyledButton
+=======
+                                <StyledButton
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                                     onClick={() => setLocationEnable()}
                                     disabled={!location}
                                 >
@@ -536,7 +579,11 @@ const HeroLocationForm = ({ mobileview, handleModalClose }) => {
                                     >
                                         {t('Set Location')}
                                     </Typography>
+<<<<<<< HEAD
                                 </StyledButton>)}
+=======
+                                </StyledButton>
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                                 <StyledButton onClick={handleOpen}>
                                     <Typography
                                         fontWeight="400"

@@ -1,16 +1,29 @@
+<<<<<<< HEAD
 import React, { useEffect, useReducer, useRef, useState } from 'react'
+=======
+import React, { useEffect, useReducer, useState } from 'react'
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
 import {
     alpha,
     Button,
     FormControlLabel,
     Grid,
     Stack,
+<<<<<<< HEAD
     Typography
 } from "@mui/material";
 import { useTranslation } from "react-i18next";
 import toast from "react-hot-toast";
 import { OrderSummary } from "./CheckOut.style";
 import { useDispatch, useSelector } from "react-redux";
+=======
+    Typography,
+} from '@mui/material'
+import { useTranslation } from 'react-i18next'
+import toast from 'react-hot-toast'
+import { OrderSummary } from './CheckOut.style'
+import { useDispatch, useSelector } from 'react-redux'
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
 import {
     getAmount,
     getFinalTotalPrice,
@@ -25,6 +38,10 @@ import { RestaurantsApi } from '../../hooks/react-query/config/restaurantApi'
 import { useMutation, useQuery } from 'react-query'
 import moment from 'moment'
 import { getDayNumber } from './const'
+<<<<<<< HEAD
+=======
+import HaveCoupon from './HaveCoupon'
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
 import { GoogleApi } from '../../hooks/react-query/config/googleApi'
 import { OrderApi } from '../../hooks/react-query/config/orderApi'
 import Router, { useRouter } from 'next/router'
@@ -72,11 +89,14 @@ import Link from 'next/link'
 import money from './assets/fi_2704332.png'
 import wallet from './assets/walletpayment.png'
 import { useTheme } from '@emotion/react'
+<<<<<<< HEAD
 import OfflinePaymentForm from './OfflinePaymentForm'
 import { getGuestId, getToken } from "./functions/getGuestUserId";
 import useGetOfflinePaymentOptions from '../../hooks/react-query/offline-payment/useGetOfflinePaymentOptions'
 import { useOfflinePayment } from '../../hooks/react-query/offline-payment/useOfflinePayment'
 import { setOfflineInfoStep, setOfflineWithPartials, setOrderDetailsModal } from "../../redux/slices/OfflinePayment";
+=======
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
 
 let currentDate = moment().format('YYYY/MM/DD HH:mm')
 let nextday = moment(currentDate).add(1, 'days').format('YYYY/MM/DD')
@@ -88,6 +108,7 @@ var CurrentDatee = moment().format()
 
 let todayTime = moment(CurrentDatee).format('HH:mm')
 
+<<<<<<< HEAD
 export const handleValuesFromCartItems = (variationValues) => {
     let value = []
     if (variationValues?.length > 0) {
@@ -103,14 +124,21 @@ export const handleValuesFromCartItems = (variationValues) => {
 }
 
 
+=======
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
 const CheckoutPage = () => {
     const router = useRouter()
     const dispatch = useDispatch()
     const theme = useTheme()
+<<<<<<< HEAD
     const offlineFormRef = useRef();
     const { t } = useTranslation()
     const { global, couponInfo } = useSelector((state) => state.globalSettings)
 
+=======
+    const { t } = useTranslation()
+    const { global, couponInfo } = useSelector((state) => state.globalSettings)
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
     const {
         cartList,
         campFoodList,
@@ -119,7 +147,10 @@ const CheckoutPage = () => {
         walletAmount,
         subscriptionSubTotal,
     } = useSelector((state) => state.cart)
+<<<<<<< HEAD
     let currentLatLng = undefined;
+=======
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
     const [address, setAddress] = useState(undefined)
     const [paymenMethod, setPaymenMethod] = useState('')
     const [numberOfDay, setDayNumber] = useState(getDayNumber(today))
@@ -140,6 +171,7 @@ const CheckoutPage = () => {
     const [deliveryTip, setDeliveryTip] = useState(0)
     const [selected, setSelected] = useState('')
     const [paymentMethodDetails, setPaymentMethodDetails] = useState({})
+<<<<<<< HEAD
     const { method } = router.query;
     const { mutate: offlineMutate, isLoading: offlinePaymentLoading } = useOfflinePayment();
     const [offlineCheck, setOfflineCheck] = useState(false);
@@ -159,6 +191,25 @@ const CheckoutPage = () => {
     }, [])
     const { token } = useSelector((state) => state.userToken)
     const { guestUserInfo } = useSelector((state) => state.guestUserInfo);
+=======
+    const { data, refetch: refetchNotification } =
+        useGetOrderPlaceNotification(orderId)
+    const [enabled, setEnabled] = useState(cartList?.length ? true : false)
+
+    // useEffect(() => {
+    //     if (global?.cash_on_delivery) {
+    //         setPaymenMethod('cash_on_delivery')
+    //     } else if (global?.digital_payment) {
+    //         setPaymenMethod('digital_payment')
+    //     } else if (global?.customer_wallet_status) {
+    //         setPaymenMethod('wallet')
+    //     } else {
+    //         setPaymenMethod('')
+    //     }
+    // }, [])
+    console.log({ deliveryTip })
+    //subscription
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
     const [subscriptionStates, subscriptionDispatch] = useReducer(
         subscriptionReducer,
         subscriptionsInitialState
@@ -186,7 +237,14 @@ const CheckoutPage = () => {
         digitAfterDecimalPoint = global.digit_after_decimal_point
     }
 
+<<<<<<< HEAD
     currentLatLng = JSON.parse(
+=======
+    // const c = couponDiscount
+    //     ? getCouponDiscount(couponDiscount, restaurantData?.data, cartList)
+    //     : ''
+    const currentLatLng = JSON.parse(
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
         window.localStorage.getItem('currentLatLng')
     )
     const { data: zoneData } = useQuery(
@@ -209,7 +267,11 @@ const CheckoutPage = () => {
         data: restaurantData,
         isError,
         error,
+<<<<<<< HEAD
         refetch
+=======
+        refetch,
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
     } = useQuery(
         [`restaurant-details`],
         () =>
@@ -224,6 +286,7 @@ const CheckoutPage = () => {
         ['get-distance', restaurantData?.data, address],
         () => GoogleApi.distanceApi(restaurantData?.data, address),
         {
+<<<<<<< HEAD
             onError: onErrorResponse
         }
     );
@@ -244,6 +307,28 @@ const CheckoutPage = () => {
     );
     const userOnSuccessHandler = (res) => {
         dispatch(setUser(res?.data))
+=======
+            onError: onErrorResponse,
+        }
+    )
+    const tempDistance =
+        distanceData?.data?.rows?.[0]?.elements[0]?.distance?.value / 1000
+
+    const { data: extraCharge, refetch: extraChargeRefetch } =
+        useGetVehicleCharge({ tempDistance })
+    useEffect(() => {
+        extraChargeRefetch()
+    }, [distanceData])
+    const handleChange = (event) => {
+        setDayNumber(event.target.value)
+    }
+    const { mutate: orderMutation, isLoading: orderLoading } = useMutation(
+        'order-place',
+        OrderApi.placeOrder
+    )
+    const userOnSuccessHandler = (res) => {
+        dispatch(setUser(res.data))
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
         dispatch(setWalletAmount(res?.data?.wallet_balance))
     }
     const { isLoading: customerLoading, data: customerData } = useQuery(
@@ -259,7 +344,11 @@ const CheckoutPage = () => {
     }, [orderId])
 
     useEffect(async () => {
+<<<<<<< HEAD
         currentLatLng = JSON.parse(localStorage.getItem('currentLatLng'))
+=======
+        const currentLatLng = JSON.parse(localStorage.getItem('currentLatLng'))
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
         const location = localStorage.getItem('location')
         setAddress({
             ...currentLatLng,
@@ -308,6 +397,7 @@ const CheckoutPage = () => {
         setTotalOrderAmount(total_order_amount)
     }, [cartList, couponDiscount, taxAmount])
 
+<<<<<<< HEAD
 
     const handleOfflineOrder = () => {
         const offlinePaymentData = {
@@ -330,6 +420,22 @@ const CheckoutPage = () => {
 
 
 
+=======
+    const handleValuesFromCartItems = (variationValues) => {
+        let value = []
+        if (variationValues?.length > 0) {
+            variationValues?.forEach((item) => {
+                if (item?.isSelected) {
+                    value.push(item?.label)
+                }
+            })
+        } else {
+            variationValues && value.push(variationValues[0]?.label)
+        }
+        return value
+    }
+
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
     const handleProductList = (productList, totalQty) => {
         return productList?.map((cart) => {
             return {
@@ -347,10 +453,14 @@ const CheckoutPage = () => {
                         price: add.price,
                     }
                 }),
+<<<<<<< HEAD
                 item_type: cart?.available_date_starts
                     ? "AppModelsItemCampaign"
                     : "AppModelsItem",
                 item_id: cart?.id,
+=======
+                food_id: cart?.available_date_starts ? null : cart?.id,
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                 item_campaign_id: cart?.available_date_starts ? cart?.id : null,
 
                 price: cart?.price,
@@ -379,21 +489,35 @@ const CheckoutPage = () => {
         )
         const isDigital =
             paymenMethod !== 'cash_on_delivery' &&
+<<<<<<< HEAD
                 paymenMethod !== 'wallet' &&
                 paymenMethod !== 'offline_payment' &&
                 paymenMethod !== ''
                 ? 'digital_payment'
                 : paymenMethod
 
+=======
+            paymenMethod !== 'wallet' &&
+            paymenMethod !== ''
+                ? 'digital_payment'
+                : paymenMethod
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
         return {
             cart: carts,
             ...address,
             schedule_at: scheduleAt === 'now' ? null : scheduleAt,
             //additional address
+<<<<<<< HEAD
             address_type: !getToken() ? guestUserInfo?.address_type : additionalInformationStates?.addressType,
             road: !getToken() ? guestUserInfo?.road : additionalInformationStates?.streetNumber,
             house: !getToken() ? guestUserInfo?.house : additionalInformationStates?.houseNumber,
             floor: !getToken() ? guestUserInfo?.floor : additionalInformationStates?.floor,
+=======
+            address_type: additionalInformationStates?.addressType,
+            road: additionalInformationStates?.streetNumber,
+            house: additionalInformationStates?.houseNumber,
+            floor: additionalInformationStates?.floor,
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
             order_note: additionalInformationStates?.note,
             partial_payment: usePartialPayment,
             payment_method: isDigital,
@@ -417,12 +541,15 @@ const CheckoutPage = () => {
             subscription_end_at: subscriptionStates.endDate,
             subscription_quantity: subscriptionOrderCount,
             cutlery: cutlery,
+<<<<<<< HEAD
             guest_id: getGuestId(),
             contact_person_name: guestUserInfo?.contact_person_name,
             contact_person_number: guestUserInfo?.contact_person_number,
             is_guest: token ? 0 : 1,
             is_buy_now: page === "campaign" ? 1 : 0,
             cart_id: page === "campaign" ? cartList[0]?.cartItemId : null,
+=======
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
             unavailable_item_note,
             delivery_instruction,
         }
@@ -454,6 +581,10 @@ const CheckoutPage = () => {
                 : isFoodAvailableBySchedule(cartList, scheduleAt)
         if (isAvailable) {
             //const walletBalance = localStorage.getItem('wallet_amount')
+<<<<<<< HEAD
+=======
+
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
             let productList = page === 'campaign' ? campFoodList : cartList
             if (paymenMethod === 'wallet') {
                 if (Number(walletAmount) < Number(totalAmount)) {
@@ -471,7 +602,11 @@ const CheckoutPage = () => {
                                 toast.success(response?.data?.message)
                                 const newBaseUrl = baseUrl.substring(0, 31)
                                 const callBackUrl = `${window.location.origin}/order`
+<<<<<<< HEAD
                                 const url = `${window.location.origin}/payment-mobile?order_id=${response?.data?.order_id}&customer_id=${customerData?.data?.id ? customerData?.data?.id : getGuestId()}&callback=${callBackUrl}`
+=======
+                                const url = `${window.location.origin}/payment-mobile?order_id=${response?.data?.order_id}&customer_id=${customerData?.data?.id}&callback=${callBackUrl}`
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                             } else if (paymenMethod === 'wallet') {
                                 toast.success(response?.data?.message)
                                 setOrderSuccess(true)
@@ -506,7 +641,11 @@ const CheckoutPage = () => {
                 if (
                     totalMaxCodAmount !== 0 &&
                     Number.parseInt(totalAmountOrSubTotalAmount) >
+<<<<<<< HEAD
                     Number.parseInt(totalMaxCodAmount)
+=======
+                        Number.parseInt(totalMaxCodAmount)
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                 ) {
                     toast.error(
                         `${text1} ${getAmount(
@@ -533,6 +672,7 @@ const CheckoutPage = () => {
                         )
                     }
                 }
+<<<<<<< HEAD
             } else if (paymenMethod === 'offline_payment') {
                 let totalQty = 0
                 let carts = handleProductList(productList, totalQty);
@@ -556,21 +696,32 @@ const CheckoutPage = () => {
 
             }
             else {
+=======
+            } else {
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                 let totalQty = 0
                 let carts = handleProductList(productList, totalQty)
                 const handleSuccess = (response) => {
                     const payment_platform = 'web'
+<<<<<<< HEAD
                     const page = 'order'
+=======
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                     setOrderId(response?.data?.order_id)
                     if (response?.data) {
                         if (paymenMethod !== 'cash_on_delivery') {
                             const newBaseUrl = baseUrl.substring(0, 31)
+<<<<<<< HEAD
                             const callBackUrl = token
                                 // ? `${window.location.origin}/order-history/${response?.data?.order_id}`
                                 ? `${window.location.origin}/info?page=${page}`
                                 : `${window.location.origin}/order`;
                             //const callBackUrl = `${window.location.origin}/order`
                             const url = `${baseUrl}/payment-mobile?order_id=${response?.data?.order_id}&customer_id=${customerData?.data?.id ? customerData?.data?.id : getGuestId()}&payment_platform=${payment_platform}&callback=${callBackUrl}&payment_method=${paymenMethod}`
+=======
+                            const callBackUrl = `${window.location.origin}/order`
+                            const url = `${baseUrl}/payment-mobile?order_id=${response?.data?.order_id}&customer_id=${customerData?.data?.id}&payment_platform=${payment_platform}&callback=${callBackUrl}&payment_method=${paymenMethod}`
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                             Router.push(url)
                         } else {
                             toast.success(response?.data?.message)
@@ -595,9 +746,13 @@ const CheckoutPage = () => {
             )
         }
     }
+<<<<<<< HEAD
     console.log({subscriptionStates});
     const placeOrder = () => {
 
+=======
+    const placeOrder = () => {
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
         localStorage.setItem('access', totalAmount)
         if (page !== 'campaign') {
             if (subscriptionStates.order === '1') {
@@ -618,13 +773,21 @@ const CheckoutPage = () => {
                         },
                     })
                 } else {
+<<<<<<< HEAD
                     if (subscriptionStates.type !== 'daily') {
+=======
+                    if (subscriptionStates.type !== 'days') {
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                         let startDate = moment(
                             subscriptionStates.startDate
                         ).format('D')
                         let endDate = moment(subscriptionStates.endDate).format(
                             'D'
                         )
+<<<<<<< HEAD
+=======
+
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                         if (subscriptionStates.days.length > 0) {
                             const isInsideChoseDate =
                                 subscriptionStates.days.every(
@@ -639,6 +802,7 @@ const CheckoutPage = () => {
                                 } else {
                                     toast(
                                         t(
+<<<<<<< HEAD
                                             `Your chosen delivery ${subscriptionStates?.days
                                                 ?.length > 1
                                                 ? 'days'
@@ -647,6 +811,18 @@ const CheckoutPage = () => {
                                                 ?.length > 1
                                                 ? 'times'
                                                 : 'time'
+=======
+                                            `Your chosen delivery ${
+                                                subscriptionStates?.days
+                                                    ?.length > 1
+                                                    ? 'days'
+                                                    : 'day'
+                                            } and ${
+                                                subscriptionStates?.days
+                                                    ?.length > 1
+                                                    ? 'times'
+                                                    : 'time'
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                                             } must be in between start date and end date`
                                         ),
                                         {
@@ -675,14 +851,23 @@ const CheckoutPage = () => {
                     }
                 }
                 if (subscriptionStates.type === 'monthly') {
+<<<<<<< HEAD
                     let startDate = moment(subscriptionStates.startDate).format('D')
+=======
+                    let startDate = moment(subscriptionStates.startDate).format(
+                        'D'
+                    )
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                     let endDate = moment(subscriptionStates.endDate).format('D')
                     if (subscriptionStates.days.length > 0) {
                         const isInsideChoseDate = subscriptionStates.days.every(
                             (item) =>
                                 item.day >= startDate && item.day <= endDate
                         )
+<<<<<<< HEAD
 
+=======
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                         if (isInsideChoseDate) {
                             if (subscriptionOrderCount > 0) {
                                 handlePlaceOrder()
@@ -690,12 +875,23 @@ const CheckoutPage = () => {
                         } else {
                             toast(
                                 t(
+<<<<<<< HEAD
                                     `Your chosen delivery ${subscriptionStates?.days?.length > 1
                                         ? 'days'
                                         : 'day'
                                     } and ${subscriptionStates?.days?.length > 1
                                         ? 'times'
                                         : 'time'
+=======
+                                    `Your chosen delivery ${
+                                        subscriptionStates?.days?.length > 1
+                                            ? 'days'
+                                            : 'day'
+                                    } and ${
+                                        subscriptionStates?.days?.length > 1
+                                            ? 'times'
+                                            : 'time'
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                                     } must be in between start date and end date`
                                 ),
                                 {
@@ -740,6 +936,7 @@ const CheckoutPage = () => {
             handlePlaceOrder()
         }
     }
+<<<<<<< HEAD
     const counponRemove = () => { }
     if (orderSuccess) {
         if (token) {
@@ -760,6 +957,12 @@ const CheckoutPage = () => {
         }
     }
 
+=======
+    const counponRemove = () => {}
+    if (orderSuccess) {
+        Router.push('/order')
+    }
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
     const handleBadWeatherUi = (zoneData) => {
         const currentZoneInfo = zoneData?.find(
             (item) => item.id === restaurantData?.data?.zone_id
@@ -821,7 +1024,10 @@ const CheckoutPage = () => {
     const handlePartialPayment = () => {
         if (totalAmount > walletAmount) {
             setUsePartialPayment(true)
+<<<<<<< HEAD
             dispatch(setOfflineWithPartials(true))
+=======
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
             setSelected({ name: '', image: null })
         } else {
             setSelected({ name: 'wallet', image: wallet })
@@ -834,7 +1040,10 @@ const CheckoutPage = () => {
     const removePartialPayment = () => {
         if (totalAmount > walletAmount) {
             setUsePartialPayment(false)
+<<<<<<< HEAD
             dispatch(setOfflineWithPartials(false))
+=======
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
             setPaymentMethodDetails(null)
             setSwitchToWallet(false)
         } else {
@@ -845,21 +1054,34 @@ const CheckoutPage = () => {
     const handlePartialPaymentCheck = () => {
         if (subscriptionStates?.order !== '1') {
             if (global?.partial_payment_status === 1) {
+<<<<<<< HEAD
                 if (couponDiscount && usePartialPayment && offLineWithPartial) {
                     if (totalAmount > walletAmount && !usePartialPayment && !offLineWithPartial) {
                         setOpenPartialModel(true)
                     } else {
                         if (usePartialPayment && walletAmount > totalAmount && offLineWithPartial) {
+=======
+                if (couponDiscount && usePartialPayment) {
+                    if (totalAmount > walletAmount && !usePartialPayment) {
+                        setOpenPartialModel(true)
+                    } else {
+                        if (usePartialPayment && walletAmount > totalAmount) {
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                             setOpenModal(true)
                         }
                     }
                 } else if (
+<<<<<<< HEAD
                     (deliveryTip > 0 && usePartialPayment && offLineWithPartial) ||
+=======
+                    (deliveryTip > 0 && usePartialPayment) ||
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                     switchToWallet
                 ) {
                     if (totalAmount > walletAmount && !usePartialPayment) {
                         setOpenPartialModel(true)
                     } else {
+<<<<<<< HEAD
                         if (offLineWithPartial && usePartialPayment && walletAmount > totalAmount) {
                             setOpenModal(true)
                         }
@@ -869,6 +1091,17 @@ const CheckoutPage = () => {
                         setOpenPartialModel(true)
                     } else {
                         if (offLineWithPartial && usePartialPayment && walletAmount > totalAmount) {
+=======
+                        if (usePartialPayment && walletAmount > totalAmount) {
+                            setOpenModal(true)
+                        }
+                    }
+                } else if (orderType && usePartialPayment) {
+                    if (totalAmount > walletAmount && !usePartialPayment) {
+                        setOpenPartialModel(true)
+                    } else {
+                        if (usePartialPayment && walletAmount > totalAmount) {
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                             setOpenModal(true)
                         }
                         //setOpenModal(true);
@@ -885,13 +1118,19 @@ const CheckoutPage = () => {
         setPaymentMethodDetails(null)
         setSelected({ name: '', image: '' })
         setUsePartialPayment(true)
+<<<<<<< HEAD
         dispatch(setOfflineWithPartials(true))
+=======
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
         setOpenPartialModel(false)
         setSwitchToWallet(false)
     }
     const notAgreeToPartial = () => {
         setUsePartialPayment(false)
+<<<<<<< HEAD
         dispatch(setOfflineWithPartials(false))
+=======
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
         setOpenPartialModel(false)
         setSwitchToWallet(false)
     }
@@ -901,13 +1140,17 @@ const CheckoutPage = () => {
         setPaymenMethod('wallet')
         setSwitchToWallet(true)
         setUsePartialPayment(false)
+<<<<<<< HEAD
         dispatch(setOfflineWithPartials(false))
+=======
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
         setOpenModal(false)
     }
     const notAgreeToWallet = () => {
         setPaymentMethodDetails(null)
         setSwitchToWallet(false)
         setUsePartialPayment(false)
+<<<<<<< HEAD
         dispatch(setOfflineWithPartials(false))
         setOpenModal(false)
     }
@@ -1007,6 +1250,89 @@ const CheckoutPage = () => {
                 )}
             </Grid>
 
+=======
+        setOpenModal(false)
+    }
+    console.log('vvvv', switchToWallet, usePartialPayment)
+
+    return (
+        <Grid container spacing={3} mb="2rem">
+            <Grid item xs={12} md={7}>
+                <Stack spacing={3}>
+                    <DeliveryDetails
+                        global={global}
+                        restaurantData={restaurantData}
+                        setOrderType={setOrderType}
+                        orderType={orderType}
+                        setAddress={setAddress}
+                        address={address}
+                        subscriptionStates={subscriptionStates}
+                        subscriptionDispatch={subscriptionDispatch}
+                        page={page}
+                        setPaymenMethod={setPaymenMethod}
+                        additionalInformationStates={
+                            additionalInformationStates
+                        }
+                        additionalInformationDispatch={
+                            additionalInformationDispatch
+                        }
+                        setDeliveryTip={setDeliveryTip}
+                        setPaymentMethodDetails={setPaymentMethodDetails}
+                        setUsePartialPayment={setUsePartialPayment}
+                        setSwitchToWallet={setSwitchToWallet}
+                    />
+                    {page !== 'campaign' &&
+                        subscriptionStates.order === '0' && (
+                            <RestaurantScheduleTime
+                                restaurantData={restaurantData}
+                                handleChange={handleChange}
+                                today={today}
+                                tomorrow={tomorrow}
+                                numberOfDay={numberOfDay}
+                                global={global}
+                                setScheduleAt={setScheduleAt}
+                            />
+                        )}
+                    {subscriptionStates.order === '0' &&
+                        orderType !== 'take_away' &&
+                        Number.parseInt(global?.dm_tips_status) === 1 && (
+                            <DeliveryManTips
+                                deliveryTip={deliveryTip}
+                                setDeliveryTip={setDeliveryTip}
+                            />
+                        )}
+                    {subscriptionStates.order !== '1' &&
+                        global?.customer_wallet_status === 1 &&
+                        walletAmount > 0 &&
+                        global?.partial_payment_status === 1 && (
+                            <PartialPayment
+                                global={global}
+                                remainingBalance={walletAmount - totalAmount}
+                                handlePartialPayment={handlePartialPayment}
+                                usePartialPayment={usePartialPayment}
+                                walletBalance={walletAmount}
+                                paymentMethod={paymenMethod}
+                                switchToWallet={switchToWallet}
+                                removePartialPayment={removePartialPayment}
+                                totalAmount={totalAmount}
+                            />
+                        )}
+
+                    <PaymentOptions
+                        global={global}
+                        paymenMethod={paymenMethod}
+                        setPaymenMethod={setPaymenMethod}
+                        subscriptionStates={subscriptionStates}
+                        usePartialPayment={usePartialPayment}
+                        setSelected={setSelected}
+                        selected={selected}
+                        paymentMethodDetails={paymentMethodDetails}
+                        setPaymentMethodDetails={setPaymentMethodDetails}
+                        setSwitchToWallet={setSwitchToWallet}
+                    />
+                </Stack>
+            </Grid>
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
             <Grid item xs={12} md={5} height="auto">
                 <CustomPaperBigCard height="auto">
                     <Stack spacing={2} justifyContent="space-between">
@@ -1047,6 +1373,10 @@ const CheckoutPage = () => {
                                 />
                             )}
                         </Stack>
+<<<<<<< HEAD
+=======
+
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                         {distanceData && restaurantData ? (
                             <OrderCalculation
                                 subscriptionStates={subscriptionStates}
@@ -1073,6 +1403,7 @@ const CheckoutPage = () => {
                                 usePartialPayment={usePartialPayment}
                                 placeOrder={placeOrder}
                                 orderLoading={orderLoading}
+<<<<<<< HEAD
                                 offlinePaymentLoading={offlinePaymentLoading}
                                 setCouponDiscount={setCouponDiscount}
                                 counponRemove={counponRemove}
@@ -1080,6 +1411,10 @@ const CheckoutPage = () => {
                                 setOfflineCheck={setOfflineCheck}
                                 page={page}
                                 paymentMethodDetails={paymentMethodDetails}
+=======
+                                setCouponDiscount={setCouponDiscount}
+                                counponRemove={counponRemove}
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                             />
                         ) : (
                             <CustomStackFullWidth spacing={1}>
@@ -1125,7 +1460,11 @@ const CheckoutPage = () => {
                 <CustomModal
                     openModal={openModal}
                     bgColor={theme.palette.customColor.ten}
+<<<<<<< HEAD
                 //handleClose={() => setOpenModal(false)}
+=======
+                    //handleClose={() => setOpenModal(false)}
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                 >
                     <PartialPaymentModal
                         global={global}

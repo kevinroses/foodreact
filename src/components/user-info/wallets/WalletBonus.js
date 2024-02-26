@@ -11,9 +11,21 @@ import 'slick-carousel/slick/slick.css'
 import img from '../../../../public/static/profile/walletbonus.png'
 import { t } from 'i18next'
 
+<<<<<<< HEAD
 import { getAmount } from '../../../utils/customFunctions'
 import { CustomDateFormat } from '../../../utils/CustomDateAndTimeFormat'
 const WalletFundBonus = ({ walleBonus, isLoading }) => {
+=======
+import useWalletBonus from '../../../hooks/react-query/useGetWalletBonus'
+import { getAmount } from '../../../utils/customFunctions'
+import { CustomDateFormat } from '../../../utils/CustomDateAndTimeFormat'
+const WalletFundBonus = () => {
+    const { data, refetch, isLoading } = useWalletBonus()
+
+    useEffect(() => {
+        refetch()
+    }, [])
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
 
     const settings = {
         dots: false,
@@ -59,9 +71,15 @@ const WalletFundBonus = ({ walleBonus, isLoading }) => {
     const fund_to_get_max_of = t('fund to get max of')
 
     return !isLoading ? (
+<<<<<<< HEAD
         <Stack height="100%" justifyContent="center">
             <Slider {...settings}>
                 {walleBonus?.map((item, i) => (
+=======
+        <Stack>
+            <Slider {...settings}>
+                {data?.map((item, i) => (
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                     <Box key={i} pr={1.4}>
                         <CustomWalletStack>
                             <Box>

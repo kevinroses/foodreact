@@ -75,7 +75,10 @@ const RouteLinks = (props) => {
     const handleClickToRoute = (href) => {
         router.push(href, undefined, { shallow: true })
     }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
     return (
         <CustomStackFullWidth spacing={2}>
             <Typography
@@ -149,7 +152,10 @@ const RouteLinks = (props) => {
                     {t('Shipping Policy')}
                 </CustomColouredTypography>
             )}
+<<<<<<< HEAD
 
+=======
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
         </CustomStackFullWidth>
     )
 }

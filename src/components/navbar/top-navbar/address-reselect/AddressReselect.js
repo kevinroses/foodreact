@@ -10,6 +10,7 @@ import AddressReselectPopover from './AddressReselectPopover'
 import { toast } from 'react-hot-toast'
 import { useTranslation } from 'react-i18next'
 import { setClearCart } from '../../../../redux/slices/cart'
+<<<<<<< HEAD
 import { styled, useTheme } from "@mui/material/styles";
 import { useGeolocated } from "react-geolocated";
 import { setOpenMapDrawer, setUserLocationUpdate } from '../../../../redux/slices/global'
@@ -28,11 +29,37 @@ export const AddressTypographyGray = styled(Typography)(({ theme }) => ({
 const AddressReselect = ({ location }) => {
     const [mapOpen, setMapOpen] = useState(false)
     const { openMapDrawer, userLocationUpdate } = useSelector((state) => state.globalSettings)
+=======
+import { useTheme } from '@mui/material/styles'
+
+const AddressReselect = ({ location }) => {
+    const [openReselectModal, setOpenReselectModal] = useState(false)
+    const { global, token } = useSelector((state) => state.globalSettings)
+    const [openPopover, setOpenPopover] = useState(false)
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
     const [address, setAddress] = useState(null)
     const { t } = useTranslation()
     const dispatch = useDispatch()
     const router = useRouter()
+<<<<<<< HEAD
     const anchorRef = useRef(null)
+=======
+    const theme = useTheme()
+    useEffect(() => {
+        let currentLatLng
+        if (typeof localStorage.getItem('currentLatLng') !== undefined) {
+            currentLatLng = JSON.parse(localStorage.getItem('currentLatLng'))
+            const location = localStorage.getItem('location')
+            setAddress({
+                ...currentLatLng,
+                latitude: currentLatLng?.lat,
+                longitude: currentLatLng?.lng,
+                address: location,
+                address_type: 'Selected Address',
+            })
+        }
+    }, [])
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
 
     useEffect(() => {
         if (address) {
@@ -45,12 +72,16 @@ const AddressReselect = ({ location }) => {
                 toast.success(t('New delivery address selected.'))
                 handleClosePopover()
                 dispatch(setClearCart())
+<<<<<<< HEAD
                 dispatch(setUserLocationUpdate(!userLocationUpdate))
+=======
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                 router.push('/home')
             }
         }
     }, [address])
     const handleClickToLandingPage = () => {
+<<<<<<< HEAD
         dispatch(setOpenMapDrawer(true))
     }
 
@@ -70,6 +101,29 @@ const AddressReselect = ({ location }) => {
 
     return (
         <>{location &&
+=======
+        setOpenPopover(true)
+        // if (token) {
+        //
+        // } else {
+        //     toast.error(t('Login required.'))
+        // }
+
+        //setOpenReselectModal(true)
+        // localStorage.removeItem('location')
+        // localStorage.removeItem('zoneid')
+        //Router.push('/')
+    }
+    const handleModalClose = () => {
+        setOpenReselectModal(false)
+    }
+    const anchorRef = useRef(null)
+    const handleClosePopover = () => {
+        setOpenPopover(false)
+    }
+    return (
+        <>
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
             <Stack
                 sx={{
                     color: (theme) => theme.palette.neutral[1000],
@@ -86,6 +140,7 @@ const AddressReselect = ({ location }) => {
                     color="primary"
                     style={{ width: '16px', height: '16px' }}
                 />
+<<<<<<< HEAD
                 <AddressTypographyGray
                     align="left"
                 >
@@ -106,6 +161,35 @@ const AddressReselect = ({ location }) => {
                 setMapOpen={setMapOpen}
                 coords={coords}
 
+=======
+                <Typography
+                    fontSize="13px"
+                    align="left"
+                    sx={{
+                        overflow: 'hidden',
+                        textOverflow: 'ellipsis',
+                        display: '-webkit-box',
+                        WebkitLineClamp: '1',
+                        WebkitBoxOrient: 'vertical',
+                        maxWidth: '189px',
+                        marginInlineStart: '5px',
+                        wordBreak: 'break-all',
+                    }}
+                    color={theme.palette.neutral[1000]}
+                >
+                    {location}
+                </Typography>
+                <KeyboardArrowDownIcon />
+            </Stack>
+            <AddressReselectPopover
+                anchorEl={anchorRef.current}
+                onClose={handleClosePopover}
+                open={openPopover}
+                t={t}
+                address={address}
+                setAddress={setAddress}
+                token={token}
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
             />
         </>
     )

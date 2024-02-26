@@ -4,6 +4,7 @@ import {t} from "i18next";
 import {useMutation} from "react-query";
 import {OrderApi} from "../../hooks/react-query/config/orderApi";
 import {onErrorResponse} from "../ErrorResponse";
+<<<<<<< HEAD
 import { useDispatch, useSelector } from "react-redux";
 import {
     calculateItemBasePrice,
@@ -26,6 +27,16 @@ const Reorder = ({orderData, orderZoneId}) => {
     const dispatch = useDispatch()
     const { mutate:removeCartMutate } = useDeleteAllCartItem();
     const { mutate:reorderAddToCartMutate, isLoading:addToCartLoading } = useReorderAddToCart();
+=======
+import {useDispatch} from "react-redux";
+import {calculateItemBasePrice, getConvertDiscount} from "../../utils/customFunctions";
+import {toast} from "react-hot-toast";
+import {setClearCart, setReorderCartItemByDispatch} from "../../redux/slices/cart";
+
+
+const Reorder = ({orderData, orderZoneId}) => {
+    const dispatch = useDispatch()
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
     const orderItemId = () => {
         let currentId = []
         orderData?.forEach((item) => {
@@ -154,6 +165,7 @@ const Reorder = ({orderData, orderZoneId}) => {
 
     }
 
+<<<<<<< HEAD
 
     const handleSuccess=(res)=>{
         if(res){
@@ -188,13 +200,19 @@ const Reorder = ({orderData, orderZoneId}) => {
 
     }
 
+=======
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
     const reorderAddToCart = () => {
         const orderAbleZoneIds = JSON.parse(localStorage.getItem('zoneid'))
         const isZoneExist = orderAbleZoneIds?.length > 0 && orderAbleZoneIds.find(item => item === orderZoneId)
         if (isZoneExist) {
             const reorderAbleItem = getReorderAbleItems(data?.data, orderData)
             if (reorderAbleItem?.length > 0) {
+<<<<<<< HEAD
                 const item_list = reorderAbleItem.map(rItem => {
+=======
+                const newArray = reorderAbleItem.map(rItem => {
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                     let similar = []
                     orderData?.forEach(item => {
                         let count = 0
@@ -234,6 +252,7 @@ const Reorder = ({orderData, orderZoneId}) => {
                             rItem?.restaurant_discount
                         )
                         let totalPrice = (itemsBasePrice * similar?.[0]?.quantity)
+<<<<<<< HEAD
                         let totalQty = 0;
                         return {
                             model:rItem.available_date_starts ? "ItemCampaign" : "Food",
@@ -276,6 +295,23 @@ const Reorder = ({orderData, orderZoneId}) => {
                         // toast.success(t('Reorder-able items added to the cart successfully.'))
                         // dispatch(setClearCart())
                         // dispatch(setReorderCartItemByDispatch(newArray))
+=======
+                        return {
+                            ...rItem,
+                            variations: getSimilarVariations(rItem.variations, similar?.[0]?.variation),
+                            quantity: similar?.[0]?.quantity,
+                            totalPrice: totalPrice,
+                            selectedAddons: getNewAddons(similar),
+                            itemBasePrice: itemsBasePrice
+                        }
+                    }
+                })
+                if (newArray?.length > 0) {
+                    if (newArray?.every(item => item !== undefined)) {
+                        toast.success(t('Reorder-able items added to the cart successfully.'))
+                        dispatch(setClearCart())
+                        dispatch(setReorderCartItemByDispatch(newArray))
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                     }
 
                 }
@@ -288,6 +324,7 @@ const Reorder = ({orderData, orderZoneId}) => {
         }
     }
 
+<<<<<<< HEAD
 const clearCartData = async () => {
     if(cartList?.length > 0){
         await  dispatch(setClearCart())
@@ -304,6 +341,14 @@ const clearCartData = async () => {
             variant="contained"
             // sx={{width: '100%'}}
             onClick={clearCartData}
+=======
+
+    return (
+        <PrimaryButton
+            variant="contained"
+            sx={{width: '100%'}}
+            onClick={reorderAddToCart}
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
             disabled={!data}
         >
             {t('Reorder')}

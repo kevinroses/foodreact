@@ -12,6 +12,7 @@ import {
 } from '../../../styled-components/CustomButtons.style'
 import { t } from 'i18next'
 import GroupCheckBox from './GroupCheckBox'
+<<<<<<< HEAD
 import { useSelector } from "react-redux";
 import { useTheme } from "@mui/styles";
 
@@ -19,12 +20,18 @@ const RestaurantFilterCard = (props) => {
     const theme=useTheme()
     const {highestPrice, checkboxData, setCheckedFilterKey,rowWise,foodOrRestaurant ,handleChangeRatings,handlePrice,handleDropClose,priceAndRating} = props
     const { global } = useSelector((state) => state.globalSettings)
+=======
+
+const RestaurantFilterCard = (props) => {
+    const { checkboxData, setCheckedFilterKey } = props
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
     const [checkData, setCheckData] = useState([])
 
     return (
         <WrapperForSideDrawerFilter>
             <Stack spacing={3}>
                 <Stack spacing={1}>
+<<<<<<< HEAD
                     <Typography fontSize="14px" fontWeight="500">{t('Filter By')}</Typography>
                     <Stack direction="row">
                         <GroupCheckBox
@@ -61,6 +68,28 @@ const RestaurantFilterCard = (props) => {
                 </Stack>
             </Stack>
 
+=======
+                    <Typography variant="h4">{t('Filter By')}</Typography>
+                    <Stack direction="row">
+                        <GroupCheckBox
+                            checkboxData={checkboxData}
+                            setCheckedFilterKey={setCheckedFilterKey}
+                        />
+                    </Stack>
+                </Stack>
+            </Stack>
+            {/*<Stack*/}
+            {/*    direction={{ xs: 'column', sm: 'column', md: 'row' }}*/}
+            {/*    alignItems="center"*/}
+            {/*    justifyContent="center"*/}
+            {/*    spacing={2}*/}
+            {/*    mt="1rem"*/}
+            {/*>*/}
+            {/*    <CustomButtonPrimary fullWidth onClick={submitFilter}>*/}
+            {/*        {t('Filter')}*/}
+            {/*    </CustomButtonPrimary>*/}
+            {/*</Stack>*/}
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
         </WrapperForSideDrawerFilter>
     )
 }

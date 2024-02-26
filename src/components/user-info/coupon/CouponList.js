@@ -28,7 +28,10 @@ const CouponList = () => {
     const { t } = useTranslation()
     const theme = useTheme()
     const matches = useMediaQuery('(max-width:745px)')
+<<<<<<< HEAD
     const isXSmall = useMediaQuery(theme.breakpoints.down('sm'))
+=======
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
     const { global } = useSelector((state) => state.globalSettings)
     let currencySymbol
     let currencySymbolDirection
@@ -48,6 +51,11 @@ const CouponList = () => {
         }
     )
 
+<<<<<<< HEAD
+=======
+    const only = t('Only For')
+
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
     return (
         <>
             <Meta
@@ -56,6 +64,7 @@ const CouponList = () => {
                 keywords=""
             />
             <CustomPaperBigCard
+<<<<<<< HEAD
                 padding={isXSmall ? '10px 10px' : '30px 40px'}
                 border={false}
 
@@ -126,6 +135,73 @@ const CouponList = () => {
                             </Stack>
                         )}
                     </Grid>
+=======
+                padding={matches ? '10px' : '25px'}
+                sx={{ minHeight: '77vh' }}
+            >
+                <CustomStackFullWidth spacing={2}>
+                    <Typography fontWeight="600" fontSize="16px">
+                        {t('My Coupons')}
+                    </Typography>
+                    <ScrollerProvider maxHeight="60vh" padding="10px">
+                        <Grid
+                            container
+                            spacing={3}
+                            sx={{ paddingRight: '6px' }}
+                        >
+                            {data?.data?.map((item) => (
+                                <Grid
+                                    item
+                                    xs={12}
+                                    sm={matches ? 12 : 6}
+                                    md={6}
+                                    key={item.id}
+                                >
+                                    <CouponCard coupon={item} />
+                                </Grid>
+                            ))}
+                            {isLoading && (
+                                <Grid
+                                    container
+                                    spacing={3}
+                                    sx={{
+                                        paddingTop: '20px',
+                                        paddingInlineStart: '20px',
+                                    }}
+                                >
+                                    <Grid item xs={12} sm={12} md={6}>
+                                        <Skeleton
+                                            variant="rectangular"
+                                            width="100%"
+                                            height="127px"
+                                            style={{ borderRadius: '5px' }}
+                                        />
+                                    </Grid>
+                                    <Grid item xs={12} sm={12} md={6}>
+                                        <Skeleton
+                                            variant="rectangular"
+                                            width="100%"
+                                            height="127px"
+                                            style={{ borderRadius: '5px' }}
+                                        />
+                                    </Grid>
+                                </Grid>
+                            )}
+                            {data?.data?.length === 0 && (
+                                <Stack
+                                    justifyContent="center"
+                                    alignItems="center"
+                                    width="100%"
+                                >
+                                    <CustomEmptyResult
+                                        label="No Coupon Found"
+                                        image={noDataFound}
+                                    />
+                                </Stack>
+                            )}
+                        </Grid>
+                    </ScrollerProvider>
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                 </CustomStackFullWidth>
             </CustomPaperBigCard>
         </>

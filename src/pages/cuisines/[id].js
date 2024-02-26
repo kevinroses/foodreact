@@ -12,7 +12,10 @@ import { landingPageApi } from '../../components/landingpage/Api'
 import Meta from '../../components/Meta'
 import { t } from 'i18next'
 import CustomContainer from '../../components/container'
+<<<<<<< HEAD
 import HomeGuard from "../../components/home-guard/HomeGuard";
+=======
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
 
 const Index = ({ configData, landingPageData, pathName }) => {
     const [offset, setOffset] = useState(1)
@@ -35,11 +38,18 @@ const Index = ({ configData, landingPageData, pathName }) => {
                 ogImage={`${configData?.base_urls?.react_landing_page_images}/${landingPageData?.banner_section_full?.banner_section_img_full}`}
                 pathName={pathName}
             />
+<<<<<<< HEAD
         <HomeGuard>
             <CustomContainer>
                 <CustomStackFullWidth>
                     <CustomPaperBigCard
                         sx={{ marginTop:{xs: '1.5rem',sm:"2rem",md:"5rem"}, marginBottom: '1rem' }}
+=======
+            <CustomContainer>
+                <CustomStackFullWidth>
+                    <CustomPaperBigCard
+                        sx={{ marginTop: '1rem', marginBottom: '1rem' }}
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                         padding="1rem"
                     >
                         <CuisinesDetailsPage
@@ -49,7 +59,10 @@ const Index = ({ configData, landingPageData, pathName }) => {
                     </CustomPaperBigCard>
                 </CustomStackFullWidth>
             </CustomContainer>
+<<<<<<< HEAD
         </HomeGuard>
+=======
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
         </>
     )
 }

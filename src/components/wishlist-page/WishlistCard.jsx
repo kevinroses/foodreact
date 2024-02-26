@@ -1,5 +1,9 @@
 import { Grid, IconButton, Stack, Typography } from '@mui/material'
+<<<<<<< HEAD
 import React, { useEffect, useState } from 'react'
+=======
+import React, { useEffect } from 'react'
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
 import DeleteIcon from '@mui/icons-material/Delete'
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward'
 import { ArrowButton, IconButtonGrid, WishlistBox } from './WishList.style'
@@ -28,9 +32,13 @@ import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder'
 import FavoriteIcon from '@mui/icons-material/Favorite'
 import { useWishListDelete } from '../../hooks/react-query/config/wish-list/useWishListDelete'
 import ShoppingBagOutlinedIcon from '@mui/icons-material/ShoppingBagOutlined'
+<<<<<<< HEAD
 import CustomPopover from '../custom-popover/CustomPopover'
 import WishlistDeleteItem from './WishlistDeleteItem'
 import WishListImage from '../../assets/images/WishListImage'
+=======
+// import { discountChipHandler } from '../food-card/ProductCardMedia'
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
 
 const WishlistCard = ({ product, productImageUrl, recommenedproducts }) => {
     const { wishLists } = useSelector((state) => state.wishList)
@@ -38,8 +46,13 @@ const WishlistCard = ({ product, productImageUrl, recommenedproducts }) => {
     const dispatch = useDispatch()
     const color1 = theme.palette.error.main
     const isXSmall = useMediaQuery(theme.breakpoints.down('sm'))
+<<<<<<< HEAD
     const [openModal, setOpenModal] = useState(false)
     const [anchorEl, setAnchorEl] = useState(null);
+=======
+    const [openModal, setOpenModal] = React.useState(false)
+    const [openModalDelete, setOpenModalDelete] = React.useState(false)
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
     const { token } = useSelector((state) => state.userToken)
     const { global } = useSelector((state) => state.globalSettings)
     let currencySymbol
@@ -122,12 +135,15 @@ const WishlistCard = ({ product, productImageUrl, recommenedproducts }) => {
     const isInList = (id) => {
         return !!wishLists?.food?.find((wishFood) => wishFood.id === id)
     }
+<<<<<<< HEAD
     const handleClickDelete = (event) => {
         setAnchorEl(event.currentTarget);
     };
     const handleClose = (event) => {
         setAnchorEl(null);
     };
+=======
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
     return (
         <>
             <WishlistBox sx={{ cursor: 'pointer' }}>
@@ -211,7 +227,10 @@ const WishlistCard = ({ product, productImageUrl, recommenedproducts }) => {
                                 <span
                                     style={{
                                         fontSize: '15px',
+<<<<<<< HEAD
                                         marginInlineStart: "3px"
+=======
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                                     }}
                                 >
                                     {discountPrice &&
@@ -249,7 +268,11 @@ const WishlistCard = ({ product, productImageUrl, recommenedproducts }) => {
                                 </>
                             ) : (
                                 <IconButton
+<<<<<<< HEAD
                                     onClick={handleClickDelete}
+=======
+                                    onClick={() => setOpenModalDelete(true)}
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                                 >
                                     <DeleteIcon
                                         sx={{
@@ -298,6 +321,7 @@ const WishlistCard = ({ product, productImageUrl, recommenedproducts }) => {
                     />
                 </RTL>
             )}
+<<<<<<< HEAD
             <CustomPopover
                 anchorEl={anchorEl}
                 setAnchorEl={setAnchorEl}
@@ -315,6 +339,14 @@ const WishlistCard = ({ product, productImageUrl, recommenedproducts }) => {
                 />
 
             </CustomPopover>
+=======
+            <CustomDialogConfirm
+                dialogTexts={t('Are you sure you want to  delete this item?')}
+                open={openModalDelete}
+                onClose={() => setOpenModalDelete(false)}
+                onSuccess={handleClick}
+            />
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
         </>
     )
 }

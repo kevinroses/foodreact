@@ -2,18 +2,28 @@ import React, { useEffect } from 'react'
 import RestaurantDetails from '../../../components/restaurant-details/RestaurantDetails'
 import Meta from '../../../components/Meta'
 import MainApi from '../../../api/MainApi'
+<<<<<<< HEAD
 import { useDispatch, useSelector } from 'react-redux'
 import { useRouter } from 'next/router'
 import { CustomHeader } from '../../../api/Headers'
 import { setGlobalSettings } from '../../../redux/slices/global'
+=======
+import { useSelector } from 'react-redux'
+import { useRouter } from 'next/router'
+import { CustomHeader } from '../../../api/Headers'
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
 
 const index = ({ restaurantData, configData }) => {
     const { global } = useSelector((state) => state.globalSettings)
     const restaurantCoverUrl = global?.base_urls?.restaurant_cover_photo_url
     const restaurantCoverPhoto = `${restaurantCoverUrl}/${restaurantData?.cover_photo}`
+<<<<<<< HEAD
     const router = useRouter();
     const dispatch = useDispatch();
 
+=======
+    const router = useRouter()
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
     const { restaurant_zone_id } = router.query
     const origin =
         typeof window !== 'undefined' && window.location.origin
@@ -25,10 +35,13 @@ const index = ({ restaurantData, configData }) => {
 
         //hostname = window.location.hostnam
     }
+<<<<<<< HEAD
     useEffect(() => {
         dispatch(setGlobalSettings(configData))
     }, [])
 
+=======
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
 
     useEffect(() => {
         if (!zoneId) {
@@ -42,8 +55,14 @@ const index = ({ restaurantData, configData }) => {
     return (
         <>
             <Meta
+<<<<<<< HEAD
                 title={`${restaurantData?.meta_title ?? restaurantData.name
                     } - ${configData?.business_name}`}
+=======
+                title={`${
+                    restaurantData?.meta_title ?? restaurantData.name
+                } - ${configData?.business_name}`}
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                 ogImage={`${configData?.base_urls?.restaurant_image_url}/${restaurantData?.meta_image}`}
                 description={restaurantData?.meta_description}
             />

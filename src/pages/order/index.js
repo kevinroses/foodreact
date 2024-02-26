@@ -12,7 +12,11 @@ import jwt from 'base-64'
 import { t } from 'i18next'
 const Index = (props) => {
     const router = useRouter()
+<<<<<<< HEAD
     const { flag, amnt, token, orderId } = router.query
+=======
+    const { flag, amnt, token } = router.query
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
     const [attributeId, setAttributeId] = useState('')
 
     useEffect(() => {
@@ -61,18 +65,30 @@ const Index = (props) => {
                     {router.isReady && (
                         <Stack
                             width="100%"
+<<<<<<< HEAD
                             // height="85vh"
                             mt={{ xs: '0', md: '9rem' }}
+=======
+                            height="60vh"
+                            mt={{ xs: '5rem', md: '9rem' }}
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                             mb="3rem"
                             alignItems="center"
                             justifyContent="center"
                         >
                             <CustomPaperBigCard>
                                 {(flag && flag === 'fail') ||
+<<<<<<< HEAD
                                     flag === 'cancel' ? (
                                     <CheckoutFailed id={attributeId} />
                                 ) : (
                                     <SuccessCard totalAmount={amnt} id={attributeId || orderId} />
+=======
+                                flag === 'cancel' ? (
+                                    <CheckoutFailed id={attributeId} />
+                                ) : (
+                                    <SuccessCard totalAmount={amnt} />
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                                 )}
                             </CustomPaperBigCard>
                         </Stack>

@@ -5,10 +5,13 @@ import buttonImg from '../../../public/static/buttonImg/image 30.png'
 import buttonImg2 from '../../../public/static/buttonImg/image 29.png'
 import { useTranslation } from 'react-i18next'
 import { useTheme } from '@mui/material/styles'
+<<<<<<< HEAD
 
 import { useDispatch } from "react-redux";
 import { setProductsOrRestaurants, setSelectedName, setSelectedValue } from "../../redux/slices/searchTagSlice";
 import { setFoodOrRestaurant } from "../../redux/slices/searchFilter";
+=======
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
 export const PrimaryButton = styled(Button)(
     ({
         backgroundColor,
@@ -37,7 +40,10 @@ export default function FoodOrRestaurant({
 }) {
     const { t } = useTranslation()
     const theme = useTheme()
+<<<<<<< HEAD
     const dispatch=useDispatch()
+=======
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
     const orangeColor = theme.palette.primary.main
     const isProduct = foodOrRestaurant === 'products'
     const isRestaurant = foodOrRestaurant === 'restaurants'
@@ -48,10 +54,14 @@ export default function FoodOrRestaurant({
         }
     }, [])
     const handleClick = (value) => {
+<<<<<<< HEAD
         dispatch(setFoodOrRestaurant(value))
         dispatch(setSelectedValue(""))
         dispatch(setSelectedName(""))
         
+=======
+        setFoodOrRestaurant(value)
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
     }
     return (
         <>

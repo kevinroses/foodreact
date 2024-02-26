@@ -165,7 +165,11 @@ const RestaurantCategoryBar = (props) => {
                 sx={{
                     borderBottom: `1px solid ${theme.palette.borderBottomBg}`,
                     position: 'sticky',
+<<<<<<< HEAD
                     top: { xs: '168px', sm: '200px', md: '270px' },
+=======
+                    top: { xs: '168px', sm: '200px', md: '204px' },
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                     background: (theme) => theme.palette.neutral[1800],
                     padding: {
                         xs: '5px 5px 7px 10px',
@@ -182,15 +186,26 @@ const RestaurantCategoryBar = (props) => {
             >
                 <Grid item xs={8} sm={10} md={10} sx={{ position: 'relative' }}>
                     {isSmall && searchBoxOpen ? (
+<<<<<<< HEAD
                         <Stack sx={{animation : 'fadeInRight 1s  1',}}>
+=======
+                        <Stack>
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                             <CustomSearch
                                 borderRadius="5px"
                                 //key={reRenderSearch}
                                 handleSearchResult={handleSearchResult}
+<<<<<<< HEAD
                                 label={t('Search foods')}
                                 //isLoading={isLoadingSearchFood}
                                 searchFrom="restaurantDetails"
                                 // forMobile="true"
+=======
+                                label={t('Search foods ')}
+                                //isLoading={isLoadingSearchFood}
+                                searchFrom="restaurantDetails"
+                                forMobile="true"
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                                 selectedValue={searchKey}
                             />
                         </Stack>

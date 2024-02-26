@@ -12,7 +12,11 @@ import {
     CloseIconWrapper,
     CustomStackFullWidth,
 } from '../../styled-components/CustomStyles.style'
+<<<<<<< HEAD
 import { IconButton, InputAdornment, NoSsr, useTheme } from "@mui/material";
+=======
+import { IconButton, NoSsr, useTheme } from '@mui/material'
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
 import CloseIcon from '@mui/icons-material/Close'
 import LoadingButton from '@mui/lab/LoadingButton'
 const CustomSearch = ({
@@ -21,7 +25,11 @@ const CustomSearch = ({
     isLoading,
     selectedValue,
     borderRadius,
+<<<<<<< HEAD
     forMobile, backgroundColor,nav
+=======
+    forMobile,
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
 }) => {
     const theme = useTheme()
 
@@ -39,6 +47,10 @@ const CustomSearch = ({
     }, [selectedValue])
 
     const handleKeyPress = (e) => {
+<<<<<<< HEAD
+=======
+        console.log('log', e.target.value)
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
         if (e.key === 'Enter') {
             handleSearchResult(e.target.value)
             e.preventDefault()
@@ -58,6 +70,7 @@ const CustomSearch = ({
     return (
         <CustomStackFullWidth>
             <form onSubmit={handleKeyPress}>
+<<<<<<< HEAD
                 <Search borderRadius={borderRadius} backgroundColor={backgroundColor}>
                     {/*{nav ?  <SearchIconWrapper*/}
                     {/*  languageDirection={languageDirection}*/}
@@ -73,6 +86,16 @@ const CustomSearch = ({
                     {/*    </SearchIconWrapper>*/}
                     {/*  )*/}
                     {/*}*/}
+=======
+                <Search borderRadius={borderRadius}>
+                    {value === '' && (
+                        <SearchIconWrapper
+                            languageDirection={languageDirection}
+                        >
+                            <SearchIcon fontSize="medium" color="primary" />
+                        </SearchIconWrapper>
+                    )}
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                     <NoSsr>
                         <StyledInputBase
                             placeholder={t(label)}
@@ -82,6 +105,7 @@ const CustomSearch = ({
                             onKeyPress={(e) => handleKeyPress(e)}
                             languageDirection={languageDirection}
                             forMobile={forMobile}
+<<<<<<< HEAD
                             startAdornment={  // Add startAdornment here
                                 <InputAdornment
                                     position="start"
@@ -97,6 +121,8 @@ const CustomSearch = ({
                                     />
                                 </InputAdornment>
                             }
+=======
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                         />
                     </NoSsr>
                     {value !== '' && (

@@ -1,7 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import { CustomPaperBigCard } from '../../styled-components/CustomStyles.style'
 import { CustomButton } from '../custom-cards/CustomCards.style'
+<<<<<<< HEAD
 import { Grid, Stack } from '@mui/material'
+=======
+import { Grid } from '@mui/material'
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
 import Typography from '@mui/material/Typography'
 import { useTranslation } from 'react-i18next'
 import Router from 'next/router'
@@ -15,14 +19,20 @@ import CustomModal from '../custom-modal/CustomModal'
 import CancelOrder from './CancelOrder'
 import { useGetOrderCancelReason } from '../../hooks/react-query/config/order-cancel/useGetCanelReasons'
 import DigitalPaymentManage from './DigitalPaymentManage'
+<<<<<<< HEAD
 import { getGuestId } from "../checkout-page/functions/getGuestUserId";
+=======
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
 
 const OrderDetailsBottom = ({
     id,
     refetchOrderDetails,
     refetchTrackData,
     trackData,
+<<<<<<< HEAD
     isTrackOrder
+=======
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
 }) => {
     const [openModal, setOpenModal] = useState(false)
     const [openModalForPayment, setModalOpenForPayment] = useState()
@@ -36,6 +46,7 @@ const OrderDetailsBottom = ({
     const { mutate: orderCancelMutation, isLoading: orderLoading } =
         useMutation('order-cancel', OrderApi.CancelOrder)
     const handleTrackOrderClick = () => {
+<<<<<<< HEAD
         //Router.push(`/tracking/${id}`)
         Router.push({
             pathname: '/info',
@@ -46,6 +57,9 @@ const OrderDetailsBottom = ({
 
             },
         })
+=======
+        Router.push(`/tracking/${id}`)
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
     }
 
     const handleOnSuccess = () => {
@@ -59,7 +73,10 @@ const OrderDetailsBottom = ({
                 setOpenModal(false)
             }
             const formData = {
+<<<<<<< HEAD
                 guest_id: getGuestId(),
+=======
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                 order_id: id,
                 reason: cancelReason,
                 _method: 'put',
@@ -73,6 +90,7 @@ const OrderDetailsBottom = ({
 
     return (
         <>
+<<<<<<< HEAD
             <Stack width="100%" gap="15px" flexDirection="row" justifyContent={{ xs: "center", sm: "flex-end", md: "flex-end" }}>
                 {trackData &&
                     trackData?.data?.order_status === 'confirmed' && !isTrackOrder ? (
@@ -129,13 +147,84 @@ const OrderDetailsBottom = ({
                     )
                 )}
             </Stack>
+=======
+            <CustomPaperBigCard>
+                <Grid container spacing={3}>
+                    {trackData &&
+                    trackData?.data?.order_status === 'confirmed' ? (
+                        <Grid item xs={12} md={12}>
+                            <CustomButton
+                                variant="contained"
+                                onClick={handleTrackOrderClick}
+                            >
+                                <Typography variant="h5">
+                                    {t('Track Order')}
+                                </Typography>
+                            </CustomButton>
+                        </Grid>
+                    ) : (
+                        <Grid item xs={12} md={6}>
+                            <CustomButton
+                                variant="contained"
+                                onClick={handleTrackOrderClick}
+                            >
+                                <Typography variant="h5">
+                                    {t('Track Order')}
+                                </Typography>
+                            </CustomButton>
+                        </Grid>
+                    )}
+                    {trackData &&
+                    trackData?.data?.order_status === 'pending' &&
+                    trackData?.data?.payment_method === 'digital_payment' &&
+                    trackData?.data?.payment_status === 'unpaid' ? (
+                        <Grid item xs={12} md={6}>
+                            <CustomButton
+                                variant="outlined"
+                                onClick={() => setModalOpenForPayment(true)}
+                            >
+                                <Typography
+                                    variant="h5"
+                                    color={theme.palette.primary.main}
+                                >
+                                    {t(
+                                        'Switch to Cash on Delivery or Cancel the order'
+                                    )}
+                                </Typography>
+                            </CustomButton>
+                        </Grid>
+                    ) : (
+                        trackData?.data?.order_status !== 'confirmed' && (
+                            <Grid item xs={12} md={6}>
+                                <CustomButton
+                                    variant="outlined"
+                                    onClick={() => setOpenModal(true)}
+                                >
+                                    <Typography
+                                        variant="h5"
+                                        color={theme.palette.primary.main}
+                                    >
+                                        {t('Cancel Order')}
+                                    </Typography>
+                                </CustomButton>
+                            </Grid>
+                        )
+                    )}
+                </Grid>
+            </CustomPaperBigCard>
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
             <CustomModal
                 //dialogTexts="Are you sure you want to cancel this order?"
                 openModal={openModal}
                 setModalOpen={setOpenModal}
+<<<<<<< HEAD
                 maxWidth="350px"
 
             // onSuccess={handleOnSuccess}
+=======
+
+                // onSuccess={handleOnSuccess}
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
             >
                 <CancelOrder
                     cancelReason={cancelReason}

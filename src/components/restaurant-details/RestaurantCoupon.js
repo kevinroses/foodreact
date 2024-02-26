@@ -44,7 +44,11 @@ const RestaurantCoupon = ({ coupon }) => {
                     />
                     <Typography
                         color={theme.palette.neutral[1000]}
+<<<<<<< HEAD
                         fontSize={{ xs: "18px", sm: "20px", md: "22px" }}
+=======
+                        fontSize="22px"
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                         fontWeight="700"
                     >
                         {' '}

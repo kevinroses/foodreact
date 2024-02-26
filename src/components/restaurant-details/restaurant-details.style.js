@@ -61,12 +61,21 @@ export const DiscountImageGrid = styled(Grid)(
 )
 export const RestaurantCommonTypography = styled(Typography)(
     ({ theme, fontSize, smFontSize, fontWeight }) => ({
+<<<<<<< HEAD
         fontSize: fontSize ? fontSize : '1.4rem',
         fontWeight: fontWeight ? fontWeight : '800',
         color:alpha( theme.palette.neutral[900],.9),
         [theme.breakpoints.down('md')]: {
             // styles
             fontSize: smFontSize ? smFontSize : '1rem',
+=======
+        fontSize: fontSize ? fontSize : '24px',
+        fontWeight: fontWeight ? fontWeight : '800',
+        color: theme.palette.whiteContainer.main,
+        [theme.breakpoints.down('md')]: {
+            // styles
+            fontSize: smFontSize ? smFontSize : '18px',
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
         },
     })
 )
@@ -93,7 +102,11 @@ export const RestaurantCouponStack = styled(Stack)(({ theme, isSmall }) => ({
     // height:"100%"
 }))
 export const CouponStack = styled(Stack)(({ theme }) => ({
+<<<<<<< HEAD
     background: alpha(theme.palette.neutral[200], 0.9),
+=======
+    background: alpha(theme.palette.neutral[200], 0.8),
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
     boxShadow: '0px 2px 10px -3px rgba(27, 127, 237, 0.1)',
     backdropFilter: 'blur(5px)',
     padding: '1rem',

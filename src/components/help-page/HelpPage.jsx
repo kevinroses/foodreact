@@ -23,7 +23,11 @@ const HelpPage = ({ configData }) => {
     const { t } = useTranslation()
 
     return (
+<<<<<<< HEAD
         <Box paddingTop={{ xs: "0", sm: "0", md: "2rem" }}>
+=======
+        <Box>
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
             <Grid container md={12} xs={12}>
                 <Grid item md={12} xs={12}>
                     <HelpBox>

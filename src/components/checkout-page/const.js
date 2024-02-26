@@ -1,8 +1,13 @@
 import moment from 'moment'
 import { t } from 'i18next'
 // let today = moment(currentDate).format('dddd')
+<<<<<<< HEAD
 let currentDate = moment().format('yyyy-MM-DD HH:mm')
 let nextday = moment(currentDate).add(1, 'days').format('yyyy-MM-DD')
+=======
+let currentDate = moment().format("YYYY-MM-DDTHH:mm:ssZ")
+let nextday = moment(currentDate).add(1, 'days').format('YYYY-MM-DDTHH:mm:ssZ')
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
 let today = moment(currentDate).format('dddd')
 let currentTime = moment(currentDate).format('HH:mm')
 
@@ -31,6 +36,7 @@ export const getDayNumber = (day) => {
         }
     }
 }
+<<<<<<< HEAD
 function recursive(start, end, close, list, schedule_order_slot_duration, day, selectedDate) {
     const checkedEnd = moment(end, "HH:mm").subtract(1, "minutes");
     const date = selectedDate
@@ -60,10 +66,65 @@ function recursive(start, end, close, list, schedule_order_slot_duration, day, s
                         ? `${date} ${moment(checkedEnd).format("HH:mm")}`
                         : `${date} ${moment(end).format("HH:mm")}`,
             });
+=======
+function recursive(start, end, close, list, schedule_order_slot_duration, day) {
+    const checkedEnd = moment(end, 'HH:mm').subtract(1, 'minutes')
+    const date =
+        getDayNumber(today) === day
+            ? moment(currentDate).format('YYYY-MM-DDTHH:mm:ssZ')
+            : nextday
+    if (
+        end.isBefore(close) ||
+        moment(end).format('HH:mm') === moment(close).format('HH:mm') ||
+        moment(checkedEnd).format('HH:mm') === moment(close).format('HH:mm')
+    ) {
+        let label = ''
+        if (
+            currentTime > moment(start).format('HH:mm') &&
+            currentTime < moment(end).format('HH:mm')
+        ) {
+            label = t('Now')
+        } else {
+            label = `${moment(start).format('HH:mm')} - ${moment(
+                checkedEnd
+            ).format('HH:mm')}`
+        }
+
+        // // `${moment(start).format('HH:mm')} - ${moment(checkedEnd).format('HH:mm') === moment(close).format('HH:mm')
+        // //         ? moment(checkedEnd).format('HH:mm')
+        // //         : moment(end).format('HH:mm')}`
+        if (
+            (currentTime < moment(end).format('HH:mm') &&
+                getDayNumber(today) === day) ||
+            (currentTime > moment(end).format('HH:mm') &&
+                getDayNumber(today) !== day)
+        ) {
+            list.push({
+                label: label,
+                // label: `${moment(start).format('HH:mm')} - ${
+                //     moment(checkedEnd).format('HH:mm') ===
+                //     moment(close).format('HH:mm')
+                //         ? moment(checkedEnd).format('HH:mm')
+                //         : moment(end).format('HH:mm')
+                // }`,
+                start: moment(start).format('HH:mm'),
+                end:
+                    moment(checkedEnd).format('HH:mm') ===
+                    moment(close).format('HH:mm')
+                        ? moment(checkedEnd).format('HH:mm')
+                        : moment(end).format('HH:mm'),
+                value:
+                    moment(checkedEnd).format('HH:mm') ===
+                    moment(close).format('HH:mm')
+                        ? `${date} ${moment(checkedEnd).format('HH:mm')}`
+                        : `${date} ${moment(end).format('HH:mm')}`,
+            })
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
         }
 
         recursive(
             end,
+<<<<<<< HEAD
             moment(end, "HH:mm").add(schedule_order_slot_duration, "minutes"),
             close,
             list,
@@ -73,18 +134,36 @@ function recursive(start, end, close, list, schedule_order_slot_duration, day, s
         );
     } else {
         return list;
+=======
+            moment(end, 'HH:mm').add(schedule_order_slot_duration, 'minutes'),
+            close,
+            list,
+            schedule_order_slot_duration,
+            day
+            //  moment(close).format('HH:mm'),
+        )
+    } else {
+        return list
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
     }
 }
 export const getAllSchedule = (
     day,
     schedules,
+<<<<<<< HEAD
     schedule_order_slot_duration,
     selectedDate
+=======
+    schedule_order_slot_duration
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
 ) => {
     let list = []
     if (schedules && schedules.length > 0) {
         const days = schedules.filter((s) => s.day === day)
+<<<<<<< HEAD
 
+=======
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
         for (let index = 0; index < days.length; index++) {
             let close = moment(days[index].closing_time, 'HH:mm')
             let start = moment(days[index].opening_time, 'HH:mm')
@@ -92,15 +171,22 @@ export const getAllSchedule = (
                 schedule_order_slot_duration,
                 'minutes'
             )
+<<<<<<< HEAD
 
+=======
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
             recursive(
                 start,
                 end,
                 close,
                 list,
                 schedule_order_slot_duration,
+<<<<<<< HEAD
                 day,
                 selectedDate
+=======
+                day
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
             )
         }
     }

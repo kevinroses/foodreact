@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import { alpha, styled } from '@mui/material/styles'
+=======
+import { styled } from '@mui/material/styles'
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
 import {
     Box,
     Button,
@@ -9,7 +13,10 @@ import {
     Modal,
     Typography,
 } from '@mui/material'
+<<<<<<< HEAD
 import { CustomStackFullWidth } from '../../../styled-components/CustomStyles.style'
+=======
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
 
 // export const AddButton = styled(Button)(({ theme }) => ({
 //     // color: 'white',
@@ -33,6 +40,7 @@ export const ButtonBox = styled(Box)(({ theme }) => ({
         justifyContent: 'end',
     },
 }))
+<<<<<<< HEAD
 export const CustomDivWithBorder = styled(CustomStackFullWidth)(({ theme }) => ({
     border: `1px solid ${alpha(theme.palette.neutral[300], 0.3)}`,
     borderRadius: "5px",
@@ -52,3 +60,5 @@ export const LabelButton = styled(Button)(({ theme, value, selected }) => ({
         // background: theme.palette.neutral[800]
     }
 }))
+=======
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7

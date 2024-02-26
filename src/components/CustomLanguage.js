@@ -1,6 +1,10 @@
 import React, { useEffect, useRef, useState } from 'react'
 import PropTypes from 'prop-types'
+<<<<<<< HEAD
 import { LefRightBorderBox, TopBarButton } from "./navbar/Navbar.style";
+=======
+import { TopBarButton } from './navbar/Navbar.style'
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
 import cookie from 'js-cookie'
 import { alpha, ListItemIcon, MenuItem, Stack, Typography } from '@mui/material'
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown'
@@ -78,7 +82,24 @@ const CustomLanguage = ({ formMobileMenu, language, countryCode }) => {
 
     return (
         <>
+<<<<<<< HEAD
             <LefRightBorderBox
+=======
+            <Stack
+                sx={{
+                    borderRight: `1px solid ${alpha(
+                        theme.palette.primary.main,
+                        0.5
+                    )}`,
+                    borderLeft: `1px solid ${alpha(
+                        theme.palette.primary.main,
+                        0.5
+                    )}`,
+                    height: '64px',
+                }}
+                alignItems="center"
+                justifyContent="center"
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
             >
                 <TopBarButton
                     formMobileMenu={formMobileMenu}
@@ -101,7 +122,11 @@ const CustomLanguage = ({ formMobileMenu, language, countryCode }) => {
                         {languageValue(language)?.languageCode}
                     </CustomColouredTypography>
                 </TopBarButton>
+<<<<<<< HEAD
             </LefRightBorderBox>
+=======
+            </Stack>
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
             <StyledMenu
                 id="demo-customized-menu"
                 MenuListProps={{

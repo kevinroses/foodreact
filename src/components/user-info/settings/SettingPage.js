@@ -11,7 +11,10 @@ import {
     ListItemIcon,
     Menu,
     Card,
+<<<<<<< HEAD
     useMediaQuery,
+=======
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
 } from '@mui/material'
 import React, { useState, useEffect } from 'react'
 import Switch, { SwitchProps } from '@mui/material/Switch'
@@ -40,7 +43,10 @@ import cookie from 'js-cookie'
 const label = { inputProps: { 'aria-label': 'Switch demo' } }
 const SettingPage = () => {
     const theme = useTheme()
+<<<<<<< HEAD
     const isXSmall = useMediaQuery(theme.breakpoints.down("sm"));
+=======
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
     const { t } = useTranslation()
     const dispatch = useDispatch()
     const [anchorEl, setAnchorEl] = useState(null)
@@ -125,10 +131,14 @@ const SettingPage = () => {
                 description=""
                 keywords=""
             />
+<<<<<<< HEAD
             <CustomPaperBigCard
                 padding={isXSmall ? '1rem' : '30px 40px'}
                 sx={{ minHeight: !isXSmall ? '558px' : "450px" }}
             >
+=======
+            <CustomPaperBigCard padding="3rem" sx={{ minHeight: '55vh' }}>
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                 <Grid container spacing={2}>
                     <Grid item md={4} xs={12}>
                         <Card

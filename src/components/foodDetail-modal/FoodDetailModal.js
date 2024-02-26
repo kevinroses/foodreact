@@ -4,6 +4,7 @@ import React, { useCallback, useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
 import {
+<<<<<<< HEAD
     cart,
     setCampCart,
     setCart,
@@ -16,6 +17,19 @@ import {
     getIndexFromArrayByComparision, handleProductValueWithOutDiscount,
     isAvailable
 } from "../../utils/customFunctions";
+=======
+    setCampCart,
+    setCart,
+    setClearCart,
+    setUpdateVariationToCart,
+} from '../../redux/slices/cart'
+import {
+    calculateItemBasePrice,
+    getConvertDiscount,
+    getIndexFromArrayByComparision,
+    isAvailable,
+} from '../../utils/customFunctions'
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
 import { useTranslation } from 'react-i18next'
 import { FoodDetailModalStyle } from '../home/HomeStyle'
 import toast from 'react-hot-toast'
@@ -50,6 +64,7 @@ import VagSvg from './VagSvg'
 import { FoodSubTitleTypography } from '../food-card/FoodCard.style'
 import { t } from 'i18next'
 import { ReadMore } from '../landingpage/ReadMore'
+<<<<<<< HEAD
 import { getGuestId } from "../checkout-page/functions/getGuestUserId";
 import { handleValuesFromCartItems } from "../checkout-page/CheckoutPage";
 import useAddCartItem from "../../hooks/react-query/add-cart/useAddCartItem";
@@ -58,6 +73,8 @@ import useCartItemUpdate from "../../hooks/react-query/add-cart/useCartItemUpdat
 import useDeleteAllCartItem from "../../hooks/react-query/add-cart/useDeleteAllCartItem";
 import { getSelectedAddons, getSelectedVariations } from "../navbar/second-navbar/SecondNavbar";
 import LocationModalAlert from '../food-card/LocationModalAlert';
+=======
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
 
 const FoodDetailModal = ({
     product,
@@ -76,7 +93,10 @@ const FoodDetailModal = ({
     const dispatch = useDispatch()
     const theme = useTheme()
     const [selectedOptions, setSelectedOptions] = useState([])
+<<<<<<< HEAD
     const [isLocation, setIsLocation] = useState(false)
+=======
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
     const [totalPrice, setTotalPrice] = useState(null)
     const [varPrice, setVarPrice] = useState(null)
     const [totalWithoutDiscount, setTotalWithoutDiscount] = useState(null)
@@ -90,9 +110,12 @@ const FoodDetailModal = ({
     const { token } = useSelector((state) => state.userToken)
     const { wishLists } = useSelector((state) => state.wishList)
     const [modalData, setModalData] = useState([])
+<<<<<<< HEAD
     const { mutate: addToCartMutate, isLoading: addToCartLoading } = useAddCartItem();
     const { mutate: updateMutate } = useCartItemUpdate();
     const { mutate: deleteCartItemMutate } = useDeleteAllCartItem();
+=======
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
 
     useEffect(() => {
         //initially setting these states to use further
@@ -108,10 +131,13 @@ const FoodDetailModal = ({
         )
     }, [product])
     const notify = (i) => toast(i)
+<<<<<<< HEAD
     let location = undefined;
     if (typeof window !== "undefined") {
         location = localStorage.getItem("location");
     }
+=======
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
     const itemValuesHandler = (itemIndex, variationValues) => {
         const isThisValExistWithinSelectedValues = selectedOptions.filter(
             (sItem) => sItem.choiceIndex === itemIndex
@@ -151,6 +177,7 @@ const FoodDetailModal = ({
         })
         return newVariations
     }
+<<<<<<< HEAD
     const handleSuccess = (res) => {
         if (res) {
             let product = {};
@@ -314,6 +341,73 @@ const FoodDetailModal = ({
         if (cartList?.length > 0) {
             //checking same restaurant items already exist or not
             const isRestaurantExist = cartList?.find(
+=======
+
+    const handleAddUpdate = () => {
+        if (productUpdate) {
+            //for updating
+            const indexNumber = getIndexFromArrayByComparision(
+                cartList,
+                modalData[0]
+            )
+            const newObj = {
+                ...modalData[0],
+                totalPrice: getConvertDiscount(
+                    product?.discount,
+                    product?.discount_type,
+                    totalPrice,
+                    product?.restaurant_discount
+                ),
+                quantity: quantity,
+                variations: getNewVariationForDispatch(),
+                selectedAddons: add_on,
+                itemBasePrice: getConvertDiscount(
+                    product?.discount,
+                    product?.discount_type,
+                    calculateItemBasePrice(modalData[0], selectedOptions),
+                    product?.restaurant_discount
+                ),
+            }
+            dispatch(
+                setUpdateVariationToCart({
+                    newObj: newObj,
+                    indexNumber: indexNumber,
+                })
+            )
+            toast.success(t('Item updated successfully'))
+        } else {
+            //for adding
+            dispatch(
+                setCart({
+                    ...modalData[0],
+                    totalPrice: getConvertDiscount(
+                        product?.discount,
+                        product?.discount_type,
+                        totalPrice,
+                        product?.restaurant_discount,
+                        quantity
+                    ),
+                    quantity: quantity,
+                    variations: getNewVariationForDispatch(),
+                    selectedAddons: add_on,
+                    itemBasePrice: getConvertDiscount(
+                        product?.discount,
+                        product?.discount_type,
+                        calculateItemBasePrice(modalData[0], selectedOptions),
+                        product?.restaurant_discount
+                    ),
+                })
+            )
+            toast.success(t('Item added to cart'))
+        }
+        handleClose?.()
+    }
+
+    const addOrUpdateToCartByDispatch = () => {
+        if (cartList.length > 0) {
+            //checking same restaurant items already exist or not
+            const isRestaurantExist = cartList.find(
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                 (item) => item.restaurant_id === product.restaurant_id
             )
             if (isRestaurantExist) {
@@ -404,7 +498,11 @@ const FoodDetailModal = ({
 
                             if (
                                 count >=
+<<<<<<< HEAD
                                 Number.parseInt(optionalItemIndex.min) &&
+=======
+                                    Number.parseInt(optionalItemIndex.min) &&
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                                 count <= Number.parseInt(optionalItemIndex.max)
                             ) {
                                 isTrue = true
@@ -488,7 +586,11 @@ const FoodDetailModal = ({
                             })
                             if (
                                 selectedOptionCount >=
+<<<<<<< HEAD
                                 Number.parseInt(item.min) &&
+=======
+                                    Number.parseInt(item.min) &&
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                                 selectedOptionCount <= Number.parseInt(item.max)
                             ) {
                                 //call add/update to cart functionalities
@@ -530,6 +632,7 @@ const FoodDetailModal = ({
         }
     }
     const addToCard = () => {
+<<<<<<< HEAD
         if (location) {
             let checkingFor = 'cart'
             handleAddToCartOnDispatch(checkingFor)
@@ -545,6 +648,14 @@ const FoodDetailModal = ({
         dispatch(setClearCart())
 
         //setClearCartModal(false)
+=======
+        let checkingFor = 'cart'
+        handleAddToCartOnDispatch(checkingFor)
+    }
+    const clearCartAlert = () => {
+        dispatch(setClearCart())
+        setClearCartModal(false)
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
         toast.success(
             t(
                 'Previously added restaurant foods have been removed from cart and the selected one added'
@@ -622,9 +733,15 @@ const FoodDetailModal = ({
                                     Number.parseInt(
                                         isItemExistFromSameVariation.optionPrice
                                     ) *
+<<<<<<< HEAD
                                     quantity +
                                     Number.parseInt(option.optionPrice) *
                                     quantity
+=======
+                                        quantity +
+                                    Number.parseInt(option.optionPrice) *
+                                        quantity
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                             )
                             setVarPrice(
                                 (prevPrice) =>
@@ -632,9 +749,15 @@ const FoodDetailModal = ({
                                     Number.parseInt(
                                         isItemExistFromSameVariation.optionPrice
                                     ) *
+<<<<<<< HEAD
                                     quantity +
                                     Number.parseInt(option.optionPrice) *
                                     quantity
+=======
+                                        quantity +
+                                    Number.parseInt(option.optionPrice) *
+                                        quantity
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                             )
                         } else {
                             const newObj = {
@@ -652,13 +775,21 @@ const FoodDetailModal = ({
                                 (prevState) =>
                                     prevState +
                                     Number.parseInt(option.optionPrice) *
+<<<<<<< HEAD
                                     quantity
+=======
+                                        quantity
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                             )
                             setVarPrice(
                                 (prevPrice) =>
                                     prevPrice +
                                     Number.parseInt(option.optionPrice) *
+<<<<<<< HEAD
                                     quantity
+=======
+                                        quantity
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                             )
                         }
                     }
@@ -755,7 +886,11 @@ const FoodDetailModal = ({
         }
     }
     const radioCheckHandler = (choiceIndex, option, optionIndex) => {
+<<<<<<< HEAD
         const isExist = selectedOptions?.find(
+=======
+        const isExist = selectedOptions.find(
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
             (sOption) =>
                 sOption.choiceIndex === choiceIndex &&
                 sOption.optionIndex === optionIndex
@@ -779,7 +914,11 @@ const FoodDetailModal = ({
         } else {
             price = product?.price
         }
+<<<<<<< HEAD
         if (selectedOptions?.length > 0) {
+=======
+        if (selectedOptions.length > 0) {
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
             selectedOptions?.forEach(
                 (item) => (price += Number.parseInt(item?.optionPrice))
             )
@@ -869,11 +1008,19 @@ const FoodDetailModal = ({
     const [authModalOpen, setAuthModalOpen] = useState(false)
 
     const orderNow = () => {
+<<<<<<< HEAD
         if (location) {
             let checkingFor = 'campaign'
             handleAddToCartOnDispatch(checkingFor)
         } else {
             setIsLocation(true)
+=======
+        let checkingFor = 'campaign'
+        if (token) {
+            handleAddToCartOnDispatch(checkingFor)
+        } else {
+            setAuthModalOpen(true)
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
         }
     }
     const handleSignInSuccess = () => {
@@ -897,6 +1044,7 @@ const FoodDetailModal = ({
                 disableAutoFocus={true}
             >
                 <FoodDetailModalStyle sx={{ bgcolor: 'background.paper' }}>
+<<<<<<< HEAD
                     {isLocation ? (
                         <LocationModalAlert setOpenAddressModalAlert={setOpen} />
                     ) : (
@@ -1030,6 +1178,73 @@ const FoodDetailModal = ({
                                         <TotalAmountVisibility
                                             modalData={modalData}
                                             totalPrice={totalPrice}
+=======
+                    <CustomStackFullWidth>
+                        <FoodModalTopSection
+                            product={product}
+                            image={image}
+                            handleModalClose={handleModalClose}
+                            isInList={isInList}
+                            deleteWishlistItem={deleteWishlistItem}
+                            addToFavorite={addToFavorite}
+                        />
+
+                        <CustomStackFullWidth
+                            sx={{ padding: '20px' }}
+                            spacing={2}
+                        >
+                            <SimpleBar
+                                style={{
+                                    maxHeight: '35vh',
+                                    paddingInlineEnd: '10px',
+                                }}
+                                className="test123"
+                            >
+                                <CustomStackFullWidth spacing={0.5}>
+                                    <Stack
+                                        direction="row"
+                                        justifyContent="flex-start"
+                                        alignItems="center"
+                                        flexWrap="wrap"
+                                        spacing={0.5}
+                                    >
+                                        <Typography variant="h4">
+                                            {modalData.length > 0 &&
+                                                modalData[0].name}
+                                        </Typography>
+                                        <VagSvg
+                                            color={
+                                                Number(product?.veg) === 0
+                                                    ? theme.palette.nonVeg
+                                                    : theme.palette.success
+                                                          .light
+                                            }
+                                        />
+                                    </Stack>
+                                    <ReadMore
+                                        limits="100"
+                                        color={theme.palette.neutral[400]}
+                                    >
+                                        {modalData.length > 0 &&
+                                            modalData[0].description}
+                                    </ReadMore>
+                                    <Stack
+                                        spacing={1}
+                                        direction={{
+                                            xs: 'row',
+                                            sm: 'row',
+                                            md: 'row',
+                                        }}
+                                        justifyContent={{
+                                            xs: 'space-between',
+                                            sm: 'space-between',
+                                            md: 'space-between',
+                                        }}
+                                        alignItems="center"
+                                    >
+                                        <StartPriceView
+                                            data={modalData[0]}
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                                             currencySymbolDirection={
                                                 currencySymbolDirection
                                             }
@@ -1037,6 +1252,7 @@ const FoodDetailModal = ({
                                             digitAfterDecimalPoint={
                                                 digitAfterDecimalPoint
                                             }
+<<<<<<< HEAD
                                             t={t}
                                             productDiscount={product?.discount}
                                             productDiscountType={
@@ -1088,6 +1304,120 @@ const FoodDetailModal = ({
                             </CustomStackFullWidth>
                         </CustomStackFullWidth>
                     )}
+=======
+                                            hideStartFromText="false"
+                                            handleBadge={handleBadge}
+                                        />
+                                        <IncrementDecrementManager
+                                            decrementPrice={decrementPrice}
+                                            totalPrice={totalPrice}
+                                            quantity={quantity}
+                                            incrementPrice={incrementPrice}
+                                        />
+                                    </Stack>
+                                </CustomStackFullWidth>
+                                {modalData.length > 0 &&
+                                    modalData[0].variations?.length > 0 && (
+                                        <VariationsManager
+                                            t={t}
+                                            modalData={modalData}
+                                            radioCheckHandler={
+                                                radioCheckHandler
+                                            }
+                                            changeChoices={changeChoices}
+                                            currencySymbolDirection={
+                                                currencySymbolDirection
+                                            }
+                                            currencySymbol={currencySymbol}
+                                            digitAfterDecimalPoint={
+                                                digitAfterDecimalPoint
+                                            }
+                                        />
+                                    )}
+                                {modalData.length > 0 &&
+                                    modalData[0].add_ons?.length > 0 && (
+                                        <AddOnsManager
+                                            t={t}
+                                            modalData={modalData}
+                                            setTotalPrice={setTotalPrice}
+                                            setVarPrice={setVarPrice}
+                                            changeAddOns={changeAddOns}
+                                            setProductAddOns={setProductAddOns}
+                                            product={product}
+                                            setAddOns={setAddOns}
+                                            add_on={add_on}
+                                            quantity={quantity}
+                                            cartList={cartList}
+                                        />
+                                    )}
+                            </SimpleBar>
+                            <Grid container direction="row">
+                                <Grid
+                                    item
+                                    md={7}
+                                    sm={12}
+                                    xs={12}
+                                    alignSelf="center"
+                                >
+                                    <TotalAmountVisibility
+                                        modalData={modalData}
+                                        totalPrice={totalPrice}
+                                        currencySymbolDirection={
+                                            currencySymbolDirection
+                                        }
+                                        currencySymbol={currencySymbol}
+                                        digitAfterDecimalPoint={
+                                            digitAfterDecimalPoint
+                                        }
+                                        t={t}
+                                        productDiscount={product?.discount}
+                                        productDiscountType={
+                                            product?.discount_type
+                                        }
+                                        productRestaurantDiscount={
+                                            product?.restaurant_discount
+                                        }
+                                        selectedAddOns={add_on}
+                                        quantity={quantity}
+                                    />
+                                </Grid>
+                                <Grid item md={5} sm={12} xs={12}>
+                                    {modalData.length > 0 &&
+                                    isAvailable(
+                                        modalData[0].available_time_starts,
+                                        modalData[0].available_time_ends
+                                    ) ? (
+                                        <>
+                                            {isInCart(product.id) && (
+                                                <UpdateToCartUi
+                                                    addToCard={addToCard}
+                                                    t={t}
+                                                />
+                                            )}
+                                            {!isInCart(product.id) && (
+                                                <AddOrderToCart
+                                                    product={product}
+                                                    t={t}
+                                                    addToCard={addToCard}
+                                                    orderNow={orderNow}
+                                                />
+                                            )}
+                                        </>
+                                    ) : (
+                                        <AddUpdateOrderToCart
+                                            modalData={modalData}
+                                            isInCart={isInCart}
+                                            addToCard={addToCard}
+                                            t={t}
+                                            product={product}
+                                            orderNow={orderNow}
+                                        />
+                                    )}
+                                </Grid>
+                            </Grid>
+                        </CustomStackFullWidth>
+                    </CustomStackFullWidth>
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                 </FoodDetailModalStyle>
             </Modal>
             <CartClearModal

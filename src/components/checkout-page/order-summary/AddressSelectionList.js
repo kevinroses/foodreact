@@ -12,26 +12,41 @@ import CustomCheckOutShimmer from '../../CustomShimmerForCheckout/CustomCheckOut
 import {useTheme} from "@mui/material/styles";
 import {ACTIONS} from "../states/additionalInformationStates";
 
+<<<<<<< HEAD
 
 
 const AddressSelectionList = (props) => {
     const theme = useTheme()
     const { data, allAddress, handleLatLng, t, address, isRefetching, additionalInformationDispatch } = props
     const handleClick= (adres)=>{
+=======
+const AddressSelectionList = (props) => {
+    const theme = useTheme()
+    const { data, allAddress, handleLatLng, t, address, isRefetching, additionalInformationDispatch } = props
+    const handleClick= (address)=>{
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
         if(additionalInformationDispatch){
             additionalInformationDispatch({type:ACTIONS.setStreetNumber , payload:address?.road|| '' })
             additionalInformationDispatch({type:ACTIONS.setHouseNumber, payload:address?.house|| '' })
             additionalInformationDispatch({type:ACTIONS.setFloor , payload:address?.floor || '' })
             additionalInformationDispatch({type:ACTIONS.setAddressType , payload:address?.address_type || '' })
         }
+<<<<<<< HEAD
         handleLatLng(adres)
+=======
+        handleLatLng(address)
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
     }
     return (
         <>
             <List
                 sx={{
                     width: '100%',
+<<<<<<< HEAD
                    // bgcolor: 'background.paper',
+=======
+                    bgcolor: 'background.paper',
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
 
                 }}
             >
@@ -44,12 +59,16 @@ const AddressSelectionList = (props) => {
                                 alignItems="flex-start"
                                 key={adres.id}
                                 sx={{
+<<<<<<< HEAD
                                     border:"1px solid",
                                     borderColor:theme=>theme.palette.neutral[200],
                                     borderRadius:"10px",
                                     cursor: 'pointer',
                                     marginBottom:"1rem",
                                     padding:"4px 4px 4px 0px",
+=======
+                                    cursor: 'pointer',
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                                     '&:hover': {
                                         backgroundColor:alpha(theme.palette.primary.main,.2),
                                     }
@@ -61,13 +80,29 @@ const AddressSelectionList = (props) => {
                                     direction="row"
                                     alignItems="center"
                                 >
+<<<<<<< HEAD
 
+=======
+                                    <ListItemText
+                                        primary={
+                                            <Typography textTransform="capitalize">
+                                                {t(adres.address_type)}
+                                            </Typography>
+                                        }
+                                        secondary={
+                                            <React.Fragment>
+                                                {adres.address}
+                                            </React.Fragment>
+                                        }
+                                    />
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                                     <Radio
                                         checked={adres.id === address?.id}
                                         row
                                         aria-labelledby="demo-row-radio-buttons-group-label"
                                         name="row-radio-buttons-group"
                                     />
+<<<<<<< HEAD
                                     <ListItemText
                                         primary={
                                             <Typography textTransform="capitalize" fontSize="14px" fontWeight="500">
@@ -90,6 +125,14 @@ const AddressSelectionList = (props) => {
                                 </CustomStackFullWidth>
                             </ListItem>
 
+=======
+                                </CustomStackFullWidth>
+                            </ListItem>
+                            <Divider
+                                variant="inset"
+                                sx={{ marginLeft: '0px' }}
+                            />
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                         </>
                     ))}
                 {!isRefetching && allAddress?.length === 0 && (

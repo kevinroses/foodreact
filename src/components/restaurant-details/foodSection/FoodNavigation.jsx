@@ -81,11 +81,17 @@ const FoodNavigation = ({
                             return (
                                 <RestaurantDetailsNavButton
                                     sx={{
+<<<<<<< HEAD
                                         fontSize:".9rem",
                                         fontWeight :  category_id === menu.id ? "600":"400",
                                         color: (theme) =>
                                             category_id === menu.id ?
                                             `${theme.palette.whiteContainer.main} !important`:`${theme.palette.neutral[1000]} !important`,
+=======
+                                        color: (theme) =>
+                                            category_id === menu.id &&
+                                            `${theme.palette.whiteContainer.main} !important`,
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                                         backgroundColor: (theme) =>
                                             category_id === menu.id
                                                 ? theme.palette.primary.main

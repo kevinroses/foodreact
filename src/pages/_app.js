@@ -4,7 +4,11 @@ import { ReactQueryDevtools } from 'react-query/devtools'
 import { CacheProvider } from '@emotion/react'
 import CssBaseline from '@mui/material/CssBaseline'
 import { ThemeProvider } from '@mui/material/styles'
+<<<<<<< HEAD
 import { Provider, useDispatch } from "react-redux";
+=======
+import { Provider } from 'react-redux'
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
 import { Toaster } from 'react-hot-toast'
 import { createTheme } from '../theme/index'
 import { store } from '../redux/store'
@@ -26,19 +30,29 @@ import '../styles/nprogress.css'
 import nProgress from 'nprogress'
 import Head from 'next/head'
 import { setLanguage } from '../redux/slices/languageChange'
+<<<<<<< HEAD
 import { setFormattedAddress } from "../redux/slices/addressData";
+=======
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
 
 Router.events.on('routeChangeStart', nProgress.start)
 Router.events.on('routeChangeError', nProgress.done)
 Router.events.on('routeChangeComplete', nProgress.done)
+<<<<<<< HEAD
 export  const currentVersion = process.env.NEXT_PUBLIC_SITE_VERSION;
+=======
+
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
 const clientSideEmotionCache = createEmotionCache()
 
 function App({ Component, pageProps, emotionCache = clientSideEmotionCache }) {
     const getLayout = Component.getLayout ?? ((page) => page)
     const queryClient = new QueryClient()
     const router = useRouter()
+<<<<<<< HEAD
     //const dispatch=useDispatch()
+=======
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
     const [showSplashScreen, setShowSplashScreen] = useState(true)
     const [languageDirection, setLanguageDirection] = useState('')
     const [theme_mode, setThemeMode] = useState('')
@@ -50,6 +64,7 @@ function App({ Component, pageProps, emotionCache = clientSideEmotionCache }) {
     useEffect(() => {
         setShowSplashScreen(false)
     }, [router.isReady])
+<<<<<<< HEAD
     useEffect(() => {
         const userLanguage = localStorage.getItem('language')
         if(!userLanguage){
@@ -57,6 +72,11 @@ function App({ Component, pageProps, emotionCache = clientSideEmotionCache }) {
         }
 
     }, [])
+=======
+    // useEffect(() => {
+    //     localStorage.setItem('language', i18n.language)
+    // }, [])
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
 
     useEffect(() => {
         // Perform localStorage action
@@ -100,6 +120,7 @@ function App({ Component, pageProps, emotionCache = clientSideEmotionCache }) {
     if (typeof window !== 'undefined') {
         zoneid = JSON.parse(localStorage.getItem('zoneid'))
     }
+<<<<<<< HEAD
 
 
     // site version check and clear local storage
@@ -117,6 +138,8 @@ function App({ Component, pageProps, emotionCache = clientSideEmotionCache }) {
     }, []);
 
 
+=======
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
     return (
         <CacheProvider value={emotionCache}>
             <QueryClientProvider client={queryClient}>
@@ -135,13 +158,21 @@ function App({ Component, pageProps, emotionCache = clientSideEmotionCache }) {
 
                             <Box
                                 sx={{
+<<<<<<< HEAD
                                     height:"100%",
                                     //minHeight: '80vh',
+=======
+                                    minHeight: '80vh',
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                                     mt: {
                                         xs:
                                             router.pathname === '/home'
                                                 ? '2.5rem'
+<<<<<<< HEAD
                                                 : '2rem',
+=======
+                                                : '4rem',
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                                         md:
                                             router.pathname === '/'
                                                 ? zoneid
@@ -149,7 +180,10 @@ function App({ Component, pageProps, emotionCache = clientSideEmotionCache }) {
                                                     : '2rem'
                                                 : '4rem',
                                     },
+<<<<<<< HEAD
 
+=======
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                                 }}
                             >
                                 {router.pathname !== '/' &&

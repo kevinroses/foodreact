@@ -11,7 +11,11 @@ import fbCredentialSlice from './slices/fbCredentials'
 import storedDataSliceReducer from './slices/storedData'
 import landingPageSliceReducer from './slices/landingpagedata'
 import languageChangeReducer from './slices/languageChange'
+<<<<<<< HEAD
 import scrollPosition from "./slices/scrollPosition"
+=======
+
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
 import storage from 'redux-persist/lib/storage'
 import { combineReducers } from 'redux'
 import {
@@ -26,16 +30,23 @@ import {
 import userSlice from './slices/customer'
 import orderTypeSlice from './slices/orderType'
 import userTokenReducer from './slices/userToken'
+<<<<<<< HEAD
 import offlinePaymentInfoReducer from './slices/OfflinePayment'
 import guestUserReducer from "./slices/guestUserInfo"
 import searchTagsReducer from "./slices/searchTagSlice"
 import addressDataReducer from "./slices/addressData"
 import editProfileReducer from "./slices/editProfile"
+=======
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
 
 const persistConfig = {
     key: 'stack-food',
     storage: storage,
+<<<<<<< HEAD
     blacklist: ['searchFilterStore', 'storedData',"scrollPosition"],
+=======
+    blacklist: ['searchFilterStore', 'storedData'],
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
 }
 const reducers = combineReducers({
     counter: counterReducer,
@@ -52,6 +63,7 @@ const reducers = combineReducers({
     landingPage: landingPageSliceReducer,
     userToken: userTokenReducer,
     languageChange: languageChangeReducer,
+<<<<<<< HEAD
     offlinePayment: offlinePaymentInfoReducer,
     guestUserInfo: guestUserReducer,
     scrollPosition:scrollPosition,
@@ -59,6 +71,8 @@ const reducers = combineReducers({
     addressData:addressDataReducer,
     isEditProfile:editProfileReducer,
 
+=======
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
 })
 const persistedReducer = persistReducer(persistConfig, reducers)
 export const store = configureStore({

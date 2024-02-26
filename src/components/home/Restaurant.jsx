@@ -30,8 +30,12 @@ import { useGetRestaurant } from '../../hooks/react-query/restaurants/useGetRest
 import DotSpin from './restaurant/DotSpin'
 import CustomEmptyResult from '../empty-view/CustomEmptyResult'
 import { useInView } from 'react-intersection-observer'
+<<<<<<< HEAD
 import { removeDuplicates } from '../../utils/customFunctions'
 import useScrollSticky from "./Search-filter-tag/useScrollSticky";
+=======
+import { noRestaurantsImage } from '../../utils/LocalImages'
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
 const Restaurant = () => {
     const theme = useTheme()
     const { t } = useTranslation()
@@ -41,7 +45,10 @@ const Restaurant = () => {
     const [searchKey, setSearchKey] = useState(' ')
     const [offset, setOffSet] = useState(1)
     const [page_limit, setPage_Limit] = useState(12)
+<<<<<<< HEAD
     const [resData, setResData] = useState([])
+=======
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
     const matchesToMd = useMediaQuery('(min-width:740px)')
     const matchesToScroll = useMediaQuery('(min-width:828px)')
     const matchesToSmall = useMediaQuery('(min-width:400px)')
@@ -49,6 +56,7 @@ const Restaurant = () => {
     const [filterByData, setFilterByData] = useState({})
     const [forFilter, setForFilter] = useState(false)
     const { ref, inView } = useInView()
+<<<<<<< HEAD
     const [isFilterTrue,setIsFilterTrue]=useState(false)
 
     const refs = useRef(null)
@@ -57,6 +65,9 @@ const Restaurant = () => {
     const responsiveTop = isSmall ? 2000 : matchesToScroll ? 3100 : 3950
 
 
+=======
+    const refs = useRef(null)
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
     const {
         data,
         isSuccess,
@@ -73,6 +84,7 @@ const Restaurant = () => {
         filterType,
         searchKey,
     })
+<<<<<<< HEAD
     console.log({offset});
     const successHandler = (res) => {
         if (res?.restaurants?.length > 0) {
@@ -123,13 +135,42 @@ const Restaurant = () => {
             });
         }
     };
+=======
+    const responsiveTop = isSmall ? 2000 : matchesToScroll ? 1700 : 1950
+    // let fetching = false
+    // const bottomValue = isSmall ? 3.7 : 1.7
+    //
+    // const onScroll = async (event) => {
+    //     const { scrollHeight, scrollTop, clientHeight } =
+    //         event.target.scrollingElement
+    //     if (
+    //         !fetching &&
+    //         scrollHeight - scrollTop <= clientHeight * bottomValue
+    //     ) {
+    //         fetching = true
+    //         await fetchNextPage()
+    //         setOffSet((prevState) => prevState + 1)
+    //         fetching = false
+    //     }
+    // }
+    // useEffect(() => {
+    //     document.addEventListener('scroll', onScroll, { passive: true })
+    //     return () => {
+    //         document.removeEventListener('scroll', onScroll)
+    //     }
+    // }, [])
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
 
     const handleChange = (event, newValue) => {
         setFilterType(newValue)
         setOffSet(1)
         setForFilter(true)
+<<<<<<< HEAD
         scrollToSection5()
         setIsFilterTrue(true)
+=======
+        window.scrollTo(0, responsiveTop)
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
     }
     useEffect(() => {
         setForFilter(false)
@@ -145,17 +186,25 @@ const Restaurant = () => {
     useEffect(async () => {
         if (forFilter) {
             setOffSet(1)
+<<<<<<< HEAD
              //fetchPage(2)
             await refetch()
         }
     }, [forFilter, filterByData, filterType])
     console.log({forFilter});
+=======
+            // fetchPage(2)
+            await refetch()
+        }
+    }, [forFilter, filterByData, filterType])
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
     let mode = undefined
     if (typeof window !== 'undefined') {
         mode = localStorage.getItem('mode')
     }
     const lightColor = theme.palette.neutral[1000]
     const languageDirection = localStorage.getItem('direction')
+<<<<<<< HEAD
     return (
       <RTL direction={languageDirection}>
           <Grid
@@ -317,6 +366,161 @@ const Restaurant = () => {
               )}
           </Grid>
       </RTL>
+=======
+
+    return (
+        <RTL direction={languageDirection}>
+            <Grid
+                container
+                sx={{ paddingBlockStart: '1.6rem', paddingBlockEnd: '2rem' }}
+                rowGap="2rem"
+            >
+                <Grid
+                    item
+                    container
+                    xs={12}
+                    sm={12}
+                    md={12}
+                    justifyContent="space-between"
+                    alignItems="center"
+                    sx={{
+                        borderBottom: `1px solid ${theme.palette.borderBottomBg}`,
+                        position: 'sticky',
+                        top: '55px',
+
+                        padding: '15px 10px 0px 0px',
+                        zIndex: 5,
+                        background: theme.palette.neutral[1800],
+                    }}
+                >
+                    <Grid item xs={12} sm={12} md={4}>
+                        <Stack direction="row" spacing={1}>
+                            <CustomImageContainer
+                                src={restaurantIcon.src}
+                                width="26px"
+                                height="26px"
+                            />
+                            <Typography
+                                variant="h3"
+                                color={theme.palette.neutral[1000]}
+                                fontWeight="500"
+                            >
+                                {data?.pages[0]?.total_size} {t('Restaurants')}
+                            </Typography>
+                        </Stack>
+                    </Grid>
+                    <Grid item xs={12} sm={12} md={8} ref={refs}>
+                        <RestaurantTab
+                            filterByData={filterByData}
+                            setFilterByData={setFilterByData}
+                            filterType={filterType}
+                            handleChange={handleChange}
+                            mockData={mockData}
+                            setOffSet={setOffSet}
+                            setForFilter={setForFilter}
+                            responsiveTop={responsiveTop}
+                            forFilter={forFilter}
+                        />
+                    </Grid>
+                </Grid>
+                <Grid item xs={12} sm={12} md={12} container spacing={2}>
+                    {data && (
+                        <>
+                            {data?.pages.map((item) =>
+                                item?.restaurants?.map((restaurantData) => (
+                                    <Grid
+                                        key={restaurantData?.id}
+                                        item
+                                        md={3}
+                                        sm={matchesToMd ? 4 : 6}
+                                        xs={matchesToSmall ? 6 : 12}
+                                    >
+                                        <RestaurantBoxCard
+                                            key={restaurantData?.id}
+                                            id={restaurantData.id}
+                                            image={restaurantData?.cover_photo}
+                                            name={restaurantData?.name}
+                                            rating={restaurantData?.avg_rating}
+                                            restaurantImageUrl={
+                                                global?.base_urls
+                                                    ?.restaurant_cover_photo_url
+                                            }
+                                            restaurantDiscount={
+                                                restaurantData.discount &&
+                                                restaurantData.discount
+                                            }
+                                            freeDelivery={
+                                                restaurantData.free_delivery
+                                            }
+                                            open={restaurantData?.open}
+                                            active={restaurantData?.active}
+                                            delivery_time={
+                                                restaurantData?.delivery_time
+                                            }
+                                            cuisines={restaurantData?.cuisine}
+                                            coupons={restaurantData?.coupons}
+                                            slug={restaurantData?.slug}
+                                            zone_id={restaurantData?.zone_id}
+                                        />
+                                    </Grid>
+                                ))
+                            )}
+                        </>
+                    )}
+                    <Stack ref={ref}></Stack>
+                    {data?.pages[0]?.restaurants.length === 0 && (
+                        <Grid
+                            item
+                            xs={12}
+                            sm={12}
+                            md={12}
+                            sx={{
+                                paddingBlockEnd: '30px',
+                                paddingBlockStart: '30px',
+                            }}
+                        >
+                            <CustomEmptyResult
+                                image={noRestaurantsImage}
+                                label="No Restaurant found"
+                            />
+                        </Grid>
+                    )}
+                </Grid>
+                {isFetchingNextPage && (
+                    <Grid
+                        item
+                        xs={12}
+                        sm={12}
+                        md={12}
+                        sx={{
+                            paddingBlockEnd: '30px',
+                            paddingBlockStart: '30px',
+                        }}
+                    >
+                        <Stack sx={{ minHeight: '30vh' }}>
+                            <DotSpin />
+                        </Stack>
+                    </Grid>
+                )}
+                {isLoading && !isFetchingNextPage && (
+                    <Grid
+                        item
+                        xs={12}
+                        sm={12}
+                        md={12}
+                        sx={{
+                            paddingBlockEnd: '30px',
+                            paddingBlockStart: '30px',
+                        }}
+                    >
+                        <Stack sx={{ minHeight: '40vh' }}>
+                            <DotSpin />
+                        </Stack>
+                    </Grid>
+                )}
+            </Grid>
+        </RTL>
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
     )
 }
 

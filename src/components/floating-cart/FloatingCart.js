@@ -9,12 +9,25 @@ import {
     styled,
     Typography,
 } from '@mui/material'
+<<<<<<< HEAD
 import delivery from '../../../public/static/bannerslider/delivery.png'
 import Drawer from '@mui/material/Drawer'
+=======
+import cart from '../../../public/static/bannerslider/cart.png'
+import delivery from '../../../public/static/bannerslider/delivery.png'
+import Drawer from '@mui/material/Drawer'
+import {
+    OrderFoodAmount,
+    OrderFoodName,
+    OrderFoodSubtitle,
+    OrderSummaryGrid,
+} from '../checkout-page/CheckOut.style'
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
 import { useRouter } from 'next/router'
 import DeleteIcon from '@mui/icons-material/Delete'
 import { useDispatch, useSelector } from 'react-redux'
 import {
+<<<<<<< HEAD
     calculateItemBasePrice,
     cartItemsTotalAmount,
     cartTotalAmount,
@@ -26,11 +39,24 @@ import {
 import AddIcon from '@mui/icons-material/Add'
 import RemoveIcon from '@mui/icons-material/Remove'
 import  {
+=======
+    cartItemsTotalAmount,
+    cartTotalAmount,
+    getAmount,
+    getSelectedAddOn,
+    getVariation,
+    handleBadge,
+} from '../../utils/customFunctions'
+import AddIcon from '@mui/icons-material/Add'
+import RemoveIcon from '@mui/icons-material/Remove'
+import {
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
     decrementProductQty,
     incrementProductQty,
     removeProduct,
     setCartItemByDispatch,
     setClearCart,
+<<<<<<< HEAD
     cart
 } from "@/redux/slices/cart"
 import AuthModal from '../auth'
@@ -43,6 +69,19 @@ import {
 import { useTranslation } from 'react-i18next'
 import { ImageSource } from '../../utils/ImageSource'
 import { setCouponInfo } from "@/redux/slices/global"
+=======
+} from '../../redux/slices/cart'
+import AuthModal from '../auth'
+import { useQuery } from 'react-query'
+import { RestaurantsApi } from '../../hooks/react-query/config/restaurantApi'
+import {
+    CustomColouredTypography,
+    CustomTypographyBold,
+} from '../../styled-components/CustomStyles.style'
+import { useTranslation } from 'react-i18next'
+import { ImageSource } from '../../utils/ImageSource'
+import { setCouponInfo } from '../../redux/slices/global'
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
 import SimpleBar from 'simplebar-react'
 import CustomModal from '../custom-modal/CustomModal'
 import ProductUpdateModal from '../food-card/ProductUpdateModal'
@@ -57,6 +96,7 @@ import Cart from './Cart'
 import { handleTotalAmountWithAddonsFF } from '../../utils/customFunctions'
 import toast from 'react-hot-toast'
 import { t } from 'i18next'
+<<<<<<< HEAD
 import GuestCheckoutModal from "./GuestCheckoutModal";
 import { onErrorResponse } from "../ErrorResponse";
 import { getGuestId } from "../checkout-page/functions/getGuestUserId";
@@ -66,26 +106,39 @@ import { getSelectedAddons, getSelectedVariations } from "../navbar/second-navba
 import CircularLoader from "../loader/CircularLoader";
 import CartContent from "./CartContent";
 import useGetAllCartList from "@/hooks/react-query/add-cart/useGetAllCartList";
+=======
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
 
 const FloatingCart = (props) => {
     const { sideDrawerOpen, setSideDrawerOpen } = props
     const theme = useTheme()
+<<<<<<< HEAD
     const { t } = useTranslation()
     const [openGuestModal, setOpenGuestModal] = useState(false);
+=======
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
     const router = useRouter()
     const dispatch = useDispatch()
     const [open, setDrawerOpen] = useState(false)
     const { cartList } = useSelector((state) => state.cart)
     const [modalFor, setModalFor] = useState('sign-in')
+<<<<<<< HEAD
     const [openModal, setOpenModal] = React.useState(false)
 
+=======
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
     const { global } = useSelector((state) => state.globalSettings)
     const { token } = useSelector((state) => state.userToken)
     const { isFilterDrawerOpen } = useSelector(
         (state) => state.searchFilterStore
     )
+<<<<<<< HEAD
     const { mutate } = useDeleteAllCartItem();
 
+=======
+
+    const { t } = useTranslation()
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
     let languageDirection
     if (typeof window !== 'undefined') {
         languageDirection = localStorage.getItem('direction')
@@ -127,6 +180,7 @@ const FloatingCart = (props) => {
         },
     }))
     const handleCheckout = () => {
+<<<<<<< HEAD
         const closeDrawers = () => {
             setDrawerOpen(false);
             setSideDrawerOpen(false);
@@ -145,6 +199,18 @@ const FloatingCart = (props) => {
             closeDrawers();
         }
     };
+=======
+        if (token) {
+            router.push('/checkout?page=cart')
+            setDrawerOpen(false)
+            setSideDrawerOpen(false)
+        } else {
+            handleOpenAuthModal()
+            setDrawerOpen(false)
+            setSideDrawerOpen(false)
+        }
+    }
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
     useEffect(() => {
         refetch().then()
     }, [])
@@ -154,21 +220,29 @@ const FloatingCart = (props) => {
     //     } else return cartList.price
     // })
     const handleClearAll = () => {
+<<<<<<< HEAD
         mutate(getGuestId(), {
             //onSuccess: handleSuccess,
             onError: onErrorResponse,
         });
+=======
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
         dispatch(setClearCart())
         dispatch(setCouponInfo(null))
         setOpenModal(false)
     }
     // cart update modal
+<<<<<<< HEAD
 
+=======
+    const [openModal, setOpenModal] = React.useState(false)
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
     const handleProductUpdateModal = (item) => {
         dispatch(setCartItemByDispatch(item))
         setOpenModal(true)
         setSideDrawerOpen(false)
     }
+<<<<<<< HEAD
     const cartListSuccessHandler=(res)=>{
         if(res){
             const setItemIntoCart = () => {
@@ -205,6 +279,20 @@ const FloatingCart = (props) => {
         data:cartData,
         refetch: cartListRefetch,
     } = useGetAllCartList(getGuestId(),cartListSuccessHandler);
+=======
+    const handleIncrement = (item) => {
+        if (item?.maximum_cart_quantity) {
+            if (item?.maximum_cart_quantity <= item?.quantity) {
+                toast.error(t('Out Of Limits'))
+            } else {
+                dispatch(incrementProductQty(item))
+            }
+        } else {
+            dispatch(incrementProductQty(item))
+        }
+    }
+
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
     return (
         <>
             {authModalOpen && (
@@ -213,7 +301,10 @@ const FloatingCart = (props) => {
                     handleClose={handleCloseAuthModal}
                     modalFor={modalFor}
                     setModalFor={setModalFor}
+<<<<<<< HEAD
                     cartListRefetch={cartListRefetch}
+=======
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                 />
             )}
             {!sideDrawerOpen && (
@@ -287,7 +378,11 @@ const FloatingCart = (props) => {
                                     lineHeight: 0.5,
                                     fontWeight: 'bold',
                                     textAlign: 'center',
+<<<<<<< HEAD
                                     fontSize: '13px',
+=======
+                                    fontSize: '14px',
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                                 }}
                                 color={theme.palette.whiteContainer.main}
                             >
@@ -343,6 +438,7 @@ const FloatingCart = (props) => {
                                     md: '60px',
                                 }}
                             >
+<<<<<<< HEAD
                                 <Stack gap="1rem">
                                     <Stack>
                                         <Typography
@@ -351,10 +447,44 @@ const FloatingCart = (props) => {
                                                 fontSize: '18px',
                                             }}
                                         >
+=======
+                                <Stack>
+                                    <Typography
+                                        sx={{
+                                            textAlign: 'center',
+                                            fontSize: '18px',
+                                        }}
+                                    >
+                                        <Typography
+                                            component="span"
+                                            sx={{
+                                                color: (theme) =>
+                                                    theme.palette.primary.main,
+                                                fontWeight: 'bold',
+                                            }}
+                                        >
+                                            {cartList?.length} {t('Items')}
+                                        </Typography>{' '}
+                                        {t('in your cart')}
+                                    </Typography>
+                                    {restaurantData?.data?.delivery_time && (
+                                        <Typography
+                                            sx={{
+                                                textAlign: 'center',
+                                                fontSize: '14px',
+                                            }}
+                                        >
+                                            <img
+                                                style={{ marginBottom: '4px' }}
+                                                src={delivery.src}
+                                                loading="lazy"
+                                            />
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                                             <Typography
                                                 component="span"
                                                 sx={{
                                                     color: (theme) =>
+<<<<<<< HEAD
                                                         theme.palette.primary.main,
                                                     fontWeight: 'bold',
                                                 }}
@@ -418,6 +548,267 @@ const FloatingCart = (props) => {
                                         borderRadius="5px"
                                         sx={{
 
+=======
+                                                        theme.palette
+                                                            .neutral[400],
+                                                    marginLeft: '10px',
+                                                    fontWeight: 600,
+                                                    textAlign: 'center',
+                                                }}
+                                            >
+                                                {
+                                                    restaurantData?.data
+                                                        ?.delivery_time
+                                                }
+                                            </Typography>
+                                        </Typography>
+                                    )}
+                                </Stack>
+                                <SimpleBar
+                                    style={{
+                                        height: '55vh',
+                                        width: '100%',
+                                    }}
+                                >
+                                    <Grid container spacing={{ xs: 1 }}>
+                                        {cartList?.map((item) => (
+                                            <React.Fragment key={item.id}>
+                                                <Grid
+                                                    item
+                                                    md={4}
+                                                    xs={4}
+                                                    onClick={() =>
+                                                        handleProductUpdateModal(
+                                                            item
+                                                        )
+                                                    }
+                                                    sx={{ cursor: 'pointer' }}
+                                                >
+                                                    <CustomImageContainer
+                                                        height="90px"
+                                                        width="90px"
+                                                        src={ImageSource(
+                                                            productBaseUrl,
+                                                            item.image
+                                                        )}
+                                                        borderRadius=".7rem"
+                                                        objectFit="cover"
+                                                    />
+                                                    {/*<img*/}
+                                                    {/*    height="90px"*/}
+                                                    {/*    width="90px"*/}
+                                                    {/*    src={ImageSource(*/}
+                                                    {/*        productBaseUrl,*/}
+                                                    {/*        item.image*/}
+                                                    {/*    )}*/}
+                                                    {/*    loading="lazy"*/}
+                                                    {/*/>*/}
+                                                </Grid>
+                                                <Grid item md={8} xs={8}>
+                                                    <Grid
+                                                        container
+                                                        md={12}
+                                                        xs={12}
+                                                        spacing={{ xs: 1 }}
+                                                    >
+                                                        <Grid
+                                                            item
+                                                            md={12}
+                                                            xs={12}
+                                                        >
+                                                            <OrderFoodName
+                                                                sx={{
+                                                                    cursor: 'pointer',
+                                                                }}
+                                                                onClick={() =>
+                                                                    handleProductUpdateModal(
+                                                                        item
+                                                                    )
+                                                                }
+                                                            >
+                                                                {item.name}
+                                                            </OrderFoodName>
+                                                            {item?.variations
+                                                                ?.length >
+                                                                0 && (
+                                                                <VisibleVariations
+                                                                    variations={
+                                                                        item?.variations
+                                                                    }
+                                                                    t={t}
+                                                                />
+                                                            )}
+                                                            {item
+                                                                ?.selectedAddons
+                                                                ?.length >
+                                                                0 && (
+                                                                <Stack
+                                                                    direction="row"
+                                                                    alignItems="center"
+                                                                    spacing={
+                                                                        0.5
+                                                                    }
+                                                                >
+                                                                    <OrderFoodSubtitle>
+                                                                        {t(
+                                                                            'Addon'
+                                                                        )}
+                                                                    </OrderFoodSubtitle>
+                                                                    <OrderFoodSubtitle>
+                                                                        :
+                                                                    </OrderFoodSubtitle>
+                                                                    <OrderFoodSubtitle>
+                                                                        {getSelectedAddOn(
+                                                                            item?.selectedAddons
+                                                                        )}
+                                                                    </OrderFoodSubtitle>
+                                                                </Stack>
+                                                            )}
+                                                        </Grid>
+                                                        <Grid
+                                                            item
+                                                            md={6}
+                                                            xs={6}
+                                                        >
+                                                            <OrderFoodAmount>
+                                                                {getAmount(
+                                                                    handleTotalAmountWithAddonsFF(
+                                                                        item.totalPrice,
+                                                                        item?.selectedAddons
+                                                                    ),
+                                                                    currencySymbolDirection,
+                                                                    currencySymbol,
+                                                                    digitAfterDecimalPoint
+                                                                )}
+                                                            </OrderFoodAmount>
+                                                        </Grid>
+                                                        <Grid
+                                                            md={6}
+                                                            xs={6}
+                                                            pt="6px"
+                                                        >
+                                                            <Stack
+                                                                direction="row"
+                                                                alignItems="center"
+                                                                spacing={2}
+                                                            >
+                                                                {item?.quantity ===
+                                                                1 ? (
+                                                                    <IconButton
+                                                                        aria-label="delete"
+                                                                        size="small"
+                                                                        color="error"
+                                                                    >
+                                                                        <DeleteIcon
+                                                                            onClick={() =>
+                                                                                dispatch(
+                                                                                    removeProduct(
+                                                                                        {
+                                                                                            ...item,
+                                                                                        }
+                                                                                    )
+                                                                                )
+                                                                            }
+                                                                            fontSize="inherit"
+                                                                        />
+                                                                    </IconButton>
+                                                                ) : (
+                                                                    <IconButton
+                                                                        aria-label="delete"
+                                                                        size="small"
+                                                                        sx={{
+                                                                            width: '24px',
+                                                                            height: '24px',
+                                                                            background:
+                                                                                (
+                                                                                    theme
+                                                                                ) =>
+                                                                                    theme
+                                                                                        .palette
+                                                                                        .neutral[200],
+                                                                            borderRadius:
+                                                                                '11px',
+                                                                        }}
+                                                                    >
+                                                                        <RemoveIcon
+                                                                            size="small"
+                                                                            sx={{
+                                                                                color: (
+                                                                                    theme
+                                                                                ) =>
+                                                                                    theme
+                                                                                        .palette
+                                                                                        .neutral[1000],
+                                                                                padding:
+                                                                                    '3px',
+                                                                            }}
+                                                                            onClick={() =>
+                                                                                dispatch(
+                                                                                    decrementProductQty(
+                                                                                        {
+                                                                                            ...item,
+                                                                                        }
+                                                                                    )
+                                                                                )
+                                                                            }
+                                                                            //onClick={decrementPrice}
+                                                                        />
+                                                                    </IconButton>
+                                                                )}
+                                                                <Typography>
+                                                                    {
+                                                                        item?.quantity
+                                                                    }
+                                                                </Typography>
+                                                                <IconButton
+                                                                    aria-label="delete"
+                                                                    size="small"
+                                                                    sx={{
+                                                                        width: '24px',
+                                                                        height: '24px',
+                                                                        background:
+                                                                            (
+                                                                                theme
+                                                                            ) =>
+                                                                                theme
+                                                                                    .palette
+                                                                                    .neutral[200],
+                                                                        borderRadius:
+                                                                            '11px',
+                                                                    }}
+                                                                >
+                                                                    <AddIcon
+                                                                        sx={{
+                                                                            color: (
+                                                                                theme
+                                                                            ) =>
+                                                                                theme
+                                                                                    .palette
+                                                                                    .neutral[1000],
+                                                                            padding:
+                                                                                '3px',
+                                                                        }}
+                                                                        size="small"
+                                                                        onClick={() =>
+                                                                            handleIncrement(
+                                                                                item
+                                                                            )
+                                                                        }
+                                                                    />
+                                                                </IconButton>
+                                                            </Stack>
+                                                        </Grid>
+                                                    </Grid>
+                                                </Grid>
+                                            </React.Fragment>
+                                        ))}
+                                    </Grid>
+                                </SimpleBar>
+                                <Stack alignItems="center" spacing={2}>
+                                    <Stack
+                                        borderRadius="5px"
+                                        sx={{
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                                             width: '100%',
                                             paddingTop: '10px',
                                             paddingBottom: '10px',
@@ -428,7 +819,10 @@ const FloatingCart = (props) => {
                                         )}
                                         justifyContent="center"
                                         alignItems="center"
+<<<<<<< HEAD
 
+=======
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                                     >
                                         <CustomColouredTypography
                                             sx={{
@@ -483,7 +877,10 @@ const FloatingCart = (props) => {
                     )}
                 </Drawer>
             </RTL>
+<<<<<<< HEAD
             {openGuestModal && <GuestCheckoutModal setModalFor={setModalFor}  handleOpenAuthModal={handleOpenAuthModal} open={openGuestModal} setOpen={setOpenGuestModal} setSideDrawerOpen={setSideDrawerOpen}/>}
+=======
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
             {openModal && (
                 <ProductUpdateModal
                     openModal={openModal}

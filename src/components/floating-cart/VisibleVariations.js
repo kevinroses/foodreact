@@ -4,7 +4,11 @@ import { Stack } from '@mui/material'
 import { OrderFoodSubtitle } from '../checkout-page/CheckOut.style'
 
 const VisibleVariations = (props) => {
+<<<<<<< HEAD
     const { variations, t, orderDetailsColor} = props
+=======
+    const { variations, t, orderDetailsColor } = props
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
     const [variationsWithChild, setVariationsWithChild] = useState([])
     const handleVariationsWithChild = (variations) => {
         const variationsArray = []
@@ -62,15 +66,27 @@ const VisibleVariations = (props) => {
                                         (
                                         {item?.variationValues?.map(
                                             (val, index) =>
+<<<<<<< HEAD
                                                 `${val.label}${index + 1 !==
                                                     item.variationValues.length
                                                     ? ','
                                                     : ''
+=======
+                                                `${val.label}${
+                                                    index + 1 !==
+                                                    item.variationValues.length
+                                                        ? ','
+                                                        : ''
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                                                 }`
                                         )}
                                         )
                                         {parentIndex + 1 !==
+<<<<<<< HEAD
                                             variationsWithChild?.length
+=======
+                                        variationsWithChild?.length
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                                             ? ','
                                             : ''}
                                     </OrderFoodSubtitle>

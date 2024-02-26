@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { alpha, styled } from '@mui/material/styles'
 import { Box, Button, Grid, TextField } from '@mui/material'
 import { CustomStackFullWidth } from '../../../styled-components/CustomStyles.style'
@@ -16,6 +17,22 @@ export const CancelButton = styled(Button)(({ theme }) => ({
     '&:hover': {
         borderColor: theme.palette.neutral[300]
     }
+=======
+import { styled } from '@mui/material/styles'
+import { Box, Button, Grid } from '@mui/material'
+
+export const SaveButton = styled(Button)(({ theme }) => ({
+    color: '#ffffff !important',
+
+    [theme.breakpoints.up('xs')]: {
+        width: '170px',
+        height: '42.04px',
+    },
+    [theme.breakpoints.up('md')]: {
+        width: '170px',
+        color: 'black',
+    },
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
 }))
 
 export const ButtonBox = styled(Box)(({ theme }) => ({
@@ -34,6 +51,7 @@ export const ButtonBox = styled(Box)(({ theme }) => ({
     },
 }))
 export const CouponCard = styled(Grid)(({ theme }) => ({
+<<<<<<< HEAD
     alignItems: 'center',
     justify: 'center'
 
@@ -65,3 +83,10 @@ export const CustomProfileTextfield = styled(TextField)(({ theme }) => ({
 }))
 
 
+=======
+    alignItems:'center',
+    justify:'center'
+
+}))
+
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7

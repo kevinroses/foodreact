@@ -65,7 +65,11 @@ const BottomNav = (props) => {
                     bottom: 0,
                     left: 0,
                     right: 0,
+<<<<<<< HEAD
                     zIndex: 999,
+=======
+                    zIndex: 9999,
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                 }}
                 elevation={3}
             >
@@ -96,7 +100,11 @@ const BottomNav = (props) => {
                         onClick={() => setSideDrawerOpen(true)}
                         // label="Cart"
                         icon={
+<<<<<<< HEAD
                             <Badge badgeContent={cartList?.length} color="error">
+=======
+                            <Badge badgeContent={cartList.length} color="error">
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                                 <ShoppingCartOutlinedIcon />
                             </Badge>
                         }

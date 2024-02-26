@@ -33,13 +33,27 @@ const ProfileStatistics = ({ value, title, image, pathname }) => {
         )
     }
     return (
+<<<<<<< HEAD
         <Stack
             sx={{ cursor: 'pointer', marginInlineEnd: "10px" }}
+=======
+        <Grid
+            item
+            xs={6}
+            sm={6}
+            md={3}
+            justifyContent="center"
+            sx={{ cursor: 'pointer' }}
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
             onClick={() => handleRoute(pathname)}
         >
             <CustomPaperBigCard
                 padding="1rem"
+<<<<<<< HEAD
                 sx={{ minHeight: '85px' }}
+=======
+                sx={{ minWidth: '100px' }}
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                 elevation={6}
             >
                 <CustomStackFullWidth>
@@ -50,10 +64,16 @@ const ProfileStatistics = ({ value, title, image, pathname }) => {
                         direction="row"
                     >
                         <Typography
+<<<<<<< HEAD
                             fontSize="24px"
                             sx={{
                                 fontWeight: '500',
                                 lineHeight: "1.3"
+=======
+                            fontSize="26px"
+                            sx={{
+                                fontWeight: '500',
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                             }}
                             color={theme.palette.primary.main}
                         >
@@ -67,14 +87,22 @@ const ProfileStatistics = ({ value, title, image, pathname }) => {
                         />
                     </Stack>
                     <Typography
+<<<<<<< HEAD
                         sx={{ fontSize: '14px', textTransform: 'capitalize', lineHeight: "1" }}
+=======
+                        sx={{ fontSize: '14px', textTransform: 'capitalize' }}
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                         color={theme.palette.neutral[500]}
                     >
                         {t(title)}
                     </Typography>
                 </CustomStackFullWidth>
             </CustomPaperBigCard>
+<<<<<<< HEAD
         </Stack>
+=======
+        </Grid>
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
     )
 }
 export default ProfileStatistics

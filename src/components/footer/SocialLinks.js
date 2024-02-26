@@ -7,7 +7,11 @@ import facebookIcon from '../../../public/static/footer/socialicons/fbColor.png'
 import instraIcon from '../../../public/static/footer/socialicons/instraColor.png'
 import pinterestIcon from '../../../public/static/footer/socialicons/pinterest.png'
 import linkedin from '../../../public/static/footer/socialicons/linkedIn.png'
+<<<<<<< HEAD
 import twitterIcon from '../../../public/static/footer/socialicons/twitter.png'
+=======
+import twitterIcon from '../../../public/static/footer/socialicons/tColor.png'
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
 import youtube from '../../../public/static/footer/socialicons/youtubeColor.png'
 import errorImage from '../../../public/static/no-image-found.png'
 import CustomImageContainer from '../CustomImageContainer'

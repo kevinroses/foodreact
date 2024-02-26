@@ -20,7 +20,14 @@ const AddOnsManager = (props) => {
     return (
         <Box
             paddingLeft={{ xs: '10px', md: '0px' }}
+<<<<<<< HEAD
 
+=======
+            paddingRight={{
+                xs: '5px',
+                md: '10px',
+            }}
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
         >
             <FoodTitleTypography
                 textAlign="left"
@@ -32,7 +39,11 @@ const AddOnsManager = (props) => {
             >
                 {t('Add Ons')}
             </FoodTitleTypography>
+<<<<<<< HEAD
             <FormGroup sx={{ marginLeft: '0px' }}>
+=======
+            <FormGroup sx={{ marginLeft: '20px' }}>
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                 {modalData.length > 0 &&
                     modalData[0].add_ons?.map((item) => (
                         <IncDecAddOn

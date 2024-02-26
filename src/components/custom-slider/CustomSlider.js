@@ -4,7 +4,11 @@ import { Slider, Stack, Typography } from '@mui/material'
 import { useIsMount } from '../first-render-useeffect-controller/useIsMount'
 import { useSelector } from 'react-redux'
 
+<<<<<<< HEAD
 const CustomSlider = ({ handleChangePrice,highestPrice ,priceValue }) => {
+=======
+const CustomSlider = ({ handleChangePrice, priceValue }) => {
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
     const { filterData } = useSelector((state) => state.searchFilterStore)
     const [value, setValue] = React.useState(
         filterData.price !== '' ? filterData.price : [0, 1]
@@ -38,11 +42,19 @@ const CustomSlider = ({ handleChangePrice,highestPrice ,priceValue }) => {
                 onChange={handleChange}
                 valueLabelDisplay="auto"
                 min={0}
+<<<<<<< HEAD
                 max={highestPrice}
                 // getAriaValueText={valuetext}
                 disableSwap
             />
             <Typography>{highestPrice}</Typography>
+=======
+                max={1000}
+                // getAriaValueText={valuetext}
+                disableSwap
+            />
+            <Typography>2000</Typography>
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
         </Stack>
     )
 }

@@ -20,12 +20,30 @@ const RestaurantListShimmer = (props) => {
 
     const isXSmall = useMediaQuery(theme.breakpoints.down('sm'))
     return (
+<<<<<<< HEAD
         <Grid container spacing={4} alignItems="center" justifyContent="center" mt={{xs:"3rem",sm:"5rem",md:"8.5rem"}}>
 
             <Grid item xs={12} sm={6} md={4} justifyContent="center">
                 <Skeleton variant="rectangle" width={300} height={40} />
             </Grid>
 
+=======
+        <Grid container spacing={4} alignItems="center" justifyContent="center">
+            <Grid item xs={12} md={12}>
+                <Skeleton variant="text" width={130} height={20} />
+            </Grid>
+            <Grid item xs={12} sm={6} md={4} justifyContent="center">
+                <Skeleton variant="rectangle" width={300} height={40} />
+            </Grid>
+            <Grid item xs={12} sm={6} md={4}>
+                <Skeleton variant="rectangle" width={350} height={40} />
+            </Grid>
+            <Grid item xs={12} md={4} align="right">
+                <FormControl>
+                    <Skeleton variant="rectangle" width={80} height={40} />
+                </FormControl>
+            </Grid>
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
             <Grid
                 item
                 xs={12}

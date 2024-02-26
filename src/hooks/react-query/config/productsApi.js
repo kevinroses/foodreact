@@ -44,12 +44,19 @@ export const ProductsApi = {
         MainApi.get(
             `/api/v1/products/${product_type}?offset=${offset}&limit=${page_limit}&type=${type}`
         ),
+<<<<<<< HEAD
     productSearch: (search_type, value, offset, page_limit,filterData) => {
 
         const type=filterData?.filterBy?.veg?"veg":filterData?.filterBy?.nonVeg?"non_veg":null
         if (value !== '') {
             return MainApi.get(
                 `/api/v1/${search_type}/search?name=${value===undefined?null:value}&offset=${offset}&limit=${page_limit}&type=${type}&new=${filterData?.filterBy?.new?1:0}&popular=${filterData?.filterBy?.popular?1:0}&rating=${filterData?.filterBy?.rating?1:0}&discounted=${filterData?.filterBy?.discounted?1:0}&sort_by=${filterData?.sortBy}`
+=======
+    productSearch: (search_type, value, offset, page_limit) => {
+        if (value !== '') {
+            return MainApi.get(
+                `/api/v1/${search_type}/search?name=${value}&offset=${offset}&limit=${page_limit}`
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
             )
         }
     },

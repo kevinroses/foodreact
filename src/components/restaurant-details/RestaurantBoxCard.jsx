@@ -13,7 +13,10 @@ import {
 import {
     getAmount,
     getDiscountForTag,
+<<<<<<< HEAD
     getReviewCount,
+=======
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
     restaurantDiscountTag,
 } from '../../utils/customFunctions'
 import { useTranslation } from 'react-i18next'
@@ -34,7 +37,11 @@ import { onErrorResponse } from '../ErrorResponse'
 import Slider from 'react-slick'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
+<<<<<<< HEAD
 // import 'react-multi-carousel/lib/styles.css'
+=======
+import 'react-multi-carousel/lib/styles.css'
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
 
 export const SliderStack = styled(Stack)(
     ({ theme, languageDirection, gap, hasDiscount }) => ({
@@ -54,7 +61,10 @@ export const SliderStack = styled(Stack)(
 
 const RestaurantBoxCard = (props) => {
     const {
+<<<<<<< HEAD
         className,
+=======
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
         restaurantImageUrl,
         freeDelivery,
         image,
@@ -70,9 +80,12 @@ const RestaurantBoxCard = (props) => {
         matchesToSmall,
         slug,
         zone_id,
+<<<<<<< HEAD
         rating_count,
         visitAgain,
         foods
+=======
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
     } = props
     const { t } = useTranslation()
     const router = useRouter()
@@ -146,7 +159,11 @@ const RestaurantBoxCard = (props) => {
                                             align={
                                                 hasDiscount
                                                     ? languageDirection ===
+<<<<<<< HEAD
                                                         'rtl'
+=======
+                                                      'rtl'
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                                                         ? 'right'
                                                         : 'left'
                                                     : 'center'
@@ -244,6 +261,7 @@ const RestaurantBoxCard = (props) => {
         })
     }
     return (
+<<<<<<< HEAD
         <Stack onClick={handleClick} className={className} height={visitAgain ? "250px" : "100%"}>
             <CustomPaperBigCard
                 nopadding="true"
@@ -365,6 +383,94 @@ const RestaurantBoxCard = (props) => {
 
                         }
                         {!visitAgain &&
+=======
+        <>
+            <Stack onClick={handleClick}>
+                <CustomPaperBigCard
+                    nopadding="true"
+                    sx={{
+                        borderRadius: '3px',
+                        padding: '10px 10px 20px 10px',
+                        cursor: 'pointer',
+                        width: '100%',
+                        height: '100%',
+                        border: `1px solid ${alpha(
+                            theme.palette.primary.main,
+                            0.1
+                        )}`,
+                        '&:hover': {
+                            boxShadow: `0px 0px 2px rgba(145, 158, 171, 0.2), 0px 5px 20px ${theme.palette.paperBoxShadow}`,
+                        },
+                    }}
+                >
+                    <CustomStackFullWidth spacing={1}>
+                        <Stack
+                            sx={{ overflow: 'hidden', position: 'relative' }}
+                        >
+                            {restaurantCloseHandler()}
+                            {restaurantCouponAndDiscount()}
+
+                            <Box
+                                sx={{
+                                    width: '100%',
+                                    height: '130px',
+                                    transition: `${theme.transitions.create(
+                                        ['background-color', 'transform'],
+                                        {
+                                            duration:
+                                                theme.transitions.duration
+                                                    .standard,
+                                        }
+                                    )}`,
+                                    '&:hover': {
+                                        transform: 'scale(1.1)',
+                                    },
+                                }}
+                            >
+                                <CustomImageContainer
+                                    src={`${restaurantImageUrl}/${image}`}
+                                    width="100%"
+                                    height="100%"
+                                    objectFit="contained"
+                                    borderRadius="5px"
+                                />
+                            </Box>
+                        </Stack>
+                        <CustomStackFullWidth paddingX="5px" spacing={0.4}>
+                            <Stack
+                                direction="row"
+                                justifyContent="space-between"
+                                sx={{ position: 'relative' }}
+                            >
+                                <HomeTextTypography>{name}</HomeTextTypography>
+                                <FoodRating product_avg_rating={rating} />
+                            </Stack>
+                            <Stack
+                                direction="row"
+                                spacing={0.5}
+                                flexWrap="wrap"
+                                sx={{
+                                    textOverflow: 'ellipsis',
+                                    whiteSpace: 'nowrap',
+                                    overflow: 'hidden',
+                                }}
+                            >
+                                {cuisines?.length > 0 &&
+                                    cuisines?.map((cuisine, index) => (
+                                        <CustomTypographyEllipsis
+                                            align="left"
+                                            fontSize="12px"
+                                            color={theme.palette.neutral[600]}
+                                        >
+                                            {' '}
+                                            {cuisine?.name}{' '}
+                                            {cuisines.length - 1 === index
+                                                ? ''
+                                                : ','}
+                                        </CustomTypographyEllipsis>
+                                    ))}
+                            </Stack>
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                             <Typography
                                 align="left"
                                 fontSize="12px"
@@ -382,11 +488,19 @@ const RestaurantBoxCard = (props) => {
                                     </Typography>
                                 )}
                             </Typography>
+<<<<<<< HEAD
                         }
                     </CustomStackFullWidth>
                 </CustomStackFullWidth>
             </CustomPaperBigCard>
         </Stack>
+=======
+                        </CustomStackFullWidth>
+                    </CustomStackFullWidth>
+                </CustomPaperBigCard>
+            </Stack>
+        </>
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
     )
 }
 

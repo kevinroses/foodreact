@@ -38,7 +38,11 @@ import { useTheme } from '@mui/material/styles'
 import useMediaQuery from '@mui/material/useMediaQuery'
 import { RTL } from '../RTL/RTL'
 
+<<<<<<< HEAD
 const TrackingPage = ({ data, guestOrderTracking }) => {
+=======
+const TrackingPage = ({ data }) => {
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
     const [actStep, setActStep] = useState(1)
 
     const steps = [
@@ -96,6 +100,7 @@ const TrackingPage = ({ data, guestOrderTracking }) => {
     }, [])
     return (
         <RTL direction={languageDirection}>
+<<<<<<< HEAD
             <CustomStackFullWidth>
                     <Grid container item md={12} xs={12} mb="1rem">
                         {/*<Grid item md={12} xs={12}>*/}
@@ -146,6 +151,59 @@ const TrackingPage = ({ data, guestOrderTracking }) => {
                         <Grid item md={12} xs={12}>
                             <SimpleBar
                                 style={{ height: isSmall ? '175px' : '150px' }}
+=======
+            <CustomStackFullWidth mt={{ xs: '6rem', md: '9.5rem' }} mb="2rem">
+                <CustomPaperBigCard>
+                    <Grid container item md={12} xs={12}>
+                        <Grid item md={12} xs={12}>
+                            {data ? (
+                                <HeadingBox>
+                                    <Typography
+                                        sx={{
+                                            color: (theme) =>
+                                                theme.palette.primary.main,
+                                            fontSize: '36px',
+                                            fontWeight: '600',
+                                        }}
+                                    >
+                                        #{data?.id}
+                                    </Typography>
+                                    <CustomStackFullWidth
+                                        alignItems="center"
+                                        justifyContent="center"
+                                        direction="row"
+                                        spacing={0.5}
+                                    >
+                                        <Typography>
+                                            {t('Order placed at')}
+                                        </Typography>
+                                        <Typography>
+                                            <CustomFormatedDateTime
+                                                date={data?.created_at}
+                                            />
+                                        </Typography>
+                                    </CustomStackFullWidth>
+                                </HeadingBox>
+                            ) : (
+                                <CustomStackFullWidth alignItems="center">
+                                    <Skeleton
+                                        variant="text"
+                                        width="20%"
+                                        height="20px"
+                                    />
+                                    <Skeleton
+                                        variant="text"
+                                        width="20%"
+                                        height="20px"
+                                    />
+                                </CustomStackFullWidth>
+                            )}
+                            <Divider />
+                        </Grid>
+                        <Grid item md={12} xs={12}>
+                            <SimpleBar
+                                style={{ height: isSmall ? '250px' : '190px' }}
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                             >
                                 <RTL>
                                     <StepBox>
@@ -160,9 +218,15 @@ const TrackingPage = ({ data, guestOrderTracking }) => {
                                                             {t(labels.label)}
                                                         </Typography>
                                                         {data ? (
+<<<<<<< HEAD
                                                             <Typography fontSize="12px" color={theme.palette.neutral[600]}>
                                                                 {labels.time !==
                                                                     null ? (
+=======
+                                                            <Typography>
+                                                                {labels.time !==
+                                                                null ? (
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                                                                     <CustomFormatedTime
                                                                         date={
                                                                             labels.time
@@ -183,13 +247,21 @@ const TrackingPage = ({ data, guestOrderTracking }) => {
                                 </RTL>
                             </SimpleBar>
                         </Grid>
+<<<<<<< HEAD
                         <Grid item md={12} xs={12} p="1.4rem">
+=======
+                        <Grid item md={12} xs={12}>
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                             <MapComponent
                                 latitude={deliveryLat}
                                 longitude={deliveryLong}
                             />
                         </Grid>
+<<<<<<< HEAD
                         <Grid item md={12} xs={12} align="center" p="1.4rem">
+=======
+                        <Grid item md={12} xs={12} align="center" pt="2rem">
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                             {data ? (
                                 data?.delivery_man ? (
                                     <DeliverymanInfo data={data} />
@@ -205,7 +277,11 @@ const TrackingPage = ({ data, guestOrderTracking }) => {
                             )}
                         </Grid>
                     </Grid>
+<<<<<<< HEAD
 
+=======
+                </CustomPaperBigCard>
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
             </CustomStackFullWidth>
         </RTL>
     )

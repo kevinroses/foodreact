@@ -10,12 +10,19 @@ import {
     InputBase,
     MenuItem,
     Paper,
+<<<<<<< HEAD
     Stack,
     TextField,
     Typography
 } from "@mui/material";
 import LoadingButton from '@mui/lab/LoadingButton'
 import { DateCalendar } from "@mui/x-date-pickers";
+=======
+    TextField,
+    Typography,
+} from '@mui/material'
+import LoadingButton from '@mui/lab/LoadingButton'
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
 
 export const DeliveryTitle = styled(Typography)(({ theme }) => ({
     textAlign: 'center',
@@ -191,16 +198,27 @@ export const OrderFoodName = styled(Typography)(({ theme }) => ({
 }))
 export const OrderFoodSubtitle = styled(Typography)(
     ({ theme, orderdetailscolor }) => ({
+<<<<<<< HEAD
         fontSize: '12px',
         color:
             orderdetailscolor === 'true'
                 ? theme.palette.customColor.fifteen
+=======
+        fontSize: orderdetailscolor === 'true' ? '14px' : '12px',
+        color:
+            orderdetailscolor === 'true'
+                ? theme.palette.neutral[1000]
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                 : theme.palette.neutral[500],
     })
 )
 export const OrderFoodAmount = styled(Typography)(({ theme }) => ({
     color: theme.palette.primary.main,
+<<<<<<< HEAD
     fontSize: '14px',
+=======
+    fontSize: '16px',
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
     fontWeight: '600',
 }))
 export const CalculationGrid = styled(Grid)(() => ({
@@ -211,6 +229,7 @@ export const TotalGrid = styled(Grid)(() => ({
     fontWeight: '600',
     padding: '0px',
 }))
+<<<<<<< HEAD
 export const TimeSlot = styled(Stack)(({ theme, selected, value }) => ({
     cursor: "pointer",
     padding: '8px 16px',
@@ -228,3 +247,5 @@ export const TomorrowSlot = styled(TextField)(({ theme }) => ({
     backgroundColor: theme.palette.neutral[200],
 
 }))
+=======
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7

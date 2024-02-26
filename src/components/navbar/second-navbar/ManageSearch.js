@@ -4,12 +4,18 @@ import Box from '@mui/material/Box'
 import CustomSearch from '../../custom-search/CustomSearch'
 import SearchSuggestionsBottom from '../../search/SearchSuggestionsBottom'
 import Wishlist from './Wishlist'
+<<<<<<< HEAD
 import { useTheme } from "@emotion/react";
+=======
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
 
 const ManageSearch = ({ zoneid, token, router }) => {
     const [openSearchSuggestions, setOpenSearchSuggestions] = useState(false)
     const [selectedValue, setSelectedValue] = useState('')
+<<<<<<< HEAD
     const theme=useTheme()
+=======
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
     const [onSearchdiv, setOnSearchdiv] = useState(false)
     const handleKeyPress = (value) => {
         // if (e.key === 'Enter') {
@@ -80,12 +86,18 @@ const ManageSearch = ({ zoneid, token, router }) => {
                     {zoneid && router.pathname !== '/' && (
                         <>
                             <CustomSearch
+<<<<<<< HEAD
                                 label="Search foods and restaurants..."
                                 handleSearchResult={handleKeyPress}
                                 selectedValue={selectedValue}
                                 borderRadius="8px"
                                 backgroundColor={theme.palette.neutral[200]}
                                 nav
+=======
+                                label="Search..."
+                                handleSearchResult={handleKeyPress}
+                                selectedValue={selectedValue}
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                             />
                             {openSearchSuggestions && (
                                 <SearchSuggestionsBottom

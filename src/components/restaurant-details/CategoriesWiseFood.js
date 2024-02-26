@@ -16,13 +16,19 @@ import discountBanner from '../../../public/static/discount.svg'
 import heroImg from '../../../public/static/heroHome.svg'
 import ImageNotFound from '../../../public/static/no-image-found.png'
 import { DiscountImageGrid } from './restaurant-details.style'
+<<<<<<< HEAD
 import { t } from "i18next";
+=======
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
 const CategoriesWiseFood = ({
     data,
     handleFocusedSection,
     indexNumber,
     restaurantDiscount,
+<<<<<<< HEAD
                                 hasFreeDelivery
+=======
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
 }) => {
     const theme = useTheme()
     const ref2 = useRef(null)
@@ -88,7 +94,11 @@ const CategoriesWiseFood = ({
                                 />
                                 <Typography
                                     fontWeight="700"
+<<<<<<< HEAD
                                     fontSize={{ xs: "16px", sm: "18px", md: "20px" }}
+=======
+                                    fontSize="20px"
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                                     color={theme.palette.neutral[1000]}
                                 >
                                     {data?.name}
@@ -125,7 +135,10 @@ const CategoriesWiseFood = ({
                                                 xs={12}
                                                 sm={6}
                                                 md={4}
+<<<<<<< HEAD
                                                 spacing={2}
+=======
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                                                 key={food?.id}
                                                 sx={{
                                                     paddingInlineEnd: {
@@ -141,8 +154,11 @@ const CategoriesWiseFood = ({
                                                 <FoodCard
                                                     product={food}
                                                     horizontal="true"
+<<<<<<< HEAD
                                                     isRestaurantDetails={true}
                                                     isShop={true}
+=======
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                                                     productImageUrl={
                                                         global?.base_urls
                                                             ?.product_image_url
@@ -174,6 +190,7 @@ const CategoriesWiseFood = ({
                                 </Typography>
                             </DiscountImageGrid>
                         )}
+<<<<<<< HEAD
                         {indexNumber === 1 && hasFreeDelivery && (
                             <DiscountImageGrid
                                 item
@@ -193,6 +210,8 @@ const CategoriesWiseFood = ({
                                 </Typography>
                             </DiscountImageGrid>
                         )}
+=======
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                     </>
                 ) : (
                     <>
@@ -208,7 +227,11 @@ const CategoriesWiseFood = ({
                         >
                             <Typography
                                 fontWeight="700"
+<<<<<<< HEAD
                                 fontSize={{ xs: "16px", sm: "18px", md: "20px" }}
+=======
+                                fontSize="20px"
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                                 color={theme.palette.neutral[1000]}
                             >
                                 {data?.name}
@@ -234,15 +257,23 @@ const CategoriesWiseFood = ({
                                                 item
                                                 xs={6}
                                                 sm={4}
+<<<<<<< HEAD
                                                 md={3}
                                                 align="left"
                                                 pb={{ xs: "0rem", sm: ".5rem", md: "1.2rem" }}
+=======
+                                                md={2.4}
+                                                align="left"
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                                             >
                                                 <FoodCard
                                                     product={food}
                                                     key={food.id}
                                                     horizontal="false"
+<<<<<<< HEAD
                                                     isRestaurantDetails={true}
+=======
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                                                     productImageUrl={
                                                         global?.base_urls
                                                             ?.product_image_url
@@ -253,6 +284,7 @@ const CategoriesWiseFood = ({
                                     }
                                 })}
                         </Grid>
+<<<<<<< HEAD
                         {indexNumber === 0 && restaurantDiscount && (
                             <DiscountImageGrid
                                 item
@@ -291,6 +323,8 @@ const CategoriesWiseFood = ({
                                 </Typography>
                             </DiscountImageGrid>
                         )}
+=======
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                     </>
                 )}
             </>

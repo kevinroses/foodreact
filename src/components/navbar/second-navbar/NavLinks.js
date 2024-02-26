@@ -27,7 +27,11 @@ const NavLinks = ({ zoneid, t, languageDirection }) => {
                         onClick={handleClick}
                         underline="none"
                         languageDirection={languageDirection}
+<<<<<<< HEAD
                         sx={{ cursor: 'pointer',paddingInlineEnd:languageDirection==="rtl" && "1.5rem" }}
+=======
+                        sx={{ cursor: 'pointer' }}
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                     >
                         <Typography fontSize="14px">{t('Home')}</Typography>
                     </NavLinkStyle>

@@ -44,7 +44,10 @@ const Chat = ({ page }) => {
     const [receiverImage, setReceiverImage] = useState()
     const mdUp = useMediaQuery((theme) => theme.breakpoints.up('md'))
     const mdDown = useMediaQuery((theme) => theme.breakpoints.down('md'))
+<<<<<<< HEAD
     const isXSmall = useMediaQuery((theme) => theme.breakpoints.down('sm'))
+=======
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
     const router = useRouter()
     const {
         type,
@@ -226,7 +229,11 @@ const Chat = ({ page }) => {
         if (searchValue) {
             try {
                 searchRefetch().then()
+<<<<<<< HEAD
             } catch (err) { }
+=======
+            } catch (err) {}
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
         }
     }
 
@@ -264,11 +271,15 @@ const Chat = ({ page }) => {
                 description=""
                 keywords=""
             />
+<<<<<<< HEAD
             <CustomPaperBigCard
                 padding={isXSmall ? '1rem' : '30px 40px'}
                 sx={{ minHeight: !isXSmall ? '558px' : "450px" }}
                 nopadding="true"
             >
+=======
+            <CustomPaperBigCard nopadding="true">
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                 <CustomStackFullWidth direction="row">
                     <Stack>
                         <ChatSideBar

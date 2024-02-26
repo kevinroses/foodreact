@@ -62,7 +62,11 @@ const CancelSubscriptionForm = props => {
                     </Grid>
                     <Grid item xs={12}>
                         <CustomTextField
+<<<<<<< HEAD
                             label={t("Cancellation Note")}
+=======
+                            label={t("Cancellation note")}
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                             value={customFormik.values.customer_note}
                             placeholder={t('Write your cancellation note')}
                             fullWidth
@@ -79,9 +83,15 @@ const CancelSubscriptionForm = props => {
                             </Button>
                         </Grid>
                         <Grid item xs={6}>
+<<<<<<< HEAD
                             <Button fullWidth variant='contained' type='submit'>
                                 {t("Yes")}
                             </Button>
+=======
+                            <CustomButtonPrimary type='submit'>
+                                {t("Yes")}
+                            </CustomButtonPrimary>
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                         </Grid>
                     </Grid>
                 </Grid>

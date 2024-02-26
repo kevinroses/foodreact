@@ -54,14 +54,22 @@ const DeliverymanInfo = ({ data }) => {
 
     return (
         <CustomStackFullWidth alignItems="center" spacing={1.5}>
+<<<<<<< HEAD
             <Typography fontSize="18px" fontWeight={500}>{t('Trip Route')}</Typography>
+=======
+            <CustomTypographyBold>{t('Trip Route')}</CustomTypographyBold>
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
             <CustomStackFullWidth
                 direction="row"
                 alignItems="center"
                 justifyContent="space-between"
                 spacing={0.5}
             >
+<<<<<<< HEAD
                 <CustomTypography sx={{fontSize:{xs:"12px",md:"14px"}}}>
+=======
+                <CustomTypography>
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                     {data?.delivery_man?.location}
                 </CustomTypography>
                 <CustomImageContainer
@@ -69,7 +77,11 @@ const DeliverymanInfo = ({ data }) => {
                     height="30px"
                     width="60px"
                 />
+<<<<<<< HEAD
                 <CustomTypography sx={{fontSize:{xs:"12px",md:"14px"}}}>
+=======
+                <CustomTypography>
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                     {data?.delivery_address?.address}
                 </CustomTypography>
             </CustomStackFullWidth>
@@ -79,7 +91,11 @@ const DeliverymanInfo = ({ data }) => {
                     height="30px"
                     width="30px"
                 />
+<<<<<<< HEAD
                 <CustomTypographyGray sx={{ fontSize: '18px' }} fontweight="400">
+=======
+                <CustomTypographyGray sx={{ fontSize: '18px' }}>
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                     {handleAway().toFixed(2)}km {t(`${away}`)}
                 </CustomTypographyGray>
             </CustomStackFullWidth>
@@ -87,9 +103,15 @@ const DeliverymanInfo = ({ data }) => {
                 alignItems="flex-start"
                 justifyContent="flex-start"
             >
+<<<<<<< HEAD
                 <Typography fontSize="18px" fontWeight={500}>
                     {t('Delivery man')}
                 </Typography>
+=======
+                <CustomTypographyBold variant="h3">
+                    {t('Delivery man')}
+                </CustomTypographyBold>
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
             </CustomStackFullWidth>
 
             <CustomStackFullWidth
@@ -111,12 +133,20 @@ const DeliverymanInfo = ({ data }) => {
                         )}
                     />
                     <Stack alignItems="flex-start">
+<<<<<<< HEAD
                         <Typography fontSize="16px" fontweight="400">
+=======
+                        <CustomTypographyBold>
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                             {data?.delivery_man?.f_name.concat(
                                 ' ',
                                 data?.delivery_man?.l_name
                             )}
+<<<<<<< HEAD
                         </Typography>
+=======
+                        </CustomTypographyBold>
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                         <CustomRatings
                             readOnly={true}
                             ratingValue={data?.delivery_man?.rating_count}

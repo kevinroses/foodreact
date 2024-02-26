@@ -1,24 +1,37 @@
 import React, { useEffect, useState } from 'react'
+<<<<<<< HEAD
 import { CardMedia, IconButton, Typography, useMediaQuery } from '@mui/material'
 import { CustomCardMedia, CustomChip, OfferTypography, TypographyText } from './FoodCard.style'
+=======
+import { CardMedia, IconButton, Typography } from '@mui/material'
+import { CustomCardMedia, OfferTypography } from './FoodCard.style'
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
 import { t } from 'i18next'
 import CustomImageContainer from '../CustomImageContainer'
 import { Box, Stack } from '@mui/system'
 import { useSelector } from 'react-redux'
 import { getAmount, isAvailable } from '../../utils/customFunctions'
+<<<<<<< HEAD
 import { CustomOverLay, CustomOverlayBox } from '../../styled-components/CustomStyles.style'
+=======
+import { CustomOverlayBox } from '../../styled-components/CustomStyles.style'
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
 import { useTheme } from '@mui/material/styles'
 import test_image from '../../../public/static/testImage.svg'
 import { CustomStackForFoodModal } from '../foodDetail-modal/FoodModalStyle'
 import FoodRating from './FoodRating'
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder'
 import FavoriteIcon from '@mui/icons-material/Favorite'
+<<<<<<< HEAD
 import QuickView from './QuickView'
 import { useRouter } from "next/router";
+=======
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
 
 const ProductCardMedia = (props) => {
     const {
         id,
+<<<<<<< HEAD
         image,
         onClick,
         available_time_starts,
@@ -40,12 +53,38 @@ const ProductCardMedia = (props) => {
         isTransformed,
         isRestaurantDetails,
         rating_count,
+=======
+        discount,
+        image,
+        height,
+        name,
+        discount_type,
+        restaurant_discount,
+        price,
+        avg_rating,
+        onClick,
+        available_time_starts,
+        available_time_ends,
+        imageUrl,
+        addToFavorite,
+        isInList,
+        deleteWishlistItem,
+        available_date_ends,
+        minFreeDelivery,
+        maxFreeDelivery,
+        freeDelivery,
+        handleBadge,
+        product,
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
     } = props
     const [languageDirection, setLanguageDirection] = useState('ltr')
     const { global } = useSelector((state) => state.globalSettings)
     const theme = useTheme()
+<<<<<<< HEAD
     const router=useRouter()
     const isSmall = useMediaQuery(theme.breakpoints.down('md'))
+=======
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
     let currencySymbol
     let currencySymbolDirection
     let digitAfterDecimalPoint
@@ -59,7 +98,11 @@ const ProductCardMedia = (props) => {
         if (localStorage.getItem('direction')) {
             setLanguageDirection(localStorage.getItem('direction'))
         }
+<<<<<<< HEAD
     }, []);
+=======
+    }, [])
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
 
     return (
         <>
@@ -69,7 +112,11 @@ const ProductCardMedia = (props) => {
                         onClick={onClick}
                         sx={{
                             position: 'relative',
+<<<<<<< HEAD
                             maxHeight: '190px',
+=======
+                            maxHeight: '170px',
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
 
                             [theme.breakpoints.down('sm')]: {
                                 maxHeight: '140px',
@@ -77,7 +124,11 @@ const ProductCardMedia = (props) => {
                             },
                         }}
                     >
+<<<<<<< HEAD
                         {/* {!available_date_ends && (
+=======
+                        {!available_date_ends && (
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                             <Stack
                                 position="absolute"
                                 top="5%"
@@ -100,6 +151,7 @@ const ProductCardMedia = (props) => {
                                     </IconButton>
                                 )}
                             </Stack>
+<<<<<<< HEAD
                         )} */}
 
                         <Stack
@@ -146,16 +198,49 @@ const ProductCardMedia = (props) => {
                                 addToCart={addToCart}
                             />
                         </CustomOverLay>
+=======
+                        )}
+
+                        <Stack
+                            position="absolute"
+                            top="10%"
+                            left="6%"
+                            zIndex="1"
+                        >
+                            {!available_date_ends ? (
+                                <FoodRating product_avg_rating={avg_rating} />
+                            ) : (
+                                <>
+                                    {handleBadge(
+                                        product,
+                                        currencySymbol,
+                                        currencySymbolDirection,
+                                        digitAfterDecimalPoint,
+                                        available_date_ends
+                                    )}
+                                </>
+                            )}
+                        </Stack>
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                         {!isAvailable(
                             available_time_starts,
                             available_time_ends
                         ) && (
+<<<<<<< HEAD
                                 <CustomOverlayBox>
                                     <Typography align="center" variant="h5">
                                         {t('Not Available now')}
                                     </Typography>
                                 </CustomOverlayBox>
                             )}
+=======
+                            <CustomOverlayBox>
+                                <Typography align="center" variant="h5">
+                                    {t('Not Available now')}
+                                </Typography>
+                            </CustomOverlayBox>
+                        )}
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                         <Box
                             sx={{
                                 transition: `${theme.transitions.create(
@@ -172,6 +257,7 @@ const ProductCardMedia = (props) => {
                         >
                             <CustomImageContainer
                                 src={imageUrl}
+<<<<<<< HEAD
                                 alt={alt}
                                 width="100%"
                                 height="170px"
@@ -208,6 +294,37 @@ const ProductCardMedia = (props) => {
                                 </Typography> */}
                             </CustomStackForFoodModal>
                         }
+=======
+                                width="100%"
+                                height="170px"
+                                borderRadius="3px"
+                                objectFit="contained"
+                                smHeight="130px"
+                            />
+                        </Box>
+
+                        <CustomStackForFoodModal
+                            padding="12px"
+                            width="100%"
+                            direction="row"
+                            spacing={1}
+                            justifyContent="center"
+                            alignItems="flex-end"
+                        >
+                            <Typography
+                                fontSize="12px"
+                                color={theme.palette.whiteContainer.main}
+                            >
+                                {minFreeDelivery}-{maxFreeDelivery} {t('min')}
+                            </Typography>
+                            <Typography
+                                fontSize="12px"
+                                color={theme.palette.whiteContainer.main}
+                            >
+                                {freeDelivery === 1 && t('Free Delivery')}
+                            </Typography>
+                        </CustomStackForFoodModal>
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                     </Box>
                 </Stack>
             )}

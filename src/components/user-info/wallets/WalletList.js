@@ -12,7 +12,10 @@ import {
     MenuItem,
     alpha,
     Paper,
+<<<<<<< HEAD
     useMediaQuery,
+=======
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
 } from '@mui/material'
 import AccountBalanceWalletIcon from '@mui/icons-material/AccountBalanceWallet'
 import {
@@ -63,8 +66,11 @@ import Tooltip from '@mui/material/Tooltip'
 import HowToUse from './HowToUse'
 import CloseIcon from '@mui/icons-material/Close'
 import { noTransactionFound } from '../../../utils/LocalImages'
+<<<<<<< HEAD
 import CustomPopover from '../../custom-popover/CustomPopover'
 import useWalletBonus from '../../../hooks/react-query/useGetWalletBonus'
+=======
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
 const validationSchema = Yup.object({
     amount: Yup.string().required('Please Enter amount'),
     ///payment_method: Yup.string().required('Payment method is required'),
@@ -116,9 +122,13 @@ export const CustomSelect = ({
 }
 const Wallet = ({ page }) => {
     const theme = useTheme()
+<<<<<<< HEAD
     const isXSmall = useMediaQuery(theme.breakpoints.down("sm"))
     const [page_limit, setPageLimit] = useState(10)
     const [anchorEl, setAnchorEl] = useState(null);
+=======
+    const [page_limit, setPageLimit] = useState(10)
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
     const [offset, setOffset] = useState(1)
     const [open, setOpen] = useState(false)
     const [transactionType, setTransactionType] = useState('all')
@@ -143,11 +153,14 @@ const Wallet = ({ page }) => {
             enabled: false,
         }
     )
+<<<<<<< HEAD
     const { data: walleBonus, refetch: walletBonusRefetch, isLoading: walletBonusIsLoading } = useWalletBonus()
 
     useEffect(() => {
         walletBonusRefetch()
     }, [])
+=======
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
     useEffect(async () => {
         await refetch()
     }, [transactionType])
@@ -171,13 +184,21 @@ const Wallet = ({ page }) => {
         validationSchema: validationSchema,
         onSubmit: async (values, helpers) => {
             try {
+<<<<<<< HEAD
+=======
+                //console.log('call')
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
 
                 if (values?.amount > 0) {
                     formSubmitHandler(values)
                 } else {
                     toast.error(t('Payment amount can not be 0'))
                 }
+<<<<<<< HEAD
             } catch (err) { }
+=======
+            } catch (err) {}
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
         },
     })
 
@@ -227,6 +248,10 @@ const Wallet = ({ page }) => {
             setHasMounted(true)
             // return toast.success(t('Amount Successfully added'))
         } else if (page === 'wallets?flag=cancel' && !hasMounted) {
+<<<<<<< HEAD
+=======
+            return
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
             return toast.custom(
                 () => (
                     <Paper
@@ -251,12 +276,15 @@ const Wallet = ({ page }) => {
     const handleChange = (e) => {
         setTransactionType(e.target.value)
     }
+<<<<<<< HEAD
     const handleClick = (event) => {
         setAnchorEl(event.currentTarget);
     };
     const handleClosePopover = () => {
         setAnchorEl(null)
     };
+=======
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
     return (
         <>
             <Meta
@@ -264,6 +292,7 @@ const Wallet = ({ page }) => {
                 description=""
                 keywords=""
             />
+<<<<<<< HEAD
             <CustomPaperBigCard
                 padding={isXSmall ? '10px 10px' : '30px 40px'}
                 border={false}
@@ -333,10 +362,110 @@ const Wallet = ({ page }) => {
                                         fontSize="12px"
                                         fontWeight="400"
                                         lineHeight={0}
+=======
+            <CustomPaperBigCard padding="1.9rem">
+                <Grid container spacing={3.5}>
+                    <Grid item xs={12} md={12}>
+                        <Stack
+                            direction="row"
+                            justifyContent="space-between"
+                            width="100%"
+                        >
+                            <Typography fontSize="16px" fontWeight="500">
+                                {t('My Wallet')}
+                            </Typography>
+                            <Tooltip
+                                title={<HowToUse />}
+                                arrow
+                                placement="bottom-end"
+                            >
+                                <InfoOutlinedIcon color="primary" />
+                            </Tooltip>
+                        </Stack>
+                    </Grid>
+                    <Grid item sm={12} xs={12} md={5.5}>
+                        <WalletBox>
+                            <CustomStackFullWidth
+                                spacing={0.5}
+                                sx={{ flexWrap: 'wrap' }}
+                            >
+                                <CustomImageContainer
+                                    src={walletImage.src}
+                                    width="34px"
+                                    height="34px"
+                                    objectFit="contain"
+                                />
+
+                                <Stack
+                                    direction={{ xs: 'column', md: 'row' }}
+                                    justifyContent="space-between"
+                                >
+                                    <Typography
+                                        fontSize="30px"
+                                        fontWeight="700"
+                                        color={theme.palette.neutral[100]}
+                                    >
+                                        {' '}
+                                        {profileDataLoading ? (
+                                            <Skeleton
+                                                variant="text"
+                                                width={150}
+                                                height="50px"
+                                            />
+                                        ) : (
+                                            getAmount(
+                                                profileData?.data
+                                                    ?.wallet_balance,
+                                                currencySymbolDirection,
+                                                currencySymbol,
+                                                digitAfterDecimalPoint
+                                            )
+                                        )}
+                                    </Typography>
+                                    <Button
+                                        sx={{
+                                            backgroundColor: (theme) =>
+                                                theme.palette.neutral[100],
+                                            color: (theme) =>
+                                                theme.palette.primary.main,
+                                            cursor: 'pointer',
+                                            direction: 'row',
+                                            alignItems: 'center',
+                                            gap: 1,
+                                            zIndex: 99,
+                                            '&:hover': {
+                                                backgroundColor: (theme) =>
+                                                    theme.palette.neutral[300],
+                                            },
+                                        }}
+                                        onClick={() => setOpen(!open)}
+                                    >
+                                        {' '}
+                                        <AddCircle />
+                                        <Typography
+                                            component="span"
+                                            fontWeight="600"
+                                            fontSize="14px"
+                                        >
+                                            {t('Add fund')}
+                                        </Typography>
+                                    </Button>
+                                </Stack>
+
+                                <Stack
+                                    direction="row"
+                                    spacing={0.5}
+                                    alignItems="center"
+                                >
+                                    <Typography
+                                        fontSize="12px"
+                                        fontWeight="400"
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                                         color={theme.palette.neutral[100]}
                                     >
                                         {t('Total Balance')}
                                     </Typography>
+<<<<<<< HEAD
                                     {global?.digital_payment &&
                                         <Button
                                             sx={{
@@ -376,6 +505,23 @@ const Wallet = ({ page }) => {
                                     <HowToUse />
                                 </CustomPopover>
 
+=======
+                                    <Tooltip
+                                        title={t(
+                                            'If you want to add fund to your wallet then click add fund button'
+                                        )}
+                                        arrow
+                                        placement="bottom-start"
+                                    >
+                                        <InfoOutlinedIcon
+                                            sx={{
+                                                color: (theme) =>
+                                                    theme.palette.neutral[100],
+                                            }}
+                                        />
+                                    </Tooltip>
+                                </Stack>
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                             </CustomStackFullWidth>
                             <CustomModal
                                 openModal={open}
@@ -479,7 +625,11 @@ const Wallet = ({ page }) => {
                                                                         <label
                                                                             className={
                                                                                 value ==
+<<<<<<< HEAD
                                                                                     item.gateway
+=======
+                                                                                item.gateway
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                                                                                     ? 'active'
                                                                                     : ''
                                                                             }
@@ -508,7 +658,11 @@ const Wallet = ({ page }) => {
                                                                                 }}
                                                                             />
                                                                             {value ==
+<<<<<<< HEAD
                                                                                 item.gateway ? (
+=======
+                                                                            item.gateway ? (
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                                                                                 <CheckCircle />
                                                                             ) : (
                                                                                 <Box
@@ -589,6 +743,7 @@ const Wallet = ({ page }) => {
                             </CustomModal>
                         </WalletBox>
                     </Grid>
+<<<<<<< HEAD
                     {walleBonus?.length === 0 ? (
                         <Grid item sm={12} xs={12} md={7.5}>
                             <HowToUse />
@@ -598,6 +753,11 @@ const Wallet = ({ page }) => {
                             <WalletFundBonus walleBonus={walleBonus} isLoading={walletBonusIsLoading} />
                         </Grid>
                     )}
+=======
+                    <Grid item sm={12} xs={12} md={6.5}>
+                        <WalletFundBonus />
+                    </Grid>
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                     <Grid item md={12} xs={12}>
                         <Box
                             sx={{
@@ -624,6 +784,7 @@ const Wallet = ({ page }) => {
                                 </CustomSelect>
                             )}
                         </Box>
+<<<<<<< HEAD
                         {/* <ScrollerProvider maxHeight="40vh"> */}
                         {data ? (
                             data?.data?.data?.map((wallet) => (
@@ -657,6 +818,38 @@ const Wallet = ({ page }) => {
                                 image={noTransactionFound}
                                 height={80}
                                 width={80}
+=======
+                        <ScrollerProvider maxHeight="40vh">
+                            {data ? (
+                                data?.data?.data?.map((wallet) => (
+                                    <WalletsPage
+                                        key={wallet.id}
+                                        data={wallet}
+                                        currencySymbolDirection={
+                                            currencySymbolDirection
+                                        }
+                                        currencySymbol={currencySymbol}
+                                        digitAfterDecimalPoint={
+                                            digitAfterDecimalPoint
+                                        }
+                                    />
+                                ))
+                            ) : (
+                                <div
+                                    style={{
+                                        textAlign: 'center',
+                                        fontSize: 20,
+                                    }}
+                                >
+                                    <WalletShimmer />
+                                </div>
+                            )}
+                        </ScrollerProvider>
+                        {data?.data?.data?.length === 0 && (
+                            <CustomEmptyResult
+                                label="No Data Found"
+                                image={noTransactionFound}
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                             />
                         )}
                         <CustomStackFullWidth
@@ -675,7 +868,11 @@ const Wallet = ({ page }) => {
                         </CustomStackFullWidth>
                     </Grid>
                 </Grid>
+<<<<<<< HEAD
             </CustomPaperBigCard >
+=======
+            </CustomPaperBigCard>
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
         </>
     )
 }

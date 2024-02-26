@@ -5,7 +5,11 @@ import RestaurantCoupon from './RestaurantCoupon'
 import Slider from 'react-slick'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
+<<<<<<< HEAD
 // import 'react-multi-carousel/lib/styles.css'
+=======
+import 'react-multi-carousel/lib/styles.css'
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
 import { useTheme } from '@mui/material/styles'
 import useMediaQuery from '@mui/material/useMediaQuery'
 import { Stack } from '@mui/system'

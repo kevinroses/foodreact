@@ -8,14 +8,22 @@ import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 import { Typography } from '@mui/material'
 import BannerCard from './Banner/BannerCard'
+<<<<<<< HEAD
+=======
+import { bannerSettings } from './Banner/bannerSettings'
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
 import { setBannerFoodByDispatch } from '../../redux/slices/searchFilter'
 import { useRouter } from 'next/router'
 import FoodDetailModal from '../foodDetail-modal/FoodDetailModal'
 import { useSelector } from 'react-redux'
 import Skeleton from '@mui/material/Skeleton'
 import { handleBadge } from '../../utils/customFunctions'
+<<<<<<< HEAD
 import { HandleNext, HandlePrev } from '../CustomSliderIcon'
 const Banner = ({bannerIsLoading}) => {
+=======
+const Banner = () => {
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
     const router = useRouter()
     const { banners } = useSelector((state) => state.storedData)
     const [allBanners, setAllBanners] = useState()
@@ -23,7 +31,10 @@ const Banner = ({bannerIsLoading}) => {
     const bannerData = allBanners?.concat(banners?.campaigns)
     const [openModal, setOpenModal] = useState(false)
     const { global } = useSelector((state) => state.globalSettings)
+<<<<<<< HEAD
     const [hoverOn, setHoverOn] = useState(false)
+=======
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
     const globalImageUrl = global?.base_urls?.banner_image_url
     let currencySymbol
     let currencySymbolDirection
@@ -36,7 +47,11 @@ const Banner = ({bannerIsLoading}) => {
     }
 
     useEffect(() => {
+<<<<<<< HEAD
         const foodBanners = banners?.banners?.filter(
+=======
+        const foodBanners = banners?.banners.filter(
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
             (item) => item?.type === 'item_wise'
         )
         const isOldVariations = foodBanners?.filter(
@@ -46,11 +61,19 @@ const Banner = ({bannerIsLoading}) => {
                 ite?.food?.variations?.length === 0
         )
 
+<<<<<<< HEAD
         const restaurantBanners = banners?.banners?.filter(
             (item) => item?.type === 'restaurant_wise'
         )
 
         setAllBanners(isOldVariations?.concat(restaurantBanners))
+=======
+        const restaurantBanners = banners?.banners.filter(
+            (item) => item?.type === 'restaurant_wise'
+        )
+
+        setAllBanners(isOldVariations.concat(restaurantBanners))
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
     }, [banners])
 
     const handleBannerClick = (banner) => {
@@ -59,10 +82,18 @@ const Banner = ({bannerIsLoading}) => {
                 {
                     pathname: '/restaurant/[id]',
                     query: {
+<<<<<<< HEAD
                         id: `${banner?.restaurant?.slug
                             ? banner?.restaurant?.slug
                             : banner?.restaurant?.id
                             }`,
+=======
+                        id: `${
+                            banner?.restaurant?.slug
+                                ? banner?.restaurant?.slug
+                                : banner?.restaurant?.id
+                        }`,
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                     },
                 },
                 undefined,
@@ -71,8 +102,14 @@ const Banner = ({bannerIsLoading}) => {
         } else if (banner?.available_date_ends) {
             router.push(
                 {
+<<<<<<< HEAD
                     pathname: `campaigns/${banner?.slug ? banner?.slug : banner?.id
                         }`,
+=======
+                    pathname: `campaigns/${
+                        banner?.slug ? banner?.slug : banner?.id
+                    }`,
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                 },
                 undefined,
                 { shallow: true }
@@ -91,6 +128,7 @@ const Banner = ({bannerIsLoading}) => {
         languageDirection = localStorage.getItem('direction')
     }
 
+<<<<<<< HEAD
     const bannerSettings = {
         infinite: bannerData?.length > 3 ? true : false,
         speed: 500,
@@ -176,6 +214,14 @@ const Banner = ({bannerIsLoading}) => {
                     onMouseEnter={() => setHoverOn(true)}
                     onMouseLeave={() => setHoverOn(false)}
                 >
+=======
+    return (
+        <CustomStackFullWidth
+            sx={{ paddingTop: bannerData?.length > 0 && '30px' }}
+        >
+            {banners ? (
+                <SliderCustom languageDirection={languageDirection}>
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                     <Slider {...bannerSettings}>
                         {bannerData?.slice(0, 8).map((banner) => {
                             return (

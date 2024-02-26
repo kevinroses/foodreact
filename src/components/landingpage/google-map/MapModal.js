@@ -29,7 +29,11 @@ import { PrimaryButton } from '../link-section/Linksection.style'
 import { toast } from 'react-hot-toast'
 import Skeleton from '@mui/material/Skeleton'
 import { onErrorResponse, onSingleErrorResponse } from '../../ErrorResponse'
+<<<<<<< HEAD
 import { setUserLocationUpdate, setZoneData } from '../../../redux/slices/global'
+=======
+import { setZoneData } from '../../../redux/slices/global'
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
 import LocationEnableCheck from '../LocationEnableCheck'
 import { FacebookCircularProgress } from '../HeroLocationForm'
 import { CustomStackFullWidth } from '../../../styled-components/CustomStyles.style'
@@ -54,7 +58,11 @@ const CustomBoxWrapper = styled(Box)(({ theme }) => ({
         maxWidth: '500px',
     },
     [theme.breakpoints.down('sm')]: {
+<<<<<<< HEAD
         maxWidth: '330px',
+=======
+        maxWidth: '300px',
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
         minHeight: '350px',
     },
 }))
@@ -88,7 +96,11 @@ const CssTextField = styled(TextField)(({ theme }) => ({
 
 const MapModal = ({ open, handleClose }) => {
     const router = useRouter()
+<<<<<<< HEAD
     const { global,userLocationUpdate } = useSelector((state) => state.globalSettings)
+=======
+    const { global } = useSelector((state) => state.globalSettings)
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
     const [isEnableLocation, setIsEnableLocation] = useState(false)
 
     const [searchKey, setSearchKey] = useState('')
@@ -227,7 +239,10 @@ const MapModal = ({ open, handleClose }) => {
                 geoCodeResults?.data?.results[0]?.formatted_address
             )
             localStorage.setItem('currentLatLng', JSON.stringify(location))
+<<<<<<< HEAD
             dispatch(setUserLocationUpdate(!userLocationUpdate))
+=======
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
             toast.success(t('New location has been set.'))
             router.push('/home')
         }
@@ -237,7 +252,10 @@ const MapModal = ({ open, handleClose }) => {
         setPlaceId(value?.place_id)
         setPlaceDescription(value?.description)
     }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
     const handleAgreeLocation = async () => {
         if (coords) {
             setLocation({ lat: coords?.latitude, lng: coords?.longitude })
@@ -253,7 +271,10 @@ const MapModal = ({ open, handleClose }) => {
             setIsEnableLocation(true)
         }
     }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
     return (
         <Modal
             open={open}

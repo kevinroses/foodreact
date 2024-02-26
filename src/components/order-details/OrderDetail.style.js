@@ -1,5 +1,9 @@
 import { styled } from '@mui/material/styles'
+<<<<<<< HEAD
 import { alpha, Box, Button, Divider, Grid, Stack, Typography } from '@mui/material'
+=======
+import { alpha, Box, Grid, Typography } from '@mui/material'
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
 
 export const OrderDetailGrid = styled(Grid)(() => ({
     background: '#FFFFFF',
@@ -29,14 +33,19 @@ export const OrderStatusBox = styled(Box)(({ theme }) => ({
         textAlign: 'center',
     },
 }))
+<<<<<<< HEAD
 export const IformationGrid = styled(Stack)(({ theme }) => ({
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
+=======
+export const IformationGrid = styled(Grid)(({ theme }) => ({
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
     background:
         theme.palette.mode === 'dark'
             ? alpha(theme.palette.primary.main, 0.05)
             : alpha(theme.palette.primary.main, 0.1),
+<<<<<<< HEAD
     borderRadius: '10px',
     padding: '10px',
 }))
@@ -57,6 +66,15 @@ export const OfflineWrapper = styled(Stack)(({ theme }) => ({
 export const OrderSummaryGrid = styled(Grid)(() => ({
     padding: '0px 20px 20px 20px',
     //paddingTop: '25px',
+=======
+    borderRadius: '14px',
+    padding: '1rem',
+}))
+
+export const OrderSummaryGrid = styled(Grid)(() => ({
+    padding: '20px',
+    paddingTop: '25px',
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
 }))
 export const OrderSummary = styled(Typography)(() => ({
     textAlign: 'center',
@@ -65,6 +83,7 @@ export const OrderSummary = styled(Typography)(() => ({
     fontWeight: '700',
     paddingBottom: '30px',
 }))
+<<<<<<< HEAD
 export const OrderFoodName = styled(Typography)(({ theme, color, textAlign, fontSize, fontWeight }) => ({
     fontSize: fontSize || '12px',
     fontWeight: fontWeight || 400,
@@ -80,12 +99,26 @@ export const OrderFoodAmount = styled(Typography)(({ theme }) => ({
 export const CalculationGrid = styled(Grid)(() => ({
     fontSize: '14px',
     fontWeight: 400
+=======
+export const OrderFoodName = styled(Typography)(({ theme }) => ({
+    fontSize: '14px',
+    color: theme.palette.neutral[1000],
+}))
+export const OrderFoodAmount = styled(Typography)(({ theme }) => ({
+    color: theme.palette.primary.main,
+    fontSize: '16px',
+    fontWeight: '600',
+}))
+export const CalculationGrid = styled(Grid)(() => ({
+    fontSize: '14px',
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
 }))
 export const TotalGrid = styled(Grid)(() => ({
     fontSize: '16px',
     fontWeight: '600',
 }))
 
+<<<<<<< HEAD
 export const TitleTypography = styled(Typography)(({ theme }) => ({
     fontSize: '16px',
     fontWeight: '600',
@@ -94,6 +127,12 @@ export const TitleTypography = styled(Typography)(({ theme }) => ({
         fontSize: '14px',
     },
 
+=======
+export const TitleTypography = styled(Typography)(({ theme, align }) => ({
+    fontSize: '18px',
+    fontWeight: '700',
+    textAlign: align ? align : '',
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
 }))
 
 export const HeadingBox = styled(Box)(() => ({
@@ -101,6 +140,7 @@ export const HeadingBox = styled(Box)(() => ({
 }))
 
 export const InfoTypography = styled(Typography)(({ theme }) => ({
+<<<<<<< HEAD
     fontSize: "13px",
     fontWeight: 400,
     lineHeight: "28px",
@@ -113,6 +153,8 @@ export const InfoTypography = styled(Typography)(({ theme }) => ({
 }))
 export const SummaryTypography = styled(Typography)(({ theme }) => ({
 
+=======
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
     [theme.breakpoints.up('xs')]: {
         fontSize: '14px',
     },
@@ -120,6 +162,7 @@ export const SummaryTypography = styled(Typography)(({ theme }) => ({
         fontSize: '16px',
     },
 }))
+<<<<<<< HEAD
 export const RefundButton = styled(Button)(({ theme }) => ({
 
     width: "100%",
@@ -155,3 +198,5 @@ export const InstructionWrapper = styled(Stack)(({ theme }) => ({
         padding: "10px",
     },
 }))
+=======
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7

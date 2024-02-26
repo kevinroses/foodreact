@@ -6,13 +6,19 @@ const initialState = {
     deliveryManInfo: null,
     filterData: {
         sortBy: '',
+<<<<<<< HEAD
 
+=======
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
         filterBy: {},
         filterByCuisine: [],
         price: '',
         rating: '',
     },
+<<<<<<< HEAD
     foodOrRestaurant:"products"
+=======
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
 }
 
 export const searchFilterSlice = createSlice({
@@ -34,16 +40,26 @@ export const searchFilterSlice = createSlice({
                     action.payload.find(
                         (item) => item.value === 'currentlyAvailable'
                     ) !== undefined,
+<<<<<<< HEAD
                 rating:
                     action.payload.find(
                         (item) => item.value === 'rating'
                     ) !== undefined,
                 new:
                     action.payload.find((item) => item.value === 'new_arrivals') !==
+=======
+                from_campaign:
+                    action.payload.find(
+                        (item) => item.value === 'from_campaign'
+                    ) !== undefined,
+                new:
+                    action.payload.find((item) => item.value === 'new') !==
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                     undefined,
                 popular:
                     action.payload.find((item) => item.value === 'popular') !==
                     undefined,
+<<<<<<< HEAD
                 discounted:
                     action.payload.find(
                         (item) => item.value === 'discounted'
@@ -51,6 +67,12 @@ export const searchFilterSlice = createSlice({
                 sort_by:
                     action.payload.find((item) => item.value === 'sort_by') !==
                     undefined,
+=======
+                most_reviewed:
+                    action.payload.find(
+                        (item) => item.value === 'most_reviewed'
+                    ) !== undefined,
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
             }
             state.filterData.filterBy = filteredData
         },
@@ -72,9 +94,12 @@ export const searchFilterSlice = createSlice({
         setDeliveryManInfoByDispatch: (state, action) => {
             state.deliveryManInfo = action.payload
         },
+<<<<<<< HEAD
         setFoodOrRestaurant:(state,action) => {
             state.foodOrRestaurant = action.payload
         }
+=======
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
     },
 })
 
@@ -88,6 +113,9 @@ export const {
     setBannerFoodByDispatch,
     setDeliveryManInfoByDispatch,
     setFilterbyByCuisineDispatch,
+<<<<<<< HEAD
     setFoodOrRestaurant
+=======
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
 } = searchFilterSlice.actions
 export default searchFilterSlice.reducer

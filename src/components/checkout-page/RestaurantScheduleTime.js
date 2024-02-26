@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { useEffect, useState } from "react";
 import { PreferableTimeInput, TimeSlot, TomorrowSlot } from "./CheckOut.style";
 import { Grid, IconButton, InputLabel, MenuItem, Select, Stack, TextField, Typography } from "@mui/material";
@@ -12,6 +13,22 @@ import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import TodayIcon from "@mui/icons-material/Today";
 import moment from "moment/moment";
 import InfoIcon from '@mui/icons-material/Info';
+=======
+import React from 'react'
+import {
+    PrefarableCaption,
+    PreferableTimeInput,
+    StyledPaper,
+} from './CheckOut.style'
+import { Grid, InputLabel, MenuItem, Select, TextField } from '@mui/material'
+import FormControl from '@mui/material/FormControl'
+import { getAllSchedule, getDayNumber } from './const'
+import { useTranslation } from 'react-i18next'
+import {
+    CustomPaperBigCard,
+    CustomTypographyBold,
+} from '../../styled-components/CustomStyles.style'
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
 
 const RestaurantScheduleTime = (props) => {
     const {
@@ -20,6 +37,7 @@ const RestaurantScheduleTime = (props) => {
         today,
         tomorrow,
         numberOfDay,
+<<<<<<< HEAD
         setDayNumber,
         global,
         setScheduleAt,
@@ -111,6 +129,17 @@ const RestaurantScheduleTime = (props) => {
     };
 
 
+=======
+        global,
+        setScheduleAt,
+    } = props
+    const { t } = useTranslation()
+
+    const slotDurationTime =
+        global?.schedule_order_slot_duration === 0
+            ? 30
+            : global?.schedule_order_slot_duration
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
 
     return (
         <>
@@ -119,6 +148,7 @@ const RestaurantScheduleTime = (props) => {
                     <Grid container spacing={3}>
                         <Grid item xs={12} md={12}>
                             <CustomTypographyBold>
+<<<<<<< HEAD
                                 {t("Preferable Time")}
                             </CustomTypographyBold>
                         </Grid>
@@ -130,21 +160,42 @@ const RestaurantScheduleTime = (props) => {
                                     onChange={(event, newValue) => {
                                         handleTime(event, newValue);
                                     }}
+=======
+                                {t('Preferable Time')}
+                            </CustomTypographyBold>
+                        </Grid>
+                        <Grid item md={6} xs={12}>
+                            <FormControl fullWidth>
+                                <InputLabel>{t('Time')}</InputLabel>
+                                <Select
+                                    label={t('Time')}
+                                    onChange={handleChange}
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                                     defaultValue={getDayNumber(today)}
                                 >
                                     <MenuItem
                                         value={getDayNumber(today)}
                                         sx={{
+<<<<<<< HEAD
                                             "&:hover": {
                                                 backgroundColor: "primary.main"
                                             }
                                         }}
                                     >
                                         {t("Today")}
+=======
+                                            '&:hover': {
+                                                backgroundColor: 'primary.main',
+                                            },
+                                        }}
+                                    >
+                                        {t('Today')}
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                                     </MenuItem>
                                     <MenuItem
                                         value={getDayNumber(tomorrow)}
                                         sx={{
+<<<<<<< HEAD
                                             "&:hover": {
                                                 backgroundColor: "primary.main"
                                             }
@@ -291,3 +342,49 @@ const RestaurantScheduleTime = (props) => {
 RestaurantScheduleTime.propTypes = {};
 
 export default RestaurantScheduleTime;
+=======
+                                            '&:hover': {
+                                                backgroundColor: 'primary.main',
+                                            },
+                                        }}
+                                    >
+                                        {t('Tomorrow')}
+                                    </MenuItem>
+                                </Select>
+                            </FormControl>
+                        </Grid>
+                        <Grid item md={6} xs={12}>
+                            {restaurantData?.data?.schedules &&
+                                restaurantData?.data?.schedules?.length > 0 && (
+                                    <PreferableTimeInput
+                                        defaultValue={t('Now')}
+                                        disablePortal
+                                        id="combo-box-demo"
+                                        options={getAllSchedule(
+                                            numberOfDay,
+                                            restaurantData?.data?.schedules,
+                                            slotDurationTime
+                                        )}
+                                        onChange={(e, option) =>
+                                            setScheduleAt(option?.value)
+                                        }
+                                        renderInput={(params) => (
+                                            <TextField
+                                                {...params}
+                                                label={t('Schedule')}
+                                            />
+                                        )}
+                                    />
+                                )}
+                        </Grid>
+                    </Grid>
+                </CustomPaperBigCard>
+            )}
+        </>
+    )
+}
+
+RestaurantScheduleTime.propTypes = {}
+
+export default RestaurantScheduleTime
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7

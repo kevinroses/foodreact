@@ -13,7 +13,10 @@ export const customModalStyle = {
 
 export const CustomModalWrapper = styled(Box)(
     ({ theme, maxWidth, bgColor }) => ({
+<<<<<<< HEAD
         maxWidth: maxWidth || "450px",
+=======
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
         position: 'absolute',
         top: '50%',
         left: '50%',
@@ -22,6 +25,10 @@ export const CustomModalWrapper = styled(Box)(
         backgroundColor: bgColor ? bgColor : theme.palette.neutral[100],
         p: 2,
         outline: 'none',
+<<<<<<< HEAD
         width:'100%'
+=======
+        minWidth: '335px',
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
     })
 )

@@ -1,7 +1,10 @@
 import moment from 'moment'
 import React from 'react'
 import { t } from 'i18next'
+<<<<<<< HEAD
 import { useSelector } from "react-redux";
+=======
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
 import _ from 'lodash'
 import { store } from '../redux/store'
 import { CustomChip } from '../components/food-card/FoodCard.style'
@@ -40,6 +43,7 @@ export const getAmount = (
     digitAfterDecimalPoint
 ) => {
     let newAmount = truncate(amount?.toString(), digitAfterDecimalPoint)
+<<<<<<< HEAD
     if (newAmount > 99999) {
         newAmount = (newAmount / 1000)?.toFixed(digitAfterDecimalPoint) + "k";
         return `${currency_symbol}${newAmount}`
@@ -53,6 +57,15 @@ export const getAmount = (
         return amount
     }
 
+=======
+
+    if (currency_symbol_direction === 'left') {
+        return `${currency_symbol}${newAmount.toFixed(digitAfterDecimalPoint)}`
+    } else if (currency_symbol_direction === 'right') {
+        return `${newAmount.toFixed(digitAfterDecimalPoint)}${currency_symbol}`
+    }
+    return amount
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
 }
 const handleVariationValuesSum = (productVariations) => {
     let sum = 0
@@ -84,7 +97,11 @@ export const getSubTotalPrice = (cartList) => {
             (product.variations.length > 0
                 ? getItemTotalWithoutDiscount(product)
                 : product.price) *
+<<<<<<< HEAD
             product.quantity +
+=======
+                product.quantity +
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
             selectedAddonsTotal(product.selectedAddons) +
             total,
         0
@@ -143,12 +160,21 @@ export const getTaxableTotalPrice = (items, couponDiscount, restaurantData) => {
         store?.getState?.()?.globalSettings?.global?.tax_included === 1
     let tax = restaurantData?.data?.tax
     let total =
+<<<<<<< HEAD
         items?.reduce(
             (total, product) =>
                 (product?.variations?.length > 0
                     ? handleProductValueWithOutDiscount(product)
                     : product.price) *
                 product.quantity +
+=======
+        items.reduce(
+            (total, product) =>
+                (product.variations.length > 0
+                    ? handleProductValueWithOutDiscount(product)
+                    : product.price) *
+                    product.quantity +
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                 selectedAddonsTotal(product.selectedAddons) +
                 total,
             0
@@ -180,16 +206,26 @@ export const getSelectedAddOn = (add_ons) => {
     let add_on = ''
     if (add_ons?.length > 0) {
         add_ons.map((item, index) => {
+<<<<<<< HEAD
             add_on += `${index !== 0 ? ', ' : ''}${item?.name}`
+=======
+            add_on += `${index !== 0 ? ', ' : ''}${item.name}`
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
         })
     }
     return add_on
 }
 
 export const handleProductValueWithOutDiscount = (product) => {
+<<<<<<< HEAD
     let productPrice = product?.price
     if (product?.variations?.length > 0) {
         productPrice += handleVariationValuesSum(product?.variations)
+=======
+    let productPrice = product.price
+    if (product.variations.length > 0) {
+        productPrice += handleVariationValuesSum(product.variations)
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
         return productPrice
     } else {
         return productPrice
@@ -217,6 +253,7 @@ export const getProductDiscount = (items, restaurantData) => {
                 (total, product) =>
                     (product.variations.length > 0
                         ? handleProductValueWithOutDiscount(product) -
+<<<<<<< HEAD
                         getConvertDiscount(
                             restaurentDiscount,
                             resDisType,
@@ -231,6 +268,22 @@ export const getProductDiscount = (items, restaurantData) => {
                             product.restaurant_discount
                         )) *
                     product.quantity +
+=======
+                          getConvertDiscount(
+                              restaurentDiscount,
+                              resDisType,
+                              handleProductValueWithOutDiscount(product),
+                              product.restaurant_discount
+                          )
+                        : product.price -
+                          getConvertDiscount(
+                              restaurentDiscount,
+                              resDisType,
+                              product.price,
+                              product.restaurant_discount
+                          )) *
+                        product.quantity +
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                     total,
                 0
             )
@@ -242,12 +295,21 @@ export const getProductDiscount = (items, restaurantData) => {
                         : product.price) +
                         (product?.selectedAddons?.length > 0
                             ? product?.selectedAddons?.reduce(
+<<<<<<< HEAD
                                 (total, addOn) =>
                                     addOn.price * addOn.quantity + total,
                                 0
                             )
                             : 0)) *
                     product.quantity +
+=======
+                                  (total, addOn) =>
+                                      addOn.price * addOn.quantity + total,
+                                  0
+                              )
+                            : 0)) *
+                        product.quantity +
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                     total,
                 0
             )
@@ -261,7 +323,10 @@ export const getProductDiscount = (items, restaurantData) => {
                 return 0
             }
         } else {
+<<<<<<< HEAD
 
+=======
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
             //product wise discount
             let total = items.reduce(
                 (total, product) =>
@@ -276,11 +341,15 @@ export const getProductDiscount = (items, restaurantData) => {
                 0
             )
             return total
+<<<<<<< HEAD
 
+=======
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
         }
     } else {
         //product wise discount
 
+<<<<<<< HEAD
         let totalDiscount = items?.reduce((total, product) => {
             const discountAmount = getConvertDiscount(
                 product.discount,
@@ -292,6 +361,21 @@ export const getProductDiscount = (items, restaurantData) => {
         }, 0);
         return totalDiscount;
 
+=======
+        let total = items.reduce(
+            (total, product) =>
+                (handleProductValueWithOutDiscount(product) -
+                    getConvertDiscount(
+                        product.discount,
+                        product.discount_type,
+                        handleProductValueWithOutDiscount(product),
+                        product.restaurant_discount
+                    )) *
+                product.quantity,
+            0
+        )
+        return total
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
     }
 }
 
@@ -347,8 +431,13 @@ function distanceInKmBetweenEarthCoordinates(lat1, lon1, lat2, lon2) {
     const a =
         Math.pow(Math.sin(dLat / 2), 2) +
         Math.pow(Math.sin(dLon / 2), 2) *
+<<<<<<< HEAD
         Math.cos(toRadians(startLatitude)) *
         Math.cos(toRadians(endLatitude))
+=======
+            Math.cos(toRadians(startLatitude)) *
+            Math.cos(toRadians(endLatitude))
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
     const c = 2 * Math.asin(Math.sqrt(a))
 
     return earthRadius * c
@@ -403,24 +492,39 @@ export const getDeliveryFees = (
     destination,
     extraCharge
 ) => {
+<<<<<<< HEAD
 
+=======
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
     //convert m to km
     let convertedDistance = handleDistance(
         distance?.rows?.[0]?.elements,
         origin,
         destination
     )
+<<<<<<< HEAD
+=======
+    console.log({ extraCharge })
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
     let deliveryFee
     let totalOrderAmount = cartItemsTotalAmount(cartList)
 
     //restaurant self delivery system checking
     if (Number.parseInt(restaurantData?.data?.self_delivery_system) === 1) {
+<<<<<<< HEAD
         if (restaurantData?.data?.free_delivery || orderType === 'take_away' || (restaurantData?.data?.free_delivery_distance_status && convertedDistance < restaurantData?.data?.free_delivery_distance_value)) {
+=======
+        if (restaurantData?.data?.free_delivery || orderType === 'take_away') {
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
             return 0
         } else {
             deliveryFee =
                 convertedDistance *
+<<<<<<< HEAD
                 restaurantData?.data?.per_km_shipping_charge || 0
+=======
+                    restaurantData?.data?.per_km_shipping_charge || 0
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
             if (
                 deliveryFee > restaurantData?.data?.minimum_shipping_charge &&
                 deliveryFee < restaurantData?.data?.maximum_shipping_charge
@@ -453,13 +557,21 @@ export const getDeliveryFees = (
             if (
                 restaurantChargeInfo &&
                 Number.parseInt(restaurantData?.data?.self_delivery_system) !==
+<<<<<<< HEAD
                 1
+=======
+                    1
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
             ) {
                 if (
                     (global?.free_delivery_over !== null &&
                         global?.free_delivery_over > 0 &&
                         totalOrderAmount > global?.free_delivery_over) ||
+<<<<<<< HEAD
                     orderType === 'take_away' || convertedDistance < global?.free_delivery_distance
+=======
+                    orderType === 'take_away'
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                 ) {
                     return 0
                 } else {
@@ -468,9 +580,15 @@ export const getDeliveryFees = (
                         (restaurantChargeInfo?.per_km_shipping_charge || 0)
                     if (
                         deliveryFee >=
+<<<<<<< HEAD
                         restaurantChargeInfo?.minimum_shipping_charge &&
                         deliveryFee + extraCharge <=
                         restaurantChargeInfo?.maximum_shipping_charge
+=======
+                            restaurantChargeInfo?.minimum_shipping_charge &&
+                        deliveryFee + extraCharge <=
+                            restaurantChargeInfo?.maximum_shipping_charge
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                     ) {
                         return (
                             getDeliveryFeeByBadWeather(
@@ -492,7 +610,11 @@ export const getDeliveryFees = (
                         )
                     } else if (
                         deliveryFee + extraCharge >=
+<<<<<<< HEAD
                         restaurantChargeInfo?.maximum_shipping_charge &&
+=======
+                            restaurantChargeInfo?.maximum_shipping_charge &&
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                         restaurantChargeInfo?.maximum_shipping_charge !== null
                     ) {
                         return getDeliveryFeeByBadWeather(
@@ -507,8 +629,13 @@ export const getDeliveryFees = (
                             (global?.free_delivery_over !== null &&
                                 global?.free_delivery_over > 0 &&
                                 totalOrderAmount >
+<<<<<<< HEAD
                                 global?.free_delivery_over) ||
                             orderType === 'take_away' || convertedDistance < global?.free_delivery_distance
+=======
+                                    global?.free_delivery_over) ||
+                            orderType === 'take_away'
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                         ) {
                             return 0
                         } else {
@@ -548,6 +675,7 @@ export const getTotalLoyalityAmount = (data) => {
     }
     return 0
 }
+<<<<<<< HEAD
 export const getTotalVariationsPrice = (variations) => {
     let value = 0;
     if (variations?.length > 0) {
@@ -563,6 +691,8 @@ export const getTotalVariationsPrice = (variations) => {
     }
     return value;
 };
+=======
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
 export const getConvertDiscount = (
     dis,
     disType,
@@ -589,7 +719,11 @@ export const getCouponDiscount = (couponDiscount, restaurantData, cartList) => {
                 (product.variations.length > 0
                     ? handleProductValueWithOutDiscount(product)
                     : product.price) *
+<<<<<<< HEAD
                 product.quantity +
+=======
+                    product.quantity +
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                 selectedAddonsTotal(product.selectedAddons) +
                 total,
             0
@@ -803,6 +937,7 @@ export const getCalculatedTotal = (
                     )) -
                 (couponDiscount
                     ? truncate(
+<<<<<<< HEAD
                         getCouponDiscount(
                             couponDiscount,
                             restaurantData,
@@ -810,6 +945,15 @@ export const getCalculatedTotal = (
                         )?.toString(),
                         global?.digit_after_decimal_point
                     )
+=======
+                          getCouponDiscount(
+                              couponDiscount,
+                              restaurantData,
+                              cartList
+                          )?.toString(),
+                          global?.digit_after_decimal_point
+                      )
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                     : 0) +
                 truncate(
                     deliveryTip?.toString(),
@@ -839,6 +983,7 @@ export const getCalculatedTotal = (
                     )) -
                 (couponDiscount
                     ? truncate(
+<<<<<<< HEAD
                         getCouponDiscount(
                             couponDiscount,
                             restaurantData,
@@ -846,6 +991,15 @@ export const getCalculatedTotal = (
                         )?.toString(),
                         global?.digit_after_decimal_point
                     )
+=======
+                          getCouponDiscount(
+                              couponDiscount,
+                              restaurantData,
+                              cartList
+                          )?.toString(),
+                          global?.digit_after_decimal_point
+                      )
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                     : 0) +
                 truncate(
                     getDeliveryFees(
@@ -943,7 +1097,11 @@ export const getDiscountForTag = (restaurantDiscount) => {
     // return restaurantDiscount?.discount
 }
 
+<<<<<<< HEAD
 export const getDiscountType = () => { }
+=======
+export const getDiscountType = () => {}
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
 
 export const isFoodAvailableBySchedule = (cart, selectedTime) => {
     // const startTime = moment(start, 'HH:mm:ss')
@@ -1016,11 +1174,19 @@ export const restaurantDiscountTag = (
             currencySymbol,
             digitAfterDecimalPoint
         )}${amountOff}`
+<<<<<<< HEAD
+=======
+    } else if (freeDelivery) {
+        return t('Free Delivery')
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
     } else return null
 }
 
 export const getIndexFromArrayByComparision = (arrayOfObjects, object) => {
+<<<<<<< HEAD
 
+=======
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
     // for (let i = 0; i < arrayOfObjects.length; i++) {
     //     if (_.isEqual(arrayOfObjects[i].variations, object.variations)) {
     //         return i
@@ -1039,7 +1205,11 @@ export const handleTotalAmountWithAddons = (
     if (selectedAddOns?.length > 0) {
         let selectedAddonsTotalPrice = 0
         selectedAddOns.forEach(
+<<<<<<< HEAD
             (item) => (selectedAddonsTotalPrice += item?.price * item?.quantity)
+=======
+            (item) => (selectedAddonsTotalPrice += item.price * item.quantity)
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
         )
         return mainTotalAmount + selectedAddonsTotalPrice
     } else {
@@ -1049,8 +1219,13 @@ export const handleTotalAmountWithAddons = (
 
 export const cartItemsTotalAmount = (cartList) => {
     let totalAmount = 0
+<<<<<<< HEAD
     if (cartList?.length > 0) {
         cartList?.forEach((item) => {
+=======
+    if (cartList.length > 0) {
+        cartList.forEach((item) => {
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
             totalAmount += handleTotalAmountWithAddons(
                 item?.totalPrice,
                 item?.selectedAddons
@@ -1061,9 +1236,15 @@ export const cartItemsTotalAmount = (cartList) => {
 }
 export const calculateItemBasePrice = (item, selectedOptions) => {
     let basePrice = item?.price
+<<<<<<< HEAD
     if (selectedOptions?.length > 0) {
         selectedOptions?.forEach((option) => {
             if (option?.isSelected === true) {
+=======
+    if (selectedOptions.length > 0) {
+        selectedOptions?.forEach((option) => {
+            if (option.isSelected === true) {
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                 basePrice += Number.parseInt(option?.optionPrice)
             }
         })
@@ -1131,6 +1312,10 @@ export const handleIncrementedTotal = (
 
     if (discountType === 'amount') {
         const basePriceWithoutDiscount = basePrice
+<<<<<<< HEAD
+=======
+        console.log({ basePriceWithoutDiscount })
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
         return basePrice * quantity + discount - discount
     } else {
         const discountAmount = discount / 100
@@ -1144,11 +1329,18 @@ export const handleTotalAmountWithAddonsFF = (
     mainTotalAmount,
     selectedAddOns
 ) => {
+<<<<<<< HEAD
 
     if (selectedAddOns?.length > 0) {
         let selectedAddonsTotalPrice = 0
         selectedAddOns.forEach(
             (item) => (selectedAddonsTotalPrice += item?.price * item?.quantity)
+=======
+    if (selectedAddOns?.length > 0) {
+        let selectedAddonsTotalPrice = 0
+        selectedAddOns.forEach(
+            (item) => (selectedAddonsTotalPrice += item.price * item.quantity)
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
         )
         return mainTotalAmount + selectedAddonsTotalPrice
     } else {
@@ -1168,7 +1360,10 @@ export const handleBadge = (
             if (product?.discount_type === 'percent') {
                 return (
                     <CustomChip
+<<<<<<< HEAD
                         discount
+=======
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                         label={
                             !product.available_date_ends
                                 ? `${product?.discount} %`
@@ -1180,6 +1375,7 @@ export const handleBadge = (
             } else {
                 return (
                     <CustomChip
+<<<<<<< HEAD
                         discount
                         label={
                             !product.available_date_ends
@@ -1195,6 +1391,22 @@ export const handleBadge = (
                                     currencySymbol,
                                     digitAfterDecimalPoint
                                 )} ${OFF}`
+=======
+                        label={
+                            !product.available_date_ends
+                                ? ` ${getAmount(
+                                      product?.discount,
+                                      currencySymbolDirection,
+                                      currencySymbol,
+                                      digitAfterDecimalPoint
+                                  )}`
+                                : ` ${getAmount(
+                                      product?.discount,
+                                      currencySymbolDirection,
+                                      currencySymbol,
+                                      digitAfterDecimalPoint
+                                  )} ${OFF}`
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                         }
                         campaign={product.available_date_ends}
                     />
@@ -1228,6 +1440,7 @@ export const isRTLLanguage = (value) => {
     let rtl = rtlLanguageList.includes(value)
     return rtl
 }
+<<<<<<< HEAD
 export const removeDuplicates = (array, property) => {
     const uniqueValues = {}
     console.log({array});
@@ -1277,3 +1490,5 @@ export function capitalizeEachWord(str) {
       .map(word => word.charAt(0).toUpperCase() + word.slice(1))
       .join(' ');
   }
+=======
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7

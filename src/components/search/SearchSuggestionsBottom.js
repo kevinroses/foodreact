@@ -32,20 +32,31 @@ import { useGetSuggestSearchResult } from '../../hooks/react-query/search/useGet
 import { setSuggestedKeywords } from '../../redux/slices/storedData'
 const CustomPaper = styled(Paper)(({ theme, display }) => ({
     position: 'absolute',
+<<<<<<< HEAD
     top: "64px",
     maxWidth:"450px",
+=======
+    top: 85,
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
     width: '100%',
     padding: '1rem',
     display: display ? display : 'inherit',
     zIndex: 999,
+<<<<<<< HEAD
     left: "unset",
+=======
+    left: 0,
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
     borderTopLeftRadius: '0px',
     borderTopRightRadius: '0px',
     [theme.breakpoints.down('md')]: {
         zIndex: 999,
+<<<<<<< HEAD
         maxWidth:"350px",
         width: '100%',
         top: "54px",
+=======
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
     },
 }))
 const SearchSuggestionsBottom = (props) => {
@@ -56,7 +67,10 @@ const SearchSuggestionsBottom = (props) => {
         routeHandler,
         handleFocus,
         inputValue,
+<<<<<<< HEAD
         searchRef
+=======
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
     } = props
     const dispatch = useDispatch()
     const theme = useTheme()
@@ -187,7 +201,10 @@ const SearchSuggestionsBottom = (props) => {
     return (
         <>
             <CustomPaper
+<<<<<<< HEAD
                 ref={searchRef}
+=======
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                 elevation={8}
                 onMouseEnter={() => handleFocus()}
                 onMouseLeave={() => setOnSearchDiv(false)}

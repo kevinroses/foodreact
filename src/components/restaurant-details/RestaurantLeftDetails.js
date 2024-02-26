@@ -1,10 +1,18 @@
+<<<<<<< HEAD
 import React, { useState } from 'react'
+=======
+import React from 'react'
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
 import {
     CustomOverlayBox,
     CustomStackFullWidth,
 } from '../../styled-components/CustomStyles.style'
 import CustomImageContainer from '../CustomImageContainer'
+<<<<<<< HEAD
 import { alpha, Button, Divider, Grid, IconButton, TextField, Typography } from '@mui/material'
+=======
+import { alpha, Grid, IconButton, Typography } from '@mui/material'
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
 import { useDispatch, useSelector } from 'react-redux'
 import { useTheme } from '@mui/material/styles'
 import { Box, Stack } from '@mui/system'
@@ -29,6 +37,7 @@ import { CustomSideOverLay } from '../home/food-campaign/FoodCampaign.style'
 import ClosedNowOverlay from './HeadingBannerSection/ClosedNowOverlay'
 import { RestaurantCommonTypography } from './restaurant-details.style'
 import Link from 'next/link'
+<<<<<<< HEAD
 import ShareIcon from '../../assets/images/icons/ShareIcon'
 import ShareOutlinedIcon from '@mui/icons-material/ShareOutlined';
 import FoodRating from '../food-card/FoodRating'
@@ -41,6 +50,8 @@ import { useRouter } from 'next/router'
 import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 import MapComponent from "./google-address/MapComponent";
 import { RTL } from '../RTL/RTL'
+=======
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
 
 const RestaurantLeftDetails = (props) => {
     const {
@@ -52,6 +63,7 @@ const RestaurantLeftDetails = (props) => {
         scrollPosition,
         data,
     } = props
+<<<<<<< HEAD
     const dispatch = useDispatch()
     const router = useRouter();
     const { wishLists } = useSelector((state) => state.wishList)
@@ -67,6 +79,15 @@ const RestaurantLeftDetails = (props) => {
     if (typeof window !== 'undefined') {
         languageDirection = localStorage.getItem('direction')
     }
+=======
+    const { wishLists } = useSelector((state) => state.wishList)
+    const dispatch = useDispatch()
+    const { global } = useSelector((state) => state.globalSettings)
+    const { token } = useSelector((state) => state.userToken)
+    const theme = useTheme()
+    const isSmall = useMediaQuery(theme.breakpoints.down('sm'))
+    const { t } = useTranslation()
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
     const {
         logo,
         name,
@@ -81,6 +102,10 @@ const RestaurantLeftDetails = (props) => {
         active,
         schedules,
     } = details
+<<<<<<< HEAD
+=======
+
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
     const {
         mutate: addFavoriteMutation,
         isLoading,
@@ -108,7 +133,11 @@ const RestaurantLeftDetails = (props) => {
                 //setOpen(false)
             }
         },
+<<<<<<< HEAD
         onError: (error) => { },
+=======
+        onError: (error) => {},
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
     })
     const addToFavorite = () => {
         if (token) {
@@ -138,6 +167,7 @@ const RestaurantLeftDetails = (props) => {
             (wishRestaurant) => wishRestaurant.id === id
         )
     }
+<<<<<<< HEAD
     const handleCopy = (url) => {
         navigator.clipboard.writeText(url)
         toast(() => (
@@ -146,6 +176,9 @@ const RestaurantLeftDetails = (props) => {
             </span>
         ))
     }
+=======
+
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
     const closedNowHandler = () => {
         if (active) {
             if (schedules.length > 0) {
@@ -198,6 +231,7 @@ const RestaurantLeftDetails = (props) => {
     }
     const handleTop = () => {
         return (
+<<<<<<< HEAD
             <RTL direction={languageDirection}>
                 <Grid
                     item
@@ -369,6 +403,113 @@ const RestaurantLeftDetails = (props) => {
                                     />
                                 </Stack>
                             ) : (
+=======
+            <Grid
+                item
+                xs={12}
+                sm={12}
+                md={12}
+                sx={{
+                    background: '#ffffff1a',
+                    backdropFilter: 'blur(10px)',
+                    // animation: 'fadeIn .9s',
+                    // '@keyframes fadeIn ': {
+                    //     '0%': {
+                    //         opacity: '0',
+                    //     },
+                    //     '100%': {
+                    //         opacity: '1',
+                    //     },
+                    // },
+                }}
+            >
+                <CustomStackFullWidth
+                    alignItems={{ xs: 'center', sm: 'flex-end' }}
+                    justiyfContent="center"
+                    direction="row"
+                    spacing={1}
+                    sx={{
+                        padding: {
+                            xs: '5px 5px 5px 5px',
+                            sm: '20px 20px 20px 20px',
+                            md: '25px 25px 30px 25px',
+                        },
+                        height: '100%',
+                    }}
+                >
+                    <Stack
+                        position="absolute"
+                        top={
+                            scrollPosition === 0
+                                ? '5%'
+                                : isSmall
+                                ? '15%'
+                                : '45%'
+                        }
+                        right="5%"
+                        zIndex="999"
+                    >
+                        {!isInList(id) ? (
+                            <IconButton
+                                sx={{
+                                    background: (theme) =>
+                                        theme.palette.neutral[100],
+                                    '&:hover': {
+                                        backgroundColor: (theme) =>
+                                            theme.palette.error.dark,
+                                    },
+                                }}
+                                onClick={(e) => addToFavorite(e)}
+                            >
+                                <FavoriteBorderIcon color="primary" />
+                            </IconButton>
+                        ) : (
+                            <IconButton
+                                sx={{
+                                    background: (theme) =>
+                                        theme.palette.neutral[100],
+                                    '&:hover': {
+                                        backgroundColor: (theme) =>
+                                            theme.palette.error.dark,
+                                    },
+                                }}
+                                onClick={(e) => deleteWishlistRes(id, e)}
+                            >
+                                <FavoriteIcon color="primary" />
+                            </IconButton>
+                        )}
+                    </Stack>
+                    <Box
+                        sx={{
+                            width:
+                                scrollPosition === 0
+                                    ? '100px'
+                                    : isSmall
+                                    ? '74px'
+                                    : '100px',
+                            height:
+                                scrollPosition === 0
+                                    ? '100px'
+                                    : isSmall
+                                    ? '74px'
+                                    : '100px',
+                            borderRadius: '50%',
+                            position: 'relative',
+                        }}
+                    >
+                        {closedNowHandler()}
+                        {isSmall ? (
+                            <Stack
+                                position="absolute"
+                                top={scrollPosition === 0 ? '-35px' : '0px'}
+                                sx={{ zIndex: 9999 }}
+                                height={{
+                                    xs: scrollPosition === 0 ? '100px' : '74px',
+                                    sm: '100px',
+                                    md: '100px',
+                                }}
+                            >
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                                 <CustomImageContainer
                                     src={`${global?.base_urls?.restaurant_image_url}/${details?.logo}`}
                                     width="100px"
@@ -376,13 +517,19 @@ const RestaurantLeftDetails = (props) => {
                                         scrollPosition === 0
                                             ? '100px'
                                             : isSmall
+<<<<<<< HEAD
                                                 ? '74px'
                                                 : '100px'
+=======
+                                            ? '74px'
+                                            : '100px'
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                                     }
                                     height="100%"
                                     borderRadius="50%"
                                     objectFit="cover"
                                 />
+<<<<<<< HEAD
                             )}
                         </Box>
                         <Stack padding="10px" justifyContent="center" gap="8px">
@@ -436,6 +583,66 @@ const RestaurantLeftDetails = (props) => {
                 </Grid>
 
             </RTL>
+=======
+                            </Stack>
+                        ) : (
+                            <CustomImageContainer
+                                src={`${global?.base_urls?.restaurant_image_url}/${details?.logo}`}
+                                width="100px"
+                                smWidth={
+                                    scrollPosition === 0
+                                        ? '100px'
+                                        : isSmall
+                                        ? '74px'
+                                        : '100px'
+                                }
+                                height="100%"
+                                borderRadius="50%"
+                                objectFit="cover"
+                            />
+                        )}
+                    </Box>
+                    <Stack padding="10px" justifyContent="center">
+                        <Typography
+                            color={theme.palette.whiteContainer.main}
+                            fontWeight="600"
+                        >
+                            {details?.name}
+                        </Typography>
+                        <Stack direction="row" spacing={1} alignItems="center">
+                            <CustomRatings
+                                ratingValue={getNumberWithConvertedDecimalPoint(
+                                    details?.avg_rating,
+                                    global?.digit_after_decimal_point
+                                )}
+                                readOnly="true"
+                                color={theme.palette.whiteContainer.main}
+                            />
+                            <Link href={`/review/${details?.id}`} passHref>
+                                <Typography
+                                    color={theme.palette.whiteContainer.main}
+                                    fontSize="13px"
+                                    sx={{
+                                        textDecoration: 'underline',
+                                        cursor: 'pointer',
+                                    }}
+                                >
+                                    {JSON.stringify(details?.rating_count)}{' '}
+                                    {t('Reviews')}
+                                </Typography>
+                            </Link>
+                        </Stack>
+                        <Typography
+                            color="white"
+                            fontSize="12px"
+                            color={theme.palette.whiteContainer.main}
+                        >
+                            {details?.address}
+                        </Typography>
+                    </Stack>
+                </CustomStackFullWidth>
+            </Grid>
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
         )
     }
     const handleBottom = () => {
@@ -446,6 +653,7 @@ const RestaurantLeftDetails = (props) => {
                 xs={12}
                 sm={12}
                 md={12}
+<<<<<<< HEAD
                 sx={{ paddingX: '20px', background: theme.palette.neutral[1800] }}
                 justifyContent="space-between"
                 alignItems="center"
@@ -466,6 +674,25 @@ const RestaurantLeftDetails = (props) => {
                 ) : null}
 
                 {details?.minimum_order ? (<Grid xs={4} sm={4} md={4}>
+=======
+                sx={{ paddingX: '20px' }}
+                justifyContent="space-between"
+                alignItems="center"
+            >
+                <Grid xs={4} sm={4} md={4}>
+                    <RestaurantCommonTypography>
+                        {details?.positive_rating} %
+                    </RestaurantCommonTypography>
+                    <RestaurantCommonTypography
+                        fontSize="16px"
+                        smFontSize="12px"
+                        fontWeight="400"
+                    >
+                        {t('Positive Review')}
+                    </RestaurantCommonTypography>
+                </Grid>
+                <Grid xs={4} sm={4} md={4}>
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                     <RestaurantCommonTypography>
                         {' '}
                         {getAmount(
@@ -476,26 +703,43 @@ const RestaurantLeftDetails = (props) => {
                         )}
                     </RestaurantCommonTypography>
                     <RestaurantCommonTypography
+<<<<<<< HEAD
                         fontSize="12px"
+=======
+                        fontSize="16px"
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                         smFontSize="12px"
                         fontWeight="400"
                     >
                         {t('Minimum Order')}
                     </RestaurantCommonTypography>
+<<<<<<< HEAD
                 </Grid>) : null}
                 {details?.delivery_time ? (<Grid xs={4} sm={4} md={4}>
+=======
+                </Grid>
+                <Grid xs={4} sm={4} md={4}>
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                     <RestaurantCommonTypography>
                         {details?.delivery_time}
                     </RestaurantCommonTypography>
                     <RestaurantCommonTypography
+<<<<<<< HEAD
                         fontSize="12px"
+=======
+                        fontSize="16px"
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                         smFontSize="12px"
                         fontWeight="400"
                     >
                         {t('Delivery Time')}
                     </RestaurantCommonTypography>
+<<<<<<< HEAD
                 </Grid>) : null}
 
+=======
+                </Grid>
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
             </Grid>
         )
     }
@@ -523,8 +767,14 @@ const RestaurantLeftDetails = (props) => {
                     sx={{
                         position: 'absolute',
                         background: isSmall
+<<<<<<< HEAD
                             ? (theme) => alpha(theme.palette.neutral[100], 0.9)
                             : (theme) => alpha(theme.palette.neutral[100], 0.9),
+=======
+                            ? (theme) => theme.palette.primary.main
+                            : (theme) => alpha(theme.palette.primary.main, 0.9),
+
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                         height: '100%',
                     }}
                 >
@@ -532,6 +782,7 @@ const RestaurantLeftDetails = (props) => {
                     {scrollPosition === 0 ? handleBottom() : handleTop()}
                 </CustomStackFullWidth>
             </CustomStackFullWidth>
+<<<<<<< HEAD
             <CustomModal
                 openModal={openShareModal}
                 setModalOpen={setOpenShareModal}
@@ -611,6 +862,8 @@ const RestaurantLeftDetails = (props) => {
                     <MapComponent latitude={details?.latitude} longitude={details?.longitude} />
                 </Box>
             </CustomModal>
+=======
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
         </CustomStackFullWidth>
     )
 }

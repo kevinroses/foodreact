@@ -15,9 +15,12 @@ import { Button, Stack } from '@mui/material'
 import LoadingButton from '@mui/lab/LoadingButton'
 import { CustomButtonCancel } from '../../styled-components/CustomButtons.style'
 import { RTL } from '../RTL/RTL'
+<<<<<<< HEAD
 import CloseIcon from "@mui/icons-material/Close";
 import RefundSvg from "../order-history/RefundSvg";
 import { useTheme } from "@mui/styles";
+=======
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
 
 const CancelOrder = ({
     cancelReason,
@@ -27,7 +30,10 @@ const CancelOrder = ({
     setModalOpen,
     handleOnSuccess,
 }) => {
+<<<<<<< HEAD
     const theme=useTheme()
+=======
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
     const [value, setValue] = useState()
     const handleChange = (event) => {
         setCancelReason(event.target.value)
@@ -42,6 +48,7 @@ const CancelOrder = ({
     }
 
     return (
+<<<<<<< HEAD
         <WrapperForCustomDialogConfirm sx={{position:"relative"}}>
             <button className="closebtn" onClick={onClose}>
                 <CloseIcon sx={{ fontSize: '16px' }} />
@@ -59,12 +66,37 @@ const CancelOrder = ({
                 <DialogContent sx={{padding:"15px 14px"}}>
                     <CustomStackFullWidth justifyContent="center">
                         <FormControl  >
+=======
+        <WrapperForCustomDialogConfirm>
+            <CustomStackFullWidth spacing={1}>
+                <DialogTitle
+                    id="alert-dialog-title"
+                    sx={{ padding: '10px 24px' }}
+                >
+                    <Typography textAlign="center" variant="h3">
+                        {t('What’s Wrong With This Order?')}
+                    </Typography>
+                </DialogTitle>
+                <DialogContent sx={{ padding: '10px 24px' }}>
+                    <CustomStackFullWidth>
+                        <FormControl component="fieldset">
+                            <Typography
+                                fontWeight="600"
+                                variant="h4"
+                                paddingY=".5rem"
+                            >
+                                {t('Cancel Reason')}
+                            </Typography>
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                             <RadioGroup
                                 aria-label="gender"
                                 name="gender1"
                                 value={cancelReason}
                                 onChange={handleChange}
+<<<<<<< HEAD
                                 component="fieldset"
+=======
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                             >
                                 {cancelReasonsData &&
                                     cancelReasonsData?.reasons?.length > 0 &&
@@ -72,6 +104,7 @@ const CancelOrder = ({
                                         (reason) => {
                                             return (
                                                 <FormControlLabel
+<<<<<<< HEAD
                                                     sx={{color:theme=>theme.palette.neutral[500],
                                                         border:"1px solid",
                                                         borderColor:theme=>theme.palette.neutral[300],
@@ -81,6 +114,8 @@ const CancelOrder = ({
                                                         marginLeft:"0px"
 
                                                 }}
+=======
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                                                     key={reason?.id}
                                                     value={reason.reason}
                                                     checked={
@@ -101,6 +136,7 @@ const CancelOrder = ({
                     </CustomStackFullWidth>
                 </DialogContent>
 
+<<<<<<< HEAD
                 <DialogActions sx={{padding:"0px 10px 0px 10px",marginTop:"0px !important"}}>
                     <RTL direction={languageDirection}>
                         <Stack
@@ -116,6 +152,42 @@ const CancelOrder = ({
                                 variant="contained"
                                 sx={{fontWeight:"400"}}
 
+=======
+                <DialogActions sx={{ paddingX: '20px' }}>
+                    <RTL direction={languageDirection}>
+                        <Stack
+                            direction="row"
+                            alignItems="center"
+                            justifyContent="center"
+                            width="100%"
+                            spacing={2}
+                        >
+                            <Button
+                                variant="contained"
+                                onClick={onClose}
+                                sx={{
+                                    width: '100%',
+                                    backgroundColor: (theme) =>
+                                        theme.palette.mode === 'dark'
+                                            ? theme.palette.neutral[700]
+                                            : theme.palette.neutral[300],
+                                    color: (theme) =>
+                                        theme.palette.neutral[1000],
+
+                                    '&:hover': {
+                                        backgroundColor: (theme) =>
+                                            theme.palette.neutral[400],
+                                    },
+                                }}
+                            >
+                                {t('Back')}
+                            </Button>
+                            <Button
+                                loading={orderLoading}
+                                onClick={handleOnSuccess}
+                                variant="contained"
+                                sx={{ width: '100%' }}
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                             >
                                 {t('Submit')}
                             </Button>

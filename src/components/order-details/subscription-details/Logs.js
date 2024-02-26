@@ -6,7 +6,11 @@ import Skeleton from "@mui/material/Skeleton";
 import {FormatedDateWithTimeAnotherType, getDateFormatAnotherWay} from "../../../utils/customFunctions";
 import CustomePagination from "../../pagination/Pagination";
 import CustomEmptyResult from "../../empty-view/CustomEmptyResult";
+<<<<<<< HEAD
 import nodata from "../../../../public/static/7466140.png";
+=======
+import nodata from "../../../../public/static/nodata.png";
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
 import CustomFormatedTime from "../../date/CustomFormatedTime";
 
 const Logs = props => {
@@ -47,14 +51,24 @@ const Logs = props => {
 
     }
     return (
+<<<<<<< HEAD
         <Paper sx={{ padding: '1rem', minHeight: '200px'}}>
+=======
+        <Paper sx={{width: {xs: '300px', sm: '350px'}, padding: '1rem', minHeight: '400px'}}>
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
             <CustomStackFullWidth alignItems='center' justifyContent='center' spacing={3}>
                 <CustomTypography variant="h4">
                     {t(title)}
                 </CustomTypography>
+<<<<<<< HEAD
                 <CustomStackFullWidth alignItems='center' justifyContent='space-between' >
                     {!isRefetching ? logs?.data?.length > 0 ? title?.includes('Delivery') ? deliveryLogs() : pauseLogs() :
                         <CustomEmptyResult width="200px" height="100px" image={nodata} label="No logs found"/> : <Skeleton variant='text' width='100%'/>}
+=======
+                <CustomStackFullWidth alignItems='center' justifyContent='space-between' sx={{minHeight:'400px'}}>
+                    {!isRefetching ? logs?.data?.length > 0 ? title?.includes('Delivery') ? deliveryLogs() : pauseLogs() :
+                        <CustomEmptyResult image={nodata} label="No logs found"/> : <Skeleton variant='text' width='100%'/>}
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                     {
                         logs?.total_size>10&& <CustomePagination
                             total_size={logs?.total_size}

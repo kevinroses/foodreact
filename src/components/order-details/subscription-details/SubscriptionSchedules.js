@@ -46,7 +46,11 @@ const SubscriptionSchedules = props => {
     }
     return (
         <>
+<<<<<<< HEAD
             <Scrollbar style={{maxWidth: '100%', padding: "5px 0px"}}>
+=======
+            <Scrollbar style={{maxWidth: '100%'}}>
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                 {subscriptionSchedules?.length > 0 && subscriptionSchedules[0]?.type === 'daily' ? handleDaily() : subscriptionSchedules[0]?.type === 'monthly' ? handleMonthly() : handleWeekly()}
             </Scrollbar>
         </>

@@ -1,10 +1,18 @@
 import React from 'react'
+<<<<<<< HEAD
 import phoneIcon from "../../../../../public/static/profile/phoneInput.png"
+=======
+import PropTypes from 'prop-types'
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
 import {
     CustomBoxFullWidth,
     CustomStackFullWidth,
 } from '../../../../styled-components/CustomStyles.style'
+<<<<<<< HEAD
 import { Paper, Typography } from "@mui/material";
+=======
+import { Paper } from '@mui/material'
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
 import CustomPhoneInput from '../../../CustomPhoneInput'
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
@@ -13,11 +21,17 @@ import CustomAlert from '../../../alert/CustomAlert'
 import LoadingButton from '@mui/lab/LoadingButton'
 import { usePostRegisterInfo } from '../../../../hooks/react-query/social-login/usePostRegisterInfo'
 import { onErrorResponse, onSingleErrorResponse } from '../../../ErrorResponse'
+<<<<<<< HEAD
 import CustomImageContainer from "../../../CustomImageContainer";
 import { CustomBoxForModal } from "../../auth.style";
 
 const PhoneInputForm = (props) => {
     const { userInfo, jwtToken, medium, handleRegistrationOnSuccess, global } = props
+=======
+
+const PhoneInputForm = (props) => {
+    const { userInfo, jwtToken, medium, handleRegistrationOnSuccess } = props
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
     const { t } = useTranslation()
     const { mutate, isLoading } = usePostRegisterInfo()
     const formik = useFormik({
@@ -32,7 +46,11 @@ const PhoneInputForm = (props) => {
         onSubmit: async (values, helpers) => {
             try {
                 handleOnSubmitFormik(values)
+<<<<<<< HEAD
             } catch (err) { }
+=======
+            } catch (err) {}
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
         },
     })
     const handleOnSubmitFormik = (values) => {
@@ -54,6 +72,7 @@ const PhoneInputForm = (props) => {
         formik.setFieldValue('phone', `+${value}`)
     }
     return (
+<<<<<<< HEAD
         <CustomBoxForModal>
             <form onSubmit={formik.handleSubmit} noValidate>
                 <CustomStackFullWidth spacing={3} justifyContent="center" alignItems='center'>
@@ -64,6 +83,17 @@ const PhoneInputForm = (props) => {
                     <Typography fontSize="14px">
                         {t("Provide a valid phone number to complete your sign up")}
                     </Typography>
+=======
+        <Paper sx={{ padding: '1rem' }}>
+            <form onSubmit={formik.handleSubmit} noValidate>
+                <CustomStackFullWidth spacing={2}>
+                    <CustomAlert
+                        type="info"
+                        text={t(
+                            'Give a valid phone number to continue sign-in'
+                        )}
+                    />
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                     <CustomPhoneInput
                         value={formik.values.phone}
                         onHandleChange={handleOnChange}
@@ -82,7 +112,11 @@ const PhoneInputForm = (props) => {
                     </LoadingButton>
                 </CustomStackFullWidth>
             </form>
+<<<<<<< HEAD
         </CustomBoxForModal>
+=======
+        </Paper>
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
     )
 }
 

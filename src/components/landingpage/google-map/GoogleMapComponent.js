@@ -24,9 +24,13 @@ const GoogleMapComponent = ({
     const isSmall = useMediaQuery(theme.breakpoints.down('sm'))
     const containerStyle = {
         width: '100%',
+<<<<<<< HEAD
         height: height ? height : isSmall ? '200px' : '400px',
         borderRadius: "10px",
         border: `1px solid ${theme.palette.neutral[300]}`
+=======
+        height: height ? height : isSmall ? '250px' : '400px',
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
     }
     const mapRef = useRef(GoogleMap)
     const center = useMemo(
@@ -83,7 +87,11 @@ const GoogleMapComponent = ({
     }, [])
 
     return isLoaded ? (
+<<<<<<< HEAD
         <CustomStackFullWidth className="map">
+=======
+        <Stack className="map">
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
             <GoogleMap
                 mapContainerStyle={containerStyle}
                 center={centerPosition}
@@ -161,7 +169,11 @@ const GoogleMapComponent = ({
                     </Stack>
                 )}
             </GoogleMap>
+<<<<<<< HEAD
         </CustomStackFullWidth>
+=======
+        </Stack>
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
     ) : (
         <CustomStackFullWidth
             alignItems="center"

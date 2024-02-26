@@ -11,9 +11,14 @@ const AfterAddToCart = ({
     setIncrOpen,
     handleClickQuantityButton,
     position,
+<<<<<<< HEAD
     addToCartLoading
 }) => {
     const handleHover = () => { }
+=======
+}) => {
+    const handleHover = () => {}
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
 
     return (
         <Stack>
@@ -35,8 +40,13 @@ const AfterAddToCart = ({
                         color: (theme) => theme.palette.whiteContainer.main,
                         fontSize: '14px',
                         fontWeight: '700',
+<<<<<<< HEAD
                         width: '36px',
                         height: '36px',
+=======
+                        width: '30px',
+                        height: '30px',
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                         borderRadius: '5px',
 
                         '&:hover': {

@@ -102,10 +102,17 @@ export const cartSlice = createSlice({
             const newData = state.cartList.map((item) =>
                 item.id === action.payload.id
                     ? {
+<<<<<<< HEAD
                         ...item,
                         totalPrice: action.payload.totalPrice,
                         quantity: action.payload.quantity,
                     }
+=======
+                          ...item,
+                          totalPrice: action.payload.totalPrice,
+                          quantity: action.payload.quantity,
+                      }
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                     : item
             )
             state.cartList = newData
@@ -114,6 +121,7 @@ export const cartSlice = createSlice({
             // state.value += action.payload
         },
         incrementProductQty: (state = initialState, action) => {
+<<<<<<< HEAD
 
             let newData
             // const totalPrice = handleIncrementedTotal(
@@ -122,6 +130,16 @@ export const cartSlice = createSlice({
             //     action.payload.discount,
             //     action.payload.discount_type
             // )
+=======
+            let newData
+            const totalPrice = handleIncrementedTotal(
+                action.payload.itemBasePrice,
+                action.payload.quantity + 1,
+                action.payload.discount,
+                action.payload.discount_type
+            )
+            console.log({ totalPrice })
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
             if (action.payload.variations.length > 0) {
                 let index = getIndexFromArrayByComparision(
                     state.cartList,
@@ -130,10 +148,17 @@ export const cartSlice = createSlice({
                 newData = state.cartList.map((item, i) =>
                     i === index
                         ? {
+<<<<<<< HEAD
                             ...item,
                             totalPrice: action.payload.totalPrice,
                             quantity: action.payload.quantity,
                         }
+=======
+                              ...item,
+                              totalPrice: totalPrice,
+                              quantity: action.payload.quantity + 1,
+                          }
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                         : item
                 )
                 state.cartList = newData
@@ -141,10 +166,17 @@ export const cartSlice = createSlice({
                 newData = state.cartList.map((item) =>
                     item.id === action.payload.id
                         ? {
+<<<<<<< HEAD
                             ...item,
                             totalPrice: action.payload.totalPrice,
                             quantity: action.payload.quantity,
                         }
+=======
+                              ...item,
+                              totalPrice: totalPrice,
+                              quantity: action.payload.quantity + 1,
+                          }
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                         : item
                 )
                 state.cartList = newData
@@ -152,12 +184,21 @@ export const cartSlice = createSlice({
         },
         decrementProductQty: (state = initialState, action) => {
             let newData
+<<<<<<< HEAD
             // const totalPrice = handleIncrementedTotal(
             //     action.payload.itemBasePrice,
             //     action.payload.quantity - 1,
             //     action.payload.discount,
             //     action.payload.discount_type
             // )
+=======
+            const totalPrice = handleIncrementedTotal(
+                action.payload.itemBasePrice,
+                action.payload.quantity - 1,
+                action.payload.discount,
+                action.payload.discount_type
+            )
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
             if (action.payload.variations.length > 0) {
                 const index = getIndexFromArrayByComparision(
                     state.cartList,
@@ -166,10 +207,17 @@ export const cartSlice = createSlice({
                 newData = state.cartList.map((item, i) =>
                     i === index
                         ? {
+<<<<<<< HEAD
                             ...item,
                             totalPrice: action.payload.totalPrice,
                             quantity: action.payload.quantity,
                         }
+=======
+                              ...item,
+                              totalPrice: totalPrice,
+                              quantity: action.payload.quantity - 1,
+                          }
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                         : item
                 )
                 state.cartList = newData
@@ -177,10 +225,17 @@ export const cartSlice = createSlice({
                 newData = state.cartList.map((item) =>
                     item.id === action.payload.id
                         ? {
+<<<<<<< HEAD
                             ...item,
                             totalPrice: action.payload.totalPrice,
                             quantity: action.payload.quantity,
                         }
+=======
+                              ...item,
+                              totalPrice: totalPrice,
+                              quantity: action.payload.quantity - 1,
+                          }
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                         : item
                 )
                 state.cartList = newData

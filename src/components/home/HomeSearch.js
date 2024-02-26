@@ -56,6 +56,10 @@ const HomeSearch = () => {
         }
     }
     const handleKeyPress = (value) => {
+<<<<<<< HEAD
+=======
+        console.log({ value })
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
         // if (e.key === 'Enter') {
         setOpenSearchSuggestions(false)
         // Do code here

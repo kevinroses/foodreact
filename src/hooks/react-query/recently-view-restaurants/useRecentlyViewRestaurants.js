@@ -11,6 +11,7 @@ export const useRecentlyViewRestaurants = () => {
         enabled:true,
         onError:onSingleErrorResponse
     })
+<<<<<<< HEAD
 }
 export const useRecentlyViewRestaurantsOnSuccess = (handleSuccess) => {
     return useQuery('view-restaurants', () => getData(), {
@@ -19,4 +20,6 @@ export const useRecentlyViewRestaurantsOnSuccess = (handleSuccess) => {
         retry:1,
         onSuccess: handleSuccess,
     })
+=======
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
 }

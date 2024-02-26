@@ -14,7 +14,11 @@ export const FilePreviewerWrapper = styled(ImageContainer)(
         marginRight: 'auto',
         marginLeft: 'auto',
         '& img': {
+<<<<<<< HEAD
             borderRadius: borderRadius ? borderRadius : "12px",
+=======
+            borderRadius: borderRadius?borderRadius:"12px",
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
             height: '100%',
             objectFit: objectFit ? 'contained' : 'cover',
         },
@@ -35,12 +39,21 @@ export const CustomBoxForFilePreviewer = styled(Box)(({ theme, width }) => ({
     height: '10.25rem',
     // justifyContent:"center"
 }))
+<<<<<<< HEAD
 export const CustomDotBox = styled(Box)(({ theme, width, error, borderRadius }) => ({
     width: width && '100%',
     position: 'relative',
     height: '9.25rem',
     border: `1px dashed ${theme.palette.neutral[400]}`,
     borderRadius: borderRadius ? borderRadius : "10px",
+=======
+export const CustomDotBox = styled(Box)(({ theme, width, error,borderRadius }) => ({
+    width: width && '100%',
+    position: 'relative',
+    height: '9.25rem',
+    border: '1px dashed ',
+    borderRadius: borderRadius?borderRadius:"10px",
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',

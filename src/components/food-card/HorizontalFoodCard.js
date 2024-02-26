@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import React, { useState } from 'react'
+=======
+import React from 'react'
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
 import {
     CustomFavICon,
     CustomFoodCard,
@@ -7,10 +11,18 @@ import {
 import { Box, Stack } from '@mui/system'
 import CustomImageContainer from '../CustomImageContainer'
 import test_image from '../../../public/static/testImage.svg'
+<<<<<<< HEAD
 import { IconButton, Typography, useMediaQuery } from '@mui/material'
 import { useTheme } from '@mui/material/styles'
 import VagSvg from '../foodDetail-modal/VagSvg'
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
+=======
+import StarIcon from '@mui/icons-material/Star'
+import { IconButton, Typography } from '@mui/material'
+import { useTheme } from '@mui/material/styles'
+import VagSvg from '../foodDetail-modal/VagSvg'
+import ShoppingBagOutlinedIcon from '@mui/icons-material/ShoppingBagOutlined'
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
 import {
     CustomOverlayBox,
     CustomStackFullWidth,
@@ -18,7 +30,10 @@ import {
 import {
     getAmount,
     getConvertDiscount,
+<<<<<<< HEAD
     getReviewCount,
+=======
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
     isAvailable,
 } from '../../utils/customFunctions'
 import FavoriteIcon from '@mui/icons-material/Favorite'
@@ -32,6 +47,7 @@ import { CustomTypographyEllipsis } from '../../styled-components/CustomTypograp
 import FoodCardIncrementAndDecrement from './FoodCardIncrementAndDecrement'
 import AfterAddToCart from './AfterAddToCart'
 import CartClearModal from '../foodDetail-modal/CartClearModal'
+<<<<<<< HEAD
 import CircularLoader from "../loader/CircularLoader";
 import { useSelector } from 'react-redux'
 import StarIcon from '@mui/icons-material/Star';
@@ -39,6 +55,8 @@ import CustomPopover from '../custom-popover/CustomPopover'
 import CustomPopoverWithItem from '../custom-popover/CustomPopoverWithItem'
 import WishListImage from '../../assets/images/WishListImage'
 import DeleteIcon from '../../assets/images/icons/DeleteIcon'
+=======
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
 
 const HorizontalFoodCard = (props) => {
     const {
@@ -59,6 +77,7 @@ const HorizontalFoodCard = (props) => {
         incrOpen,
         setIncrOpen,
         handleClickQuantityButton,
+<<<<<<< HEAD
         addToCartLoading,
         isRestaurantDetails,
         inWishListPage = "false"
@@ -86,14 +105,24 @@ const HorizontalFoodCard = (props) => {
     const handleClose = (event) => {
         setAnchorEl(null);
     };
+=======
+    } = props
+    const theme = useTheme()
+
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
     return (
         <>
             <RTL direction={languageDirection}>
                 <CustomFoodCardNew
+<<<<<<< HEAD
                     horizontal
                     onClick={handleFoodDetailModal}
                     background={theme.palette.cardBackground1}
                     width="100%"
+=======
+                    onClick={handleFoodDetailModal}
+                    background={theme.palette.cardBackground1}
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                 >
                     <Stack
                         direction="row"
@@ -111,7 +140,10 @@ const HorizontalFoodCard = (props) => {
                                             theme.transitions.duration.standard,
                                     }
                                 )}`,
+<<<<<<< HEAD
                                 marginLeft: languageDirection === "rtl" && ".8rem !important",
+=======
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                                 '&:hover': {
                                     transform: 'scale(1.1)',
                                 },
@@ -120,8 +152,13 @@ const HorizontalFoodCard = (props) => {
                             <CustomImageContainer
                                 src={imageUrl}
                                 width="115px"
+<<<<<<< HEAD
                                 smWidth="95px"
                                 smHeight="95px"
+=======
+                                smWidth="73px"
+                                smHeight="73px"
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                                 height="95px"
                                 borderRadius="3px"
                                 objectFit="cover"
@@ -129,6 +166,7 @@ const HorizontalFoodCard = (props) => {
                             <Stack
                                 position="absolute"
                                 top="10%"
+<<<<<<< HEAD
                                 left="0"
                                 zIndex="1"
                             >
@@ -139,12 +177,21 @@ const HorizontalFoodCard = (props) => {
                                     digitAfterDecimalPoint,
                                     product?.available_date_ends
                                 )}
+=======
+                                left="6%"
+                                zIndex="1"
+                            >
+                                <FoodRating
+                                    product_avg_rating={product?.avg_rating}
+                                />
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                             </Stack>
 
                             {!isAvailable(
                                 available_time_starts,
                                 available_time_ends
                             ) && (
+<<<<<<< HEAD
                                     <CustomOverlayBox>
                                         <Typography align="center" variant="h5">
                                             {t('Not Available now')}
@@ -205,13 +252,54 @@ const HorizontalFoodCard = (props) => {
                                 }
                             </Stack>
 
+=======
+                                <CustomOverlayBox>
+                                    <Typography align="center" variant="h5">
+                                        {t('Not Available now')}
+                                    </Typography>
+                                </CustomOverlayBox>
+                            )}
+                        </Stack>
+                        <Stack spacing={0.8} width="100%">
+                            <Stack
+                                direction="row"
+                                justifyContent="flex-start"
+                                alignItems="center"
+                                flexWrap="wrap"
+                                spacing={0.5}
+                            >
+                                <CustomTypographyEllipsis
+                                    variant="h5"
+                                    fontWeight="500"
+                                    maxWidth="125px"
+                                >
+                                    {product?.name}
+                                </CustomTypographyEllipsis>
+                                <VagSvg
+                                    color={
+                                        Number(product?.veg) === 0
+                                            ? theme.palette.nonVeg
+                                            : theme.palette.success.light
+                                    }
+                                />
+                            </Stack>
+                            <Typography
+                                variant="subtitle2"
+                                color={theme.palette.neutral[500]}
+                            >
+                                {product?.restaurant_name}
+                            </Typography>
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                             <StartPriceView
                                 data={product}
                                 hideStartFromText="true"
                                 handleBadge={handleBadge}
                             />
                         </Stack>
+<<<<<<< HEAD
 
+=======
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                         <Stack
                             justifyContent="space-between"
                             alignItems=" flex-end"
@@ -226,6 +314,7 @@ const HorizontalFoodCard = (props) => {
                                             <FavoriteBorderIcon color="primary" />
                                         </IconButton>
                                     ) : (
+<<<<<<< HEAD
                                         <>{inWishListPage === "true" ? (
                                             <IconButton
                                                 onClick={handleClickDelete}
@@ -246,6 +335,19 @@ const HorizontalFoodCard = (props) => {
                                         }
 
                                         </>
+=======
+                                        <IconButton
+                                            onClick={(e) =>
+                                                deleteWishlistItem(
+                                                    product.id,
+                                                    e
+                                                )
+                                            }
+                                            sx={{ padding: '3px' }}
+                                        >
+                                            <FavoriteIcon color="primary" />
+                                        </IconButton>
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                                     )}
                                 </>
                             )}
@@ -254,8 +356,12 @@ const HorizontalFoodCard = (props) => {
                                     onClick={(e) => addToCart(e)}
                                     sx={{ padding: '3px' }}
                                 >
+<<<<<<< HEAD
                                     {addToCartLoading ? <CircularLoader size="20px" /> : <AddShoppingCartIcon color="primary" />}
 
+=======
+                                    <ShoppingBagOutlinedIcon color="primary" />
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                                 </IconButton>
                             )}
                             {isInCart && !incrOpen && (
@@ -268,7 +374,11 @@ const HorizontalFoodCard = (props) => {
                                     }
                                     setIncrOpen={setIncrOpen}
                                     incrOpen={incrOpen}
+<<<<<<< HEAD
                                     addToCartLoading={addToCartLoading}
+=======
+                                    // position="-30px"
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                                 />
                             )}
                         </Stack>
@@ -299,6 +409,7 @@ const HorizontalFoodCard = (props) => {
                         )}
                     </Box>
                 </CustomFoodCardNew>
+<<<<<<< HEAD
             </RTL >
             <CustomPopover
                 anchorEl={anchorEl}
@@ -317,6 +428,9 @@ const HorizontalFoodCard = (props) => {
                 />
 
             </CustomPopover>
+=======
+            </RTL>
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
         </>
     )
 }

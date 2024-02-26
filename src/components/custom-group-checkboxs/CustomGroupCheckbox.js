@@ -7,7 +7,11 @@ import FormGroup from '@mui/material/FormGroup'
 import FormControlLabel from '@mui/material/FormControlLabel'
 import FormHelperText from '@mui/material/FormHelperText'
 import Checkbox from '@mui/material/Checkbox'
+<<<<<<< HEAD
 import { useDispatch, useSelector } from "react-redux";
+=======
+import { useSelector } from 'react-redux'
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
 import RadioGroup from '@mui/material/RadioGroup'
 import Radio from '@mui/material/Radio'
 import { CustomTypographyLabel } from '../../styled-components/CustomTypographies.style'
@@ -15,11 +19,16 @@ import { Skeleton, Stack } from '@mui/material'
 import { t } from 'i18next'
 import { useTheme } from '@emotion/react'
 import useMediaQuery from '@mui/material/useMediaQuery'
+<<<<<<< HEAD
 import { setSearchTagData } from "../../redux/slices/searchTagSlice";
 
 
 const CustomGroupCheckbox = (props) => {
   const dispatch=useDispatch()
+=======
+
+const CustomGroupCheckbox = (props) => {
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
     const theme = useTheme()
     const isSmall = useMediaQuery(theme.breakpoints.down('sm'))
     const {
@@ -41,6 +50,7 @@ const CustomGroupCheckbox = (props) => {
     }
 
     const handleChange = (event, id) => {
+<<<<<<< HEAD
 
         if (id === 0 || id ===2) {
             // Toggle the isActive state for 'Veg' and 'Non-Veg' without affecting others
@@ -65,6 +75,16 @@ const CustomGroupCheckbox = (props) => {
     }
 
 
+=======
+        let newArr = stateData.map((item) =>
+            item?.id === id ? { ...item, isActive: event.target.checked } : item
+        )
+
+        setStateData(newArr)
+        setIsFilterCall(true)
+    }
+
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
     return (
         <div>
             {forcuisine === 'true' ? (

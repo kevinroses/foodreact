@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { useEffect } from 'react'
 import Button from '@mui/material/Button'
 import Typography from '@mui/material/Typography'
@@ -32,19 +33,52 @@ export default function SuccessCard({ id }) {
     dispatch(clearOfflinePaymentInfo());
     dispatch(setOrderDetailsModal(false));
     const { t } = useTranslation()
+=======
+import React, {useEffect, useState} from 'react'
+import Button from '@mui/material/Button'
+import Typography from '@mui/material/Typography'
+import {useRouter} from 'next/router'
+import {useDispatch, useSelector} from 'react-redux'
+import {setClearCart} from '../../redux/slices/cart'
+import {useTranslation} from 'react-i18next'
+import {Stack} from '@mui/material'
+import {CustomColouredTypography, CustomStackFullWidth,} from '../../styled-components/CustomStyles.style'
+import {CustomTypography} from '../custom-tables/Tables.style'
+import {getNumberWithConvertedDecimalPoint} from '../../utils/customFunctions'
+
+export default function SuccessCard() {
+    const {global} = useSelector((state) => state.globalSettings)
+    const router = useRouter()
+    const dispatch = useDispatch()
+    dispatch(setClearCart())
+    const {t} = useTranslation()
+    const handlePoints = () => {
+        const totalAmount = localStorage.getItem('access')
+        if (totalAmount && global.loyalty_point_status === 1) {
+            return getNumberWithConvertedDecimalPoint(
+                (totalAmount / 100) * global.loyalty_point_item_purchase_point,
+                global.digit_after_decimal_point
+            )
+        }
+    }
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
     return (
         <CustomStackFullWidth
             height="100%"
             alignItems="center"
             justifyContent="center"
             spacing={2}
+<<<<<<< HEAD
             pt="30px"
+=======
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
         >
             <CustomStackFullWidth
                 alignItems="center"
                 justifyContent="center"
                 spacing={1}
             >
+<<<<<<< HEAD
                 <CheckCircleIcon
                     sx={{
                         height: "45px",
@@ -58,6 +92,11 @@ export default function SuccessCard({ id }) {
                 <Typography
                     align="center"
                     sx={{ fontSize: 24 }}
+=======
+                <Typography
+                    align="center"
+                    sx={{fontSize: 24}}
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                     color="text.secondary"
                     gutterBottom
                 >
@@ -65,13 +104,18 @@ export default function SuccessCard({ id }) {
                 </Typography>
                 <Typography
                     align="center"
+<<<<<<< HEAD
                     sx={{ mb: 1.5 }}
+=======
+                    sx={{mb: 1.5}}
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                     color="text.secondary"
                 >
                     {t(
                         'Your order is placed Successfully. We start our delivery process and you will receive your food soon.'
                     )}
                 </Typography>
+<<<<<<< HEAD
                 <Typography align="center" sx={{ mb: 1.5 }}>
                     {t(`Your order is`)}
                     <span
@@ -166,5 +210,50 @@ export default function SuccessCard({ id }) {
                 </Stack>
             </CustomStackFullWidth>
         </CustomStackFullWidth >
+=======
+                {global?.loyalty_point_status === 1 && (
+                    <CustomStackFullWidth
+                        alignItems="center"
+                        // justifyContent="center"
+                    >
+                        <CustomColouredTypography color="primary" variant="h3">
+                            {t('Congratulations!')}
+                        </CustomColouredTypography>
+                        <Stack
+                            width="100%"
+                            alignItems="center"
+                            justifyContent="center"
+                            direction="row"
+                            spacing={0.5}
+                            flexWrap="wrap"
+                        >
+                            <Typography align="center" variant="body2">
+                                {t('You have earned')}
+                            </Typography>
+                            <CustomTypography align="center" variant="body2">
+                                {handlePoints()}
+                            </CustomTypography>
+                            <Typography align="center" variant="body2">
+                                {t('point.')}
+                            </Typography>
+                            <Typography align="center" variant="body2">
+                                {t(
+                                    'It will add to your balance when the order is delivered.'
+                                )}
+                            </Typography>
+                        </Stack>
+                    </CustomStackFullWidth>
+                )}
+                <Stack pt="2rem">
+                    <Button
+                        onClick={() => router.push('/home')}
+                        variant="contained"
+                    >
+                        {t('Back to home')}
+                    </Button>
+                </Stack>
+            </CustomStackFullWidth>
+        </CustomStackFullWidth>
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
     )
 }

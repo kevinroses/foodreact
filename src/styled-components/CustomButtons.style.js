@@ -21,7 +21,11 @@ export const CustomButtonWarning = styled(Button)(({ theme }) => ({
 
 export const CustomButtonCancel = styled(Button)(({ theme,width }) => ({
     backgroundColor: theme.palette.neutral[300],
+<<<<<<< HEAD
     color: "black",
+=======
+    color: theme.palette.neutral[1000],
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
 
 
     '&:hover': {
@@ -66,6 +70,7 @@ export const CustomButtonGray = styled(Button)(({ theme }) => ({
     },
 }))
 
+<<<<<<< HEAD
 export const CustomButtonPrimary = styled(Button)(({ theme,paddingLeft,paddingRight,paddingTop,paddingBottom,maxWidth }) => ({
     backgroundColor: theme.palette.primary.main,
     color: `${theme.palette.whiteContainer.main} !important`,
@@ -73,13 +78,24 @@ export const CustomButtonPrimary = styled(Button)(({ theme,paddingLeft,paddingRi
     paddingRight: paddingRight ??'0.313rem',
     paddingTop:paddingTop ?? "16px",
     paddingBottom:paddingBottom ?? "16px",
+=======
+export const CustomButtonPrimary = styled(Button)(({ theme }) => ({
+    backgroundColor: theme.palette.primary.main,
+    color: `${theme.palette.whiteContainer.main} !important`,
+    paddingLeft: '0.313rem',
+    paddingRight: '0.313rem',
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
     '&:hover': {
         backgroundColor: theme.palette.primary.dark,
     },
     width: '100%',
 
     [theme.breakpoints.up('xs')]: {
+<<<<<<< HEAD
         maxWidth:maxWidth ?? '150px',
+=======
+        maxWidth: '150px',
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
     },
 }))
 
@@ -88,5 +104,8 @@ export const CustomButtonPrimary = styled(Button)(({ theme,paddingLeft,paddingRi
 export const SignInButton = styled(Button)(({ theme }) => ({
     color: '#fff',
     backgroundColor: theme.palette.primary.main,
+<<<<<<< HEAD
     padding:"7px 20px"
+=======
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
 }))

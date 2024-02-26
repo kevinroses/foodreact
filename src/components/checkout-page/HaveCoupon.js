@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from 'react'
+<<<<<<< HEAD
 import { useRouter } from 'next/router'
+=======
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
 import { Grid, InputAdornment, InputBase } from '@mui/material'
 import {
     CouponButton,
@@ -27,11 +30,16 @@ const HaveCoupon = ({
     setCouponDiscount,
     couponDiscount,
     cartList,
+<<<<<<< HEAD
                         total_order_amount
 }) => {
     const theme = useTheme()
     const router = useRouter();
     const { method } = router.query;
+=======
+}) => {
+    const theme = useTheme()
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
     const [couponCode, setCouponCode] = useState(null)
     const [zoneId, setZoneId] = useState(0)
     const [enable, setEnable] = useState(false)
@@ -48,6 +56,7 @@ const HaveCoupon = ({
         currencySymbolDirection = global.currency_symbol_direction
         digitAfterDecimalPoint = global.digit_after_decimal_point
     }
+<<<<<<< HEAD
     // const handleSuccess = (response) => {
     //     const totalCartPrice = getAmount(cartItemsTotalAmount(cartList))
     //     const min_purchase = getAmount(
@@ -116,6 +125,31 @@ const HaveCoupon = ({
             );
         }
     };
+=======
+    const handleSuccess = (response) => {
+        const totalCartPrice = getAmount(cartItemsTotalAmount(cartList))
+        const min_purchase = getAmount(
+            response?.data?.min_purchase,
+            currencySymbolDirection,
+            currencySymbol,
+            digitAfterDecimalPoint
+        )
+        if (totalCartPrice < response?.data?.min_purchase) {
+            toast.error(`${t('Minimum purchase amount')} ${min_purchase}`)
+        } else {
+            dispatch(setCouponInfo(response.data))
+            toast.success(t('Coupon Applied'))
+            dispatch(setCouponType(response.data.coupon_type))
+            setCouponDiscount({ ...response.data, zoneId: zoneId })
+
+            if (typeof window !== 'undefined') {
+                if (response) {
+                    localStorage.setItem('coupon', response.data.code)
+                }
+            }
+        }
+    }
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
     const { isLoading, refetch } = useQuery(
         'apply-coupon',
         () => CouponApi.applyCoupon(couponCode, restaurant_id),
@@ -157,7 +191,10 @@ const HaveCoupon = ({
     const borderColor = theme.palette.neutral[400]
     return (
         <Grid container spacing={{ xs: 1, md: 2 }} justifyContent="flex-start">
+<<<<<<< HEAD
             { method !== "offline" && 
+=======
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
             <Grid item md={12} xs={12} sm={7}>
                 <InputField
                     variant="outlined"
@@ -214,8 +251,11 @@ const HaveCoupon = ({
                     </>
                 </InputField>
             </Grid>
+<<<<<<< HEAD
 
             }
+=======
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
         </Grid>
     )
 }

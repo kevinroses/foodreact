@@ -15,6 +15,7 @@ import {
 import useMediaQuery from '@mui/material/useMediaQuery'
 import toast from 'react-hot-toast'
 import { t } from 'i18next'
+<<<<<<< HEAD
 import { calculateItemBasePrice, getConvertDiscount, handleIncrementedTotal } from "../../utils/customFunctions";
 import { getItemDataForAddToCart } from "../floating-cart/helperFunction";
 import { onErrorResponse } from "../ErrorResponse";
@@ -23,6 +24,8 @@ import { getSelectedAddons } from "../navbar/second-navbar/SecondNavbar";
 import { getGuestId } from "../checkout-page/functions/getGuestUserId";
 import useDeleteCartItem from "../../hooks/react-query/add-cart/useDeleteCartItem";
 import CircularLoader from "../loader/CircularLoader";
+=======
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
 
 const FoodCardIncrementAndDecrement = ({
     getQuantity,
@@ -30,10 +33,15 @@ const FoodCardIncrementAndDecrement = ({
     setIncrOpen,
     incrOpen,
     isInCart,
+<<<<<<< HEAD
+=======
+    position,
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
 }) => {
     const theme = useTheme()
     const isSmall = useMediaQuery(theme.breakpoints.down('md'))
     const dispatch = useDispatch()
+<<<<<<< HEAD
   const { mutate: updateMutate,isLoading:updatedLoading } = useCartItemUpdate();
   const { mutate:itemRemove,isLoading:removeIsLoading } = useDeleteCartItem();
     const guestId =getGuestId()
@@ -73,6 +81,12 @@ const FoodCardIncrementAndDecrement = ({
         isInCart?.discount_type
       )
       const itemObject=getItemDataForAddToCart(isInCart,updateQuantity,totalPrice,guestId)
+=======
+    const handleHover = () => {}
+    console.log('dddd', getQuantity(product?.id))
+    const handleIncrement = (e) => {
+        e.stopPropagation()
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
         if (product?.maximum_cart_quantity) {
             if (
                 product?.maximum_cart_quantity &&
@@ -80,6 +94,7 @@ const FoodCardIncrementAndDecrement = ({
             ) {
                 toast.error(t('Out Of Limits'))
             } else {
+<<<<<<< HEAD
               updateMutate(itemObject,{
                 onSuccess: cartUpdateHandleSuccess,
                 onError: onErrorResponse,
@@ -152,6 +167,22 @@ const FoodCardIncrementAndDecrement = ({
     //     e.stopPropagation()
     //     dispatch(removeProduct(isInCart))
     // }
+=======
+                dispatch(incrementProductQty(isInCart))
+            }
+        } else {
+            dispatch(incrementProductQty(isInCart))
+        }
+    }
+    const handleDecrement = (e) => {
+        e.stopPropagation()
+        dispatch(decrementProductQty(isInCart))
+    }
+    const handleRemove = (e) => {
+        e.stopPropagation()
+        dispatch(removeProduct(isInCart))
+    }
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
 
     return (
         <Stack
@@ -161,7 +192,11 @@ const FoodCardIncrementAndDecrement = ({
                 position: 'absolute',
                 right: '0',
                 left: 'unset',
+<<<<<<< HEAD
                 bottom: "0",
+=======
+                top: position ? position : '0',
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                 width: { xs: '100%', md: '50%' },
                 transformOrigin: 'right',
                 '@keyframes scaleXCustom': {
@@ -192,7 +227,10 @@ const FoodCardIncrementAndDecrement = ({
             >
                 {getQuantity(product?.id) === 1 ? (
                     <IconButton
+<<<<<<< HEAD
                       disabled={removeIsLoading}
+=======
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                         aria-label="delete"
                         size="small"
                         color="error"
@@ -209,7 +247,10 @@ const FoodCardIncrementAndDecrement = ({
                 ) : (
                     <>
                         <IconButton
+<<<<<<< HEAD
                           disabled={updatedLoading}
+=======
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                             // disabled={
                             //   state.modalData[0]?.totalPrice === 0 ||
                             //   state.modalData[0]?.quantity <= 1
@@ -240,6 +281,7 @@ const FoodCardIncrementAndDecrement = ({
                         </IconButton>
                     </>
                 )}
+<<<<<<< HEAD
 
               {updatedLoading?<CircularLoader size="14px"/>: <Typography
                 variant="h5"
@@ -251,6 +293,16 @@ const FoodCardIncrementAndDecrement = ({
 
                 <IconButton
                   disabled={updatedLoading}
+=======
+                <Typography
+                    variant="h5"
+                    fontWeight="500"
+                    color={theme.palette.neutral[1000]}
+                >
+                    {getQuantity(product?.id)}
+                </Typography>
+                <IconButton
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                     color="primary"
                     aria-label="add"
                     onClick={(e) => handleIncrement(e)}

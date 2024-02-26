@@ -14,6 +14,10 @@ export default function ProductList({
     const { global } = useSelector((state) => state.globalSettings)
     const matchesToMd = useMediaQuery('(max-width:1200px)')
     const matches = useMediaQuery('(max-width:400px)')
+<<<<<<< HEAD
+=======
+
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
     return (
         <>
             {productType === 'campaigns' ? (
@@ -33,8 +37,11 @@ export default function ProductList({
                                     xs={6}
                                 >
                                     <FoodCard
+<<<<<<< HEAD
                                         isRestaurantDetails={true}
                                         isShop={true}
+=======
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                                         sm={1}
                                         xs={1}
                                         product={product}
@@ -60,6 +67,7 @@ export default function ProductList({
                                 <Grid
                                     key={product?.id}
                                     item
+<<<<<<< HEAD
                                     md={matchesToMd ? 2.4 : 2.4}
                                     sm={4}
                                     xs={6}
@@ -68,6 +76,14 @@ export default function ProductList({
                                     <FoodCard
                                         product={product}
                                         isRestaurantDetails={true}
+=======
+                                    md={matchesToMd ? 3 : 2.4}
+                                    sm={4}
+                                    xs={6}
+                                >
+                                    <FoodCard
+                                        product={product}
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                                         productImageUrl={
                                             global?.base_urls?.product_image_url
                                         }
@@ -79,7 +95,11 @@ export default function ProductList({
                 </>
             )}
 
+<<<<<<< HEAD
             {product_list?.total_size > page_limit ? (
+=======
+            {product_list?.products.length > page_limit ? (
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                 <Grid item xs={12} sm={12} md={12} align="center">
                     <CustomePagination
                         total_size={product_list?.total_size}

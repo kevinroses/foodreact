@@ -18,7 +18,10 @@ import {
     Tabs,
     ListItem,
     Select,
+<<<<<<< HEAD
     alpha,
+=======
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
 } from '@mui/material'
 import Link from '@mui/material/Link'
 import imgB from '../../public/static/Privacy/RectangleP.png'
@@ -86,21 +89,33 @@ export const CustomPaperBigCard = styled(Paper)(
         padding,
         width,
         noboxshadow,
+<<<<<<< HEAD
         border
     }) => ({
         margin: "1px",
         backgroundColor: backgroundColor || theme.palette.background.paper,
+=======
+    }) => ({
+        backgroundColor: theme.palette.background.paper,
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
         padding: nopadding === 'true' ? 'none' : padding ? padding : '1.875rem',
         width: width ? width : '100%',
         height: height ? height : '100%',
         minHeight: minheight && minheight,
         borderRadius: '10px',
+<<<<<<< HEAD
         //border: border ? `1px solid ${alpha(theme.palette.primary.main, 0.2)}` : "none",
         boxShadow:
             noboxshadow === 'true'
                 ? 'none'
                 :`0px 0px 2px rgba(145, 158, 171, 0.2), 0px 5px 20px ${theme.palette.paperBoxShadow}`
         // : `0px 0px 2px rgba(145, 158, 171, 0.2), 0px 5px 20px ${theme.palette.paperBoxShadow}`,
+=======
+        boxShadow:
+            noboxshadow === 'true'
+                ? 'none'
+                : `0px 0px 2px rgba(145, 158, 171, 0.2), 0px 5px 20px ${theme.palette.paperBoxShadow}`,
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
         // marginBottom: '30px',
     })
 )
@@ -197,7 +212,12 @@ export const CustomBoxTab = styled(Box)({
     borderRadius: '15px',
 })
 export const CustomTabs = styled(Tabs)(({ theme }) => ({
+<<<<<<< HEAD
 
+=======
+    border: '1px solid',
+    borderColor: theme.palette.primary.main,
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
     padding: '5px',
     borderRadius: '15px',
 }))
@@ -225,11 +245,17 @@ export const CustomBadge = styled(Badge)(({ theme }) => ({
     },
 }))
 export const CustomTypographyBold = styled(Typography)(
+<<<<<<< HEAD
     ({ theme, marginTop, textAlign }) => ({
         fontWeight: 'bold',
         color: theme.palette.neutral[1000],
         textAlign: textAlign ?? "inherit",
         fontSize: "20px"
+=======
+    ({ theme, marginTop }) => ({
+        fontWeight: 'bold',
+        color: theme.palette.neutral[1000],
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
     })
 )
 export const CustomTypographyAlign = styled(Typography)(({ theme, align }) => ({
@@ -325,15 +351,25 @@ export const SearchInputBase = styled(InputBase)(({ theme }) => ({
 }))
 export const Logo = styled('div')(({ theme, height, width }) => ({
     width: width,
+<<<<<<< HEAD
     height: '24px',
     justifyContent: 'center',
     maxWidth: '100px',
+=======
+    height: height,
+    justifyContent: 'center',
+
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
     position: 'relative',
     cursor: 'pointer',
     '& img': {
         width: '100%',
         height: '100%',
+<<<<<<< HEAD
         objectFit: 'contain',
+=======
+        objectFit: 'contained',
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
     },
 }))
 export const CustomBoxNav = styled(Box)(({ theme, isSmall }) => ({
@@ -343,12 +379,20 @@ export const CustomBoxNav = styled(Box)(({ theme, isSmall }) => ({
 export const CustomLink = styled(Link)(({ theme, color }) => ({
     color: color ? color : 'primary.main',
     cursor: 'pointer',
+<<<<<<< HEAD
     fontWeight: '400',
     textDecoration: 'underline',
     '&:hover': {
         //backgroundColor: alpha(theme.palette.common.white, 0.25),
         color: theme.palette.primary.dark,
 
+=======
+    fontWeight: '700',
+    '&:hover': {
+        //backgroundColor: alpha(theme.palette.common.white, 0.25),
+        color: theme.palette.primary.dark,
+        textDecoration: 'none',
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
     },
 }))
 export const CustomOtp = styled(OutlinedInput)(({ theme }) => ({
@@ -366,6 +410,7 @@ export const CustomStackForLoaction = styled(Stack)(({ theme }) => ({
     cursor: 'pointer',
     alignItems: 'center',
 }))
+<<<<<<< HEAD
 export const CustomOverLay = styled(Stack)(
     ({ theme, hover, border_radius }) => ({
         background: "rgba(75, 86, 107, 0.5)",
@@ -382,6 +427,8 @@ export const CustomOverLay = styled(Stack)(
         },
     })
 );
+=======
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
 export const CustomOverlayBox = styled(Box)(({ theme, borderradius }) => ({
     position: 'absolute',
     bottom: 0,
@@ -396,7 +443,11 @@ export const CustomOverlayBox = styled(Box)(({ theme, borderradius }) => ({
     alignItems: 'center',
     justifyContent: 'center',
     zIndex: 9,
+<<<<<<< HEAD
     borderRadius: borderradius || "8px",
+=======
+    borderRadius: borderradius && borderradius,
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
 }))
 export const EmptyMessageContainer = styled(CustomStackFullWidth)(
     ({ theme }) => ({
@@ -404,18 +455,25 @@ export const EmptyMessageContainer = styled(CustomStackFullWidth)(
         width: '25vw',
     })
 )
+<<<<<<< HEAD
 export const CustomViewAll = styled(Stack)(({ theme, marginRight }) => ({
+=======
+export const CustomViewAll = styled(Stack)(({ theme }) => ({
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
     justifyContent: 'end',
     color: theme.palette.primary.main,
     paddingTop: '5px',
     paddingBottom: '5px',
     fontSize: '14px',
     cursor: 'pointer',
+<<<<<<< HEAD
     marginInlineEnd: marginRight ? marginRight : "1rem",
     [theme.breakpoints.down('md')]: {
         marginInlineEnd: marginRight ? ".3rem" : "0",
     },
 
+=======
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
 }))
 export const CustomFab = styled(Fab)(({ theme }) => ({
     width: '33px',
@@ -510,14 +568,21 @@ export const BackImage = styled(Stack)(({ theme }) => ({
 }))
 export const List = styled(MuiList)(({ theme }) => ({}))
 export const SliderCustom = styled(Stack)(
+<<<<<<< HEAD
     ({ theme, languageDirection, gap, paddingBottom }) => ({
+=======
+    ({ theme, languageDirection, gap }) => ({
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
         paddingY: '1rem',
         '& .slick-slider': {
             '& .slick-list': {
                 '& .slick-track': {
                     float: languageDirection === 'rtl' ? 'right' : 'left',
                     gap: gap ? gap : '5px',
+<<<<<<< HEAD
                     paddingBottom: paddingBottom || 0,
+=======
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                 },
             },
             '& .slick-dots': {
@@ -596,6 +661,7 @@ export const CustomOutlinedInput = styled(OutlinedInput)(({ theme, type }) => ({
         display: 'none',
     },
 }))
+<<<<<<< HEAD
 export const NoDataFoundWrapper = styled(CustomStackFullWidth)(({ theme }) => ({
     position: 'absolute',
     top: '50%',
@@ -603,3 +669,5 @@ export const NoDataFoundWrapper = styled(CustomStackFullWidth)(({ theme }) => ({
     transform: 'translate(-50%, -50%)',
 
 }))
+=======
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7

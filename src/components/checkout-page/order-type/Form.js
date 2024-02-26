@@ -17,6 +17,7 @@ const Form = props => {
         subscriptionDispatch({type: ACTIONS.setSubscriptionType, payload: value})
     }
     const handleDateRange = (value)=>{
+<<<<<<< HEAD
         if(value){
             const isSame = moment(value[0]?.startDate,'yyyy/MM/DD HH:mm' ).isSame(moment(value[0]?.endDate,'yyyy/MM/DD HH:mm' ))
             if(isSame){
@@ -26,6 +27,15 @@ const Form = props => {
                 subscriptionDispatch({type:ACTIONS.setStartDate, payload:moment(value[0]?.startDate).format('yyyy/MM/DD HH:mm')})
                 subscriptionDispatch({type:ACTIONS.setEndDate, payload:moment(value[0]?.endDate).format('yyyy/MM/DD HH:mm')})
             }
+=======
+        const isSame = moment(value[0],'yyyy/MM/DD HH:mm' ).isSame(moment(value[1],'yyyy/MM/DD HH:mm' ))
+        if(isSame){
+            toast.error(t('Start date and end date can not be same for subscription orders.'))
+        }
+        else{
+            subscriptionDispatch({type:ACTIONS.setStartDate, payload:moment(value[0]).format('yyyy/MM/DD HH:mm')})
+            subscriptionDispatch({type:ACTIONS.setEndDate, payload:moment(value[1]).format('yyyy/MM/DD HH:mm')})
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
         }
 
     }
@@ -43,8 +53,14 @@ const Form = props => {
         subscriptionDispatch({type:ACTIONS.setSubscriptionDays, payload:days})
     }
     return (
+<<<<<<< HEAD
         <Grid container spacing={3}>
             <Grid item xs={12} sm={12} md={12} align="center" marginLeft="-24px">
+=======
+
+        <Grid container spacing={3}>
+            <Grid item xs={12}>
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                 <CustomMobileDateRangePicker handleValue={handleDateRange} diffStartEnd/>
             </Grid>
             <Grid item xs={12} sm={6}>

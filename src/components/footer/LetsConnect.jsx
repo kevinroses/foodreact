@@ -57,11 +57,19 @@ const LetsConnect = ({ languageDirection, web }) => {
                             color: '#DDE3EA',
                             align: 'center',
                         }}
+<<<<<<< HEAD
                         placeholder={`${t("Your Email Address")}`}
                         inputProps={{ 'aria-label': `${t('Your Email Address')}` }}
                     />
                     <StyledButton type="submit" aria-label={`${t("search")}`}>
                         {`${t("Join")}`}
+=======
+                        placeholder="Your Email Address"
+                        inputProps={{ 'aria-label': 'Your Email Address' }}
+                    />
+                    <StyledButton type="submit" aria-label="search">
+                        Join
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                     </StyledButton>
                 </Paper>
             </Stack>

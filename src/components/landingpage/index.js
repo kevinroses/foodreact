@@ -14,7 +14,10 @@ import { setLandingPageData } from '../../redux/slices/storedData'
 import { NoSsr } from '@mui/material'
 import * as PropTypes from 'prop-types'
 import CookiesConsent from '../CookiesConsent'
+<<<<<<< HEAD
 import useGetGuest from "../../hooks/react-query/profile/useGetGuest";
+=======
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
 
 const LandingPage = (props) => {
     const { global } = props
@@ -26,11 +29,14 @@ const LandingPage = (props) => {
             setZoneid(JSON.parse(localStorage.getItem('zoneid')))
         }
     }, [])
+<<<<<<< HEAD
 
     let token = undefined
     if (typeof window != 'undefined') {
     token = localStorage.getItem('token')
     }
+=======
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
     const handleModalClose = () => {}
 
     const onSuccessHandler = (res) => {
@@ -39,6 +45,7 @@ const LandingPage = (props) => {
 
     const { data, refetch, isLoading } = useGetLandingPageData(onSuccessHandler)
     useEffect(() => {
+<<<<<<< HEAD
       refetch()
     }, [])
 //   const { data: guestData, refetch: guestRefetch } = useGetGuest();
@@ -52,6 +59,12 @@ const LandingPage = (props) => {
 //         localStorage.setItem("guest_id", guestData?.guest_id);
 //     }
 //   }, [guestData])
+=======
+        if (!landingPageData) {
+            refetch()
+        }
+    }, [])
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
 
     return (
         <NoSsr>

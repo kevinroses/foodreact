@@ -18,6 +18,7 @@ import AppleLoginComp from './AppleLoginComp'
 import { setToken } from '../../../../redux/slices/userToken'
 
 const SocialLogins = (props) => {
+<<<<<<< HEAD
     const { socialLogins, handleParentModalClose,  setJwtToken,setUserInfo ,handleSuccess,setModalFor,setMedium} = props
     const { global } = useSelector((state) => state.globalSettings)
     const { t } = useTranslation()
@@ -42,16 +43,65 @@ const SocialLogins = (props) => {
                 } else if (
                     item?.login_medium === 'google' && item.status === true
                 ) {
+=======
+    const { socialLogins, handleParentModalClose } = props
+    const { global } = useSelector((state) => state.globalSettings)
+    const { t } = useTranslation()
+    const dispatch = useDispatch()
+    const userOnSuccessHandler = (res) => {
+        dispatch(setUser(res.data))
+    }
+    const { refetch: profileRefatch } = useQuery(
+        ['profile-info'],
+        ProfileApi.profileInfo,
+        {
+            enabled: false,
+            onSuccess: userOnSuccessHandler,
+            onError: onSingleErrorResponse,
+        }
+    )
+    const onSuccessHandler = (res) => {
+        dispatch(setWishList(res))
+    }
+    const { refetch } = useWishListGet(onSuccessHandler)
+    const handleSuccess = async (value) => {
+        localStorage.setItem('token', value)
+        toast.success(t(loginSuccessFull))
+        await refetch()
+        await profileRefatch()
+        dispatch(setToken(value))
+        handleParentModalClose?.()
+    }
+    return (
+        <Stack alignItems="center" justifyContent="center" spacing={0.5}>
+            {socialLogins.map((item, index) => {
+                if (item?.login_medium === 'google' && item.status === true) {
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                     return (
                         <GoogleLoginComp
                             key={index}
                             handleSuccess={handleSuccess}
                             handleParentModalClose={handleParentModalClose}
                             global={global}
+<<<<<<< HEAD
                             setJwtToken={setJwtToken}
                             setUserInfo={setUserInfo}
                             setModalFor={setModalFor}
                             setMedium={setMedium}
+=======
+                        />
+                    )
+                } else if (
+                    item?.login_medium === 'facebook' &&
+                    item.status === true
+                ) {
+                    return (
+                        <FbLoginComp
+                            key={index}
+                            handleSuccess={handleSuccess}
+                            handleParentModalClose={handleParentModalClose}
+                            global={global}
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                         />
                     )
                 }

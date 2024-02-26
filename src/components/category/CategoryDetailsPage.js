@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+<<<<<<< HEAD
 import FoodOrRestaurant from '../../components/products-page/FoodOrRestaurant'
 import ProductList from '../products-page/ProductList'
 import { useTranslation } from 'react-i18next'
@@ -23,6 +24,41 @@ import { mockData } from "./categoryFilterData";
 import { handleFilterData } from "./helper";
 import { setFoodOrRestaurant } from "../../redux/slices/searchFilter";
 
+=======
+import { Box, Container, Tabs } from '@material-ui/core'
+import FoodOrRestaurant from '../../components/products-page/FoodOrRestaurant'
+import ProductList from '../products-page/ProductList'
+import { useTranslation } from 'react-i18next'
+import { ButtonGroup, Grid, NoSsr, Typography } from '@mui/material'
+import FoodNavigation from '../restaurant-details/foodSection/FoodNavigation'
+import { RestaurantDetailsNavButton } from '../food-card/FoodCard.style'
+import { useSelector } from 'react-redux'
+import { useQuery } from 'react-query'
+import { CategoryApi } from '../../hooks/react-query/config/categoryApi'
+import RestaurantList from '../restaurant-page/RestaurantList'
+import RestaurantCard from '../restaurant-details/RestaurantCard'
+import RestaurantBoxCard from '../restaurant-details/RestaurantBoxCard'
+import CustomShimmerForBestFood from '../CustomShimmer/CustomShimmerForBestFood'
+import CustomePagination from '../pagination/Pagination'
+import CustomShimmerRestaurant from '../CustomShimmer/CustomShimmerRestaurant'
+import noData from '../../../public/static/no-data-images/no food.png'
+import {
+    CustomStackFullWidth,
+    FlexContainerCenter,
+} from '../../styled-components/CustomStyles.style'
+import FilterButtons from './FilterButtons'
+import GroupButtons from '../restaurant-details/foodSection/GroupButtons'
+import CustomShimmerForCard from '../CustomShimmer/CustomShimmerForCard'
+import FoodCard from '../food-card/FoodCard'
+import Image from 'next/image'
+import RestaurantsData from './RestaurantsData'
+import noRestaurants from '../../../public/static/no-data-images/no restaurants.png'
+import CustomEmptyResult from '../empty-view/CustomEmptyResult'
+import { RTL } from '../RTL/RTL'
+import no_restaurant_image from '../../../public/static/no-data-images/no restaurants.png'
+import no_food_found_image from '../../../public/static/no-data-images/no food.png'
+import { noFoodFoundImage, noRestaurantsImage } from '../../utils/LocalImages'
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
 const CategoryDetailsPage = ({
     data,
     id,
@@ -34,6 +70,7 @@ const CategoryDetailsPage = ({
     type,
     setOffset,
     setType,
+<<<<<<< HEAD
     filterByData,
     setFilterByData, name, priceAndRating, setPriceAndRating, isLoading
 }) => {
@@ -57,6 +94,13 @@ const CategoryDetailsPage = ({
     const { global } = useSelector((state) => state.globalSettings)
     const { t } = useTranslation()
 
+=======
+}) => {
+    const [foodOrRestaurant, setFoodOrRestaurant] = useState('products')
+    const [catetoryMenus, setCategoryMenus] = useState([])
+    const { global } = useSelector((state) => state.globalSettings)
+    const { t } = useTranslation()
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
     const {
         isLoading: isLoadingChilds,
         data: childesData,
@@ -68,6 +112,13 @@ const CategoryDetailsPage = ({
     )
     useEffect(() => {
         if (childesData && id?.length > 0) {
+<<<<<<< HEAD
+=======
+            // const catetoryMenu = childesData?.data?.filter((item) =>
+            //     id.includes(item.id)
+            // )
+
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
             setCategoryMenus(childesData.data)
         }
         setCategoryId(id)
@@ -76,6 +127,7 @@ const CategoryDetailsPage = ({
     if (typeof window !== 'undefined') {
         languageDirection = localStorage.getItem('direction')
     }
+<<<<<<< HEAD
     const handleDropClick = (event) => {
         setAnchorEl(event.currentTarget)
     }
@@ -126,12 +178,18 @@ const CategoryDetailsPage = ({
                 <Grid item md={12} sm={12} xs={12} align="center">
                     <CustomPageTitle title={`${t("Search Result for")} "${name}"`} textAlign="center" />
                 </Grid>
+=======
+    return (
+        <>
+            <Grid container spacing={{ xs: 3, sm: 3, md: 4 }}>
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                 <Grid item xs={12} sm={12} md={12} align="center">
                     <NoSsr>
                         <FoodOrRestaurant
                             foodOrRestaurant={foodOrRestaurant}
                             setFoodOrRestaurant={setFoodOrRestaurant}
                         />
+<<<<<<< HEAD
                         <CustomDivider marginTop="0px" />
                     </NoSsr>
                 </Grid>
@@ -151,6 +209,27 @@ const CategoryDetailsPage = ({
                         />
                     </CustomStackFullWidth>
 
+=======
+                    </NoSsr>
+                </Grid>
+                <Grid item xs={12} sm={12} md={12} align="left">
+                    <FoodNavigation
+                        catetoryMenus={catetoryMenus}
+                        setCategoryId={setCategoryId}
+                        category_id={category_id}
+                        id={id}
+                    />
+                </Grid>
+                <Grid item xs={12} sm={12} md={12} align="center">
+                    <CustomStackFullWidth
+                        alignItems="center"
+                        justifyContent="center"
+                    >
+                        <RTL direction={languageDirection}>
+                            <GroupButtons setType={setType} type={type} />
+                        </RTL>
+                    </CustomStackFullWidth>
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                 </Grid>
                 <Grid
                     item
@@ -158,18 +237,30 @@ const CategoryDetailsPage = ({
                     sm={12}
                     md={12}
                     container
+<<<<<<< HEAD
                     spacing={{ xs: 1, md: foodOrRestaurant === 'products' ? 2 : 4 }}
+=======
+                    spacing={{ xs: 1, md: 2 }}
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                 >
                     {foodOrRestaurant === 'products' &&
                         (data?.data ? (
                             <>
                                 <ProductList
+<<<<<<< HEAD
                                     product_list={data?.data}
+=======
+                                    product_list={data?.data?.data}
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                                     offset={offset}
                                     page_limit={page_limit}
                                     setOffset={setOffset}
                                 />
+<<<<<<< HEAD
                                 {data?.data?.products.length === 0 && (
+=======
+                                {data?.data?.data.products.length === 0 && (
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                                     <CustomEmptyResult
                                         image={noFoodFoundImage}
                                         label=" No Food Found"
@@ -206,6 +297,7 @@ const CategoryDetailsPage = ({
                         ))}
                 </Grid>
             </Grid>
+<<<<<<< HEAD
             <Popover
                 onClose={() => handleDropClose()}
                 id="fade-button"
@@ -244,6 +336,9 @@ const CategoryDetailsPage = ({
                 />
             </Popover>
         </NoSsr>
+=======
+        </>
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
     )
 }
 

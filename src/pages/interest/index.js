@@ -20,7 +20,10 @@ import { setWalletAmount } from '../../redux/slices/cart'
 import { ConfigApi } from '../../hooks/react-query/config/useConfig'
 import { CustomHeader } from '../../api/Headers'
 import { getServerSideProps } from '../index'
+<<<<<<< HEAD
 import HomeGuard from "../../components/home-guard/HomeGuard";
+=======
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
 const Interest = ({ configData }) => {
     const { global } = useSelector((state) => state.globalSettings)
     const businessLogo = global?.base_urls?.business_logo_url
@@ -46,13 +49,19 @@ const Interest = ({ configData }) => {
                 keywords=""
                 ogImage={`${businessLogo}/${global?.logo}`}
             />
+<<<<<<< HEAD
         <HomeGuard>
+=======
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
             <Container maxWidth="lg" sx={{ mb: { xs: '72px', md: '32px' } }}>
                 <Box mt={{ xs: '90px', md: '150px' }}>
                     <InterestOptions />
                 </Box>
             </Container>
+<<<<<<< HEAD
         </HomeGuard>
+=======
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
         </>
     )
 }

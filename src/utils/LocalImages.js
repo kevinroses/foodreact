@@ -2,7 +2,11 @@ import NotFoundPlaceholder from '../../public/static/no-image-found.png'
 import no_restaurant_image from '../../public/static/no-data-images/no restaurants.png'
 import no_food_found_image from '../../public/static/no-data-images/no food.png'
 import no_order_found_image from '../../public/static/no-data-images/No order in history.png'
+<<<<<<< HEAD
 import no_address_found_image from '../../public/static/no-data-images/no-address-data.svg'
+=======
+import no_address_found_image from '../../public/static/no-data-images/address 1.png'
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
 import no_translation_found from '../../public/static/no-data-images/No transaction.png'
 import no_data_found from '../../public/static/no-data-images/Asset 3 1.png'
 

@@ -6,8 +6,11 @@ import { setGlobalSettings } from '../redux/slices/global'
 import { useDispatch } from 'react-redux'
 import Router from 'next/router'
 import { CustomHeader } from '../api/Headers'
+<<<<<<< HEAD
 import { currentVersion } from "./_app";
 import { setFormattedAddress, setLocation } from "../redux/slices/addressData";
+=======
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
 
 const Home = ({ configData, landingPageData }) => {
     const dispatch = useDispatch()
@@ -24,6 +27,7 @@ const Home = ({ configData, landingPageData }) => {
         }
     }, [configData, landingPageData])
 
+<<<<<<< HEAD
     useEffect(() => {
         dispatch(setGlobalSettings(configData));
     }, [configData]);
@@ -35,6 +39,8 @@ const Home = ({ configData, landingPageData }) => {
     //         dispatch(setLocation({}))
     //     }
     // }, []);
+=======
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
     return (
         <>
             <Meta

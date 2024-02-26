@@ -5,7 +5,15 @@ import { Button, Stack } from '@mui/material'
 import DialogTitle from '@mui/material/DialogTitle'
 import Typography from '@mui/material/Typography'
 import DialogActions from '@mui/material/DialogActions'
+<<<<<<< HEAD
 
+=======
+// import {
+//     CustomButtonCancel,
+//     CustomButtonSuccess,
+// } from '../styled-components/CustomButtons.style'
+// import { WrapperForCustomDialogConfirm } from '../components/custom-dialog/confirm/CustomDialogConfirm.style'
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
 import { CustomStackFullWidth } from '../../styled-components/CustomStyles.style'
 import { WrapperForCustomDialogConfirm } from '../custom-dialog/confirm/CustomDialogConfirm.style'
 import CustomSelectWithFormik from '../custom-select/CustomSelectWithFormik'
@@ -17,9 +25,15 @@ import CustomTextFieldWithFormik from '../form-fields/CustomTextFieldWithFormik'
 import LoadingButton from '@mui/lab/LoadingButton'
 import * as Yup from 'yup'
 import CloseIcon from '@mui/icons-material/Close'
+<<<<<<< HEAD
 import RefundSvg from "./RefundSvg";
 import { useTheme } from "@mui/styles";
 
+=======
+// import CustomImageContainer from "./CustomImageContainer";
+// import StarIcon from "@mui/icons-material/Star";
+// import {CustomTypographyGray} from "../styled-components/CustomTypographies.style";
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
 
 const acceptedFileInputFormat =
     'application/pdf,image/*,text/plain,.doc, .docx,.txt'
@@ -34,7 +48,10 @@ const supportedFormatMultiImages = [
     'deb',
 ]
 const RefundModal = (props) => {
+<<<<<<< HEAD
     const theme=useTheme()
+=======
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
     const {
         open,
         onClick,
@@ -97,6 +114,7 @@ const RefundModal = (props) => {
                     <CloseIcon sx={{ fontSize: '16px' }} />
                 </button>
                 <CustomStackFullWidth spacing={1}>
+<<<<<<< HEAD
                     <Stack alignItems="center" justifyContent="center" paddingX="50px">
                         <RefundSvg/>
                         <Typography fontSize="16px" fontWeight="700" paddingTop="24px" >
@@ -105,6 +123,17 @@ const RefundModal = (props) => {
                         <Typography fontSize="14px" fontWeight="400" color={theme.palette.neutral[500]} paddingTop="12px" paddingBottom=".5rem" textAlign="center">
                             {t('Please describe your problem to make you future experience more better')}
                         </Typography>
+=======
+                    <Stack alignItems="start" justifyContent="center">
+                        <DialogTitle
+                            id="alert-dialog-title"
+                            sx={{ padding: '10px 24px' }}
+                        >
+                            <Typography>
+                                {t('What’s Wrong With This Order?')}
+                            </Typography>
+                        </DialogTitle>
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                     </Stack>
                     <DialogContent sx={{ padding: '10px 24px' }}>
                         <CustomStackFullWidth>
@@ -153,10 +182,16 @@ const RefundModal = (props) => {
                                             }
                                             multiline="true"
                                             rows="2"
+<<<<<<< HEAD
                                             placeholder="Enter note"
                                         />
                                     </CustomStackFullWidth>
                                     <CustomStackFullWidth >
+=======
+                                        />
+                                    </CustomStackFullWidth>
+                                    <CustomStackFullWidth paddingTop="20px">
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                                         <MultiFileUploader
                                             fileImagesHandler={
                                                 fileImagesHandler
@@ -172,12 +207,21 @@ const RefundModal = (props) => {
                                             acceptedFileInputFormat={
                                                 acceptedFileInputFormat
                                             }
+<<<<<<< HEAD
                                             labelText={t('Upload photo')}
                                             width="6rem"
                                             gridControl="true"
                                         />
                                     </CustomStackFullWidth>
                                     <CustomStackFullWidth justifyContent="flex-end" alignItems="flex-end">
+=======
+                                            labelText={t('file Upload')}
+                                            width="8rem"
+                                            gridControl="true"
+                                        />
+                                    </CustomStackFullWidth>
+                                    <CustomStackFullWidth>
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                                         <DialogActions sx={{ padding: '0px' }}>
                                             <Stack
                                                 alignItems="center"
@@ -187,10 +231,17 @@ const RefundModal = (props) => {
                                                 <LoadingButton
                                                     type="submit"
                                                     variant="contained"
+<<<<<<< HEAD
 
                                                     loading={refundIsLoading}
                                                 >
                                                     {t('Submit Request')}
+=======
+                                                    sx={{ width: '100%' }}
+                                                    loading={refundIsLoading}
+                                                >
+                                                    {t('Submit Refund Request')}
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                                                 </LoadingButton>
                                             </Stack>
                                         </DialogActions>

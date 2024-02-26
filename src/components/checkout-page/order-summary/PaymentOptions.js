@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import React, { useEffect, useState } from 'react'
+=======
+import React, { useState } from 'react'
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
 import PropTypes from 'prop-types'
 import { Grid, Stack, Typography } from '@mui/material'
 import {
@@ -25,9 +29,12 @@ import CustomDivider from '../../CustomDivider'
 import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline'
 import CustomModal from '../../custom-modal/CustomModal'
 import AllPaymentMethod from '../AllPaymentMethod'
+<<<<<<< HEAD
 import OfflinePayment from '../assets/OfflinePayment'
 import { useDispatch, useSelector } from "react-redux";
 import { setOfflineInfoStep, setOfflineMethod } from '../../../redux/slices/OfflinePayment'
+=======
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
 
 const PaymentOptions = (props) => {
     const theme = useTheme()
@@ -42,6 +49,7 @@ const PaymentOptions = (props) => {
         paymentMethodDetails,
         setPaymentMethodDetails,
         setSwitchToWallet,
+<<<<<<< HEAD
         offlinePaymentOptions,
     } = props
     const { t } = useTranslation();
@@ -61,6 +69,11 @@ const PaymentOptions = (props) => {
         }
     }, [selected])
 
+=======
+    } = props
+    const [openModal, setOpenModal] = useState(false)
+    const { t } = useTranslation()
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
 
     const imageUrl = global?.base_urls?.gateway_image_url
     const getPaymentMethod = (item) => {
@@ -76,6 +89,7 @@ const PaymentOptions = (props) => {
             setPaymentMethodDetails(selected)
             setOpenModal(false)
             setSwitchToWallet(true)
+<<<<<<< HEAD
             dispatch(setOfflineInfoStep(0))
             setIsCheckedOffline(false)
         } else if (selected?.method === "offline_payment") {
@@ -86,16 +100,23 @@ const PaymentOptions = (props) => {
             setSwitchToWallet(false);
             dispatch(setOfflineInfoStep(1));
             setIsCheckedOffline(true);
+=======
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
         } else {
             setPaymenMethod(selected?.name)
             setPaymentMethodDetails(selected)
             setOpenModal(false)
             setSwitchToWallet(false)
+<<<<<<< HEAD
             dispatch(setOfflineInfoStep(0))
             setIsCheckedOffline(false)
         }
     }
 
+=======
+        }
+    }
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
     return (
         <CustomPaperBigCard nopadding="true">
             <Grid container>
@@ -107,8 +128,13 @@ const PaymentOptions = (props) => {
                     >
                         <PymentTitle>{t('Payment Options')}</PymentTitle>
                         <BorderColorOutlinedIcon
+<<<<<<< HEAD
                             onClick={handleClick}
                             color="primary"
+=======
+                            color="primary"
+                            onClick={handleClick}
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                             style={{ cursor: 'pointer' }}
                         />
                     </CustomStackFullWidth>
@@ -127,7 +153,11 @@ const PaymentOptions = (props) => {
                             alignItems="center"
                         >
                             {paymentMethodDetails?.name === 'wallet' ||
+<<<<<<< HEAD
                                 paymentMethodDetails?.name ===
+=======
+                            paymentMethodDetails?.name ===
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                                 'cash_on_delivery' ? (
                                 <CustomImageContainer
                                     maxWidth="100%"
@@ -137,6 +167,7 @@ const PaymentOptions = (props) => {
                                     src={paymentMethodDetails?.image.src}
                                 />
                             ) : (
+<<<<<<< HEAD
                                 <>
                                     {paymentMethodDetails?.method === 'offline_payment' ? (<OfflinePayment />)
                                         : (
@@ -153,13 +184,30 @@ const PaymentOptions = (props) => {
                                 </>
                             )
                             }
+=======
+                                <CustomImageContainer
+                                    maxWidth="100%"
+                                    width="unset"
+                                    height="32px"
+                                    objectfit="contain"
+                                    src={`${imageUrl}/${paymentMethodDetails?.image}`}
+                                />
+                            )}
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                             <Typography
                                 fontSize="14px"
                                 fontWeight="500"
                                 color={theme.palette.primary.main}
                                 textTransform="capitalize"
                             >
+<<<<<<< HEAD
                                 {paymentMethodDetails?.method ? `${paymentMethodDetails?.method?.replaceAll('_', ' ')} (${paymentMethodDetails?.name})` : paymentMethodDetails?.name?.replaceAll('_', ' ')}
+=======
+                                {paymentMethodDetails?.name?.replaceAll(
+                                    '_',
+                                    ' '
+                                )}
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                             </Typography>
                         </Stack>
                     ) : (
@@ -193,6 +241,7 @@ const PaymentOptions = (props) => {
                             global={global}
                             setPaymenMethod={setPaymenMethod}
                             getPaymentMethod={getPaymentMethod}
+<<<<<<< HEAD
                             setSelected={setSelected}
                             selected={selected}
                             handleSubmit={handleSubmit}
@@ -202,6 +251,11 @@ const PaymentOptions = (props) => {
                             isCheckedOffline={isCheckedOffline}
                             offLineWithPartial={offLineWithPartial}
                             paymentMethodDetails={paymentMethodDetails}
+=======
+                            selected={selected}
+                            handleSubmit={handleSubmit}
+                            subscriptionStates={subscriptionStates}
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                         />
                     </CustomModal>
                 )}

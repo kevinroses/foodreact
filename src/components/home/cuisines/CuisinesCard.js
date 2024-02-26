@@ -35,8 +35,13 @@ const CuisinesCard = ({ item }) => {
                     >
                         <CustomImageContainer
                             src={`${global?.base_urls?.cuisine_image_url}/${item?.image}`}
+<<<<<<< HEAD
                             height="100px"
                             maxWidth="100px"
+=======
+                            height="120px"
+                            maxWidth="120px"
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                             width="100%"
                             borderRadius="50%"
                             objectFit="contained"
@@ -48,8 +53,13 @@ const CuisinesCard = ({ item }) => {
                     </Stack>{' '}
                     <Typography
                         textAlign="center"
+<<<<<<< HEAD
                         fontSize={{ xs: '13px', sm: '14px', md:"14px" }}
                         fontWeight="400"
+=======
+                        fontSize={isXSmall ? '14px' : '16px'}
+                        fontWeight="500"
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                         sx={{
                             color: (theme) => theme.palette.neutral[1000],
                             overflow: 'hidden',

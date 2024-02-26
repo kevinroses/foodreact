@@ -7,13 +7,19 @@ import { ConfigApi } from '../../hooks/react-query/config/useConfig'
 import { landingPageApi } from '../../components/landingpage/Api'
 import { useTranslation } from 'react-i18next'
 import { CustomHeader } from '../../api/Headers'
+<<<<<<< HEAD
 import HomeGuard from "../../components/home-guard/HomeGuard";
+=======
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
 
 const index = ({ configData, landingPageData, pathName }) => {
     const { t } = useTranslation()
     return (
         <div className="div">
+<<<<<<< HEAD
         <HomeGuard>
+=======
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
             <Meta
                 title={`${t('Restaurants')} ${t('on')} ${
                     configData?.business_name
@@ -24,7 +30,10 @@ const index = ({ configData, landingPageData, pathName }) => {
             <PushNotificationLayout>
                 <Restaurant />
             </PushNotificationLayout>
+<<<<<<< HEAD
         </HomeGuard>
+=======
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
         </div>
     )
 }

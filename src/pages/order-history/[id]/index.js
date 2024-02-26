@@ -4,18 +4,25 @@ import { useSelector } from 'react-redux'
 import Meta from '../../../components/Meta'
 import { ConfigApi } from '../../../hooks/react-query/config/useConfig'
 import { CustomHeader } from '../../../api/Headers'
+<<<<<<< HEAD
 import CustomContainer from '../../../components/container'
 import { Stack } from '@mui/material'
+=======
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
 
 const index = ({ configData }) => {
     return (
         <div className="div">
             <Meta title={`Order details - ${configData?.business_name}`} />
+<<<<<<< HEAD
             <CustomContainer>
                 <Stack pt="60px">
                     <OrderDetail />
                 </Stack>
             </CustomContainer>
+=======
+            <OrderDetail />
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
         </div>
     )
 }

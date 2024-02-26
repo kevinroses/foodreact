@@ -20,7 +20,11 @@ const PartialPayment = ({
     switchToWallet,
     remainingBalance,
     totalAmount,
+<<<<<<< HEAD
     global,offLineWithPartial,
+=======
+    global,
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
 }) => {
     const theme = useTheme()
     let currencySymbol
@@ -70,7 +74,11 @@ const PartialPayment = ({
                         color={theme.palette.neutral[500]}
                     >
                         {!switchToWallet ? (
+<<<<<<< HEAD
                             usePartialPayment && offLineWithPartial ? (
+=======
+                            usePartialPayment ? (
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                                 t('Has  paid by your wallet.')
                             ) : (
                                 t('You have balance in  your wallet')
@@ -91,7 +99,11 @@ const PartialPayment = ({
                 justifyContent="space-between"
                 alignItems="center"
             >
+<<<<<<< HEAD
                 {!offLineWithPartial && !usePartialPayment && !switchToWallet ? (
+=======
+                {!usePartialPayment && !switchToWallet ? (
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                     <Typography
                         fontSize="12px"
                         color={theme.palette.primary.main}
@@ -119,7 +131,11 @@ const PartialPayment = ({
                         </Stack>
                         {walletBalance > totalAmount ? (
                             <>
+<<<<<<< HEAD
                                 {!offLineWithPartial && remainingBalance && !usePartialPayment && (
+=======
+                                {remainingBalance && !usePartialPayment && (
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                                     <Typography
                                         fontSize="12px"
                                         color={theme.palette.neutral[1000]}
@@ -142,7 +158,11 @@ const PartialPayment = ({
                         ) : null}
                     </Stack>
                 )}
+<<<<<<< HEAD
                 {!offLineWithPartial && !usePartialPayment && !switchToWallet ? (
+=======
+                {!usePartialPayment && !switchToWallet ? (
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                     <Button variant="contained" onClick={handlePartialPayment}>
                         {t('Use')}
                     </Button>

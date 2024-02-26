@@ -1,5 +1,9 @@
 import { styled } from '@mui/material/styles'
+<<<<<<< HEAD
 import { alpha, Menu, Switch } from "@mui/material";
+=======
+import { alpha, Menu } from '@mui/material'
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
 import React from 'react'
 
 export const StyledMenu = styled((props) => (
@@ -44,6 +48,7 @@ export const StyledMenu = styled((props) => (
         },
     },
 }))
+<<<<<<< HEAD
 export const CustomSwitch = styled(Switch)(({ theme, noimage }) => ({
     width: 40,
     height: 20,
@@ -117,3 +122,5 @@ export const CustomSwitch = styled(Switch)(({ theme, noimage }) => ({
     },
 }));
 
+=======
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7

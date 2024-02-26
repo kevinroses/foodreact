@@ -1,14 +1,23 @@
+<<<<<<< HEAD
 import React, { useState } from 'react'
+=======
+import React from 'react'
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
 import {
     CustomPaperBigCard,
     CustomStackFullWidth,
 } from '../../../styled-components/CustomStyles.style'
 import { CustomTypography } from '../../custom-tables/Tables.style'
+<<<<<<< HEAD
 import { IconButton, Modal, Popover, Stack, Typography } from '@mui/material'
+=======
+import { IconButton, Stack, Typography } from '@mui/material'
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
 import deleteImg from '../../../../public/static/Vector (5).png'
 import { t } from 'i18next'
 import { useTheme } from '@mui/material/styles'
 import DeleteAddress from './DeleteAddress'
+<<<<<<< HEAD
 import { alpha } from '@material-ui/core'
 import { CustomDivWithBorder } from './Address.style'
 import HomeRoundedIcon from '@mui/icons-material/HomeRounded';
@@ -112,6 +121,16 @@ const AddressCard = ({ address, refetch }) => {
 
     return (
         <CustomDivWithBorder>
+=======
+
+const AddressCard = ({ address, refetch }) => {
+    const [open, setOpen] = React.useState(false)
+    const handleOpen = () => setOpen(true)
+    const handleClose = () => setOpen(false)
+    const theme = useTheme()
+    return (
+        <CustomPaperBigCard nopadding="true">
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
             <CustomStackFullWidth spacing={1}>
                 <CustomStackFullWidth
                     sx={{
@@ -125,6 +144,7 @@ const AddressCard = ({ address, refetch }) => {
                         justifyContent="space-between"
                         direction="row"
                         alignItems="center"
+<<<<<<< HEAD
                         sx={{ padding: '5px 15px' }}
                     >
                         <Stack flexDirection="row" gap="5px" alignItems="center">
@@ -143,6 +163,16 @@ const AddressCard = ({ address, refetch }) => {
                                 <DeleteIcon />
                             </IconButton>
                         </Stack>
+=======
+                        sx={{ padding: '20px' }}
+                    >
+                        <CustomTypography sx={{ textTransform: 'capitalize' }}>
+                            {t(address?.address_type)}
+                        </CustomTypography>
+                        <IconButton onClick={handleOpen}>
+                            <img src={deleteImg.src} />
+                        </IconButton>
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                     </CustomStackFullWidth>
                 </CustomStackFullWidth>
                 <CustomStackFullWidth
@@ -151,7 +181,11 @@ const AddressCard = ({ address, refetch }) => {
                 >
                     <Stack direction="row" spacing={2}>
                         <Typography fontSize="14px" fontWeight="500">
+<<<<<<< HEAD
                             {t('Name')}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+=======
+                            {t('Name')}
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                         </Typography>
                         <Typography
                             fontSize="14px"
@@ -163,15 +197,23 @@ const AddressCard = ({ address, refetch }) => {
                     </Stack>
                     <Stack direction="row" spacing={2}>
                         <Typography fontSize="14px" fontWeight="500">
+<<<<<<< HEAD
                             {t('Phone')}&nbsp;&nbsp;&nbsp;
+=======
+                            {t('Phone')}
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                         </Typography>
                         <Typography
                             fontSize="14px"
                             fontWeight="400"
                             color={theme.palette.neutral[500]}
                         >
+<<<<<<< HEAD
                             {convertPhoneNumber(address?.contact_person_number)}
                             {}
+=======
+                            {address?.contact_person_number}
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                         </Typography>
                     </Stack>
                     <Stack direction="row" spacing={2}>
@@ -188,13 +230,18 @@ const AddressCard = ({ address, refetch }) => {
                     </Stack>
                 </CustomStackFullWidth>
             </CustomStackFullWidth>
+<<<<<<< HEAD
             {/* {open && (
+=======
+            {open && (
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
                 <DeleteAddress
                     open={open}
                     handleClose={handleClose}
                     addressId={address?.id}
                     refetch={refetch}
                 />
+<<<<<<< HEAD
             )} */}
             <CustomPopover
                 anchorEl={anchorEl}
@@ -258,6 +305,10 @@ const AddressCard = ({ address, refetch }) => {
                 )
             }
         </CustomDivWithBorder>
+=======
+            )}
+        </CustomPaperBigCard>
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
     )
 }
 

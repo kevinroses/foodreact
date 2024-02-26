@@ -7,9 +7,12 @@ const initialState = {
 
     zoneData: null,
     handleHomePage: false,
+<<<<<<< HEAD
 
     openMapDrawer: false,
     userLocationUpdate: false
+=======
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
 }
 
 export const globalSettingSlice = createSlice({
@@ -17,7 +20,11 @@ export const globalSettingSlice = createSlice({
     initialState,
     reducers: {
         setGlobalSettings: (state, action) => {
+<<<<<<< HEAD
             state.global = action.payload
+=======
+            state.global = action.payload.data
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
         },
         setCustomerProfile: (state, action) => {
             state.customerProfile = action?.payload
@@ -34,6 +41,7 @@ export const globalSettingSlice = createSlice({
         setHandleHomePage: (state, action) => {
             state.handleHomePage = action.payload
         },
+<<<<<<< HEAD
         setOpenMapDrawer: (state, action) => {
             state.openMapDrawer = action.payload
         },
@@ -41,6 +49,8 @@ export const globalSettingSlice = createSlice({
             state.userLocationUpdate = action.payload
         },
         
+=======
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
     },
 })
 
@@ -53,7 +63,10 @@ export const {
     setCouponType,
     setZoneData,
     setHandleHomePage,
+<<<<<<< HEAD
     setOpenMapDrawer,
     setUserLocationUpdate,
+=======
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
 } = globalSettingSlice.actions
 export default globalSettingSlice.reducer

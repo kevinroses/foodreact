@@ -45,10 +45,19 @@ export const RestaurantDetailsNavButton = styled(Button)(
         borderLeftTop,
     }) => ({
         backgroundColor: background ? theme.palette.primary.main : 'inherit',
+<<<<<<< HEAD
         color: theme.palette.neutral[1000],
         borderRadius: languageDirection !== 'rtl' ? '15px' : '0px',
         borderBottomLeftRadius: borderLeftBottom && borderLeftBottom,
         padding:"6px 16px ",
+=======
+        color: background
+            ? theme.palette.whiteContainer.main
+            : theme.palette.neutral[1000],
+        borderRadius: languageDirection !== 'rtl' ? '15px' : '0px',
+        borderBottomLeftRadius: borderLeftBottom && borderLeftBottom,
+
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
         '&:hover': {
             backgroundColor: background && theme.palette.primary.light,
         },
@@ -117,11 +126,16 @@ export const CustomFoodCard = styled(Card)(({ theme }) => ({
     },
 }))
 export const CustomFoodCardNew = styled(Card)(
+<<<<<<< HEAD
     ({ theme,width, maxwidth, height, smheight, background, horizontal }) => ({
+=======
+    ({ theme, maxwidth, height, smheight, background }) => ({
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
         backgroundColor: background,
 
         // eslint-disable-next-line no-mixed-operators
         position: 'relative',
+<<<<<<< HEAD
         // margin: horizontal ? '10px' : '0 auto',
         padding: '10px',
         overflow: 'hidden',
@@ -131,6 +145,16 @@ export const CustomFoodCardNew = styled(Card)(
         borderRadius: horizontal ? '8px' : '15px',
         boxShadow: `0px 0px 2px ${theme.palette.neutral[300]}, 0px 5px 20px ${theme.palette.paperBoxShadow}`,
         // border: `1px solid ${alpha(theme.palette.primary.main, 0.1)}`,
+=======
+        margin: '0 auto',
+        padding: '10px',
+        overflow: 'hidden',
+        maxWidth: maxwidth,
+        width: '100%',
+        cursor: 'pointer',
+        borderRadius: '5px',
+        border: `1px solid ${alpha(theme.palette.primary.main, 0.1)}`,
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
         height: height ? height : '100%',
         [theme.breakpoints.down('sm')]: {
             height: smheight ? smheight : '100%',
@@ -246,8 +270,14 @@ export const OfferTypography = styled(Typography)(
                 ? '10px 15px 10px 22px'
                 : '10px 30px 10px 15px ',
         // borderRadius: '10px 0px 50px',
+<<<<<<< HEAD
         borderRadius: `${languageDirection === 'rtl' ? '0px 10px 0px 50px' : '10px 0px 50px'
             }`,
+=======
+        borderRadius: `${
+            languageDirection === 'rtl' ? '0px 10px 0px 50px' : '10px 0px 50px'
+        }`,
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
         // borderRadius: '0px 10px 0px 50px',
         fontWeight: 500,
         // justifyContent: `${languageDirection === 'rtl' ? 'right' : 'left'}`,
@@ -267,7 +297,11 @@ export const RestaurantDiscountStack = styled(Stack)(
         left: 'unset',
         right: 0,
 
+<<<<<<< HEAD
         background: theme.palette.newsletterBG,
+=======
+        background: theme.palette.error.pureRed,
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
         color: theme.palette.whiteContainer.main,
         zIndex: 1,
 
@@ -349,6 +383,7 @@ export const CustomFavICon = styled(Box)(({ theme, languageDirection }) => ({
         right: '10px',
     },
 }))
+<<<<<<< HEAD
 export const CustomChip = styled(Chip)(({ theme, background, discount, campaign }) => ({
     height: '22px',
      alignItems: "center",
@@ -364,6 +399,20 @@ export const CustomChip = styled(Chip)(({ theme, background, discount, campaign 
         borderRadius: discount ? '0 4px 4px 0' : "6px",
         fontSize: '14px',
         fontWeight: 400,
+=======
+export const CustomChip = styled(Chip)(({ theme, background, campaign }) => ({
+    height: '20px',
+    '& .MuiChip-label': {
+        backgroundColor: background
+            ? background
+            : campaign
+            ? theme.palette.primary.light
+            : theme.palette.secondary.light,
+        color: theme.palette.whiteContainer.main,
+        paddingBlockStart: '2px',
+        borderRadius: '3px',
+        fontSize: '12px',
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
         paddingInline: '5px',
         //alignItems: 'center',
         marginBottom: 'auto',

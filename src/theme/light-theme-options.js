@@ -14,11 +14,18 @@ const neutral = {
     1200: '#4B566B',
     1300: '#EF78224D',
     1400: 'rgba(255, 255, 255, 0.8)',
+<<<<<<< HEAD
     1500: 'rgba(239, 120, 34, 0.3)',
     1600: '#FFEBDD',
     1700: '#fff5cf',
     1800: '#FCFCFC',
 
+=======
+    1500: 'rgba(239, 120, 34, 0.6)',
+    1600: '#FFEBDD',
+    1700: '#fff5cf',
+    1800: '#FFFFFF',
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
 }
 
 const table = {
@@ -76,7 +83,11 @@ const whiteContainer = {
     contrastText: '#EF7822',
 }
 const whiteText = {
+<<<<<<< HEAD
     main: '#FFFFFF',
+=======
+    main: '#FFFFF',
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
 }
 const success = {
     main: '#00AB11',
@@ -120,11 +131,14 @@ const customColor = {
     eight: '#FFBE0B',
     nine: '#FB5607',
     ten: '#FFFFFF',
+<<<<<<< HEAD
     eleven: '#039D55',
     twelve: '#334257',
     thirteen: "#FFE5CD",
     fourteen: "#FCEA10",
     fifteen : "#3E594D",
+=======
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
 }
 
 const text = {
@@ -279,7 +293,10 @@ export const lightThemeOptions = {
     },
 
     palette: {
+<<<<<<< HEAD
 
+=======
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
         action: {
             active: neutral[500],
             focus: 'rgba(55, 65, 81, 0.12)',
@@ -308,7 +325,10 @@ export const lightThemeOptions = {
         footerCenterBg,
         footerMiddleBg,
         newsletterBG,
+<<<<<<< HEAD
         whiteText,
+=======
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
         footerTopBgColor,
         nonVeg,
         sectionBg,
@@ -347,9 +367,12 @@ export const lightThemeOptions = {
         '0px 25px 50px rgba(100, 116, 139, 0.25)',
         '0px 25px 50px rgba(100, 116, 139, 0.25)',
         '0px 25px 50px rgba(100, 116, 139, 0.25)',
+<<<<<<< HEAD
         '0px 10px 20px -5px rgba(51, 66, 87, 0.05)',
         '0px 0px 2px 0px rgba(51, 66, 87, 0.20)',
         "0px 0px 2px 0px rgba(51, 66, 87, 0.40)",
         
+=======
+>>>>>>> 2b9803e6ae6041d1e5103330be8bee053eaf09f7
     ],
 }
